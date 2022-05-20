@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="flex">
+        <img class="image" src="./assets/images/{{entity.image}}m.png">
+        <div class="textes flex">
+            <div>
+                <p class="bold">{{entity.nom}}</p>
+                <p class="tinytext">{{entity.etat}}</p>
+            </div>
+            <div class="ressources">
+                <div>
+                    <p class="bold">{{entity.pdv}} / {{entity.pdvmax}}</p>
+                    <img class="icon" src="./assets/images/pdvicon.png">
+                </div>
+                <div class="mana">
+                    <p class="bold">{{entity.mana}} / {{entity.manamax}}</p>
+                    <img class="icon" src="./assets/images/manaicon.png">
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="familier container" *ngIf="familier">
+    <div class="flex">
+        <img class="image" src="./assets/images/{{familier.image}}m.png">
+        <div class="textes flex">
+            <div>
+                <p class="bold">{{familier.nom}}</p>
+                <p class="tinytext">{{familier.etat}}</p>
+            </div>
+            <div class="ressources">
+                <div>
+                    <p class="bold">{{familier.pdv}} / {{familier.pdvmax}}</p>
+                    <img class="icon" src="./assets/images/pdvicon.png">
+                </div>
+                <div class="mana">
+                    <p class="bold">{{familier.mana}} / {{familier.manamax}}</p>
+                    <img class="icon" src="./assets/images/manaicon.png">
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
