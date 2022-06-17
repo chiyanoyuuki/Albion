@@ -1,0 +1,8 @@
+<div *ngIf="data">
+    <img class="map" src="./assets/images/{{data.lieuActuel.image}}.png"/>
+
+    <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'"
+            [style.top]="lieu.y+'px'" [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="changeLieu(lieu)">
+        <p class="nomLieu">{{lieu.nom}}</p>
+    </div>
+</div>

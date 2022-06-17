@@ -933,7 +933,18 @@
             "etape": 1
         }
     ],
-    "lieuActuel": "foretsudfjorh",
+    "lieuActuel": {
+        "id": "map",
+        "nom": "map",
+        "image": "map",
+        "x": 0,
+        "y": 0,
+        "finx": 0,
+        "finy": 0,
+        "desac": true,
+        "parent":"",
+        "pnjs": []
+    },
     "boutiques": [
         {
             "nom": "ShopAll",
@@ -986,6 +997,18 @@
     ],
     "lieux": [
         {
+            "id": "map",
+            "nom": "map",
+            "image": "map",
+            "x": 0,
+            "y": 0,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent":"",
+            "pnjs": []
+        },
+        {
             "id": "boutiquearlequin",
             "nom": "Boutique Arlequin",
             "image": "ShopAll",
@@ -994,20 +1017,7 @@
             "finx": 50,
             "finy": 50,
             "desac": true,
-            "inside": [
-                {
-                    "id": "",
-                    "nom": "Sortir",
-                    "image": "MAP",
-                    "x": 550,
-                    "y": 837,
-                    "finx": 600,
-                    "finy": 75,
-                    "desac": false,
-                    "inside": [],
-                    "pnjs": []
-                }
-            ],
+            "parent":"map",
             "pnjs": [
                 {
                     "id": "albusdemitrescu",
@@ -1022,6 +1032,18 @@
             ]
         },
         {
+            "parent": "boutiquearlequin",
+            "id": "",
+            "nom": "Sortir",
+            "image": "MAP",
+            "x": 550,
+            "y": 837,
+            "finx": 600,
+            "finy": 75,
+            "desac": false,
+            "pnjs": []
+        },
+        {
             "id": "campdebandits",
             "nom": "Camp de bandits",
             "image": "CampDeBandits",
@@ -1030,22 +1052,23 @@
             "finx": 100,
             "finy": 100,
             "desac": false,
-            "inside": [],
-            "pnjs": []
+            "pnjs": [],
+            "parent":"map"
         },
         {
             "id": "escaliersCatacombes",
             "nom": "Catacombes - Escaliers",
             "image": "escaliersCatacombes",
+            "parent": "labyrinthesouterrainfjorh",
             "x": 0,
             "y": 0,
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "inside": [],
             "pnjs": []
         },
         {
+            "parent": "labyrinthesouterrainfjorh",
             "id": "catacombes2",
             "nom": "Catacombes - Fond",
             "image": "catacombes2",
@@ -1054,10 +1077,10 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "inside": [],
             "pnjs": []
         },
         {
+            "parent": "labyrinthesouterrainfjorh",
             "id": "pieceCatacombes",
             "nom": "Catacombes - Piece",
             "image": "pieceCatacombes",
@@ -1065,9 +1088,115 @@
             "y": 0,
             "finx": 0,
             "finy": 0,
-            "desac": true,
-            "inside": [],
+            "desac": true,            
             "pnjs": []
+        },
+        {
+            "parent":"arenedusk",
+            "id": "",
+            "nom": "Sortir",
+            "image": "retour:Dusk",
+            "x": 50,
+            "y": 415,
+            "finx": 150,
+            "finy": 116,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"arenedusk",
+            "id": "",
+            "nom": "Arbre du Tournoi",
+            "image": "TOURNOI",
+            "x": 550,
+            "y": 5,
+            "finx": 550,
+            "finy": 50,
+            "desac": true,
+            "pnjs": []
+        },
+        {
+            "parent":"tavernedusk",
+            "id": "",
+            "nom": "Sortir",
+            "image": "retour:Dusk",
+            "x": 550,
+            "y": 865,
+            "finx": 500,
+            "finy": 50,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"forgerondusk",
+            "id": "",
+            "nom": "Sortir",
+            "image": "retour:Dusk",
+            "x": 550,
+            "y": 837,
+            "finx": 600,
+            "finy": 75,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"dusk",
+            "id": "arenedusk",
+            "nom": "Arene",
+            "image": "Arene",
+            "x": 900,
+            "y": 550,
+            "finx": 150,
+            "finy": 140,
+            "desac": false,
+            "pnjs": [
+                {
+                    "id": "siviusbregon",
+                    "x": 1423,
+                    "y": 344
+                }
+            ]
+        },
+        {
+            "parent":"dusk",
+            "id": "tavernedusk",
+            "nom": "Taverne",
+            "image": "Taverne3",
+            "x": 460,
+            "y": 808,
+            "finx": 340,
+            "finy": 145,
+            "desac": true,
+            "pnjs": [
+                {
+                    "id": "borisgosom",
+                    "y": 502,
+                    "x": 919
+                },
+                {
+                    "id": "roturidarpez",
+                    "x": 155,
+                    "y": 547
+                }
+            ]
+        },
+        {
+            "parent":"dusk",
+            "id": "forgerondusk",
+            "nom": "Forgeron",
+            "image": "ShopArmor2",
+            "x": 1304,
+            "y": 690,
+            "finx": 300,
+            "finy": 160,
+            "desac": true,
+            "pnjs": [
+                {
+                    "id": "viegakoriss",
+                    "y": 507,
+                    "x": 1415
+                }
+            ]
         },
         {
             "id": "dusk",
@@ -1077,119 +1206,8 @@
             "y": 1238,
             "finx": 210,
             "finy": 120,
+            "parent":"map",
             "desac": false,
-            "inside": [
-                {
-                    "id": "arenedusk",
-                    "nom": "Arene",
-                    "image": "Arene",
-                    "x": 900,
-                    "y": 550,
-                    "finx": 150,
-                    "finy": 140,
-                    "desac": false,
-                    "inside": [
-                        {
-                            "id": "",
-                            "nom": "Sortir",
-                            "image": "retour:Dusk",
-                            "x": 50,
-                            "y": 415,
-                            "finx": 150,
-                            "finy": 116,
-                            "desac": false,
-                            "inside": [],
-                            "pnjs": []
-                        },
-                        {
-                            "id": "",
-                            "nom": "Arbre du Tournoi",
-                            "image": "TOURNOI",
-                            "x": 550,
-                            "y": 5,
-                            "finx": 550,
-                            "finy": 50,
-                            "desac": true,
-                            "inside": [],
-                            "pnjs": []
-                        }
-                    ],
-                    "pnjs": [
-                        {
-                            "id": "siviusbregon",
-                            "x": 1423,
-                            "y": 344
-                        }
-                    ]
-                },
-                {
-                    "id": "tavernedusk",
-                    "nom": "Taverne",
-                    "image": "Taverne3",
-                    "x": 460,
-                    "y": 808,
-                    "finx": 340,
-                    "finy": 145,
-                    "desac": true,
-                    "inside": [
-                        {
-                            "id": "",
-                            "nom": "Sortir",
-                            "image": "retour:Dusk",
-                            "x": 550,
-                            "y": 865,
-                            "finx": 500,
-                            "finy": 50,
-                            "desac": false,
-                            "inside": [],
-                            "pnjs": []
-                        }
-                    ],
-                    "pnjs": [
-                        {
-                            "id": "borisgosom",
-                            "y": 502,
-                            "x": 919
-                        },
-                        {
-                            "id": "roturidarpez",
-                            "x": 155,
-                            "y": 547
-                        }
-                    ]
-                },
-                {
-                    "id": "forgerondusk",
-                    "nom": "Forgeron",
-                    "image": "ShopArmor2",
-                    "x": 1304,
-                    "y": 690,
-                    "finx": 300,
-                    "finy": 160,
-                    "desac": true,
-                    "inside": [
-                        {
-                            "id": "",
-                            "nom": "Sortir",
-                            "image": "retour:Dusk",
-                            "x": 550,
-                            "y": 837,
-                            "finx": 600,
-                            "finy": 75,
-                            "desac": false,
-                            "inside": [],
-                            "pnjs": []
-                        }
-                    ],
-                    "pnjs": [
-                        {
-                            "id": "viegakoriss",
-                            "y": 507,
-                            "x": 1415
-                        }
-                    ]
-                }
-            ],
             "pnjs": [
                 {
                     "id": "erikamonark",
@@ -1204,6 +1222,7 @@
             ]
         },
         {
+            "parent": "labyrinthesouterrainfjorh",
             "id": "enigmelabyfjorh",
             "nom": "Enigme Labyrinthe",
             "image": "enigme",
@@ -1212,213 +1231,206 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "inside": [],
             "pnjs": []
         },
         {
             "id": "entreegrottenord",
             "nom": "Entrée Grotte",
             "image": "entreeGrotte",
+            "parent":"map",
             "x": 300,
             "y": 110,
             "finx": 100,
             "finy": 100,
             "desac": false,
-            "inside": [
-                {
-                    "id": "grottenord",
-                    "nom": "Grotte",
-                    "image": "grotteNord",
-                    "x": 570,
-                    "y": 410,
-                    "finx": 160,
-                    "finy": 200,
-                    "desac": false,
-                    "inside": [
-                        {
-                            "id": "",
-                            "nom": "Sortir",
-                            "image": "retour:Entrée Grotte",
-                            "x": 550,
-                            "y": 865,
-                            "finx": 500,
-                            "finy": 50,
-                            "desac": false,
-                            "inside": [],
-                            "pnjs": []
-                        }
-                    ],
-                    "pnjs": []
-                }
-            ],
             "pnjs": []
+        },
+        {
+            "parent": "entreegrottenord",
+            "id": "grottenord",
+            "nom": "Grotte",
+            "image": "grotteNord",
+            "x": 570,
+            "y": 410,
+            "finx": 160,
+            "finy": 200,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"grottenord",
+            "id": "",
+            "nom": "Sortir",
+            "image": "retour:Entrée Grotte",
+            "x": 550,
+            "y": 865,
+            "finx": 500,
+            "finy": 50,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"tavernefjorh",
+            "id": "",
+            "nom": "Sortir",
+            "image": "retour:Fjorh",
+            "x": 50,
+            "y": 15,
+            "finx": 250,
+            "finy": 200,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"armurierfjorh",
+            "id": "",
+            "nom": "Sortir",
+            "image": "retour:Fjorh",
+            "x": 550,
+            "y": 837,
+            "finx": 600,
+            "finy": 75,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"fortfjorh",
+            "id": "",
+            "nom": "Retourner en ville",
+            "image": "retour:Fjorh",
+            "x": 62,
+            "y": 170,
+            "finx": 63,
+            "finy": 190,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"fjorh",
+            "id": "labyrinthesouterrainfjorh",
+            "nom": "Catacombes de Fjorh",
+            "image": "LabyrintheSouterrain",
+            "x": 1220,
+            "y": 260,
+            "finx": 100,
+            "finy": 60,
+            "desac": true,
+            "pnjs": []
+        },
+        {
+            "parent":"fjorh",
+            "id": "tavernefjorh",
+            "nom": "Taverne",
+            "image": "Taverne",
+            "x": 500,
+            "y": 400,
+            "finx": 208,
+            "finy": 130,
+            "desac": true,
+            "pnjs": [
+                {
+                    "id": "donalbert",
+                    "x": 796,
+                    "y": 306
+                },
+                {
+                    "id": "hectornovus",
+                    "x": 1265,
+                    "y": 352
+                },
+                {
+                    "id": "kaynproks",
+                    "x": 1012,
+                    "y": 353
+                },
+                {
+                    "id": "hommeenarmure",
+                    "x": 68,
+                    "y": 269
+                }
+            ]
+        },
+        {
+            "parent":"fjorh",
+            "id": "armurierfjorh",
+            "nom": "Boutique d'armurier",
+            "image": "ShopArmor",
+            "x": 620,
+            "y": 180,
+            "finx": 208,
+            "finy": 130,
+            "desac": true,
+            "pnjs": [
+                {
+                    "id": "joshuatronc",
+                    "x": 812,
+                    "y": 407
+                }
+            ]
+        },
+        {
+            "parent":"fjorh",
+            "id": "fortfjorh",
+            "nom": "Fort",
+            "image": "Fort",
+            "x": 122,
+            "y": 92,
+            "finx": 212,
+            "finy": 116,
+            "desac": false,
+            "pnjs": [
+                {
+                    "id": "philippepertovos",
+                    "x": 555,
+                    "y": 181
+                },
+                {
+                    "id": "chef_4",
+                    "x": 481,
+                    "y": 21
+                },
+                {
+                    "id": "chef_4",
+                    "x": 361,
+                    "y": 242
+                },
+                {
+                    "id": "soldat_1",
+                    "x": 1255,
+                    "y": 319
+                },
+                {
+                    "id": "soldat_1",
+                    "x": 953,
+                    "y": 152
+                },
+                {
+                    "id": "soldat_1",
+                    "x": 1421,
+                    "y": 500
+                },
+                {
+                    "id": "soldat_1",
+                    "x": 1158,
+                    "y": 634
+                },
+                {
+                    "id": "soldat_1",
+                    "x": 876,
+                    "y": 477
+                }
+            ]
         },
         {
             "id": "fjorh",
             "nom": "Fjorh",
             "image": "Fjorh",
+            "parent":"map",
             "x": 658.5,
             "y": 668,
             "finx": 377,
             "finy": 254,
             "desac": false,
-            "inside": [
-                {
-                    "id": "labyrinthesouterrainfjorh",
-                    "nom": "Catacombes de Fjorh",
-                    "image": "LabyrintheSouterrain",
-                    "x": 1220,
-                    "y": 260,
-                    "finx": 100,
-                    "finy": 60,
-                    "desac": true,
-                    "inside": [],
-                    "pnjs": []
-                },
-                {
-                    "id": "tavernefjorh",
-                    "nom": "Taverne",
-                    "image": "Taverne",
-                    "x": 500,
-                    "y": 400,
-                    "finx": 208,
-                    "finy": 130,
-                    "desac": true,
-                    "inside": [
-                        {
-                            "id": "",
-                            "nom": "Sortir",
-                            "image": "retour:Fjorh",
-                            "x": 50,
-                            "y": 15,
-                            "finx": 250,
-                            "finy": 200,
-                            "desac": false,
-                            "inside": [],
-                            "pnjs": []
-                        }
-                    ],
-                    "pnjs": [
-                        {
-                            "id": "donalbert",
-                            "x": 796,
-                            "y": 306
-                        },
-                        {
-                            "id": "hectornovus",
-                            "x": 1265,
-                            "y": 352
-                        },
-                        {
-                            "id": "kaynproks",
-                            "x": 1012,
-                            "y": 353
-                        },
-                        {
-                            "id": "hommeenarmure",
-                            "x": 68,
-                            "y": 269
-                        }
-                    ]
-                },
-                {
-                    "id": "armurierfjorh",
-                    "nom": "Boutique d'armurier",
-                    "image": "ShopArmor",
-                    "x": 620,
-                    "y": 180,
-                    "finx": 208,
-                    "finy": 130,
-                    "desac": true,
-                    "inside": [
-                        {
-                            "id": "",
-                            "nom": "Sortir",
-                            "image": "retour:Fjorh",
-                            "x": 550,
-                            "y": 837,
-                            "finx": 600,
-                            "finy": 75,
-                            "desac": false,
-                            "inside": [],
-                            "pnjs": []
-                        }
-                    ],
-                    "pnjs": [
-                        {
-                            "id": "joshuatronc",
-                            "x": 812,
-                            "y": 407
-                        }
-                    ]
-                },
-                {
-                    "id": "fortfjorh",
-                    "nom": "Fort",
-                    "image": "Fort",
-                    "x": 122,
-                    "y": 92,
-                    "finx": 212,
-                    "finy": 116,
-                    "desac": false,
-                    "inside": [
-                        {
-                            "id": "",
-                            "nom": "Retourner en ville",
-                            "image": "retour:Fjorh",
-                            "x": 62,
-                            "y": 170,
-                            "finx": 63,
-                            "finy": 190,
-                            "desac": false,
-                            "inside": [],
-                            "pnjs": []
-                        }
-                    ],
-                    "pnjs": [
-                        {
-                            "id": "philippepertovos",
-                            "x": 555,
-                            "y": 181
-                        },
-                        {
-                            "id": "chef_4",
-                            "x": 481,
-                            "y": 21
-                        },
-                        {
-                            "id": "chef_4",
-                            "x": 361,
-                            "y": 242
-                        },
-                        {
-                            "id": "soldat_1",
-                            "x": 1255,
-                            "y": 319
-                        },
-                        {
-                            "id": "soldat_1",
-                            "x": 953,
-                            "y": 152
-                        },
-                        {
-                            "id": "soldat_1",
-                            "x": 1421,
-                            "y": 500
-                        },
-                        {
-                            "id": "soldat_1",
-                            "x": 1158,
-                            "y": 634
-                        },
-                        {
-                            "id": "soldat_1",
-                            "x": 876,
-                            "y": 477
-                        }
-                    ]
-                }
-            ],
             "pnjs": [
                 {
                     "id": "soldat_2",
@@ -1459,9 +1471,9 @@
             "x": 850,
             "y": 1375,
             "finx": 300,
+            "parent":"map",
             "finy": 120,
             "desac": false,
-            "inside": [],
             "pnjs": [
                 {
                     "id": "loup_1",
@@ -1491,10 +1503,10 @@
             "image": "foret2",
             "x": 269.5,
             "y": 313.9,
+            "parent":"map",
             "finx": 292,
             "finy": 148,
             "desac": false,
-            "inside": [],
             "pnjs": [
                 {
                     "id": "sevrusmirola",
@@ -1515,10 +1527,55 @@
             "x": 1130,
             "y": 950,
             "finx": 350,
+            "parent":"map",
             "finy": 120,
             "desac": false,
-            "inside": [],
             "pnjs": []
+        },
+        {
+            "parent":"taverneghrain",
+            "id": "",
+            "nom": "Sortir",
+            "image": "retour:Ghrain",
+            "x": 550,
+            "y": 865,
+            "finx": 500,
+            "finy": 50,
+            "desac": false,
+            "pnjs": []
+        },
+        {
+            "parent":"ghrain",
+            "id": "taverneghrain",
+            "nom": "Taverne",
+            "image": "taverneghrain",
+            "x": 875,
+            "y": 530,
+            "finx": 100,
+            "finy": 100,
+            "desac": false,
+            "pnjs": [
+                {
+                    "id": "boregonalv",
+                    "x": 350,
+                    "y": 308
+                },
+                {
+                    "id": "angusalfronde",
+                    "x": 1133,
+                    "y": 308
+                },
+                {
+                    "id": "ezironproval",
+                    "x": 983,
+                    "y": 353
+                },
+                {
+                    "id": "fredericpulse",
+                    "x": 1505,
+                    "y": 459
+                }
+            ]
         },
         {
             "id": "ghrain",
@@ -1528,55 +1585,8 @@
             "y": 500,
             "finx": 208,
             "finy": 175,
+            "parent":"map",
             "desac": false,
-            "inside": [
-                {
-                    "id": "taverneghrain",
-                    "nom": "Taverne",
-                    "image": "taverneghrain",
-                    "x": 875,
-                    "y": 530,
-                    "finx": 100,
-                    "finy": 100,
-                    "desac": false,
-                    "inside": [
-                        {
-                            "id": "",
-                            "nom": "Sortir",
-                            "image": "retour:Ghrain",
-                            "x": 550,
-                            "y": 865,
-                            "finx": 500,
-                            "finy": 50,
-                            "desac": false,
-                            "inside": [],
-                            "pnjs": []
-                        }
-                    ],
-                    "pnjs": [
-                        {
-                            "id": "boregonalv",
-                            "x": 350,
-                            "y": 308
-                        },
-                        {
-                            "id": "angusalfronde",
-                            "x": 1133,
-                            "y": 308
-                        },
-                        {
-                            "id": "ezironproval",
-                            "x": 983,
-                            "y": 353
-                        },
-                        {
-                            "id": "fredericpulse",
-                            "x": 1505,
-                            "y": 459
-                        }
-                    ]
-                }
-            ],
             "pnjs": [
                 {
                     "id": "gontrand",
@@ -1593,8 +1603,8 @@
             "y": 550,
             "finx": 155,
             "finy": 190,
+            "parent":"map",
             "desac": false,
-            "inside": [],
             "pnjs": [
                 {
                     "id": "arthurjenon",
@@ -1616,8 +1626,8 @@
             "y": 695,
             "finx": 100,
             "finy": 100,
+            "parent":"map",
             "desac": false,
-            "inside": [],
             "pnjs": [
                 {
                     "id": "akshanlee",
@@ -1639,8 +1649,8 @@
             "y": 505,
             "finx": 100,
             "finy": 100,
+            "parent":"map",
             "desac": false,
-            "inside": [],
             "pnjs": [
                 {
                     "id": "norbertsonn",

@@ -4,7 +4,7 @@ export class Data {
 	public amisActuels: PNJ[];
 	public quetesprincipales:Quete[];
 	public quetessecondaires:Quete[];
-	public lieuActuel:string;
+	public lieuActuel:Lieu;
 	public boutiques: Boutique[];
 	public lieux: Lieu[];
 	public catabombes: string[][];
@@ -89,9 +89,9 @@ export class Lieu {
 	public y: number;
 	public finx: number;
 	public finy: number;
-	public inside: Lieu[];
 	public pnjs: PNJ2[];
 	public desac: boolean;
+	public parent: string;
 }
 
 export class PNJ2 {
