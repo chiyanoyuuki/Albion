@@ -1,8 +1,12 @@
 <div *ngIf="data">
     <img class="map" src="./assets/images/{{data.lieuActuel.image}}.png"/>
 
-    <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'"
-            [style.top]="lieu.y+'px'" [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="changeLieu(lieu)">
-        <p class="nomLieu">{{lieu.nom}}</p>
+    <div *ngFor="let lieu of getLieux()" class="lieux clickable" 
+        [style.left]="lieu.x+'px'"      [style.top]="lieu.y+'px'" 
+        [style.width]="lieu.finx+'px'"  [style.height]="lieu.finy+'px'" 
+        (mouseover)="focus=lieu"        (mouseout)="focus=undefined"
+        (click)="changeLieu(lieu)">
+
+        <p class="nomLieu" [hidden]="focus!=lieu">{{lieu.nom}}</p>
     </div>
 </div>

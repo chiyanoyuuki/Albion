@@ -9,8 +9,10 @@ import { Data, Lieu } from '../model';
 export class MapComponent implements OnInit {
 
   @Input() data : Data;
-  public datatmp : Data;
   @Output() newData = new EventEmitter<Data>();
+
+  public datatmp : Data;
+  public focus : Lieu|undefined;
 
   constructor() { }
 

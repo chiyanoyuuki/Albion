@@ -1,6 +1,8 @@
 *{position:relative;}
 p{margin:0;}
 
+.clickable:hover{border-color:red!important;cursor:pointer;background-color: #50505050;}
 .bold{font-weight:bold;}
 .flex{display:flex;}
+.flexCenter{display:flex;justify-content: center;}
 .tinytext{font-size:12px;}
