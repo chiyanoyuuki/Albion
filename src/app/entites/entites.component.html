@@ -1,0 +1,13 @@
+<div class="entite" *ngFor="let perso of data.personnages">
+    <p>{{perso.nom}}</p>
+    <p>{{perso.etat}}</p>
+    <div>
+        <img class="pdvmana" draggable="false" src="./assets/images/pdv.png"/>
+    </div>
+    <div>
+        <img class="pdvmana" draggable="false" src="./assets/images/mana.png"/>
+    </div>
+    <div>
+        <img class="icone" draggable="false" src="./assets/images/{{perso.image}}m.png"/>
+    </div>
+</div>

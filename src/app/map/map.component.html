@@ -1,7 +1,9 @@
-<div *ngIf="data">
-    <img class="retour clickable" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png" (click)="clickRetour()"/>
+<div>
+    
+    <img draggable="false" class="retour clickable" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png" (click)="clickRetour()"/>
+    <img draggable="false" class="map" draggable="false" src="./assets/images/{{data.lieuActuel.image}}.png"/>
 
-    <img class="map" draggable="false" src="./assets/images/{{data.lieuActuel.image}}.png"/>
+    <!-- ========================== LIEUX ========================== -->
 
     <div *ngFor="let lieu of getLieux()" class="lieux clickable" 
         [style.left]="lieu.x+'px'"      [style.top]="lieu.y+'px'" 
@@ -12,5 +14,5 @@
         <p class="nomLieu" [hidden]="focus!=lieu">{{lieu.nom}}</p>
     </div>
 
-    <app-equipe [data]="data" (newData)="majFromChild($event)"></app-equipe>
+    <app-entites [data]="data" (newData)="majFromChild($event)" class="entites"></app-entites>
 </div>

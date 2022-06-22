@@ -2,11 +2,11 @@ import { Data } from '../model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-equipe',
-  templateUrl: './equipe.component.html',
-  styleUrls: ['./equipe.component.scss']
+  selector: 'app-entites',
+  templateUrl: './entites.component.html',
+  styleUrls: ['./entites.component.scss']
 })
-export class EquipeComponent implements OnInit {
+export class EntitesComponent implements OnInit {
   
   @Input() data : Data;
   @Output() newData = new EventEmitter<Data>();
