@@ -13,11 +13,9 @@ export class AppComponent implements OnInit
   public data : any = DATA;
 
   ngOnInit(){
-    console.log(this.data);
-    if(this.data.lieux.find((lieu:any)=>!lieu.parent))console.warn("ATTENTION");
   }
 
-  maj(newData:Data){
+  majFromChild(newData:Data){
     this.data = newData;
   }
 }

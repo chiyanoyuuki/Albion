@@ -44,4 +44,9 @@ export class MapComponent implements OnInit {
     this.focus = undefined;
   }
 
+  majFromChild(newData:Data){
+    this.datatmp = newData;
+    this.maj();
+  }
+
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from "../data.service";
-import { Personnage, PNJ } from '../model';
+import { Data } from '../model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-equipe',
@@ -8,14 +7,20 @@ import { Personnage, PNJ } from '../model';
   styleUrls: ['./equipe.component.scss']
 })
 export class EquipeComponent implements OnInit {
-
-  public personnages : Personnage[];
-  public amisActuels : PNJ[];
   
-  constructor(private dataService : DataService) { }
+  @Input() data : Data;
+  @Output() newData = new EventEmitter<Data>();
 
-  ngOnInit(): void {
-    this.personnages = this.dataService.getPersonnages();
-    this.amisActuels = this.dataService.getAmisActuels();
+  public datatmp : Data;
+  
+  constructor() { }
+
+  ngOnInit(): void 
+  {
+
+  }
+
+  maj(){
+    this.newData.emit(this.datatmp);
   }
 }

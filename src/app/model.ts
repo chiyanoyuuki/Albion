@@ -1,6 +1,5 @@
 export class Data {
 	public personnages: Personnage[];
-	public familiers: Familier[];
 	public amisActuels: PNJ[];
 	public quetesprincipales:Quete[];
 	public quetessecondaires:Quete[];
@@ -37,7 +36,6 @@ export class Entite {
 	public image: string;
 	public team: boolean;
 	public actif: boolean;
-	public familier?: string;
 }
 
 export class Personnage extends Entite {
@@ -52,6 +50,7 @@ export class Personnage extends Entite {
 	public inventaire: { nom: string, qte: number }[];
 	public formes: string[];
 	public forme: string;
+	public familier: Familier;
 }
 
 export class Familier extends Entite {

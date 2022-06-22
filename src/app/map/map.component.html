@@ -11,4 +11,6 @@
 
         <p class="nomLieu" [hidden]="focus!=lieu">{{lieu.nom}}</p>
     </div>
+
+    <app-equipe [data]="data" (newData)="majFromChild($event)"></app-equipe>
 </div>
