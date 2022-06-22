@@ -92,6 +92,7 @@ export class Lieu {
 	public pnjs: PNJ2[];
 	public desac: boolean;
 	public parent: string;
+	public ancienLieu: Lieu;
 }
 
 export class PNJ2 {

@@ -1,5 +1,7 @@
 <div *ngIf="data">
-    <img class="map" src="./assets/images/{{data.lieuActuel.image}}.png"/>
+    <img class="retour clickable" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png" (click)="clickRetour()"/>
+
+    <img class="map" draggable="false" src="./assets/images/{{data.lieuActuel.image}}.png"/>
 
     <div *ngFor="let lieu of getLieux()" class="lieux clickable" 
         [style.left]="lieu.x+'px'"      [style.top]="lieu.y+'px'" 

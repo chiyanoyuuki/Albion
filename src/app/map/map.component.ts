@@ -27,12 +27,21 @@ export class MapComponent implements OnInit {
   changeLieu(lieu:Lieu)
   {
     this.datatmp = Object.assign({},this.data);
+    lieu.ancienLieu = this.data.lieuActuel;
     this.datatmp.lieuActuel = lieu;
+    this.maj();
+  }
+
+  clickRetour()
+  {
+    this.datatmp = Object.assign({},this.data);
+    this.datatmp.lieuActuel = this.datatmp.lieuActuel.ancienLieu;
     this.maj();
   }
 
   maj(){
     this.newData.emit(this.datatmp);
+    this.focus = undefined;
   }
 
 }

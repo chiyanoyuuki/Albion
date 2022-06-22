@@ -1094,18 +1094,6 @@
         {
             "parent":"arenedusk",
             "id": "",
-            "nom": "Sortir",
-            "image": "retour:Dusk",
-            "x": 50,
-            "y": 415,
-            "finx": 150,
-            "finy": 116,
-            "desac": false,
-            "pnjs": []
-        },
-        {
-            "parent":"arenedusk",
-            "id": "",
             "nom": "Arbre du Tournoi",
             "image": "TOURNOI",
             "x": 550,
@@ -1113,30 +1101,6 @@
             "finx": 550,
             "finy": 50,
             "desac": true,
-            "pnjs": []
-        },
-        {
-            "parent":"tavernedusk",
-            "id": "",
-            "nom": "Sortir",
-            "image": "retour:Dusk",
-            "x": 550,
-            "y": 865,
-            "finx": 500,
-            "finy": 50,
-            "desac": false,
-            "pnjs": []
-        },
-        {
-            "parent":"forgerondusk",
-            "id": "",
-            "nom": "Sortir",
-            "image": "retour:Dusk",
-            "x": 550,
-            "y": 837,
-            "finx": 600,
-            "finy": 75,
-            "desac": false,
             "pnjs": []
         },
         {
@@ -1254,54 +1218,6 @@
             "y": 515,
             "finx": 160,
             "finy": 200,
-            "desac": false,
-            "pnjs": []
-        },
-        {
-            "parent":"grottenord",
-            "id": "",
-            "nom": "Sortir",
-            "image": "retour:Entrée Grotte",
-            "x": 550,
-            "y": 865,
-            "finx": 500,
-            "finy": 50,
-            "desac": false,
-            "pnjs": []
-        },
-        {
-            "parent":"tavernefjorh",
-            "id": "",
-            "nom": "Sortir",
-            "image": "retour:Fjorh",
-            "x": 50,
-            "y": 15,
-            "finx": 250,
-            "finy": 200,
-            "desac": false,
-            "pnjs": []
-        },
-        {
-            "parent":"armurierfjorh",
-            "id": "",
-            "nom": "Sortir",
-            "image": "retour:Fjorh",
-            "x": 550,
-            "y": 837,
-            "finx": 600,
-            "finy": 75,
-            "desac": false,
-            "pnjs": []
-        },
-        {
-            "parent":"fortfjorh",
-            "id": "",
-            "nom": "Retourner en ville",
-            "image": "retour:Fjorh",
-            "x": 62,
-            "y": 170,
-            "finx": 63,
-            "finy": 190,
             "desac": false,
             "pnjs": []
         },
@@ -1529,18 +1445,6 @@
             "finx": 350,
             "parent":"map",
             "finy": 120,
-            "desac": false,
-            "pnjs": []
-        },
-        {
-            "parent":"taverneghrain",
-            "id": "",
-            "nom": "Sortir",
-            "image": "retour:Ghrain",
-            "x": 1000,
-            "y": 650,
-            "finx": 500,
-            "finy": 50,
             "desac": false,
             "pnjs": []
         },
