@@ -1,4 +1,6 @@
-<div class="entite" *ngFor="let perso of data.personnages">
+<div class="entite clickable" *ngFor="let perso of data.personnages" 
+    [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'" [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" 
+    (cdkDragEnded)="dragEnd($event,perso)" cdkDrag>
     <p>{{perso.nom}}</p>
     <p>{{perso.etat}}</p>
     <div>
