@@ -1,14 +1,14 @@
 .container{
     display:grid;
     position:absolute;
-    width:130px;
+    width:140px;
 }
 
 .entite{
     overflow: hidden;  
     border-radius:25%;
     border:1px solid black;
-    background-color:#202020bb;
+    background-color:#202020d0;
 }
 
 .bottomGroup{
@@ -22,7 +22,7 @@
 }
 
 .manatext{
-    color:#202080;
+    color:#8080ff;
 }
 
 .icone{
@@ -44,8 +44,8 @@
 }
 
 .example-handle {
-    border:1px solid white;
-    background-color:gray;
+    border:1px solid black;
+    background-color:black;
     position: absolute;
     top: -5px;
     right: -10px;
@@ -53,6 +53,7 @@
     cursor: move;
     width: 24px;
     height: 24px;
+    border-radius:100%;
   }
 
   .text{
