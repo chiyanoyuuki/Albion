@@ -1,15 +1,36 @@
-<div class="entite clickable" *ngFor="let perso of data.personnages" 
+<div class="container" *ngFor="let perso of data.personnages" 
     [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'" [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" 
     (cdkDragEnded)="dragEnd($event,perso)" cdkDrag>
-    <p>{{perso.nom}}</p>
-    <p>{{perso.etat}}</p>
-    <div>
-        <img class="pdvmana" draggable="false" src="./assets/images/pdv.png"/>
+
+    <div class="entite clickable"
+    (click)="focus==undefined?clickPerso(perso):null">
+    <p class="text nom">{{perso.nom}}</p>
+    <p class="text etat">{{perso.etat}}</p>
+
+    <div class="flex bottomGroup">
+        <div class="conteneurIcone">
+            <img class="icone" draggable="false" src="./assets/images/{{perso.image}}m.png"/>
+        </div>
+        <div class="pdvmana">
+            <div class="flex">
+                <p class="pdvtext" [style.color]="(perso.pdv/perso.pdvmax>0.6?'green':(perso.pdv/perso.pdvmax>0.3?'orange':'red'))">{{perso.pdv}}/{{perso.pdvmax}}</p>
+                <div>
+                    <img draggable="false" src="./assets/images/pdvicon.png"/>
+                </div>
+            </div>
+            <div class="flex">
+                <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
+                <div>
+                    <img draggable="false" src="./assets/images/manaicon.png"/>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <img class="pdvmana" draggable="false" src="./assets/images/mana.png"/>
     </div>
-    <div>
-        <img class="icone" draggable="false" src="./assets/images/{{perso.image}}m.png"/>
+    <div class="example-handle" (mouseover)="focus='handle'" (mouseout)="focus=undefined" cdkDragHandle>
+        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
     </div>
 </div>
