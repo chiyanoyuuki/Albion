@@ -1,8 +1,21 @@
-<div *ngIf="data">
-    <img class="map" src="./assets/images/{{data.lieuActuel.image}}.png"/>
+<div>
+    
+    <img draggable="false" class="retour clickable" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png" (click)="clickRetour()"/>
+    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png"/>
 
-    <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'"
-            [style.top]="lieu.y+'px'" [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="changeLieu(lieu)">
-        <p class="nomLieu">{{lieu.nom}}</p>
+    <!-- ========================== LIEUX ========================== -->
+
+    <div *ngFor="let lieu of getLieux()" class="lieux clickable" 
+        [style.left]="lieu.x+'px'"      [style.top]="lieu.y+'px'" 
+        [style.width]="lieu.finx+'px'"  [style.height]="lieu.finy+'px'" 
+        (mouseover)="focus=lieu"        (mouseout)="focus=undefined"
+        (click)="changeLieu(lieu)">
+
+        <!--(cdkDragEnded)="dragEnd($event,lieu)" 
+        cdkDrag>-->
+
+        <p class="nomLieu" [hidden]="focus!=lieu">{{lieu.nom}}</p>
     </div>
+
+    <app-entites [data]="data" (newData)="majFromChild($event)" class="entites"></app-entites>
 </div>

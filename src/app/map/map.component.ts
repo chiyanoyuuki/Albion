@@ -1,3 +1,4 @@
+import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Data, Lieu } from '../model';
 
@@ -9,8 +10,10 @@ import { Data, Lieu } from '../model';
 export class MapComponent implements OnInit {
 
   @Input() data : Data;
-  public datatmp : Data;
   @Output() newData = new EventEmitter<Data>();
+
+  public datatmp : Data;
+  public focus : Lieu|undefined;
 
   constructor() { }
 
@@ -25,12 +28,36 @@ export class MapComponent implements OnInit {
   changeLieu(lieu:Lieu)
   {
     this.datatmp = Object.assign({},this.data);
+    lieu.ancienLieu = this.data.lieuActuel;
     this.datatmp.lieuActuel = lieu;
+    this.maj();
+  }
+
+  public dragEnd($event: CdkDragEnd, lieu:Lieu) {
+    let tmp = $event.source.getFreeDragPosition();
+    if(this.data.lieuActuel.parent=='')
+    {
+      lieu.x = lieu.x + tmp.x;
+      lieu.y = lieu.y + tmp.y;;
+    }
+    $event.source._dragRef.reset();
+  }
+
+  clickRetour()
+  {
+    this.datatmp = Object.assign({},this.data);
+    this.datatmp.lieuActuel = this.datatmp.lieuActuel.ancienLieu;
     this.maj();
   }
 
   maj(){
     this.newData.emit(this.datatmp);
+    this.focus = undefined;
+  }
+
+  majFromChild(newData:Data){
+    this.datatmp = newData;
+    this.maj();
   }
 
 }
