@@ -11,20 +11,20 @@
 
 .lieux{
     position:absolute;
-    border:3px ridge #505050;
-    background-color:#20202030;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nomLieu{
-    font-size:25px;
+    font-size:20px;
     font-weight:bold;
-    position:absolute;
-    text-decoration: underline;
-    top:-35px;
+    font-family: 'Cinzel Decorative', cursive;
     white-space: nowrap;
-    text-align: center;
     width:100%;
     color:white;
+    transition: all 0.4s;
 }
 
 .retour{

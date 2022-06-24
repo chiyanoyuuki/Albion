@@ -5,7 +5,7 @@
 
     <!-- ========================== LIEUX ========================== -->
 
-    <div *ngFor="let lieu of getLieux()" class="lieux clickable" 
+    <div *ngFor="let lieu of getLieux()" class="lieux clickable nomLieu" 
         [style.left]="lieu.x+'px'"      [style.top]="lieu.y+'px'" 
         [style.width]="lieu.finx+'px'"  [style.height]="lieu.finy+'px'" 
         (mouseover)="focus=lieu"        (mouseout)="focus=undefined"
@@ -13,8 +13,7 @@
 
         <!--(cdkDragEnded)="dragEnd($event,lieu)" 
         cdkDrag>-->
-
-        <p class="nomLieu" [hidden]="focus!=lieu">{{lieu.nom}}</p>
+        {{lieu.nom}}
     </div>
 
     <app-entites [data]="data" (newData)="majFromChild($event)" class="entites"></app-entites>
