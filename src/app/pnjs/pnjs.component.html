@@ -2,7 +2,7 @@
     [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'" [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" 
     (cdkDragEnded)="dragEnd($event,perso)" cdkDrag>
 
-    <div class="entite clickable"
+    <div class="entite"
     (click)="focus==undefined?clickPerso(perso):null">
     <p class="text nom">{{perso.nom}}</p>
     <p class="text etat">{{perso.etat}}</p>
@@ -26,9 +26,12 @@
         </div>
     </div>
     </div>
-
-    <img class="perso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle/>
-    <div class="shadow"></div>
+    <div class="containerPerso">
+        <div id="perso">
+            <img class="perso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle/>
+            <div class="shadow"></div>
+        </div>
+    </div>
 </div>
 
 <!--
