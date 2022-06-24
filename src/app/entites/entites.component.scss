@@ -8,6 +8,7 @@
     overflow: hidden;  
     border-top-left-radius:15px;
     border-top-right-radius:15px;
+    border:1px solid black;
 }
 
 .pdvmana p{
@@ -42,6 +43,25 @@
     font-size:14px;
   }
 
+  .perso{
+    z-index:2;
+    position:absolute;
+    height:65px;
+    left:55px;
+    bottom:-65px;
+  }
   .perso:hover{
     cursor:grab;
+  }
+
+  .shadow{
+    position:absolute;
+    bottom:-70px;
+    width:35px;
+    left:39%;
+    height:20px;
+    border:1px solid #00ff0030;
+    border-radius:100%;
+    z-index:1;
+    background-color:#00000050;
   }
