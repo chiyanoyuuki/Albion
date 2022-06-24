@@ -3,11 +3,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'app-entites',
-  templateUrl: './entites.component.html',
-  styleUrls: ['./entites.component.scss']
+  selector: 'app-joueurs',
+  templateUrl: './joueurs.component.html',
+  styleUrls: ['./joueurs.component.scss']
 })
-export class EntitesComponent implements OnInit {
+export class JoueursComponent implements OnInit {
   
   @Input() data : Data;
   @Output() newData = new EventEmitter<Data>();
