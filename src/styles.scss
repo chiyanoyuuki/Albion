@@ -1,7 +1,7 @@
 *{position:relative;}
 p{margin:0;}
 
-.clickable:hover{cursor:pointer;transform: scale(1.15);}
+.clickable:hover{border:1px solid;border-color:red!important;cursor:pointer;background-color: #000000bb!important;}
 .bold{font-weight:bold;}
 .flex{display:flex;}
 .flexCenter{display:flex;justify-content: center;}
