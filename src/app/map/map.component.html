@@ -9,7 +9,8 @@
         [style.left]="lieu.x+'px'"      [style.top]="lieu.y+'px'" 
         [style.width]="lieu.finx+'px'"  [style.height]="lieu.finy+'px'" 
         (mouseover)="focus=lieu"        (mouseout)="focus=undefined"
-        (click)="changeLieu(lieu)">
+        (cdkDragEnded)="dragEnd($event,lieu)" 
+        cdkDrag>
 
         <p class="nomLieu" [hidden]="focus!=lieu">{{lieu.nom}}</p>
     </div>

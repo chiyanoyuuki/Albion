@@ -1,3 +1,4 @@
+import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Data, Lieu } from '../model';
 
@@ -30,6 +31,16 @@ export class MapComponent implements OnInit {
     lieu.ancienLieu = this.data.lieuActuel;
     this.datatmp.lieuActuel = lieu;
     this.maj();
+  }
+
+  public dragEnd($event: CdkDragEnd, lieu:Lieu) {
+    let tmp = $event.source.getFreeDragPosition();
+    if(this.data.lieuActuel.parent=='')
+    {
+      lieu.x = lieu.x + tmp.x;
+      lieu.y = lieu.y + tmp.y;;
+    }
+    $event.source._dragRef.reset();
   }
 
   clickRetour()
