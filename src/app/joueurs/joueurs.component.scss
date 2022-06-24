@@ -48,20 +48,21 @@
     font-size:14px;
   }
 
+  .containerPerso{
+    display: flex;
+    justify-content: center;
+  }
+
   .perso{
     z-index:2;
-    position:absolute;
     height:65px;
-    left:55px;
-    bottom:-70px;
     transition: all 0.2s;
   }
 
   .shadow{
     position:absolute;
-    bottom:-80px;
+    bottom:0px;
     width:35px;
-    left:39%;
     height:20px;
     border:1px solid #00ff0030;
     border-radius:100%;
@@ -74,6 +75,6 @@
   transform: scale(1.2);
 }
 #perso:hover .shadow{
-  bottom:-84px;
+  bottom:-5px;
   transform: scale(1.2);
 }
