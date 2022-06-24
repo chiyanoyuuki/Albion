@@ -849,7 +849,26 @@
             ]
         }
     ],
-    "amisActuels": [],
+    "amisActuels": [
+        {
+            "x": 800,
+            "y": 1,
+            "xcombat": 800,
+            "ycombat": 1,
+            "nom": "Gontrand",
+            "image": "Gontrand",
+            "solo": true,
+            "etat": "",
+            "niveau": 3,
+            "pdvmax": 26,
+            "pdv": 26,
+            "manamax": 18,
+            "mana": 18,
+            "tournoi": true,
+            "id":"gontrand",
+            "desc":"Mercenaire originaire de Ghrain"
+        }
+    ],
     "quetesprincipales": [
         {
             "nom": "Un oeuf de dragon ?",
