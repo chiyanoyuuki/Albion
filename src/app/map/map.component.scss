@@ -22,12 +22,14 @@
     font-family: 'Cinzel Decorative', cursive;
     white-space: nowrap;
     text-align: center;
-    width:100%;
     color:white;
     transition: all 0.4s;
 }
+.lieux:hover{
+    cursor:pointer;
+}
 .lieux:hover .nomLieu{
-    transform: scale(1.15);
+    transform: scale(1.5);
 }
 
 
