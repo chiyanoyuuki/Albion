@@ -6,79 +6,42 @@
 
 .entite{
     overflow: hidden;  
-    border-radius:25%;
-    border:1px solid black;
-    background-color:#202020d0;
-}
-
-.bottomGroup{
-    padding:5px;
-}
-
-.bottomGroup p{
-    //color:white;
-    font-weight: bold;
-    width:100%;
-}
-
-.manatext{
-    color:#8080ff;
-}
-
-.icone{
-    width:50px;
-    height:50px;
-    margin-right:2px;
-    //border:1px solid white;
-    //border-radius:100%;
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
 }
 
 .pdvmana p{
-    top:3px;
-    margin-right:3px;
+    color:white;
+    font-weight: bold;
+    position:absolute;
+    left:37%;
+    z-index:1;
 }
 
 .pdvmana img{
-    width:25px;
-    height:25px;
+    width:100%;
+    height:100%;
 }
 
-.example-handle {
-    border:1px solid black;
-    background-color:black;
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    color: #ccc;
-    cursor: move;
-    width: 24px;
-    height: 24px;
-    border-radius:100%;
-  }
+.fill{
+  position: absolute;
+}
+
 
   .text{
-    background-color:black;
+    background-color:#000000bb;
     color:white;
     text-align: center;
   }
 
   .nom{
-    font-size:13px;
+    font-size:16px;
   }
 
   .etat{
-    font-size:11px;
+    font-size:14px;
   }
 
-  .conteneurIcone{
-    display:flex;
-    justify-content: center;
-  }
-
-  .position{
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    font-weight: bold;
-    font-size: 12px;
+  .perso:hover{
+    cursor:grab;
   }

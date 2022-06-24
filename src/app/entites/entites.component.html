@@ -8,31 +8,24 @@
     <p class="text etat">{{perso.etat}}</p>
 
     <div class="flex bottomGroup">
-        <div class="conteneurIcone">
-            <img class="icone" draggable="false" src="./assets/images/{{perso.image}}m.png"/>
-        </div>
         <div class="pdvmana">
-            <div class="flex">
-                <p class="pdvtext" [style.color]="(perso.pdv/perso.pdvmax>0.6?'green':(perso.pdv/perso.pdvmax>0.3?'orange':'red'))">{{perso.pdv}}/{{perso.pdvmax}}</p>
+            <div class="flex pdvmanadiv">
+                <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
                 <div>
-                    <img draggable="false" src="./assets/images/pdvicon.png"/>
+                    <img class="fill" draggable="false" src="./assets/images/pdvfill.PNG"/>
+                    <img draggable="false" src="./assets/images/pdvmanabar.png"/>
                 </div>
             </div>
-            <div class="flex">
+            <div class="flex pdvmanadiv">
                 <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
                 <div>
-                    <img draggable="false" src="./assets/images/manaicon.png"/>
+                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG"/>
+                    <img draggable="false" src="./assets/images/pdvmanabar.png"/>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    <div class="example-handle" (mouseover)="focus='handle'" (mouseout)="focus=undefined" cdkDragHandle>
-        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
-        <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg>
-    </div>
 
-    <p class="position">V</p>
+    <img class="perso" style="position:absolute;height:65px;left:55px;bottom:-65px;" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle/>
 </div>
