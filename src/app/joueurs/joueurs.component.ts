@@ -42,16 +42,6 @@ export class JoueursComponent implements OnInit {
 
   }
 
-  public getPdvColor(perso:Personnage)
-  {
-    let retour;
-    if(perso.pdv<10){retour = 'red';}
-    if(perso.pdv<20){retour = 'orange';}
-    else{retour = 'green';}
-    console.log(retour);
-    return retour;
-  }
-
   maj(){
     this.newData.emit(this.datatmp);
   }

@@ -88,16 +88,10 @@ export class Lieu {
 	public y: number;
 	public finx: number;
 	public finy: number;
-	public pnjs: PNJ2[];
+	public pnjs: PNJ[];
 	public desac: boolean;
 	public parent: string;
 	public ancienLieu: Lieu;
-}
-
-export class PNJ2 {
-	public id: string;
-	public x: number;
-	public y: number;
 }
 
 export class Combat {
