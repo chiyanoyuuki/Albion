@@ -8,7 +8,12 @@
     overflow: hidden;  
     border-top-left-radius:15px;
     border-top-right-radius:15px;
-    border:1px solid black;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+.entite:hover{
+  cursor: pointer;
+  border: 1px solid black;
 }
 
 .pdvmana p{
@@ -48,15 +53,13 @@
     position:absolute;
     height:65px;
     left:55px;
-    bottom:-65px;
-  }
-  .perso:hover{
-    cursor:grab;
+    bottom:-70px;
+    transition: all 0.2s;
   }
 
   .shadow{
     position:absolute;
-    bottom:-70px;
+    bottom:-80px;
     width:35px;
     left:39%;
     height:20px;
@@ -64,4 +67,13 @@
     border-radius:100%;
     z-index:1;
     background-color:#00000050;
+    transition: all 0.2s;
   }
+#perso:hover .perso{
+  cursor:grab;
+  transform: scale(1.2);
+}
+#perso:hover .shadow{
+  bottom:-84px;
+  transform: scale(1.2);
+}
