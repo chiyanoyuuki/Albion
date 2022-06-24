@@ -17,5 +17,6 @@
         <p class="nomLieu">{{lieu.nom}}</p>
     </div>
 
-    <app-entites [data]="data" (newData)="majFromChild($event)" class="entites"></app-entites>
+    <app-joueurs [data]="data" (newData)="majFromChild($event)" class="entites"></app-joueurs>
+    <app-pnjs [data]="data" (newData)="majFromChild($event)" class="entites"></app-pnjs>
 </div>
