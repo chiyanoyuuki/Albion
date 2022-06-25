@@ -39,7 +39,7 @@ export class JoueursComponent implements OnInit {
 
   public clickPerso(perso:Personnage)
   {
-
+    
   }
 
   maj(){
