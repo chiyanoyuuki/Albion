@@ -117,3 +117,55 @@
 .ennemis .shadow {
     border: 1px solid #8d0000dd;
 }
+
+//STATS =================================================
+.container-stats {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 400%;
+    padding: 0.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    border-radius: 6px;
+}
+
+.container-stats button {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container-stats .block-perso {
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+}
+
+.container-stats .block-forme {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.container-stats p {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    gap: 0.4rem;
+}
+
+.title {
+    color: red;
+    margin-bottom: 0.4rem;
+}
