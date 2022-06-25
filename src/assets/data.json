@@ -1,7 +1,7 @@
 {
     "personnages": [
         {
-            "id":"lunastormwood",
+            "id": "lunastormwood",
             "x": 904,
             "y": 819,
             "xcombat": -107,
@@ -171,7 +171,7 @@
             ]
         },
         {
-            "id":"bjorncotesdefer",
+            "id": "bjorncotesdefer",
             "x": 1166,
             "y": 959,
             "xcombat": -107,
@@ -342,7 +342,7 @@
             ]
         },
         {
-            "id":"gandalfleroux",
+            "id": "gandalfleroux",
             "x": 1259,
             "y": 945,
             "xcombat": -107,
@@ -512,7 +512,7 @@
             ]
         },
         {
-            "id":"arlequin",
+            "id": "arlequin",
             "x": 297,
             "y": 558,
             "xcombat": -107,
@@ -682,7 +682,7 @@
             ]
         },
         {
-            "id":"siennahurlevent",
+            "id": "siennahurlevent",
             "x": 782,
             "y": 738,
             "xcombat": -107,
@@ -960,7 +960,7 @@
         "finy": 0,
         "desac": true,
         "parent": "",
-        "personnagesActuels":[
+        "personnagesActuels": [
             "lunastormwood",
             "bjorncotesdefer",
             "siennahurlevent"
@@ -1063,7 +1063,7 @@
             "finy": 0,
             "desac": true,
             "parent": "",
-            "personnagesActuels":[
+            "personnagesActuels": [
                 "lunastormwood",
                 "bjorncotesdefer",
                 "siennahurlevent"
@@ -1319,7 +1319,11 @@
             "finx": 265,
             "finy": 229,
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels": [
+                "gandalfleroux",
+                "gontrand"
+            ]
         },
         {
             "id": "foretsudfjorh",
@@ -1415,7 +1419,10 @@
             "finy": 100,
             "parent": "map",
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels": [
+                "arlequin"
+            ]
         }
     ],
     "catabombes": [

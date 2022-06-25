@@ -7,13 +7,17 @@
     <!-- ========================== LIEUX ========================== -->
 
     <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'" [style.top]="lieu.y+'px'"
-        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (mouseover)="focus=lieu"
-        (mouseout)="focus=undefined" (click)="changeLieu(lieu)">
+        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="focus==undefined?changeLieu(lieu):null">
 
         <!--(cdkDragEnded)="dragEnd($event,lieu)" 
         cdkDrag>-->
 
         <p class="nomLieu">{{lieu.nom}}</p>
+
+        <div class="personnagesInside">
+            <img *ngFor="let perso of getPersonnagesInside(lieu)" draggable="false"
+                src="./assets/images/{{perso.image}}m.png" (mouseover)="focus=perso" (mouseout)="focus=undefined" />
+        </div>
     </div>
 
     <app-entites [data]="data" [type]="'personnages'" (newData)="majFromChild($event)" class="entites"></app-entites>

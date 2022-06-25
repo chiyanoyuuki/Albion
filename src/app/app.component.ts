@@ -23,12 +23,12 @@ export class AppComponent implements OnInit {
     const persosManquants: Entite[] = this.data.personnages.filter((perso: Entite) =>
       !persos.includes(perso.id)
     );
-    if (persosManquants.length > 0) { console.warn("Des personnages principaux ne sont pas placés !"); persosManquants.forEach(p => console.log(p.nom)); }
+    if (persosManquants.length > 0) { console.warn("Des personnages principaux ne sont pas placés !"); persosManquants.forEach(p => console.log(p.id)); }
     //Amis
     const amisManquants: Entite[] = this.data.amisActuels.filter((perso: Entite) =>
       !persos.includes(perso.id)
     );
-    if (amisManquants.length > 0) { console.warn("Des amis ne sont pas placés !"); amisManquants.forEach(p => console.log(p.nom)); }
+    if (amisManquants.length > 0) { console.warn("Des amis ne sont pas placés !"); amisManquants.forEach(p => console.log(p.id)); }
   }
 
   majFromChild(newData: Data) {
