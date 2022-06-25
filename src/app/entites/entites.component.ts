@@ -39,6 +39,13 @@ export class EntitesComponent implements OnInit {
     return !perso.solo && Number(perso.nom.replace(/[a-zA-Z ]*/, "")) % 2 == 0;
   }
 
+  public getEntites() {
+    if (this.type == "ennemis") { return this.entites; }
+    return this.entites.filter((entite: Entite) =>
+      this.data.lieuActuel.personnagesActuels.includes(entite.id)
+    );
+  }
+
 
   public clickPerso(perso: Entite) {
 

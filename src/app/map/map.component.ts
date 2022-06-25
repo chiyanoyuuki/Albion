@@ -1,6 +1,6 @@
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Data, Lieu } from '../model';
+import { Data, Entite, Lieu } from '../model';
 
 @Component({
   selector: 'app-map',
@@ -13,11 +13,26 @@ export class MapComponent implements OnInit {
   @Output() newData = new EventEmitter<Data>();
 
   public datatmp: Data;
-  public focus: Lieu | undefined;
+  public focus: any;
+  public personnagesActuels: Entite[];
 
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  getPersonnagesInside(lieu: Lieu) {
+    let personnagesInside: Entite[] = [];
+    const personnagesActuels = lieu.personnagesActuels;
+    if (!personnagesActuels || lieu.personnagesActuels.length == 0) { return personnagesInside; }
+    this.data.personnages.forEach((perso: Entite) => {
+      if (personnagesActuels.includes(perso.id)) { personnagesInside.push(perso); }
+    });
+    this.data.amisActuels.forEach((perso: Entite) => {
+      if (personnagesActuels.includes(perso.id)) { personnagesInside.push(perso); }
+    });
+    return personnagesInside;
   }
 
   getLieux(): Lieu[] {

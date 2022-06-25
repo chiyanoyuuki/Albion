@@ -94,6 +94,7 @@
 }
 
 .perso:hover .shadow {
+    cursor: grab;
     bottom: -10px;
     transform: scale(1.2);
 }
