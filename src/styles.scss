@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Medieval";
+    src: local("Medieval"), url(./assets/fonts/medieval.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Medieval2";
+    src: local("Medieval2"), url(./assets/fonts/medieval2.ttf) format("truetype");
+}
+
 * {
     position: relative;
     -moz-user-select: none;
@@ -8,12 +18,13 @@
 
 p {
     margin: 0;
+    font-family: "Medieval2", Arial, Helvetica, sans-serif;
 }
 
 .clickable:hover {
+    cursor: pointer;
     border: 1px solid;
     border-color: red !important;
-    cursor: pointer;
     background-color: #000000bb !important;
 }
 
@@ -34,92 +45,6 @@ p {
     font-size: 12px;
 }
 
-// PNJS
-.PNJ .container {
-    display: grid;
-    position: absolute;
-    width: 140px;
-}
-
-.PNJ .entite {
-    overflow: hidden;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border: 1px solid transparent;
-    transition: all 0.2s;
-}
-
-.PNJ .entite:hover {
-    cursor: pointer;
-    border: 1px solid black;
-}
-
-.PNJ .pdvmana p {
-    color: white;
-    font-weight: bold;
-    position: absolute;
-    left: 37%;
-    z-index: 1;
-}
-
-.PNJ .pdvmana img {
-    width: 100%;
-    height: 100%;
-}
-
-.PNJ .fill {
-    position: absolute;
-}
-
-
-.PNJ .text {
-    background-color: #000000bb;
-    color: white;
-    text-align: center;
-}
-
-.PNJ .nom {
-    font-size: 16px;
-}
-
-.PNJ .etat {
-    font-size: 14px;
-}
-
-.PNJ .containerPerso {
-    display: flex;
-    justify-content: center;
-}
-
-.PNJ .perso {
-    z-index: 2;
-    height: 65px;
-    transition: all 0.2s;
-    top: 5px;
-}
-
-.PNJ .shadow {
-    position: absolute;
-    bottom: -5px;
-    width: 35px;
-    height: 20px;
-    border: 1px solid #00ff0030;
-    border-radius: 100%;
-    z-index: 1;
-    background-color: #00000050;
-    transition: all 0.2s;
-}
-
-.PNJ #perso:hover .perso {
-    cursor: grab;
-    transform: scale(1.2);
-}
-
-.PNJ #perso:hover .shadow {
-    bottom: -10px;
-    transform: scale(1.2);
-}
-
-.PNJ .grouppdvmana {
-    border: 1px solid black;
+.revert {
+    transform: scaleX(-1);
 }

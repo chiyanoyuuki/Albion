@@ -16,7 +16,7 @@
         <p class="nomLieu">{{lieu.nom}}</p>
     </div>
 
-    <app-joueurs [data]="data" [type]="'personnages'" (newData)="majFromChild($event)" class="entites"></app-joueurs>
-    <app-joueurs [data]="data" [type]="'amisActuels'" (newData)="majFromChild($event)" class="entites"></app-joueurs>
-    <app-joueurs [data]="data" [type]="'pnjs'" (newData)="majFromChild($event)" class="entites"></app-joueurs>
+    <app-entites [data]="data" [type]="'personnages'" (newData)="majFromChild($event)" class="entites"></app-entites>
+    <app-entites [data]="data" [type]="'amisActuels'" (newData)="majFromChild($event)" class="entites"></app-entites>
+    <app-entites [data]="data" [type]="'ennemis'" (newData)="majFromChild($event)" class="entites"></app-entites>
 </div>
