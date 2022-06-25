@@ -1,4 +1,5 @@
-<div class="container" *ngFor="let perso of data.amisActuels" 
+<div class="PNJ">
+    <div class="container" *ngFor="let perso of data.amisActuels" 
     [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'" [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" 
     (cdkDragEnded)="dragEnd($event,perso)" cdkDrag>
 
@@ -69,4 +70,5 @@
 
     <img class="perso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle/>
     <div class="shadow"></div>
+</div>
 </div>

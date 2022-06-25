@@ -6,3 +6,86 @@ p{margin:0;}
 .flex{display:flex;}
 .flexCenter{display:flex;justify-content: center;}
 .tinytext{font-size:12px;}
+
+// PNJS
+.PNJ .container{
+    display:grid;
+    position:absolute;
+    width:140px;
+}
+
+.PNJ .entite{
+    overflow: hidden;  
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+.PNJ .entite:hover{
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.PNJ .pdvmana p{
+    color:white;
+    font-weight: bold;
+    position:absolute;
+    left:37%;
+    z-index:1;
+}
+
+.PNJ .pdvmana img{
+    width:100%;
+    height:100%;
+}
+
+.PNJ .fill{
+  position: absolute;
+}
+
+
+.PNJ .text{
+    background-color:#000000bb;
+    color:white;
+    text-align: center;
+}
+
+.PNJ .nom{
+    font-size:16px;
+}
+
+.PNJ .etat{
+    font-size:14px;
+}
+
+.PNJ .containerPerso{
+    display: flex;
+    justify-content: center;
+}
+
+.PNJ .perso{
+    z-index:2;
+    height:65px;
+    transition: all 0.2s;
+    top:5px;
+}
+
+.PNJ .shadow{
+    position:absolute;
+    bottom:0px;
+    width:35px;
+    height:20px;
+    border:1px solid #00ff0030;
+    border-radius:100%;
+    z-index:1;
+    background-color:#00000050;
+    transition: all 0.2s;
+}
+.PNJ #perso:hover .perso{
+  cursor:grab;
+  transform: scale(1.2);
+}
+.PNJ #perso:hover .shadow{
+  bottom:-5px;
+  transform: scale(1.2);
+}

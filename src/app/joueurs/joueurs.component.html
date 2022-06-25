@@ -1,4 +1,5 @@
-<div class="container" *ngFor="let perso of data.personnages" 
+<div class="PNJ">
+    <div class="container" *ngFor="let perso of data.personnages" 
     [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'" [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" 
     (cdkDragEnded)="dragEnd($event,perso)" cdkDrag>
 
@@ -33,4 +34,5 @@
         </div>
     </div>
     
+    </div>
 </div>
