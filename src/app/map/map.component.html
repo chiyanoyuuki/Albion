@@ -1,15 +1,14 @@
 <div>
-    
-    <img draggable="false" class="retour clickable" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png" (click)="clickRetour()"/>
-    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png"/>
+
+    <img draggable="false" class="retour clickable" [hidden]="data.lieuActuel.parent==''"
+        src="./assets/images/retour.png" (click)="clickRetour()" />
+    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png" />
 
     <!-- ========================== LIEUX ========================== -->
 
-    <div *ngFor="let lieu of getLieux()" class="lieux" 
-        [style.left]="lieu.x+'px'"      [style.top]="lieu.y+'px'" 
-        [style.width]="lieu.finx+'px'"  [style.height]="lieu.finy+'px'" 
-        (mouseover)="focus=lieu"        (mouseout)="focus=undefined"
-        (click)="changeLieu(lieu)">
+    <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'" [style.top]="lieu.y+'px'"
+        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (mouseover)="focus=lieu"
+        (mouseout)="focus=undefined" (click)="changeLieu(lieu)">
 
         <!--(cdkDragEnded)="dragEnd($event,lieu)" 
         cdkDrag>-->
@@ -17,6 +16,7 @@
         <p class="nomLieu">{{lieu.nom}}</p>
     </div>
 
-    <app-joueurs [data]="data" (newData)="majFromChild($event)" class="entites"></app-joueurs>
-    <app-pnjs [data]="data" (newData)="majFromChild($event)" class="entites"></app-pnjs>
+    <app-joueurs [data]="data" [type]="'personnages'" (newData)="majFromChild($event)" class="entites"></app-joueurs>
+    <app-joueurs [data]="data" [type]="'amisActuels'" (newData)="majFromChild($event)" class="entites"></app-joueurs>
+    <app-joueurs [data]="data" [type]="'pnjs'" (newData)="majFromChild($event)" class="entites"></app-joueurs>
 </div>
