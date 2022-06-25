@@ -1,13 +1,13 @@
-import { Personnage, Data, PNJ } from '../model';
+import { Entite, Data } from '../model';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'app-joueurs',
-  templateUrl: './joueurs.component.html',
-  styleUrls: ['./joueurs.component.scss']
+  selector: 'app-entites',
+  templateUrl: './entites.component.html',
+  styleUrls: ['./entites.component.scss']
 })
-export class JoueursComponent implements OnInit {
+export class EntitesComponent implements OnInit {
 
   @Input() data: Data;
   @Input() type: string;
@@ -22,7 +22,7 @@ export class JoueursComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public dragEnd($event: CdkDragEnd, perso: Personnage) {
+  public dragEnd($event: CdkDragEnd, perso: Entite) {
     let tmp = $event.source.getFreeDragPosition();
     if (this.data.lieuActuel.parent == '') {
       perso.x = perso.x + tmp.x;
@@ -35,14 +35,19 @@ export class JoueursComponent implements OnInit {
     $event.source._dragRef.reset();
   }
 
-  public clickPerso(perso: Personnage) {
+  public isReverted(perso: Entite) {
+    return !perso.solo && Number(perso.nom.replace(/[a-zA-Z ]*/, "")) % 2 == 0;
+  }
+
+
+  public clickPerso(perso: Entite) {
 
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.type == "personnages") { this.entites = this.data.personnages };
     if (this.type == "amisActuels") { this.entites = this.data.amisActuels };
-    if (this.type == "pnjs") { this.entites = this.data.lieuActuel.pnjs };
+    if (this.type == "ennemis") { this.entites = this.data.lieuActuel.pnjs };
   }
 
   maj() {

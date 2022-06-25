@@ -1,26 +1,3 @@
-export class Data {
-	public personnages: Personnage[];
-	public amisActuels: PNJ[];
-	public quetesprincipales:Quete[];
-	public quetessecondaires:Quete[];
-	public lieuActuel:Lieu;
-	public boutiques: Boutique[];
-	public lieux: Lieu[];
-	public catabombes: string[][];
-	public pnjs: PNJ[];
-}
-
-export class Boutique {
-	public nom: string;
-	public objets: Objet[];
-}
-
-export class Objet {
-	public nom: string;
-	public qte: number;
-	public prix: number;
-}
-
 export class Entite {
 	public x: number;
 	public y: number;
@@ -36,9 +13,6 @@ export class Entite {
 	public image: string;
 	public team: boolean;
 	public actif: boolean;
-}
-
-export class Personnage extends Entite {
 	public histoire: string;
 	public classe: string;
 	public stats: { nom: string, qte: number }[];
@@ -50,28 +24,37 @@ export class Personnage extends Entite {
 	public inventaire: { nom: string, qte: number }[];
 	public formes: string[];
 	public forme: string;
-	public familier: Familier;
-}
-
-export class Familier extends Entite {
-	public resistance: number;
-	public puissance: number;
-	public agilite: number;
-	public intelligence: number;
-	public style: number;
-	public sort1: string;
-	public sort2: string;
-	public sort3: string;
-	public sort4: string;
-	public sort5: string;
-}
-
-export class PNJ extends Entite {
+	public familier: Entite;
 	public solo: boolean;
 	public tournoi: boolean;
 	public id: string;
 	public type: string;
 }
+
+export class Data {
+	public personnages: Entite[];
+	public amisActuels: Entite[];
+	public quetesprincipales: Quete[];
+	public quetessecondaires: Quete[];
+	public lieuActuel: Lieu;
+	public boutiques: Boutique[];
+	public lieux: Lieu[];
+	public catabombes: string[][];
+	public pnjs: Entite[];
+}
+
+export class Boutique {
+	public nom: string;
+	public objets: Objet[];
+}
+
+export class Objet {
+	public nom: string;
+	public qte: number;
+	public prix: number;
+}
+
+
 
 export class Quete {
 	public nom: string;
@@ -88,7 +71,7 @@ export class Lieu {
 	public y: number;
 	public finx: number;
 	public finy: number;
-	public pnjs: PNJ[];
+	public pnjs: Entite[];
 	public desac: boolean;
 	public parent: string;
 	public ancienLieu: Lieu;
