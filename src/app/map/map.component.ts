@@ -15,7 +15,7 @@ export class MapComponent implements OnInit {
   public datatmp : Data;
   public focus : Lieu|undefined;
 
-  constructor() { }
+  constructor() {  }
 
   ngOnInit(): void {
   }

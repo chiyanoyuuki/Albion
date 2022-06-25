@@ -1,8 +1,14 @@
-*{position:relative;}
+*{position:relative;margin: 0;padding: 0;}
 p{margin:0;}
+ul, ol{list-style: none;}
 
 .clickable:hover{border:1px solid;border-color:red!important;cursor:pointer;background-color: #000000bb!important;}
 .bold{font-weight:bold;}
 .flex{display:flex;}
+.center{justify-content: center;}
+.between{justify-content: space-between;}
+.align-center{align-items: center;}
+.column{flex-flow: column;}
+.width-100{width: 100%;}
 .flexCenter{display:flex;justify-content: center;}
 .tinytext{font-size:12px;}

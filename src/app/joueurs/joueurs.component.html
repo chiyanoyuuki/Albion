@@ -1,9 +1,64 @@
 <div class="container" *ngFor="let perso of data.personnages" 
     [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'" [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" 
     (cdkDragEnded)="dragEnd($event,perso)" cdkDrag>
+    <div *ngIf="perso.actif" class="container-stats">
+        <div class="block-perso">
+            <h2>{{ perso.nom }}</h2>
+            <h3>{{ perso.classe | titlecase }}</h3>
+            <h3>{{ perso.etat }}</h3>
+        </div>
+        <div class="block-forme">
+            <div>
+                <p><span class="title">Forme actuelle : </span>{{ perso.forme }}</p>
+                <ul>
+                    <p class="title">Transformation possible:</p>
+                    <li *ngFor="let forme of perso.formes">
+                        <p *ngIf="forme != perso.forme" (click)="perso.forme = forme">{{ forme }}</p>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p>
+                    <button (click)="perso.argent = perso.argent - 1">-</button>
+                    Or: {{ perso.argent }}
+                    <button (click)="perso.argent = perso.argent + 1">+</button>
+                </p>
+            </div>
+        </div>
+        
+        <div class="block-armes flex width-100 between">
+            <p *ngIf="perso.arme1"><span class="title">Main principale : </span>{{ perso.arme1 }}</p>
+            <p *ngIf="perso.arme2"><span class="title">Main secondaire : </span>{{ perso.arme2 }}</p>
+        </div>
+        <div class="block-stats">
+            <h3 class="title">Stats Perso :</h3>
+            <ul>
+                <li *ngFor="let stat of perso.stats">
+                    <p>
+                        <button (click)="stat.qte = stat.qte - 1">-</button>
+                        {{ stat.nom }} : {{ stat.qte }}
+                        <button (click)="stat.qte = stat.qte + 1">+</button>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="block-stuff">
+            <h3 class="title">Stuffs Perso :</h3>
+            <ul>
+                <li *ngFor="let stuff of perso.inventaire">
+                    <p *ngIf="stuff.qte">
+                        <button (click)="stuff.qte = stuff.qte - 1">-</button>
+                        {{ stuff.nom }} : {{ stuff.qte }}
+                        <button (click)="stuff.qte = stuff.qte + 1">+</button>
+                    </p>
+                </li>
+            </ul>
 
-    <div class="entite"
-        (click)="focus==undefined?clickPerso(perso):null">
+        </div>
+    </div>
+
+    <div class="entite" 
+        (click)="perso.actif = perso.actif === true ? false : true">
         <p class="text nom">{{perso.nom}}</p>
         <p class="text etat">{{perso.etat}}</p>
 
