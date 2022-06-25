@@ -1,5 +1,5 @@
 <div [ngClass]="type">
-    <div [ngClass]="{'container':true,'dead':perso.pdv<=0}" *ngFor="let perso of entites"
+    <div [ngClass]="{'container':true,'dead':perso.pdv<=0}" *ngFor="let perso of getEntites()"
         [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
         [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (cdkDragEnded)="dragEnd($event,perso)"
         cdkDrag>
@@ -34,7 +34,7 @@
         <div class="containerPerso">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img class="imageperso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
-                <div class="shadow"></div>
+                <div class="shadow " cdkDragHandle></div>
             </div>
         </div>
 

@@ -1,3 +1,15 @@
+export class Data {
+	public personnages: Entite[];
+	public amisActuels: Entite[];
+	public quetesprincipales: Quete[];
+	public quetessecondaires: Quete[];
+	public lieuActuel: Lieu;
+	public boutiques: Boutique[];
+	public lieux: Lieu[];
+	public catabombes: string[][];
+	public pnjs: Entite[];
+}
+
 export class Entite {
 	public x: number;
 	public y: number;
@@ -31,18 +43,6 @@ export class Entite {
 	public type: string;
 }
 
-export class Data {
-	public personnages: Entite[];
-	public amisActuels: Entite[];
-	public quetesprincipales: Quete[];
-	public quetessecondaires: Quete[];
-	public lieuActuel: Lieu;
-	public boutiques: Boutique[];
-	public lieux: Lieu[];
-	public catabombes: string[][];
-	public pnjs: Entite[];
-}
-
 export class Boutique {
 	public nom: string;
 	public objets: Objet[];
@@ -53,8 +53,6 @@ export class Objet {
 	public qte: number;
 	public prix: number;
 }
-
-
 
 export class Quete {
 	public nom: string;
@@ -75,6 +73,7 @@ export class Lieu {
 	public desac: boolean;
 	public parent: string;
 	public ancienLieu: Lieu;
+	public personnagesActuels: string[];
 }
 
 export class Combat {
