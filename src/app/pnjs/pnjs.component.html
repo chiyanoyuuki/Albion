@@ -1,74 +1,74 @@
 <div class="PNJ">
-    <div class="container" *ngFor="let perso of data.amisActuels" 
-    [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'" [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" 
-    (cdkDragEnded)="dragEnd($event,perso)" cdkDrag>
+    <div class="container" *ngFor="let perso of data.amisActuels"
+        [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
+        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (cdkDragEnded)="dragEnd($event,perso)"
+        cdkDrag>
 
-    <div class="entite"
-    (click)="focus==undefined?clickPerso(perso):null">
-    <p class="text nom">{{perso.nom}}</p>
-    <p class="text etat">{{perso.etat}}</p>
+        <div class="entite" (click)="focus==undefined?clickPerso(perso):null">
+            <p class="text nom">{{perso.nom}}</p>
+            <p class="text etat">{{perso.etat}}</p>
 
-    <div class="flex bottomGroup">
-        <div class="pdvmana">
-            <div class="flex pdvmanadiv">
-                <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
-                <div>
-                    <img class="fill" draggable="false" src="./assets/images/pdvfill.PNG"/>
-                    <img draggable="false" src="./assets/images/pdvmanabar.png"/>
-                </div>
-            </div>
-            <div class="flex pdvmanadiv">
-                <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
-                <div>
-                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG"/>
-                    <img draggable="false" src="./assets/images/pdvmanabar.png"/>
+            <div class="flex bottomGroup">
+                <div class="pdvmana">
+                    <div class="flex pdvmanadiv">
+                        <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
+                        <div class="grouppdvmana">
+                            <img class="fill" draggable="false" src="./assets/images/pdvfill.PNG" />
+                            <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                        </div>
+                    </div>
+                    <div class="flex pdvmanadiv">
+                        <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
+                        <div class="grouppdvmana">
+                            <img class="fill" draggable="false" src="./assets/images/manafill.PNG" />
+                            <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    <div class="containerPerso">
-        <div id="perso">
-            <img class="perso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle/>
-            <div class="shadow"></div>
+        <div class="containerPerso">
+            <div id="perso">
+                <img class="perso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
+                <div class="shadow"></div>
+            </div>
         </div>
     </div>
-</div>
 
-<!--
+    <!--
     =========================== ENNEMIS
 -->
 
-<div class="container" *ngFor="let perso of data.lieuActuel.pnjs" 
-    [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'" [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" 
-    (cdkDragEnded)="dragEnd($event,perso)" cdkDrag>
+    <div class="container" *ngFor="let perso of data.lieuActuel.pnjs"
+        [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
+        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (cdkDragEnded)="dragEnd($event,perso)"
+        cdkDrag>
 
-    <div class="entite clickable"
-    (click)="focus==undefined?clickPerso(perso):null">
-    <p class="text nom">{{perso.nom}}</p>
-    <p class="text etat">{{perso.etat}}</p>
+        <div class="entite clickable" (click)="focus==undefined?clickPerso(perso):null">
+            <p class="text nom">{{perso.nom}}</p>
+            <p class="text etat">{{perso.etat}}</p>
 
-    <div class="flex bottomGroup">
-        <div class="pdvmana">
-            <div class="flex pdvmanadiv">
-                <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
-                <div>
-                    <img class="fill" draggable="false" src="./assets/images/pdvfill.PNG"/>
-                    <img draggable="false" src="./assets/images/pdvmanabar.png"/>
-                </div>
-            </div>
-            <div class="flex pdvmanadiv">
-                <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
-                <div>
-                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG"/>
-                    <img draggable="false" src="./assets/images/pdvmanabar.png"/>
+            <div class="flex bottomGroup">
+                <div class="pdvmana">
+                    <div class="flex pdvmanadiv">
+                        <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
+                        <div>
+                            <img class="fill" draggable="false" src="./assets/images/pdvfill.PNG" />
+                            <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                        </div>
+                    </div>
+                    <div class="flex pdvmanadiv">
+                        <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
+                        <div>
+                            <img class="fill" draggable="false" src="./assets/images/manafill.PNG" />
+                            <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
-    <img class="perso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle/>
-    <div class="shadow"></div>
-</div>
+        <img class="perso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
+        <div class="shadow"></div>
+    </div>
 </div>
