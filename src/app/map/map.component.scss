@@ -1,46 +1,49 @@
-.map{
-    width:1850px;
-    border:20px ridge #202020;
+.map {
+    width: 1850px;
+    border: 20px ridge #202020;
 }
 
-.entites{
+.entites {
     position: absolute;
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
 }
 
-.lieux{
-    position:absolute;
+.lieux {
+    position: absolute;
     border: 1px solid transparent;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.nomLieu{
-    font-size:20px;
-    font-weight:bold;
+
+.nomLieu {
+    font-size: 20px;
+    font-weight: bold;
     font-family: 'Cinzel Decorative', cursive;
     white-space: nowrap;
     text-align: center;
-    color:white;
+    color: white;
     transition: all 0.4s;
 }
-.lieux:hover{
-    cursor:pointer;
+
+.lieux:hover {
+    cursor: pointer;
 }
-.lieux:hover .nomLieu{
+
+.lieux:hover .nomLieu {
     transform: scale(1.5);
 }
 
 
 
-.retour{
-    background-color:#50505080;
-    width:50px;
-    height:50px;
-    position:absolute;
-    z-index:1;
-    border:5px ridge #505050;
-    left:30px;
-    top:30px;
+.retour {
+    background-color: #50505080;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 1;
+    border: 5px ridge #505050;
+    left: 30px;
+    top: 30px;
 }
