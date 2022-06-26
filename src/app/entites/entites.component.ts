@@ -36,7 +36,7 @@ export class EntitesComponent implements OnInit {
   }
 
   public isReverted(perso: Entite) {
-    return !perso.solo && Number(perso.nom.replace(/[a-zA-Z ]*/, "")) % 2 == 0;
+    return !perso.solo && Number(perso.nom.replace(/[a-zA-Z ]*/, "")) % 2 != 0;
   }
 
   public getEntites() {
@@ -44,6 +44,10 @@ export class EntitesComponent implements OnInit {
     return this.entites.filter((entite: Entite) =>
       this.data.lieuActuel.personnagesActuels.includes(entite.id)
     );
+  }
+
+  public getScale() {
+    return 'scale(' + this.data.lieuActuel.scale ? this.data.lieuActuel.scale : 1 + ')';
   }
 
 

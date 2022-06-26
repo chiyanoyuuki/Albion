@@ -66,8 +66,15 @@ export class MapComponent implements OnInit {
   }
 
   sortirPerso(lieu: Lieu, perso: Entite) {
-    perso.x = lieu.x;
-    perso.y = lieu.y;
+    if(this.data.lieuActuel.parent==""){
+      perso.x = lieu.x;
+      perso.y = lieu.y;
+    }
+    else{
+      perso.xcombat = lieu.x;
+      perso.ycombat = lieu.y;
+    }
+    
 
     let personnagesActuels = lieu.personnagesActuels;
     personnagesActuels.splice(personnagesActuels.indexOf(perso.id), 1);

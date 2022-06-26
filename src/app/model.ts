@@ -74,6 +74,7 @@ export class Lieu {
 	public parent: string;
 	public ancienLieu: Lieu;
 	public personnagesActuels: string[];
+	public scale: number;
 }
 
 export class Combat {
