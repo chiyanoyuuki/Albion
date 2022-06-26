@@ -40,8 +40,7 @@ export class Entite {
 	public solo: boolean;
 	public tournoi: boolean;
 	public id: string;
-	public type: string;
-}
+	public type: string;}
 
 export class Boutique {
 	public nom: string;
@@ -75,6 +74,8 @@ export class Lieu {
 	public ancienLieu: Lieu;
 	public personnagesActuels: string[];
 	public scale: number;
+	public entreex: number;
+	public entreey: number;
 }
 
 export class Combat {

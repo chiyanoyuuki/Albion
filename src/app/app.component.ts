@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Data, Entite, Lieu } from './model';
-import * as DATA from '../assets/data.json';
+import DATA from '../assets/data.json';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     //Verifications
-    //Entites non placées===================================================================
+    //Entites non placées==================================================================
     const lieux: Lieu[] = this.data.lieux;
     let persos: string[] = [];
     lieux.forEach((lieu: Lieu) => {
@@ -35,9 +35,11 @@ export class AppComponent implements OnInit {
       if (!lieu.personnagesActuels) { manquePersonnagesActuels.push(lieu.id); }
     });
     if (manquePersonnagesActuels.length > 0) { console.warn("Des lieux n'ont pas de personnagesActuels !"); manquePersonnagesActuels.forEach(p => console.log(p)); }
-  }
-
-  majFromChild(newData: Data) {
-    this.data = newData;
+    //Points d'entrée non définis pour un lieu===================================================================
+    let manqueEntrees: string[] = [];
+    lieux.forEach((lieu: Lieu) => {
+      if (lieu.entreex == undefined) { manqueEntrees.push(lieu.id); }
+    });
+    if (manqueEntrees.length > 0) { console.warn("Des lieux n'ont pas de points d'entrée !"); manqueEntrees.forEach(p => console.log(p)); }
   }
 }

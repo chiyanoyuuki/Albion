@@ -1080,6 +1080,8 @@
             "finy": 0,
             "desac": true,
             "parent": "",
+            "entreex": 0,
+            "entreey": 0,
             "personnagesActuels": [
                 "Bjorn Côtes de Fer",
                 "Sienna Hurlevent",
@@ -1190,19 +1192,6 @@
             "personnagesActuels": []
         },
         {
-            "parent": "arenedusk",
-            "id": "",
-            "nom": "Arbre du Tournoi",
-            "image": "TOURNOI",
-            "x": 550,
-            "y": 5,
-            "finx": 550,
-            "finy": 50,
-            "desac": true,
-            "pnjs": [],
-            "personnagesActuels": []
-        },
-        {
             "parent": "dusk",
             "id": "arenedusk",
             "nom": "Arene",
@@ -1283,7 +1272,9 @@
             "personnagesActuels": [
                 "Luna Stormwood"
             ],
-            "scale": 2
+            "scale": 2,
+            "enterx": 976,
+            "entery": 751
         },
         {
             "parent": "entreegrottenord",

@@ -11,7 +11,6 @@ export class EntitesComponent implements OnInit {
 
   @Input() data: Data;
   @Input() type: string;
-  @Output() newData = new EventEmitter<Data>();
 
   public entites: any;
   public datatmp: Data;
@@ -59,9 +58,5 @@ export class EntitesComponent implements OnInit {
     if (this.type == "personnages") { this.entites = this.data.equipe };
     if (this.type == "pnjsNeutres") { this.entites = this.data.pnjsNeutres };
     if (this.type == "ennemis") { this.entites = this.data.lieuActuel.pnjs };
-  }
-
-  maj() {
-    this.newData.emit(this.datatmp);
   }
 }

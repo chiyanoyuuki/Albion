@@ -6,14 +6,14 @@
 
         <div class="entite" (click)="perso.actif=!perso.actif">
             <p class="text nom">{{perso.nom}}</p>
-            <p class="text etat">{{perso.etat}}</p>
+            <p class="text etat">{{perso.etat?perso.etat:'Bonne santé'}}</p>
 
             <div class="flex bottomGroup">
                 <div class="pdvmana">
                     <div class="flex pdvmanadiv">
                         <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
                         <div class="grouppdvmana">
-                            <img class="fill" draggable="false" src="./assets/images/pdvfill.PNG"
+                            <img class="fill" draggable="false" src="./assets/images/pdvfill{{(type=='ennemis'?'2':'')}}.PNG"
                                 [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
                             <img draggable="false" src="./assets/images/pdvmanabar.png" />
                         </div>
@@ -32,9 +32,9 @@
         <!-- IMAGE + SHADOW =================================================== -->
 
         <div class="containerPerso"
+            [style.top]="(this.data.lieuActuel.scale&&this.data.lieuActuel.scale>1?(this.data.lieuActuel.scale)*20+79+'px':'84px')"
             [style.transform]="'scale(' + (this.data.lieuActuel.scale?this.data.lieuActuel.scale:1) + ')'">
-            <div class="perso" [ngClass]="{'revert':isReverted(perso)}"
-                [style.top]="(this.data.lieuActuel.scale?(this.data.lieuActuel.scale)*8+'px':'5px')">
+            <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img class="imageperso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
                 <div class="shadow " cdkDragHandle></div>
             </div>
