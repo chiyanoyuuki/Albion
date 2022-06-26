@@ -1,6 +1,6 @@
 export class Data {
-	public personnages: Entite[];
-	public amisActuels: Entite[];
+	public equipe: Entite[];
+	public pnjsNeutres: Entite[];
 	public quetesprincipales: Quete[];
 	public quetessecondaires: Quete[];
 	public lieuActuel: Lieu;

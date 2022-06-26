@@ -20,12 +20,12 @@ export class AppComponent implements OnInit {
       if (lieu.personnagesActuels) { lieu.personnagesActuels.forEach((id: string) => persos.push(id)); }
     });
     //Personnages
-    const persosManquants: Entite[] = this.data.personnages.filter((perso: Entite) =>
+    const persosManquants: Entite[] = this.data.equipe.filter((perso: Entite) =>
       !persos.includes(perso.id)
     );
     if (persosManquants.length > 0) { console.warn("Des personnages principaux ne sont pas placés !"); persosManquants.forEach(p => console.log(p.id)); }
     //Amis
-    const amisManquants: Entite[] = this.data.amisActuels.filter((perso: Entite) =>
+    const amisManquants: Entite[] = this.data.pnjsNeutres.filter((perso: Entite) =>
       !persos.includes(perso.id)
     );
     if (amisManquants.length > 0) { console.warn("Des amis ne sont pas placés !"); amisManquants.forEach(p => console.log(p.id)); }

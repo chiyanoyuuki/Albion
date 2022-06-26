@@ -1,5 +1,5 @@
 {
-    "personnages": [
+    "equipe": [
         {
             "id": "lunastormwood",
             "x": 904,
@@ -854,7 +854,7 @@
             ]
         }
     ],
-    "amisActuels": [
+    "pnjsNeutres": [
         {
             "x": 1346,
             "y": 268,

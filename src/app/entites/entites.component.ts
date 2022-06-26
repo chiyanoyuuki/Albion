@@ -52,8 +52,8 @@ export class EntitesComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.type == "personnages") { this.entites = this.data.personnages };
-    if (this.type == "amisActuels") { this.entites = this.data.amisActuels };
+    if (this.type == "personnages") { this.entites = this.data.equipe };
+    if (this.type == "pnjsNeutres") { this.entites = this.data.pnjsNeutres };
     if (this.type == "ennemis") { this.entites = this.data.lieuActuel.pnjs };
   }
 

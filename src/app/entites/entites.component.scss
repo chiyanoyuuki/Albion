@@ -2,6 +2,7 @@
     display: grid;
     position: absolute;
     width: 140px;
+    z-index: 100;
 }
 
 .entite {
@@ -101,11 +102,11 @@
 
 //AMIS =================================================
 
-.amisActuels .text {
+.pnjsNeutres .text {
     background-color: #a08300dd;
 }
 
-.amisActuels .shadow {
+.pnjsNeutres .shadow {
     border: 1px solid #a08300dd;
 }
 
