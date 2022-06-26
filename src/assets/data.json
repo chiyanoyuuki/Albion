@@ -1133,7 +1133,8 @@
             "desac": true,
             "parent": "map",
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 4
         },
         {
             "id": "campdebandits",
@@ -1146,7 +1147,8 @@
             "desac": false,
             "pnjs": [],
             "parent": "map",
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 1.5
         },
         {
             "id": "escaliersCatacombes",
@@ -1159,7 +1161,7 @@
             "finy": 0,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1172,7 +1174,7 @@
             "finy": 0,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1185,7 +1187,7 @@
             "finy": 0,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "parent": "arenedusk",
@@ -1198,7 +1200,7 @@
             "finy": 50,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "parent": "dusk",
@@ -1211,7 +1213,7 @@
             "finy": 140,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "parent": "dusk",
@@ -1224,7 +1226,8 @@
             "finy": 145,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 4
         },
         {
             "parent": "dusk",
@@ -1237,7 +1240,8 @@
             "finy": 160,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 5
         },
         {
             "id": "dusk",
@@ -1250,7 +1254,7 @@
             "parent": "map",
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1263,7 +1267,7 @@
             "finy": 0,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "id": "entreegrottenord",
@@ -1307,7 +1311,8 @@
             "finy": 60,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 2
         },
         {
             "parent": "fjorh",
@@ -1320,7 +1325,8 @@
             "finy": 130,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 3
         },
         {
             "parent": "fjorh",
@@ -1333,7 +1339,8 @@
             "finy": 130,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 5
         },
         {
             "parent": "fjorh",
@@ -1346,7 +1353,7 @@
             "finy": 116,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "id": "fjorh",
@@ -1358,6 +1365,7 @@
             "finx": 265,
             "finy": 229,
             "desac": false,
+            "scale": 0.6,
             "pnjs": [
                 {
                     "x": 1248,
@@ -1393,7 +1401,8 @@
             "finy": 69,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 2
         },
         {
             "id": "foretnordouest",
@@ -1406,7 +1415,8 @@
             "finy": 140,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 2
         },
         {
             "id": "foretestfjorh",
@@ -1419,7 +1429,8 @@
             "finy": 120,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 0.7
         },
         {
             "parent": "ghrain",
@@ -1432,7 +1443,8 @@
             "finy": 100,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 4
         },
         {
             "id": "ghrain",
@@ -1445,7 +1457,7 @@
             "parent": "map",
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": []
         },
         {
             "id": "haul",
@@ -1458,7 +1470,8 @@
             "parent": "map",
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 0.7
         },
         {
             "id": "haulisland",
@@ -1471,7 +1484,8 @@
             "parent": "map",
             "desac": false,
             "pnjs": [],
-            "personnagesActuels":[]
+            "personnagesActuels": [],
+            "scale": 3
         },
         {
             "id": "plage",
@@ -1484,7 +1498,8 @@
             "parent": "map",
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": []
+            "personnagesActuels": [],
+            "scale": 3
         }
     ],
     "catabombes": [
