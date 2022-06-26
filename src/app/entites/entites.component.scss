@@ -67,10 +67,9 @@
 }
 
 .containerPerso {
-    display: flex;
-    justify-content: center;
+    position: absolute;
     width: fit-content;
-    margin: auto;
+    left:40%;
 }
 
 .imageperso {
