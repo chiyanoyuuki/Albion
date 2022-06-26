@@ -31,8 +31,10 @@
 
         <!-- IMAGE + SHADOW =================================================== -->
 
-        <div class="containerPerso">
-            <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
+        <div class="containerPerso"
+            [style.transform]="'scale(' + (this.data.lieuActuel.scale?this.data.lieuActuel.scale:1) + ')'">
+            <div class="perso" [ngClass]="{'revert':isReverted(perso)}"
+                [style.top]="(this.data.lieuActuel.scale?(this.data.lieuActuel.scale)*8+'px':'5px')">
                 <img class="imageperso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
                 <div class="shadow " cdkDragHandle></div>
             </div>

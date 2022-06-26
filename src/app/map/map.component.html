@@ -2,25 +2,58 @@
 
     <img draggable="false" class="retour clickable" [hidden]="data.lieuActuel.parent==''"
         src="./assets/images/retour.png" (click)="clickRetour()" />
-    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png" />
+    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png"
+        (click)="changingTo=undefined" />
 
     <!-- ========================== LIEUX ========================== -->
 
     <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'" [style.top]="lieu.y+'px'"
-        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="focus==undefined?changeLieu(lieu):null">
+        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="rentrerLieu(lieu)">
 
         <!--(cdkDragEnded)="dragEnd($event,lieu)" 
         cdkDrag>-->
 
-        <p class="nomLieu">{{lieu.nom}}</p>
+        <p class="nomLieu" (mouseover)="focus=undefined">{{lieu.nom}}</p>
 
         <div class="personnagesInside">
-            <img *ngFor="let perso of getPersonnagesInside(lieu)" draggable="false"
-                src="./assets/images/{{perso.image}}m.png" (mouseover)="focus=perso" (mouseout)="focus=undefined" />
+            <img *ngFor="let perso of getPersonnagesInside(lieu)" draggable="false" (click)="sortirPerso(lieu,perso)"
+                src="./assets/images/{{perso.image}}m.png" (mouseover)="focus=perso" />
+        </div>
+
+        <!-- ========================== FENETRE DE CHANGEMENT DE LIEU ========================== -->
+
+        <div class="changeLieu fenetre" *ngIf="changingTo==lieu">
+            <p class="bigText">Qui rentre dans {{changingTo.nom}} ?</p>
+            <div class="flex">
+                <img *ngFor="let perso of getEntitesPresentes(data.equipe)" draggable="false"
+                    (click)="rentrerPerso(lieu,perso)" src="./assets/images/{{perso.image}}m.png" />
+                <div>
+                </div>
+            </div>
+            <div class="flex">
+                <img *ngFor="let perso of getEntitesPresentes(data.pnjsNeutres)" draggable="false"
+                    (click)="rentrerPerso(lieu,perso)" src="./assets/images/{{perso.image}}m.png" />
+                <div>
+                </div>
+            </div>
+            <div class="flex">
+                <img *ngFor="let perso of data.lieuActuel.pnjs" draggable="false" (click)="rentrerPnj(lieu,perso)"
+                    src="./assets/images/{{perso.image}}m.png" />
+                <div>
+                </div>
+            </div>
+            <p class="choix" (click)="changeLieu(lieu)">Entrer dans {{changingTo.nom}}</p>
         </div>
     </div>
 
-    <app-entites [data]="data" [type]="'personnages'" (newData)="majFromChild($event)" class="entites"></app-entites>
-    <app-entites [data]="data" [type]="'amisActuels'" (newData)="majFromChild($event)" class="entites"></app-entites>
-    <app-entites [data]="data" [type]="'ennemis'" (newData)="majFromChild($event)" class="entites"></app-entites>
+    <!-- ========================== PERSONNAGES ========================== -->
+
+    <app-entites [data]="data" [type]="'personnages'" (newData)="majFromChild($event)" class="entites">
+    </app-entites>
+    <app-entites [data]="data" [type]="'pnjsNeutres'" (newData)="majFromChild($event)" class="entites">
+    </app-entites>
+    <app-entites [data]="data" [type]="'ennemis'" (newData)="majFromChild($event)" class="entites">
+    </app-entites>
+
+
 </div>

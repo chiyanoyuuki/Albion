@@ -2,6 +2,7 @@
     display: grid;
     position: absolute;
     width: 140px;
+    z-index: 100;
 }
 
 .entite {
@@ -68,6 +69,8 @@
 .containerPerso {
     display: flex;
     justify-content: center;
+    width: fit-content;
+    margin: auto;
 }
 
 .imageperso {
@@ -101,11 +104,11 @@
 
 //AMIS =================================================
 
-.amisActuels .text {
+.pnjsNeutres .text {
     background-color: #a08300dd;
 }
 
-.amisActuels .shadow {
+.pnjsNeutres .shadow {
     border: 1px solid #a08300dd;
 }
 

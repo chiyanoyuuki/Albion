@@ -36,14 +36,18 @@ export class EntitesComponent implements OnInit {
   }
 
   public isReverted(perso: Entite) {
-    return !perso.solo && Number(perso.nom.replace(/[a-zA-Z ]*/, "")) % 2 == 0;
+    return !perso.solo && Number(perso.nom.replace(/[a-zA-Z ]*/, "")) % 2 != 0;
   }
 
   public getEntites() {
     if (this.type == "ennemis") { return this.entites; }
     return this.entites.filter((entite: Entite) =>
-      this.data.lieuActuel.personnagesActuels.includes(entite.id)
+      this.data.lieuActuel.personnagesActuels.includes(entite.nom)
     );
+  }
+
+  public getScale() {
+    return 'scale(' + this.data.lieuActuel.scale ? this.data.lieuActuel.scale : 1 + ')';
   }
 
 
@@ -52,8 +56,8 @@ export class EntitesComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.type == "personnages") { this.entites = this.data.personnages };
-    if (this.type == "amisActuels") { this.entites = this.data.amisActuels };
+    if (this.type == "personnages") { this.entites = this.data.equipe };
+    if (this.type == "pnjsNeutres") { this.entites = this.data.pnjsNeutres };
     if (this.type == "ennemis") { this.entites = this.data.lieuActuel.pnjs };
   }
 

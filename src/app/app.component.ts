@@ -17,18 +17,24 @@ export class AppComponent implements OnInit {
     const lieux: Lieu[] = this.data.lieux;
     let persos: string[] = [];
     lieux.forEach((lieu: Lieu) => {
-      if (lieu.personnagesActuels) { lieu.personnagesActuels.forEach((id: string) => persos.push(id)); }
+      if (lieu.personnagesActuels) { lieu.personnagesActuels.forEach((nom: string) => persos.push(nom)); }
     });
-    //Personnages
-    const persosManquants: Entite[] = this.data.personnages.filter((perso: Entite) =>
-      !persos.includes(perso.id)
+    //Personnages de l'équipe
+    const persosManquants: Entite[] = this.data.equipe.filter((perso: Entite) =>
+      !persos.includes(perso.nom)
     );
-    if (persosManquants.length > 0) { console.warn("Des personnages principaux ne sont pas placés !"); persosManquants.forEach(p => console.log(p.id)); }
-    //Amis
-    const amisManquants: Entite[] = this.data.amisActuels.filter((perso: Entite) =>
-      !persos.includes(perso.id)
+    if (persosManquants.length > 0) { console.warn("Des personnages de l'équipe ne sont pas placés !"); persosManquants.forEach(p => console.log(p.nom)); }
+    //Pnjs Neutres
+    const amisManquants: Entite[] = this.data.pnjsNeutres.filter((perso: Entite) =>
+      !persos.includes(perso.nom)
     );
-    if (amisManquants.length > 0) { console.warn("Des amis ne sont pas placés !"); amisManquants.forEach(p => console.log(p.id)); }
+    if (amisManquants.length > 0) { console.warn("Des PNJs neutres ne sont pas placés !"); amisManquants.forEach(p => console.log(p.nom)); }
+    //PersonnagesActuels non définie pour un lieu===================================================================
+    let manquePersonnagesActuels: string[] = [];
+    lieux.forEach((lieu: Lieu) => {
+      if (!lieu.personnagesActuels) { manquePersonnagesActuels.push(lieu.id); }
+    });
+    if (manquePersonnagesActuels.length > 0) { console.warn("Des lieux n'ont pas de personnagesActuels !"); manquePersonnagesActuels.forEach(p => console.log(p)); }
   }
 
   majFromChild(newData: Data) {
