@@ -15,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 80px !important;
 }
 
 .nomLieu {
@@ -51,19 +52,29 @@
 .personnagesInside {
     position: absolute;
     top: -25px;
+    width: max-content;
+    max-width: 400px;
 }
 
-.personnagesInside img {
+.personnagesInside img,
+.changeLieu img {
     width: 50px;
     border: 1px solid black;
     border-radius: 100%;
     background-color: #202020;
     margin-right: 5px;
+    margin-bottom: 5px;
     transition: all 0.4s;
-    z-index:1;
+    z-index: 1;
 }
 
-.personnagesInside img:hover {
+.personnagesInside img:hover,
+.changeLieu img:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+.changeLieu p {
+    white-space: nowrap;
+    color: white;
 }

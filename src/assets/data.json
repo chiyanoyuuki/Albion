@@ -872,6 +872,23 @@
             "tournoi": true,
             "id": "gontrand",
             "desc": "Mercenaire originaire de Ghrain"
+        },
+        {
+            "x": 800,
+            "y": 1,
+            "xcombat": 800,
+            "ycombat": 1,
+            "nom": "Joshua Tronc",
+            "image": "Joshua Tronc",
+            "solo": true,
+            "etat": "",
+            "niveau": 3,
+            "pdvmax": 32,
+            "pdv": 32,
+            "manamax": 17,
+            "mana": 17,
+            "tournoi": false,
+            "id": "joshuatronc"
         }
     ],
     "quetesprincipales": [
@@ -961,8 +978,9 @@
         "desac": true,
         "parent": "",
         "personnagesActuels": [
-            "bjorncotesdefer",
-            "siennahurlevent"
+            "Bjorn Côtes de Fer",
+            "Sienna Hurlevent",
+            "Joshua Tronc"
         ],
         "pnjs": [
             {
@@ -1063,8 +1081,9 @@
             "desac": true,
             "parent": "",
             "personnagesActuels": [
-                "bjorncotesdefer",
-                "siennahurlevent"
+                "Bjorn Côtes de Fer",
+                "Sienna Hurlevent",
+                "Joshua Tronc"
             ],
             "pnjs": [
                 {
@@ -1113,7 +1132,8 @@
             "finy": 50,
             "desac": true,
             "parent": "map",
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "campdebandits",
@@ -1125,7 +1145,8 @@
             "finy": 70,
             "desac": false,
             "pnjs": [],
-            "parent": "map"
+            "parent": "map",
+            "personnagesActuels":[]
         },
         {
             "id": "escaliersCatacombes",
@@ -1137,7 +1158,8 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1149,7 +1171,8 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1161,7 +1184,8 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "arenedusk",
@@ -1173,7 +1197,8 @@
             "finx": 550,
             "finy": 50,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "dusk",
@@ -1185,7 +1210,8 @@
             "finx": 150,
             "finy": 140,
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "dusk",
@@ -1197,7 +1223,8 @@
             "finx": 340,
             "finy": 145,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "dusk",
@@ -1209,7 +1236,8 @@
             "finx": 300,
             "finy": 160,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "dusk",
@@ -1221,7 +1249,8 @@
             "finy": 135,
             "parent": "map",
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1233,7 +1262,8 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "entreegrottenord",
@@ -1247,7 +1277,7 @@
             "desac": false,
             "pnjs": [],
             "personnagesActuels": [
-                "lunastormwood"
+                "Luna Stormwood"
             ],
             "scale": 2
         },
@@ -1263,7 +1293,7 @@
             "desac": false,
             "pnjs": [],
             "personnagesActuels": [
-                "arlequin"
+                "Arlequin"
             ]
         },
         {
@@ -1276,7 +1306,8 @@
             "finx": 100,
             "finy": 60,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "fjorh",
@@ -1288,7 +1319,8 @@
             "finx": 208,
             "finy": 130,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "fjorh",
@@ -1300,7 +1332,8 @@
             "finx": 208,
             "finy": 130,
             "desac": true,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "fjorh",
@@ -1312,7 +1345,8 @@
             "finx": 212,
             "finy": 116,
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "fjorh",
@@ -1324,10 +1358,28 @@
             "finx": 265,
             "finy": 229,
             "desac": false,
-            "pnjs": [],
+            "pnjs": [
+                {
+                    "x": 1248,
+                    "y": 311,
+                    "xcombat": 800,
+                    "ycombat": 1,
+                    "nom": "Loup Sauvage 03",
+                    "image": "loupsauvage",
+                    "solo": false,
+                    "etat": "",
+                    "niveau": 3,
+                    "pdvmax": 24,
+                    "pdv": 24,
+                    "manamax": 10,
+                    "mana": 10,
+                    "tournoi": false,
+                    "id": "loup_3"
+                }
+            ],
             "personnagesActuels": [
-                "gandalfleroux",
-                "gontrand"
+                "Gandalf le Roux",
+                "Gontrand"
             ]
         },
         {
@@ -1340,7 +1392,8 @@
             "parent": "map",
             "finy": 69,
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "foretnordouest",
@@ -1352,7 +1405,8 @@
             "finx": 292,
             "finy": 140,
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "foretestfjorh",
@@ -1364,7 +1418,8 @@
             "parent": "map",
             "finy": 120,
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "parent": "ghrain",
@@ -1376,7 +1431,8 @@
             "finx": 100,
             "finy": 100,
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "ghrain",
@@ -1388,7 +1444,8 @@
             "finy": 135,
             "parent": "map",
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "haul",
@@ -1400,7 +1457,8 @@
             "finy": 129,
             "parent": "map",
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "haulisland",
@@ -1412,7 +1470,8 @@
             "finy": 100,
             "parent": "map",
             "desac": false,
-            "pnjs": []
+            "pnjs": [],
+            "personnagesActuels":[]
         },
         {
             "id": "plage",

@@ -15,6 +15,7 @@ export class MapComponent implements OnInit {
   public datatmp: Data;
   public focus: any;
   public personnagesActuels: Entite[];
+  public changingTo: Lieu | undefined;
 
   constructor() { }
 
@@ -22,16 +23,19 @@ export class MapComponent implements OnInit {
 
   }
 
+  //GET=================================================================
+
   getPersonnagesInside(lieu: Lieu) {
     let personnagesInside: Entite[] = [];
     const personnagesActuels = lieu.personnagesActuels;
-    if (!personnagesActuels || lieu.personnagesActuels.length == 0) { return personnagesInside; }
+    if ((!personnagesActuels || lieu.personnagesActuels.length == 0) && lieu.pnjs.length == 0) { return personnagesInside; }
     this.data.equipe.forEach((perso: Entite) => {
-      if (personnagesActuels.includes(perso.id)) { personnagesInside.push(perso); }
+      if (personnagesActuels.includes(perso.nom)) { personnagesInside.push(perso); }
     });
     this.data.pnjsNeutres.forEach((perso: Entite) => {
-      if (personnagesActuels.includes(perso.id)) { personnagesInside.push(perso); }
+      if (personnagesActuels.includes(perso.nom)) { personnagesInside.push(perso); }
     });
+    lieu.pnjs.forEach((entite: Entite) => personnagesInside.push(entite));
     return personnagesInside;
   }
 
@@ -39,16 +43,63 @@ export class MapComponent implements OnInit {
     return this.data.lieux.filter(lieu => lieu.parent == this.data.lieuActuel.id);
   }
 
+  public getEntitesPresentes(entites: Entite[]) {
+    return entites.filter((entite: Entite) =>
+      this.data.lieuActuel.personnagesActuels.includes(entite.nom)
+    );
+  }
+
+  //CLICKS==================================================================
+
+  clickRetour() {
+    this.datatmp = Object.assign({}, this.data);
+    this.datatmp.lieuActuel = this.datatmp.lieuActuel.ancienLieu;
+    this.maj();
+  }
+
   changeLieu(lieu: Lieu) {
-    if (this.focus != undefined) {
-      this.focus = undefined;
-      return;
-    }
+    this.changingTo = undefined;
     this.datatmp = Object.assign({}, this.data);
     lieu.ancienLieu = this.data.lieuActuel;
     this.datatmp.lieuActuel = lieu;
     this.maj();
   }
+
+  rentrerLieu(lieu: Lieu) {
+    this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
+  }
+
+  rentrerPerso(lieu: Lieu, perso: Entite) {
+    let personnagesActuels = this.data.lieuActuel.personnagesActuels;
+    let index = personnagesActuels.indexOf(perso.nom);
+    personnagesActuels.splice(index, 1);
+    lieu.personnagesActuels.push(perso.nom);
+  }
+
+  rentrerPnj(lieu: Lieu, perso: Entite) {
+    let personnagesActuels = this.data.lieuActuel.pnjs;
+    let index = personnagesActuels.indexOf(perso);
+    personnagesActuels.splice(index, 1);
+    lieu.pnjs.push(perso);
+  }
+
+  sortirPerso(lieu: Lieu, perso: Entite) {
+    if (this.data.lieuActuel.parent == "") {
+      perso.x = lieu.x;
+      perso.y = lieu.y;
+    }
+    else {
+      perso.xcombat = lieu.x;
+      perso.ycombat = lieu.y;
+    }
+
+    let personnagesActuels = lieu.personnagesActuels;
+    let index = personnagesActuels.indexOf(perso.nom);
+    if (index != -1) { personnagesActuels.splice(index, 1); this.data.lieuActuel.personnagesActuels.push(perso.nom); }
+    else { index = lieu.pnjs.indexOf(perso); lieu.pnjs.splice(index, 1); this.data.lieuActuel.pnjs.push(perso); }
+  }
+
+  //AUTRE=========================================================================
 
   public dragEnd($event: CdkDragEnd, lieu: Lieu) {
     let tmp = $event.source.getFreeDragPosition();
@@ -57,28 +108,6 @@ export class MapComponent implements OnInit {
       lieu.y = lieu.y + tmp.y;;
     }
     $event.source._dragRef.reset();
-  }
-
-  clickRetour() {
-    this.datatmp = Object.assign({}, this.data);
-    this.datatmp.lieuActuel = this.datatmp.lieuActuel.ancienLieu;
-    this.maj();
-  }
-
-  sortirPerso(lieu: Lieu, perso: Entite) {
-    if(this.data.lieuActuel.parent==""){
-      perso.x = lieu.x;
-      perso.y = lieu.y;
-    }
-    else{
-      perso.xcombat = lieu.x;
-      perso.ycombat = lieu.y;
-    }
-    
-
-    let personnagesActuels = lieu.personnagesActuels;
-    personnagesActuels.splice(personnagesActuels.indexOf(perso.id), 1);
-    this.data.lieuActuel.personnagesActuels.push(perso.id);
   }
 
   maj() {

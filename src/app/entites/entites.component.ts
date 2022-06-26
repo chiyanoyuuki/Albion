@@ -42,7 +42,7 @@ export class EntitesComponent implements OnInit {
   public getEntites() {
     if (this.type == "ennemis") { return this.entites; }
     return this.entites.filter((entite: Entite) =>
-      this.data.lieuActuel.personnagesActuels.includes(entite.id)
+      this.data.lieuActuel.personnagesActuels.includes(entite.nom)
     );
   }
 
