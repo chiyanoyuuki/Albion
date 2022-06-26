@@ -14,6 +14,7 @@ export class MapComponent implements OnInit {
   public focus: any;
   public personnagesActuels: Entite[];
   public changingTo: Lieu | undefined;
+  public persoHovered: string[] = [];
 
   constructor() { }
 
@@ -56,7 +57,7 @@ export class MapComponent implements OnInit {
   changeLieu(lieu: Lieu) {
     this.changingTo = undefined;
     lieu.ancienLieu = this.data.lieuActuel;
-    this.data["lieuActuel"] = lieu;
+    this.data.lieuActuel = lieu;
   }
 
   rentrerLieu(lieu: Lieu) {

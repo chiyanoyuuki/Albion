@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   public data: any = DATA;
 
   ngOnInit() {
+    console.log(this.data);
     //Verifications
     //Entites non placées==================================================================
     const lieux: Lieu[] = this.data.lieux;

@@ -24,24 +24,29 @@
 
         <div class="changeLieu fenetre" *ngIf="changingTo==lieu">
             <p class="bigText">Qui rentre dans {{changingTo.nom}} ?</p>
-            <div class="flex">
+            <div class="line"></div>
+            <div class="flexCenter">
                 <img *ngFor="let perso of getEntitesPresentes(data.equipe)" draggable="false"
-                    (click)="rentrerPerso(lieu,perso)" src="./assets/images/{{perso.image}}m.png" />
-                <div>
-                </div>
+                    (click)="rentrerPerso(lieu,perso)" src="./assets/images/{{perso.image}}m.png"
+                    (mouseover)="persoHovered[0]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                    (mouseout)="persoHovered[0]=''" />
             </div>
-            <div class="flex">
+            <p class="nomPerso">{{persoHovered[0]}}</p>
+            <div class="flexCenter">
                 <img *ngFor="let perso of getEntitesPresentes(data.pnjsNeutres)" draggable="false"
-                    (click)="rentrerPerso(lieu,perso)" src="./assets/images/{{perso.image}}m.png" />
-                <div>
-                </div>
+                    (click)="rentrerPerso(lieu,perso)" src="./assets/images/{{perso.image}}m.png"
+                    (mouseover)="persoHovered[1]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                    (mouseout)="persoHovered[1]=''" />
             </div>
-            <div class="flex">
+            <p class="nomPerso">{{persoHovered[1]}}</p>
+            <div class="flexCenter">
                 <img *ngFor="let perso of data.lieuActuel.pnjs" draggable="false" (click)="rentrerPnj(lieu,perso)"
-                    src="./assets/images/{{perso.image}}m.png" />
-                <div>
-                </div>
+                    src="./assets/images/{{perso.image}}m.png"
+                    (mouseover)="persoHovered[2]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                    (mouseout)="persoHovered[2]=''" />
             </div>
+            <p class="nomPerso">{{persoHovered[2]}}</p>
+            <div class="line"></div>
             <p class="choix" (click)="changeLieu(lieu)">Entrer dans {{changingTo.nom}}</p>
         </div>
     </div>

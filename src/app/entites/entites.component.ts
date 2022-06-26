@@ -1,5 +1,5 @@
 import { Entite, Data } from '../model';
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -7,18 +7,24 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
   templateUrl: './entites.component.html',
   styleUrls: ['./entites.component.scss']
 })
-export class EntitesComponent implements OnInit {
+export class EntitesComponent implements OnInit, DoCheck {
 
   @Input() data: Data;
   @Input() type: string;
 
   public entites: any;
-  public datatmp: Data;
   public focus: any;
 
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  ngDoCheck(): void {
+    if (this.type == "personnages") { this.entites = this.data.equipe };
+    if (this.type == "pnjsNeutres") { this.entites = this.data.pnjsNeutres };
+    if (this.type == "ennemis") { this.entites = this.data.lieuActuel.pnjs };
   }
 
   public dragEnd($event: CdkDragEnd, perso: Entite) {
@@ -52,11 +58,5 @@ export class EntitesComponent implements OnInit {
 
   public clickPerso(perso: Entite) {
 
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (this.type == "personnages") { this.entites = this.data.equipe };
-    if (this.type == "pnjsNeutres") { this.entites = this.data.pnjsNeutres };
-    if (this.type == "ennemis") { this.entites = this.data.lieuActuel.pnjs };
   }
 }
