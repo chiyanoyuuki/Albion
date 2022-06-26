@@ -1,13 +1,13 @@
 Idées Charles
 
 - Position d'arrivée sur chaque map
-- Amelioration visuelle du bloc stats
+- Amelioration visuelle du bloc stats (paul)
 - Système d'ajout des entités 
 - Sauvegarde
 - Changer une entité de team
+- Séparer un maximum l'appli en composants pour faciliter les devs et surtout découper le code en microservices
 - Base de données ?
-- Création de village ?
 
 Idées Paul
 
-- 
+- Création de village ?

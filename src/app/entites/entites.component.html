@@ -13,7 +13,7 @@
                     <div class="flex pdvmanadiv">
                         <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
                         <div class="grouppdvmana">
-                            <img class="fill" draggable="false" src="./assets/images/pdvfill.PNG"
+                            <img class="fill" draggable="false" src="./assets/images/pdvfill{{(type=='ennemis'?'2':'')}}.PNG"
                                 [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
                             <img draggable="false" src="./assets/images/pdvmanabar.png" />
                         </div>

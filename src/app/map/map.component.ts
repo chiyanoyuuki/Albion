@@ -10,9 +10,7 @@ import { Data, Entite, Lieu } from '../model';
 export class MapComponent implements OnInit {
 
   @Input() data: Data;
-  @Output() newData = new EventEmitter<Data>();
 
-  public datatmp: Data;
   public focus: any;
   public personnagesActuels: Entite[];
   public changingTo: Lieu | undefined;
@@ -52,17 +50,13 @@ export class MapComponent implements OnInit {
   //CLICKS==================================================================
 
   clickRetour() {
-    this.datatmp = Object.assign({}, this.data);
-    this.datatmp.lieuActuel = this.datatmp.lieuActuel.ancienLieu;
-    this.maj();
+    this.data.lieuActuel = this.data.lieuActuel.ancienLieu;
   }
 
   changeLieu(lieu: Lieu) {
     this.changingTo = undefined;
-    this.datatmp = Object.assign({}, this.data);
     lieu.ancienLieu = this.data.lieuActuel;
-    this.datatmp.lieuActuel = lieu;
-    this.maj();
+    this.data["lieuActuel"] = lieu;
   }
 
   rentrerLieu(lieu: Lieu) {
@@ -109,15 +103,4 @@ export class MapComponent implements OnInit {
     }
     $event.source._dragRef.reset();
   }
-
-  maj() {
-    this.newData.emit(this.datatmp);
-    this.focus = undefined;
-  }
-
-  majFromChild(newData: Data) {
-    this.datatmp = newData;
-    this.maj();
-  }
-
 }
