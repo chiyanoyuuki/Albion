@@ -1,6 +1,6 @@
 import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Data, Entite, Lieu } from '../model';
+import { Data, Entite, Lieu, MenuContextuel } from '../model';
 
 @Component({
   selector: 'app-map',
@@ -15,6 +15,7 @@ export class MapComponent implements OnInit {
   public personnagesActuels: Entite[];
   public changingTo: Lieu | undefined;
   public persoHovered: string[] = [];
+  public menuContextuel: MenuContextuel | undefined;
 
   constructor() { }
 
@@ -50,21 +51,31 @@ export class MapComponent implements OnInit {
 
   //CLICKS==================================================================
 
+  clicMap() {
+    this.menuContextuel = undefined;
+    this.changingTo = undefined;
+    this.focus = undefined;
+  }
+
   clickRetour() {
+    this.menuContextuel = undefined;
     this.data.lieuActuel = this.data.lieuActuel.ancienLieu;
   }
 
   changeLieu(lieu: Lieu) {
+    this.menuContextuel = undefined;
     this.changingTo = undefined;
     lieu.ancienLieu = this.data.lieuActuel;
     this.data.lieuActuel = lieu;
   }
 
   rentrerLieu(lieu: Lieu) {
+    this.menuContextuel = undefined;
     this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
   }
 
   rentrerPerso(lieu: Lieu, perso: Entite) {
+    this.menuContextuel = undefined;
     let personnagesActuels = this.data.lieuActuel.personnagesActuels;
     let index = personnagesActuels.indexOf(perso.nom);
     personnagesActuels.splice(index, 1);
@@ -72,6 +83,7 @@ export class MapComponent implements OnInit {
   }
 
   rentrerPnj(lieu: Lieu, perso: Entite) {
+    this.menuContextuel = undefined;
     let personnagesActuels = this.data.lieuActuel.pnjs;
     let index = personnagesActuels.indexOf(perso);
     personnagesActuels.splice(index, 1);
@@ -79,6 +91,7 @@ export class MapComponent implements OnInit {
   }
 
   sortirPerso(lieu: Lieu, perso: Entite) {
+    this.menuContextuel = undefined;
     if (this.data.lieuActuel.parent == "") {
       perso.x = lieu.x;
       perso.y = lieu.y;
@@ -92,6 +105,12 @@ export class MapComponent implements OnInit {
     let index = personnagesActuels.indexOf(perso.nom);
     if (index != -1) { personnagesActuels.splice(index, 1); this.data.lieuActuel.personnagesActuels.push(perso.nom); }
     else { index = lieu.pnjs.indexOf(perso); lieu.pnjs.splice(index, 1); this.data.lieuActuel.pnjs.push(perso); }
+  }
+
+  clicDroitMap(event: MouseEvent) {
+    this.focus = undefined;
+    this.changingTo = undefined;
+    this.menuContextuel = { x: event.offsetX, y: event.offsetY };
   }
 
   //AUTRE=========================================================================

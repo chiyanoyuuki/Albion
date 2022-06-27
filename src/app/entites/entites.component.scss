@@ -18,28 +18,7 @@
     border: 1px solid black;
 }
 
-//PDVMANA ==================================
-.pdvmana p {
-    color: white;
-    font-weight: bold;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    z-index: 1;
-}
 
-.pdvmana img {
-    width: 100%;
-    height: 100%;
-}
-
-.fill {
-    position: absolute;
-}
-
-.grouppdvmana {
-    border: 1px solid black;
-}
 
 //TEXTES =====================================
 .text {
@@ -103,9 +82,7 @@
 
 //AMIS =================================================
 
-.pnjsNeutres .text {
-    background-color: #a08300dd;
-}
+
 
 .pnjsNeutres .shadow {
     border: 1px solid #a08300dd;
@@ -113,9 +90,7 @@
 
 //ENNEMIS ==============================================
 
-.ennemis .text {
-    background-color: #8d0000dd;
-}
+
 
 .ennemis .shadow {
     border: 1px solid #8d0000dd;

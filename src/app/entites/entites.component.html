@@ -4,29 +4,10 @@
         [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (cdkDragEnded)="dragEnd($event,perso)"
         cdkDrag>
 
-        <div class="entite" (click)="perso.actif=!perso.actif">
-            <p class="text nom">{{perso.nom}}</p>
-            <p class="text etat">{{perso.etat?perso.etat:'Bonne santé'}}</p>
+        <!-- PARTIE INFOS =================================================== -->
 
-            <div class="flex bottomGroup">
-                <div class="pdvmana">
-                    <div class="flex pdvmanadiv">
-                        <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
-                        <div class="grouppdvmana">
-                            <img class="fill" draggable="false" src="./assets/images/pdvfill{{(type=='ennemis'?'2':'')}}.PNG"
-                                [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
-                            <img draggable="false" src="./assets/images/pdvmanabar.png" />
-                        </div>
-                    </div>
-                    <div class="flex pdvmanadiv">
-                        <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
-                        <div class="grouppdvmana">
-                            <img class="fill" draggable="false" src="./assets/images/manafill.PNG" />
-                            <img draggable="false" src="./assets/images/pdvmanabar.png" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="entite" (click)="perso.actif=!perso.actif">
+            <app-infos-entite [perso]="perso" [type]="type"></app-infos-entite>
         </div>
 
         <!-- IMAGE + SHADOW =================================================== -->
@@ -39,6 +20,10 @@
                 <div class="shadow " cdkDragHandle></div>
             </div>
         </div>
+
+        <!-- LEVEL =================================================== -->
+
+        <app-level [niveau]="perso.niveau"></app-level>
 
         <!-- STATS PERSO ACTIF ================================================= -->
 

@@ -1,0 +1,20 @@
+<div class="fenetre" [style.left]="menu.x+'px'" [style.top]="menu.y+'px'">
+    <p *ngIf="add==false" class="choix" (click)="add=true;">Ajouter une entité</p>
+    <div *ngIf="add==true">
+        <p>Ajouter une entité</p>
+        <div class="line"></div>
+        <div class="flex rulesContainer">
+            <p class="rules choix" *ngFor="let rule of rules" (click)="clickRule(rule)"
+                [style.color]="rule.active?'red':'white'">{{rule.nom}}</p>
+        </div>
+        <p>{{focus?focus.niveau + ' - ' + focus.nom:'&nbsp;'}}</p>
+        <div class="persos flex">
+            <div *ngFor="let entite of getEntitesPossibles()">
+                <app-icone-personnage [perso]="entite" (mouseover)="focus=entite" (mouseout)="focus=undefined">
+                </app-icone-personnage>
+                <p class="pv">{{entite.pdv}}</p>
+                <p class="pm">{{entite.mana}}</p>
+            </div>
+        </div>
+    </div>
+</div>

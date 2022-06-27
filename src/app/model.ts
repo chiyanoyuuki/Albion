@@ -40,7 +40,8 @@ export class Entite {
 	public solo: boolean;
 	public tournoi: boolean;
 	public id: string;
-	public type: string;}
+	public type: string;
+}
 
 export class Boutique {
 	public nom: string;
@@ -88,4 +89,14 @@ export class Tournoi {
 	public tour8: Combat[];
 	public tour4: Combat[];
 	public tour2: Combat[];
+}
+
+export class MenuContextuel {
+	public x: number;
+	public y: number;
+}
+
+export class Rule {
+	public nom: string;
+	public active: boolean;
 }
