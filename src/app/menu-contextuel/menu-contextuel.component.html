@@ -4,12 +4,16 @@
         <p>Ajouter une entité</p>
         <div class="line"></div>
         <div class="flex rulesContainer">
-            <p *ngFor="let letter of alphabet">{{letter}}</p>
+            <p *ngFor="let letter of alphabet" class="choix"
+                (click)="letterSelected==letter?letterSelected='':letterSelected=letter"
+                [style.color]="letterSelected==letter?'red':'white'">{{letter}}</p>
         </div>
         <div class="flex levels">
-            <p>Level :</p>
-            <p *ngFor="let level of levels">{{level}}</p>
+            <p class="level">Level :</p>
+            <p *ngFor="let level of levels" class="choix" (click)="levelSelected==level?levelSelected=0:levelSelected=level"
+                [style.color]="levelSelected==level?'red':'white'">{{level}}</p>
         </div>
+        <div class="line"></div>
         <div class="flex rulesContainer">
             <p class="rules choix" *ngFor="let rule of rules" (click)="clickRule(rule)"
                 [style.color]="rule.active?'red':'white'">{{rule.nom}}</p>

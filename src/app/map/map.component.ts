@@ -75,6 +75,7 @@ export class MapComponent implements OnInit {
   }
 
   rentrerPerso(lieu: Lieu, perso: Entite) {
+    this.persoHovered = [];
     this.menuContextuel = undefined;
     let personnagesActuels = this.data.lieuActuel.personnagesActuels;
     let index = personnagesActuels.indexOf(perso.nom);
@@ -83,6 +84,7 @@ export class MapComponent implements OnInit {
   }
 
   rentrerPnj(lieu: Lieu, perso: Entite) {
+    this.persoHovered = [];
     this.menuContextuel = undefined;
     let personnagesActuels = this.data.lieuActuel.pnjs;
     let index = personnagesActuels.indexOf(perso);
