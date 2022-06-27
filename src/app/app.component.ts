@@ -12,6 +12,10 @@ export class AppComponent implements OnInit {
   public data: any = DATA;
 
   ngOnInit() {
+    document.oncontextmenu = function() {
+      return false;
+    }
+
     console.log(this.data);
     //Verifications
     //Entites non placées==================================================================

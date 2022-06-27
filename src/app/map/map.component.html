@@ -1,9 +1,9 @@
 <div>
 
     <img draggable="false" class="retour clickable" [hidden]="data.lieuActuel.parent==''"
-        src="./assets/images/retour.png" (click)="clickRetour()" />
-    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png"
-        (click)="changingTo=undefined" />
+        src="./assets/images/retour.png" (click)="clickRetour()" (mouseover)="focus=undefined" />
+    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png" (click)="clicMap()"
+        (contextmenu)="clicDroitMap($event)" />
 
     <!-- ========================== LIEUX ========================== -->
 
@@ -16,8 +16,10 @@
         <p class="nomLieu" (mouseover)="focus=undefined">{{lieu.nom}}</p>
 
         <div class="personnagesInside">
-            <img *ngFor="let perso of getPersonnagesInside(lieu)" draggable="false" (click)="sortirPerso(lieu,perso)"
-                src="./assets/images/{{perso.image}}m.png" (mouseover)="focus=perso" />
+            <div>
+                <app-icone-personnage *ngFor="let perso of getPersonnagesInside(lieu)" [perso]="perso"
+                    (mouseover)="focus=perso" (click)="sortirPerso(lieu,perso)"></app-icone-personnage>
+            </div>
         </div>
 
         <!-- ========================== FENETRE DE CHANGEMENT DE LIEU ========================== -->
@@ -26,24 +28,30 @@
             <p class="bigText">Qui rentre dans {{changingTo.nom}} ?</p>
             <div class="line"></div>
             <div class="flexCenter">
-                <img *ngFor="let perso of getEntitesPresentes(data.equipe)" draggable="false"
-                    (click)="rentrerPerso(lieu,perso)" src="./assets/images/{{perso.image}}m.png"
-                    (mouseover)="persoHovered[0]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                    (mouseout)="persoHovered[0]=''" />
+                <div>
+                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(data.equipe)" [perso]="perso"
+                        (mouseover)="focus=perso" (click)="rentrerPerso(lieu,perso)"
+                        (mouseover)="persoHovered[0]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                        (mouseout)="persoHovered[0]=''"></app-icone-personnage>
+                </div>
             </div>
             <p class="nomPerso">{{persoHovered[0]}}</p>
             <div class="flexCenter">
-                <img *ngFor="let perso of getEntitesPresentes(data.pnjsNeutres)" draggable="false"
-                    (click)="rentrerPerso(lieu,perso)" src="./assets/images/{{perso.image}}m.png"
-                    (mouseover)="persoHovered[1]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                    (mouseout)="persoHovered[1]=''" />
+                <div>
+                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(data.pnjsNeutres)" [perso]="perso"
+                        (mouseover)="focus=perso" (click)="rentrerPerso(lieu,perso)"
+                        (mouseover)="persoHovered[1]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                        (mouseout)="persoHovered[1]=''"></app-icone-personnage>
+                </div>
             </div>
             <p class="nomPerso">{{persoHovered[1]}}</p>
             <div class="flexCenter">
-                <img *ngFor="let perso of data.lieuActuel.pnjs" draggable="false" (click)="rentrerPnj(lieu,perso)"
-                    src="./assets/images/{{perso.image}}m.png"
-                    (mouseover)="persoHovered[2]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                    (mouseout)="persoHovered[2]=''" />
+                <div>
+                    <app-icone-personnage *ngFor="let perso of data.lieuActuel.pnjs" [perso]="perso"
+                        (mouseover)="focus=perso" (click)="rentrerPnj(lieu,perso)"
+                        (mouseover)="persoHovered[2]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                        (mouseout)="persoHovered[2]=''"></app-icone-personnage>
+                </div>
             </div>
             <p class="nomPerso">{{persoHovered[2]}}</p>
             <div class="line"></div>
@@ -60,5 +68,9 @@
     <app-entites [data]="data" [type]="'ennemis'" class="entites">
     </app-entites>
 
+    <!-- ========================== MENU CONTEXTUEL ========================== -->
+
+    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data">
+    </app-menu-contextuel>
 
 </div>

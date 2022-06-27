@@ -1,0 +1,37 @@
+p {
+    color: white;
+    text-align: center;
+}
+
+.choix {
+    color: white;
+    white-space: nowrap;
+}
+
+.persos {
+    max-width: 500px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.pv {
+    color: green;
+}
+
+.pm {
+    color: #5050cc;
+}
+
+.rulesContainer * {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+.levels p {
+    margin-left: 5px;
+}

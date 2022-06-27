@@ -28,6 +28,10 @@ p {
     font-family: "Medieval2", Arial, Helvetica, sans-serif;
 }
 
+.absolute {
+    position: absolute;
+}
+
 .clickable:hover {
     cursor: pointer;
     border: 1px solid;
@@ -108,4 +112,20 @@ p {
 .choix:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+app-icone-personnage {
+    transition: all 0.4s;
+    display: inline-flex;
+    border-radius: 100%;
+}
+
+app-icone-personnage:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+app-level {
+    position: absolute;
+    z-index: 1;
 }
