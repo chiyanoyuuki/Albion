@@ -15,6 +15,10 @@ export class MenuContextuelComponent implements OnInit {
   public levels: number[];
   public alphabet: string[];
 
+  public letterSelected: string = "";
+  public levelSelected: number = 0;
+  public entitySelected: Entite | undefined = undefined;
+
   public rules: Rule[] = [
     { "nom": "OnlyPnjs", "active": false },
     { "nom": "OnlyMonstres", "active": false }
@@ -38,6 +42,9 @@ export class MenuContextuelComponent implements OnInit {
 
     if (this.rules[0].active) { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }
     else if (this.rules[1].active) { entitesPossibles = entitesPossibles.filter((entite: Entite) => !entite.solo); }
+
+    if (this.letterSelected != "") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.nom.startsWith(this.letterSelected)); }
+    if (this.levelSelected != 0) { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.niveau == this.levelSelected); }
 
     return entitesPossibles.sort((a: Entite, b: Entite) => {
       return a.nom > b.nom ? 1 : -1;

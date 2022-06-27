@@ -9,7 +9,7 @@ p {
 }
 
 .persos {
-    max-width: 500px;
+    max-width: 560px;
     overflow-x: auto;
     overflow-y: hidden;
     padding: 5px;
@@ -27,11 +27,16 @@ p {
 
 .rulesContainer * {
     width: 100%;
-    margin-left: 5px;
-    margin-right: 5px;
-
 }
 
 .levels p {
     margin-left: 5px;
+}
+
+.level {
+    top: 8px;
+}
+
+.persos p {
+    font-size: 18px;
 }
