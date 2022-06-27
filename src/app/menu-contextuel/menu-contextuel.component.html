@@ -4,9 +4,17 @@
         <p>Ajouter une entité</p>
         <div class="line"></div>
         <div class="flex rulesContainer">
+            <p *ngFor="let letter of alphabet">{{letter}}</p>
+        </div>
+        <div class="flex levels">
+            <p>Level :</p>
+            <p *ngFor="let level of levels">{{level}}</p>
+        </div>
+        <div class="flex rulesContainer">
             <p class="rules choix" *ngFor="let rule of rules" (click)="clickRule(rule)"
                 [style.color]="rule.active?'red':'white'">{{rule.nom}}</p>
         </div>
+        <div class="line"></div>
         <p>{{focus?focus.niveau + ' - ' + focus.nom:'&nbsp;'}}</p>
         <div class="persos flex">
             <div *ngFor="let entite of getEntitesPossibles()">

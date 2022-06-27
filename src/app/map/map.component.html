@@ -2,8 +2,8 @@
 
     <img draggable="false" class="retour clickable" [hidden]="data.lieuActuel.parent==''"
         src="./assets/images/retour.png" (click)="clickRetour()" (mouseover)="focus=undefined" />
-    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png"
-        (click)="clicMap()" (contextmenu)="clicDroitMap($event)" />
+    <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png" (click)="clicMap()"
+        (contextmenu)="clicDroitMap($event)" />
 
     <!-- ========================== LIEUX ========================== -->
 
@@ -70,7 +70,7 @@
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 
-    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data"
-        (mouseout)="false?menuContextuel=undefined:false"></app-menu-contextuel>
+    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data">
+    </app-menu-contextuel>
 
 </div>
