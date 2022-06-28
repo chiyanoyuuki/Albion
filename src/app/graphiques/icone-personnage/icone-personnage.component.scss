@@ -1,6 +1,6 @@
 img {
     width: 50px;
-    border: 1px solid black;
+    border: 2px ridge #202020;
     border-radius: 100%;
     background-color: #808080bb;
     z-index: 1;
@@ -9,4 +9,9 @@ img {
 app-level {
     top: -15px;
     left: 5px;
+}
+
+.selected{
+    border-color:red;
+    background-color: #ddd;
 }

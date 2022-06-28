@@ -10,7 +10,8 @@
         </div>
         <div class="flex levels">
             <p class="level">Level :</p>
-            <p *ngFor="let level of levels" class="choix" (click)="levelSelected==level?levelSelected=0:levelSelected=level"
+            <p *ngFor="let level of levels" class="choix"
+                (click)="levelSelected==level?levelSelected=0:levelSelected=level"
                 [style.color]="levelSelected==level?'red':'white'">{{level}}</p>
         </div>
         <div class="line"></div>
@@ -22,7 +23,8 @@
         <p>{{focus?focus.niveau + ' - ' + focus.nom:'&nbsp;'}}</p>
         <div class="persos flex">
             <div *ngFor="let entite of getEntitesPossibles()">
-                <app-icone-personnage [perso]="entite" (mouseover)="focus=entite" (mouseout)="focus=undefined">
+                <app-icone-personnage [perso]="entite" [selected]="entitySelected==entite" (mouseover)="focus=entite"
+                    (mouseout)="focus=undefined" (click)="entitySelected=entite">
                 </app-icone-personnage>
                 <p class="pv">{{entite.pdv}}</p>
                 <p class="pm">{{entite.mana}}</p>
