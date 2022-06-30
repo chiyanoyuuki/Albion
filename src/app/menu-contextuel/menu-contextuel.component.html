@@ -3,7 +3,7 @@
     <div *ngIf="add==true">
         <p>Ajouter une entité</p>
         <div class="line"></div>
-        <div class="flex rulesContainer">
+        <div class="flex levels">
             <p *ngFor="let letter of alphabet" class="choix"
                 (click)="letterSelected==letter?letterSelected='':letterSelected=letter"
                 [style.color]="letterSelected==letter?'red':'white'">{{letter}}</p>
@@ -14,17 +14,23 @@
                 (click)="levelSelected==level?levelSelected=0:levelSelected=level"
                 [style.color]="levelSelected==level?'red':'white'">{{level}}</p>
         </div>
-        <div class="line"></div>
-        <div class="flex rulesContainer">
-            <p class="rules choix" *ngFor="let rule of rules" (click)="clickRule(rule)"
-                [style.color]="rule.active?'red':'white'">{{rule.nom}}</p>
+        <div class="flex levels">
+            <p class="level">Type :</p>
+            <p *ngFor="let type of types" class="choix"
+                (click)="typeSelected==type?typeSelected=undefined:typeSelected=type"
+                [style.color]="typeSelected==type?'red':'white'">{{type}}</p>
         </div>
         <div class="line"></div>
+        <div class="flex levels">
+            <p class="level">Team :</p>
+            <p *ngFor="let equipe of teams" class="choix" (click)="teamSelected=equipe"
+                [style.color]="teamSelected==equipe?'red':'white'">{{equipe}}</p>
+        </div>
         <p>{{focus?focus.niveau + ' - ' + focus.nom:'&nbsp;'}}</p>
         <div class="persos flex">
             <div *ngFor="let entite of getEntitesPossibles()">
                 <app-icone-personnage [perso]="entite" [selected]="entitySelected==entite" (mouseover)="focus=entite"
-                    (mouseout)="focus=undefined" (click)="entitySelected=entite">
+                    (mouseout)="focus=undefined" (click)="clickEntite(entite)">
                 </app-icone-personnage>
                 <p class="pv">{{entite.pdv}}</p>
                 <p class="pm">{{entite.mana}}</p>

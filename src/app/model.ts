@@ -96,7 +96,8 @@ export class MenuContextuel {
 	public y: number;
 }
 
-export class Rule {
-	public nom: string;
-	public active: boolean;
+export class addEntity {
+	public menuContextuel: MenuContextuel;
+	public entite: Entite;
+	public team: string;
 }

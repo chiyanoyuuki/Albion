@@ -1,6 +1,6 @@
 import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Data, Entite, Lieu, MenuContextuel } from '../model';
+import { addEntity, Data, Entite, Lieu, MenuContextuel } from '../model';
 
 @Component({
   selector: 'app-map',
@@ -124,5 +124,22 @@ export class MapComponent implements OnInit {
       lieu.y = lieu.y + tmp.y;;
     }
     $event.source._dragRef.reset();
+  }
+
+  public majFromChild(addEntite: addEntity) {
+    this.menuContextuel = undefined;
+    addEntite.entite.x = addEntite.menuContextuel.x;
+    addEntite.entite.y = addEntite.menuContextuel.y;
+    if (addEntite.team == "Ami") {
+      this.data.equipe.push(addEntite.entite);
+      this.data.lieuActuel.personnagesActuels.push(addEntite.entite.nom);
+    }
+    else if (addEntite.team == "Neutre") {
+      this.data.pnjsNeutres.push(addEntite.entite);
+      this.data.lieuActuel.personnagesActuels.push(addEntite.entite.nom);
+    }
+    else {
+      this.data.lieuActuel.pnjs.push(addEntite.entite);
+    }
   }
 }

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Data } from '@angular/router';
-import { Entite, MenuContextuel, Rule } from '../model';
+import { addEntity, Entite, MenuContextuel } from '../model';
 
 @Component({
   selector: 'app-menu-contextuel',
@@ -12,17 +12,20 @@ export class MenuContextuelComponent implements OnInit {
   @Input() data: Data;
   @Input() menu: MenuContextuel;
 
-  public levels: number[];
-  public alphabet: string[];
+  @Output() majEvent = new EventEmitter<addEntity>();
+
 
   public letterSelected: string = "";
   public levelSelected: number = 0;
+  public typeSelected: string | undefined = undefined;
+  public teamSelected: string = "Neutre";
   public entitySelected: Entite | undefined = undefined;
 
-  public rules: Rule[] = [
-    { "nom": "OnlyPnjs", "active": false },
-    { "nom": "OnlyMonstres", "active": false }
-  ];
+  public alphabet: string[];
+  public levels: number[];
+  public types: string[] = ["PNJS", "Monstres"];
+  public teams: string[] = ["Ami", "Neutre", "Ennemi"];
+
   public focus: Entite | undefined;
   public add: boolean = false;
 
@@ -40,8 +43,8 @@ export class MenuContextuelComponent implements OnInit {
     this.data.pnjsNeutres.forEach((entite: Entite) => { pnjsActuels.push(entite.id); });
     this.data.pnjs.forEach((entite: Entite) => { if (!pnjsActuels.includes(entite.id)) { entitesPossibles.push(entite) } });
 
-    if (this.rules[0].active) { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }
-    else if (this.rules[1].active) { entitesPossibles = entitesPossibles.filter((entite: Entite) => !entite.solo); }
+    if (this.typeSelected == "PNJS") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }
+    else if (this.typeSelected == "Monstres") { entitesPossibles = entitesPossibles.filter((entite: Entite) => !entite.solo); }
 
     if (this.letterSelected != "") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.nom.startsWith(this.letterSelected)); }
     if (this.levelSelected != 0) { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.niveau == this.levelSelected); }
@@ -51,10 +54,17 @@ export class MenuContextuelComponent implements OnInit {
     });
   }
 
-  clickRule(rule: Rule) {
-    rule.active = !rule.active;
-    if (rule.nom == "OnlyMonstres") { this.rules[0].active = false; }
-    else if (rule.nom == "OnlyPnjs") { this.rules[1].active = false; }
+  clickEntite(entite: Entite) {
+    if (this.entitySelected != entite) {
+      this.entitySelected = entite;
+      return;
+    }
+    this.addEntity(entite);
+  }
+
+  addEntity(entite: Entite) {
+    const addEntity: addEntity = { entite: entite, menuContextuel: this.menu, team: this.teamSelected };
+    this.majEvent.emit(addEntity);
   }
 
 }
