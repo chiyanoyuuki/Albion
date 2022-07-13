@@ -343,8 +343,8 @@
         },
         {
             "id": "gandalfleroux",
-            "x": 1259,
-            "y": 945,
+            "x": 896,
+            "y": 492,
             "xcombat": 107,
             "ycombat": 225,
             "nom": "Gandalf le Roux",
@@ -856,8 +856,8 @@
     ],
     "pnjsNeutres": [
         {
-            "x": 1346,
-            "y": 268,
+            "x": 1056,
+            "y": 465,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Gontrand",
@@ -874,8 +874,8 @@
             "desc": "Mercenaire originaire de Ghrain"
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 769,
+            "y": 413,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Joshua Tronc",
@@ -980,7 +980,9 @@
         "personnagesActuels": [
             "Bjorn Côtes de Fer",
             "Sienna Hurlevent",
-            "Joshua Tronc"
+            "Joshua Tronc",
+            "Gandalf le Roux",
+            "Gontrand"
         ],
         "pnjs": [
             {
@@ -989,23 +991,6 @@
                 "xcombat": 800,
                 "ycombat": 1,
                 "nom": "Loup Sauvage 01",
-                "image": "loupsauvage",
-                "solo": false,
-                "etat": "",
-                "niveau": 3,
-                "pdvmax": 24,
-                "pdv": 24,
-                "manamax": 10,
-                "mana": 10,
-                "tournoi": false,
-                "id": "loup_3"
-            },
-            {
-                "x": 1423,
-                "y": 355,
-                "xcombat": 800,
-                "ycombat": 1,
-                "nom": "Loup Sauvage 02",
                 "image": "loupsauvage",
                 "solo": false,
                 "etat": "",
@@ -1376,10 +1361,7 @@
                     "id": "loup_3"
                 }
             ],
-            "personnagesActuels": [
-                "Gandalf le Roux",
-                "Gontrand"
-            ]
+            "personnagesActuels": []
         },
         {
             "id": "foretsudfjorh",
@@ -1405,7 +1387,25 @@
             "finx": 292,
             "finy": 140,
             "desac": false,
-            "pnjs": [],
+            "pnjs": [
+                {
+                    "x": 1423,
+                    "y": 355,
+                    "xcombat": 800,
+                    "ycombat": 1,
+                    "nom": "Loup Sauvage 02",
+                    "image": "loupsauvage",
+                    "solo": false,
+                    "etat": "",
+                    "niveau": 3,
+                    "pdvmax": 24,
+                    "pdv": 24,
+                    "manamax": 10,
+                    "mana": 10,
+                    "tournoi": false,
+                    "id": "loup_3"
+                }
+            ],
             "personnagesActuels": [],
             "scale": 2
         },

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Data } from '@angular/router';
 import { addEntity, Entite, MenuContextuel } from '../model';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-menu-contextuel',
@@ -15,6 +16,7 @@ export class MenuContextuelComponent implements OnInit {
   @Output() majEvent = new EventEmitter<addEntity>();
 
 
+  private setting = { element: { dynamicDownload: null as unknown as HTMLElement } }
   public letterSelected: string = "";
   public levelSelected: number = 0;
   public typeSelected: string | undefined = undefined;
@@ -65,6 +67,38 @@ export class MenuContextuelComponent implements OnInit {
   addEntity(entite: Entite) {
     const addEntity: addEntity = { entite: entite, menuContextuel: this.menu, team: this.teamSelected };
     this.majEvent.emit(addEntity);
+  }
+
+  //SAUVEGARDE
+
+  public sauvegarde() {
+    this.fakeValidateUserData().subscribe((res: any) => {
+      this.dyanmicDownloadByHtmlTag({
+        fileName: 'AlbionSave.json',
+        text: JSON.stringify(res)
+      });
+    });
+  }
+
+  private fakeValidateUserData() {
+    let sauvegarde = JSON.stringify(this.data);
+    return of(sauvegarde);
+  }
+
+  private dyanmicDownloadByHtmlTag(arg: {
+    fileName: string,
+    text: string
+  }) {
+    if (!this.setting.element.dynamicDownload) {
+      this.setting.element.dynamicDownload = document.createElement('a');
+    }
+    const element = this.setting.element.dynamicDownload;
+    const fileType = arg.fileName.indexOf('.json') > -1 ? 'text/json' : 'text/plain';
+    element.setAttribute('href', `data:${fileType};charset=utf-8,${encodeURIComponent(arg.text)}`);
+    element.setAttribute('download', arg.fileName);
+
+    var event = new MouseEvent("click");
+    element.dispatchEvent(event);
   }
 
 }
