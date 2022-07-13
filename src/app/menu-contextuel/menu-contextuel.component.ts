@@ -14,6 +14,7 @@ export class MenuContextuelComponent implements OnInit {
   @Input() menu: MenuContextuel;
 
   @Output() majEvent = new EventEmitter<addEntity>();
+  @Output() deleteEvent = new EventEmitter<string>();
 
 
   private setting = { element: { dynamicDownload: null as unknown as HTMLElement } }
@@ -23,6 +24,7 @@ export class MenuContextuelComponent implements OnInit {
   public teamSelected: string = "Neutre";
   public entitySelected: Entite;
   public monsterLevelSelected: { niveau: number, pdvmax: number, manamax: number } | undefined = undefined;
+  public delete: string = "Supprimer";
 
   public alphabet: string[];
   public levels: number[];
@@ -35,7 +37,7 @@ export class MenuContextuelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.levels = Array.from({ length: 8 }, (_, i) => i + 1);
+    this.levels = Array.from({ length: 9 }, (_, i) => i + 1);
     let alpha = Array.from(Array(26)).map((e, i) => i + 65);
     this.alphabet = alpha.map((x) => String.fromCharCode(x));
     this.entitySelected = this.getEntitesPossibles()[0];
@@ -73,8 +75,16 @@ export class MenuContextuelComponent implements OnInit {
   }
 
   addEntity() {
-      const addEntity: addEntity = { entite: this.entitySelected, menuContextuel: this.menu, team: this.teamSelected };
-      this.majEvent.emit(addEntity);
+    const addEntity: addEntity = { entite: this.entitySelected, menuContextuel: this.menu, team: this.teamSelected };
+    this.majEvent.emit(addEntity);
+  }
+
+  deletion() {
+    if (this.delete == "Supprimer") { this.delete = "Confirmer suppression"; }
+    else {
+      console.log("emit");
+      this.deleteEvent.emit();
+    }
   }
 
   getType() {

@@ -1,7 +1,8 @@
 <div class="fenetre" [style.left]="menu.x+'px'" [style.top]="menu.y+'px'">
     <div *ngIf="add==false">
-        <p class="choix" (click)="add=true;">Ajouter une entité</p>
-        <p class="choix" (click)="sauvegarde()">Sauvegarder</p>
+        <p *ngIf="menu.type=='map'" class="choix" (click)="add=true;">Ajouter une entité</p>
+        <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
+        <p *ngIf="menu.type=='entite'" class="choix" (click)="deletion()">{{delete}}</p>
     </div>
 
     <div *ngIf="add==true">

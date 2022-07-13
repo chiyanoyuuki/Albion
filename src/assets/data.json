@@ -2,10 +2,10 @@
     "equipe": [
         {
             "id": "lunastormwood",
-            "x": 904,
-            "y": 819,
-            "xcombat": 452,
-            "ycombat": 627,
+            "x": 366,
+            "y": 143,
+            "xcombat": 787,
+            "ycombat": 431,
             "nom": "Luna Stormwood",
             "histoire": "Origaire d'une grande famille d'alchimiste de la forêt d'aubelune au sud-est D'Albion dont le père est décédé et la mère à soudainement disparu il y plusieurs semaines. Luna se met donc en quête de retrouver sa mère, elle apprend que sa mère est parti vers le nord dans les montage pour étudier des phonèmes climatique étrange. Elle se met donc en route pour les montagnes, arrivée à l'endroit où la végétation a subis des changements inexplicable, Luna commence à s'interroger, après plusieurs jours de recherche, elle surprend une conversation avec un mercenaire et un homme qui vie dans les montagnes, ces deux personnes parlent d'une grosse pierre précieuse que le roi Herald recherche, après quelques instants, grâce aux recherches qu'elles a effectués ces jours précédents, elle commence à comprendre de quoi il s'agit et décide d'aller à la rencontre de ces deux hommes..",
             "classe": "sorciere",
@@ -174,8 +174,8 @@
             "id": "bjorncotesdefer",
             "x": 1166,
             "y": 959,
-            "xcombat": 107,
-            "ycombat": 105,
+            "xcombat": 1015,
+            "ycombat": 554,
             "nom": "Bjorn Côtes de Fer",
             "histoire": "Trapeur origaire des montagnes enneigées du nord D'Albion, Bjorn a vécu toute sa vie dans les montagnes, il vie de la chasse, de la pêche et de la vente de fourrure, il est accompagné depuis de nombreuses années par un loup blanc qu'il a recueilli bébé après qu'il ait malheureusement du tuer se mère pour survivre. Un jour où il était à la chasse, une tempête de neige se leva et forca Bjorn à se réfugier dans une grotte non loin de là. Cros blanc, le loup de Bjorn commenca à s'agiter après quelques instants, puis se mit à courir vers le fond de la grotte, Bjorn le suivi, les parois de la grotte commençaient à changer, les parois étaient devenues comme du cristal, Bjorn vi Croc blanc auprès d'une étrange grosse pierre bleu. Bjorn décida de la ramèner chez lui et de la cacher en pensant que cette pierre pourrait être précieuse. Après quelques temps, Bjorn remarqua des changements troublants sur la flore autour de chez lui et commenca à s'interroger, le lendemain il reçu la visite d'un mercenaire de renom à la recherche d'une pierre précieuse pour le Roi Herarld..",
             "classe": "trappeur",
@@ -343,10 +343,10 @@
         },
         {
             "id": "gandalfleroux",
-            "x": 896,
-            "y": 492,
-            "xcombat": 107,
-            "ycombat": 225,
+            "x": 665,
+            "y": 362,
+            "xcombat": 831,
+            "ycombat": 572,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
             "classe": "mercenaire",
@@ -513,10 +513,10 @@
         },
         {
             "id": "arlequin",
-            "x": 297,
-            "y": 558,
-            "xcombat": 107,
-            "ycombat": 345,
+            "x": 555,
+            "y": 118,
+            "xcombat": 919,
+            "ycombat": 445,
             "nom": "Arlequin",
             "histoire": "Arlequin vient de l'île de Sagüt au Sud-Ouest de Albion. Son île fut complètement détruite en quelques instants lorsqu'il n'avait que 10 ans. Il vagabonda ensuite en volant des provisions aux quatres coins du monde pour survivre. Il fît la connaissance d'un mâitre sabreur avec qui il apprit le maniement des lames pendant quelques années. Il obtint le magnifique Katana de son maître lorsqu'il décéda de vieillesse. Après cela, il rencontra un groupe d'aventuriers avec qui il passa quelques années. Un beau jour, ils se retrouvérent dans une embuscade et sans explication, Arlequin fût vendu aux assassins en échange de la vie du reste du groupe. Arlequin dût assassiner des centaines de personnes sur les ordres des assassins les années qui suivèrent. Il réussit à se débarasser de la totalité de ses ravisseurs avant de retourner vagabonder seul, désormais plus renfermé que jamais et ayant plus de difficulté à participer à des combats qu'il jugerait inutiles.",
             "classe": "assassin",
@@ -685,8 +685,8 @@
             "id": "siennahurlevent",
             "x": 782,
             "y": 738,
-            "xcombat": 107,
-            "ycombat": 465,
+            "xcombat": 692,
+            "ycombat": 501,
             "nom": "Sienna Hurlevent",
             "histoire": "Depuis son plus jeune age, Sienna a parcouru la forêt de XXX jusqu'à en reconnaitre les moindres changement dans la faune et la flore. Jeune druidesse elfe de 107 ans, elle a été formée aux arcanes de la magie de métamorphose par l'archimage Louge dans la plus grande discression. Les autres races ignores beaucoup de chose sur la vie des elfes après tout. Sienna s'est mis en tete de parcourir le monde au coté de son fidèle compagnon, Pipou l'écureuil. Elle a un but précis : trouver un remède pour guérir sa famille rongé par un maux qu'aucun elfe n'a encore vu auparavant.",
             "classe": "druide",
@@ -854,134 +854,7 @@
             ]
         }
     ],
-    "pnjsNeutres": [
-        {
-            "x": 1056,
-            "y": 465,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Gontrand",
-            "image": "Gontrand",
-            "solo": true,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 18,
-            "mana": 18,
-            "tournoi": true,
-            "id": "gontrand",
-            "desc": "Mercenaire originaire de Ghrain"
-        },
-        {
-            "x": 769,
-            "y": 413,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Joshua Tronc",
-            "image": "Joshua Tronc",
-            "solo": true,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 17,
-            "mana": 17,
-            "tournoi": false,
-            "id": "joshuatronc"
-        },
-        {
-            "x": 821,
-            "y": 222,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante 01",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 1,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 8,
-            "mana": 8,
-            "tournoi": false,
-            "id": "araignee_geante",
-            "overrideX": 20
-        },
-        {
-            "x": 650,
-            "y": 235,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Matriarche",
-            "image": "araigneeboss",
-            "solo": true,
-            "etat": "",
-            "niveau": 7,
-            "pdvmax": 64,
-            "pdv": 64,
-            "manamax": 26,
-            "mana": 26,
-            "tournoi": false,
-            "id": "araigneeboss",
-            "type": "boss",
-            "overrideX": 25
-        },
-        {
-            "x": 383,
-            "y": 411,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Assassin 01",
-            "image": "assassins",
-            "solo": false,
-            "etat": "",
-            "niveau": 1,
-            "pdvmax": 10,
-            "pdv": 10,
-            "manamax": 6,
-            "mana": 6,
-            "tournoi": false,
-            "id": "assassin",
-            "actif": false
-        },
-        {
-            "x": 232,
-            "y": 475,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Jeune Troll 01",
-            "image": "petittroll",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 40,
-            "pdv": 40,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "jeunetroll",
-            "overrideX": 35
-        },
-        {
-            "x": 555,
-            "y": 435,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant 01",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 1,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 8,
-            "mana": 8,
-            "tournoi": false,
-            "id": "rat_geant",
-            "overrideX": 5
-        }
-    ],
+    "pnjsNeutres": [],
     "quetesprincipales": [
         {
             "nom": "Un oeuf de dragon ?",
@@ -1059,46 +932,37 @@
         }
     ],
     "lieuActuel": {
-        "id": "map",
-        "nom": "map",
-        "image": "map",
-        "x": 0,
-        "y": 0,
-        "finx": 0,
-        "finy": 0,
-        "desac": true,
-        "parent": "",
+        "id": "fjorh",
+        "nom": "Fjorh",
+        "image": "Fjorh",
+        "parent": "map",
+        "x": 918,
+        "y": 377,
+        "finx": 265,
+        "finy": 229,
+        "desac": false,
+        "scale": 0.6,
+        "pnjs": [],
         "personnagesActuels": [
+            "Luna Stormwood",
             "Bjorn Côtes de Fer",
-            "Sienna Hurlevent",
-            "Joshua Tronc",
             "Gandalf le Roux",
-            "Gontrand",
-            "Araignée Géante 01",
-            "Araignée Matriarche",
-            "Assassin 01",
-            "Jeune Troll 01",
-            "Rat Géant 01"
+            "Arlequin",
+            "Sienna Hurlevent"
         ],
-        "pnjs": [
-            {
-                "x": 1248,
-                "y": 311,
-                "xcombat": 800,
-                "ycombat": 1,
-                "nom": "Loup Sauvage 01",
-                "image": "loupsauvage",
-                "solo": false,
-                "etat": "",
-                "niveau": 3,
-                "pdvmax": 24,
-                "pdv": 24,
-                "manamax": 10,
-                "mana": 10,
-                "tournoi": false,
-                "id": "loup_sauvage"
-            }
-        ]
+        "ancienLieu": {
+            "id": "map",
+            "nom": "map",
+            "image": "map",
+            "x": 0,
+            "y": 0,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "",
+            "personnagesActuels": [],
+            "pnjs": []
+        }
     },
     "boutiques": [
         {
@@ -1166,34 +1030,9 @@
             "personnagesActuels": [
                 "Bjorn Côtes de Fer",
                 "Sienna Hurlevent",
-                "Joshua Tronc",
-                "Gandalf le Roux",
-                "Gontrand",
-                "Araignée Géante 01",
-                "Araignée Matriarche",
-                "Assassin 01",
-                "Jeune Troll 01",
-                "Rat Géant 01"
+                "Gandalf le Roux"
             ],
-            "pnjs": [
-                {
-                    "x": 800,
-                    "y": 1,
-                    "xcombat": 800,
-                    "ycombat": 1,
-                    "nom": "Loup Sauvage 01",
-                    "image": "loupsauvage",
-                    "solo": false,
-                    "etat": "",
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "pdv": 24,
-                    "manamax": 10,
-                    "mana": 10,
-                    "tournoi": false,
-                    "id": "loup_sauvage"
-                }
-            ]
+            "pnjs": []
         },
         {
             "id": "boutiquearlequin",
@@ -1340,12 +1179,23 @@
             "finy": 70,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [
-                "Luna Stormwood"
-            ],
+            "personnagesActuels": [],
             "scale": 2,
             "enterx": 976,
-            "entery": 751
+            "entery": 751,
+            "ancienLieu": {
+                "id": "map",
+                "nom": "map",
+                "image": "map",
+                "x": 0,
+                "y": 0,
+                "finx": 0,
+                "finy": 0,
+                "desac": true,
+                "parent": "",
+                "personnagesActuels": [],
+                "pnjs": []
+            }
         },
         {
             "parent": "entreegrottenord",
@@ -1358,9 +1208,7 @@
             "finy": 200,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [
-                "Arlequin"
-            ]
+            "personnagesActuels": []
         },
         {
             "parent": "fjorh",
@@ -1428,26 +1276,27 @@
             "finy": 229,
             "desac": false,
             "scale": 0.6,
-            "pnjs": [
-                {
-                    "x": 1248,
-                    "y": 311,
-                    "xcombat": 800,
-                    "ycombat": 1,
-                    "nom": "Loup Sauvage 03",
-                    "image": "loupsauvage",
-                    "solo": false,
-                    "etat": "",
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "pdv": 24,
-                    "manamax": 10,
-                    "mana": 10,
-                    "tournoi": false,
-                    "id": "loup_3"
-                }
+            "pnjs": [],
+            "personnagesActuels": [
+                "Luna Stormwood",
+                "Bjorn Côtes de Fer",
+                "Gandalf le Roux",
+                "Arlequin",
+                "Sienna Hurlevent"
             ],
-            "personnagesActuels": []
+            "ancienLieu": {
+                "id": "map",
+                "nom": "map",
+                "image": "map",
+                "x": 0,
+                "y": 0,
+                "finx": 0,
+                "finy": 0,
+                "desac": true,
+                "parent": "",
+                "personnagesActuels": [],
+                "pnjs": []
+            }
         },
         {
             "id": "foretsudfjorh",
@@ -1473,25 +1322,7 @@
             "finx": 292,
             "finy": 140,
             "desac": false,
-            "pnjs": [
-                {
-                    "x": 1423,
-                    "y": 355,
-                    "xcombat": 800,
-                    "ycombat": 1,
-                    "nom": "Loup Sauvage 02",
-                    "image": "loupsauvage",
-                    "solo": false,
-                    "etat": "",
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "pdv": 24,
-                    "manamax": 10,
-                    "mana": 10,
-                    "tournoi": false,
-                    "id": "loup_3"
-                }
-            ],
+            "pnjs": [],
             "personnagesActuels": [],
             "scale": 2
         },

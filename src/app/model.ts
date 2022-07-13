@@ -96,6 +96,7 @@ export class Tournoi {
 export class MenuContextuel {
 	public x: number;
 	public y: number;
+	public type: string;
 }
 
 export class addEntity {

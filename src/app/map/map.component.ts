@@ -81,6 +81,7 @@ export class MapComponent implements OnInit {
     let index = personnagesActuels.indexOf(perso.nom);
     personnagesActuels.splice(index, 1);
     lieu.personnagesActuels.push(perso.nom);
+    this.majMap();
   }
 
   rentrerPnj(lieu: Lieu, perso: Entite) {
@@ -90,6 +91,12 @@ export class MapComponent implements OnInit {
     let index = personnagesActuels.indexOf(perso);
     personnagesActuels.splice(index, 1);
     lieu.pnjs.push(perso);
+    this.majMap();
+  }
+
+  majMap() {
+    let location = this.data.lieux.find((l: Lieu) => l.id == this.data.lieuActuel.id);
+    location = this.data.lieuActuel;
   }
 
   sortirPerso(lieu: Lieu, perso: Entite) {
@@ -105,14 +112,22 @@ export class MapComponent implements OnInit {
 
     let personnagesActuels = lieu.personnagesActuels;
     let index = personnagesActuels.indexOf(perso.nom);
-    if (index != -1) { personnagesActuels.splice(index, 1); this.data.lieuActuel.personnagesActuels.push(perso.nom); }
-    else { index = lieu.pnjs.indexOf(perso); lieu.pnjs.splice(index, 1); this.data.lieuActuel.pnjs.push(perso); }
+    if (index != -1) {
+      personnagesActuels.splice(index, 1);
+      this.data.lieuActuel.personnagesActuels.push(perso.nom);
+    }
+    else {
+      index = lieu.pnjs.indexOf(perso);
+      lieu.pnjs.splice(index, 1);
+      this.data.lieuActuel.pnjs.push(perso);
+    }
+    this.majMap();
   }
 
   clicDroitMap(event: MouseEvent) {
     this.focus = undefined;
     this.changingTo = undefined;
-    this.menuContextuel = { x: event.offsetX, y: event.offsetY };
+    this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" };
   }
 
   //AUTRE=========================================================================
@@ -159,5 +174,7 @@ export class MapComponent implements OnInit {
       this.data.lieuActuel.pnjs.push(addEntite.entite);
       this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.pnjs.push(addEntite.entite);
     }
+
+    this.majMap();
   }
 }
