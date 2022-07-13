@@ -41,6 +41,8 @@ export class Entite {
 	public tournoi: boolean;
 	public id: string;
 	public type: string;
+	public overrideX: number;
+	public levels: { niveau: number, pdvmax: number, manamax: number }[]
 }
 
 export class Boutique {

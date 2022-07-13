@@ -21,7 +21,8 @@ export class MenuContextuelComponent implements OnInit {
   public levelSelected: number = 0;
   public typeSelected: string | undefined = undefined;
   public teamSelected: string = "Neutre";
-  public entitySelected: Entite | undefined = undefined;
+  public entitySelected: Entite;
+  public monsterLevelSelected: { niveau: number, pdvmax: number, manamax: number } | undefined = undefined;
 
   public alphabet: string[];
   public levels: number[];
@@ -37,13 +38,15 @@ export class MenuContextuelComponent implements OnInit {
     this.levels = Array.from({ length: 8 }, (_, i) => i + 1);
     let alpha = Array.from(Array(26)).map((e, i) => i + 65);
     this.alphabet = alpha.map((x) => String.fromCharCode(x));
+    this.entitySelected = this.getEntitesPossibles()[0];
+
   }
 
   getEntitesPossibles() {
     let entitesPossibles: Entite[] = [];
     let pnjsActuels: string[] = [];
-    this.data.pnjsNeutres.forEach((entite: Entite) => { pnjsActuels.push(entite.id); });
-    this.data.pnjs.forEach((entite: Entite) => { if (!pnjsActuels.includes(entite.id)) { entitesPossibles.push(entite) } });
+    this.data.pnjsNeutres.forEach((entite: Entite) => { pnjsActuels.push(entite.nom); });
+    this.data.pnjs.forEach((entite: Entite) => { if (!pnjsActuels.includes(entite.nom)) { entitesPossibles.push(entite) } });
 
     if (this.typeSelected == "PNJS") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }
     else if (this.typeSelected == "Monstres") { entitesPossibles = entitesPossibles.filter((entite: Entite) => !entite.solo); }
@@ -51,22 +54,46 @@ export class MenuContextuelComponent implements OnInit {
     if (this.letterSelected != "") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.nom.startsWith(this.letterSelected)); }
     if (this.levelSelected != 0) { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.niveau == this.levelSelected); }
 
-    return entitesPossibles.sort((a: Entite, b: Entite) => {
+    entitesPossibles = entitesPossibles.sort((a: Entite, b: Entite) => {
       return a.nom > b.nom ? 1 : -1;
     });
+
+    return entitesPossibles;
   }
 
   clickEntite(entite: Entite) {
-    if (this.entitySelected != entite) {
-      this.entitySelected = entite;
+    if (this.entitySelected == undefined || this.entitySelected.nom != entite.nom) {
+      let entiteTmp = Object.assign({}, entite);
+      if (entite.levels) {
+        this.monsterLevelSelected = entite.levels[0];
+      }
+      this.entitySelected = entiteTmp;
       return;
     }
-    this.addEntity(entite);
   }
 
-  addEntity(entite: Entite) {
-    const addEntity: addEntity = { entite: entite, menuContextuel: this.menu, team: this.teamSelected };
-    this.majEvent.emit(addEntity);
+  addEntity() {
+    if (this.entitySelected) {
+      const addEntity: addEntity = { entite: this.entitySelected, menuContextuel: this.menu, team: this.teamSelected };
+      this.majEvent.emit(addEntity);
+    }
+  }
+
+  getType() {
+    if (this.teamSelected == "Neutre") { return "pnjsNeutres"; }
+    else if (this.teamSelected == "Ami") { return "team"; }
+    else { return "ennemis"; }
+  }
+
+  clickMonsterLevel(level: { niveau: number, pdvmax: number, manamax: number }) {
+    this.monsterLevelSelected = level;
+    if (this.entitySelected) {
+      this.entitySelected.niveau = level.niveau;
+      this.entitySelected.pdvmax = level.pdvmax;
+      this.entitySelected.pdv = level.pdvmax;
+      this.entitySelected.manamax = level.manamax;
+      this.entitySelected.mana = level.manamax;
+    }
   }
 
   //SAUVEGARDE

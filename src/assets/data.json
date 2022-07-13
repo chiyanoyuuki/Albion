@@ -889,6 +889,94 @@
             "mana": 17,
             "tournoi": false,
             "id": "joshuatronc"
+        },
+        {
+            "x": 821,
+            "y": 222,
+            "xcombat": 800,
+            "ycombat": 1,
+            "nom": "Araignée Géante 01",
+            "image": "araignee",
+            "solo": false,
+            "etat": "",
+            "niveau": 1,
+            "pdvmax": 20,
+            "pdv": 20,
+            "manamax": 8,
+            "mana": 8,
+            "tournoi": false,
+            "id": "araignee_1"
+        },
+        {
+            "x": 650,
+            "y": 235,
+            "xcombat": 800,
+            "ycombat": 1,
+            "nom": "Araignée Matriarche",
+            "image": "araigneeboss",
+            "solo": true,
+            "etat": "",
+            "niveau": 7,
+            "pdvmax": 64,
+            "pdv": 64,
+            "manamax": 26,
+            "mana": 26,
+            "tournoi": false,
+            "id": "araigneeboss",
+            "type": "boss"
+        },
+        {
+            "x": 383,
+            "y": 411,
+            "xcombat": 800,
+            "ycombat": 1,
+            "nom": "Assassin 01",
+            "image": "assassins",
+            "solo": false,
+            "etat": "",
+            "niveau": 1,
+            "pdvmax": 10,
+            "pdv": 10,
+            "manamax": 6,
+            "mana": 6,
+            "tournoi": false,
+            "id": "assassin_1",
+            "actif": false
+        },
+        {
+            "x": 232,
+            "y": 475,
+            "xcombat": 800,
+            "ycombat": 1,
+            "nom": "Jeune Troll 01",
+            "image": "petittroll",
+            "solo": false,
+            "etat": "",
+            "niveau": 4,
+            "pdvmax": 40,
+            "pdv": 40,
+            "manamax": 12,
+            "mana": 12,
+            "tournoi": false,
+            "id": "jeunetroll"
+        },
+        {
+            "x": 555,
+            "y": 435,
+            "xcombat": 800,
+            "ycombat": 1,
+            "nom": "Rat Géant 01",
+            "image": "Rat Geant",
+            "solo": false,
+            "etat": "",
+            "niveau": 1,
+            "pdvmax": 20,
+            "pdv": 20,
+            "manamax": 8,
+            "mana": 8,
+            "tournoi": false,
+            "id": "rat_geant",
+            "overrideX": 5
         }
     ],
     "quetesprincipales": [
@@ -982,7 +1070,12 @@
             "Sienna Hurlevent",
             "Joshua Tronc",
             "Gandalf le Roux",
-            "Gontrand"
+            "Gontrand",
+            "Araignée Géante 01",
+            "Araignée Matriarche",
+            "Assassin 01",
+            "Jeune Troll 01",
+            "Rat Géant 01"
         ],
         "pnjs": [
             {
@@ -1649,58 +1742,29 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "soldat_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Soldat",
-            "image": "Soldat",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "soldat_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Soldat",
-            "image": "Soldat",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "soldat_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Soldat",
-            "image": "Soldat",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "soldat_4"
+            "id": "soldat",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 10,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 16,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 20,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 24,
+                    "manamax": 12
+                }
+            ]
         },
         {
             "x": 800,
@@ -1717,58 +1781,29 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "archer_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Archer",
-            "image": "Archer",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "archer_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Archer",
-            "image": "Archer",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "archer_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Archer",
-            "image": "Archer",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "archer_4"
+            "id": "archer",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 6,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 12,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 16,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 20,
+                    "manamax": 12
+                }
+            ]
         },
         {
             "x": 800,
@@ -1785,58 +1820,29 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "chef_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Chef",
-            "image": "Chef",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "chef_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Chef",
-            "image": "Chef",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "chef_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Chef",
-            "image": "Chef",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 20,
-            "mana": 20,
-            "tournoi": false,
-            "id": "chef_4"
+            "id": "chef",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 14,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 18,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 26,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 32,
+                    "manamax": 20
+                }
+            ]
         },
         {
             "x": 800,
@@ -1912,8 +1918,8 @@
             "desc": "Petit chef d'un groupe d'asassins"
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 383,
+            "y": 411,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Assassin",
@@ -1926,58 +1932,30 @@
             "manamax": 6,
             "mana": 6,
             "tournoi": false,
-            "id": "assassin_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Assassin",
-            "image": "assassins",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 8,
-            "mana": 8,
-            "tournoi": false,
-            "id": "assassin_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Assassin",
-            "image": "assassins",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "assassin_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Assassin",
-            "image": "assassins",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "assassin_4"
+            "id": "assassin",
+            "actif": false,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 10,
+                    "manamax": 6
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 16,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 20,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 24,
+                    "manamax": 12
+                }
+            ]
         },
         {
             "x": 800,
@@ -2686,58 +2664,29 @@
             "manamax": 12,
             "mana": 12,
             "tournoi": false,
-            "id": "voleur_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Voleur",
-            "image": "Voleur",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "voleur_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Voleur",
-            "image": "Voleur",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 14,
-            "pdv": 14,
-            "manamax": 20,
-            "mana": 20,
-            "tournoi": false,
-            "id": "voleur_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Voleur",
-            "image": "Voleur",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 26,
-            "mana": 26,
-            "tournoi": false,
-            "id": "voleur_4"
+            "id": "voleur",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 8,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 12,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 14,
+                    "manamax": 20
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 18,
+                    "manamax": 26
+                }
+            ]
         },
         {
             "x": 800,
@@ -2832,8 +2781,8 @@
             "desc": "Le boss des assassins"
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 821,
+            "y": 222,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Araignée Géante",
@@ -2846,79 +2795,38 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "araignee_1"
+            "id": "araignee_geante",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 20,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 34,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 40,
+                    "manamax": 18
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 50,
+                    "manamax": 20
+                }
+            ]
         },
         {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "araignee_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 34,
-            "pdv": 34,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "araignee_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 40,
-            "pdv": 40,
-            "manamax": 18,
-            "mana": 18,
-            "tournoi": false,
-            "id": "araignee_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 5,
-            "pdvmax": 50,
-            "pdv": 50,
-            "manamax": 20,
-            "mana": 20,
-            "tournoi": false,
-            "id": "araignee_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
+            "x": 650,
+            "y": 235,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Araignée Matriarche",
@@ -2935,89 +2843,48 @@
             "type": "boss"
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 555,
+            "y": 435,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Rat Géant",
             "image": "Rat Geant",
             "solo": false,
             "etat": "",
+            "tournoi": false,
+            "id": "rat_geant",
             "niveau": 1,
             "pdvmax": 20,
             "pdv": 20,
             "manamax": 8,
             "mana": 8,
-            "tournoi": false,
-            "id": "rat_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "rat_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 34,
-            "pdv": 34,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "rat_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 40,
-            "pdv": 40,
-            "manamax": 18,
-            "mana": 18,
-            "tournoi": false,
-            "id": "rat_4"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 5,
-            "pdvmax": 50,
-            "pdv": 50,
-            "manamax": 20,
-            "mana": 20,
-            "tournoi": false,
-            "id": "rat_5"
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 20,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 34,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 40,
+                    "manamax": 18
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 50,
+                    "manamax": 20
+                }
+            ]
         },
         {
             "x": 800,
@@ -3056,8 +2923,8 @@
             "type": "megaboss"
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 232,
+            "y": 475,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Jeune Troll",
@@ -3180,75 +3047,34 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "loup_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Loup Sauvage",
-            "image": "loupsauvage",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "loup_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Loup Sauvage",
-            "image": "loupsauvage",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "loup_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Loup Sauvage",
-            "image": "loupsauvage",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "loup_4"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Loup Sauvage",
-            "image": "loupsauvage",
-            "solo": false,
-            "etat": "",
-            "niveau": 5,
-            "pdvmax": 36,
-            "pdv": 36,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "loup_5"
+            "id": "loup",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 12,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 18,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 24,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 36,
+                    "manamax": 16
+                }
+            ]
         },
         {
             "x": 800,

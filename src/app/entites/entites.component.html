@@ -14,10 +14,13 @@
 
         <div class="containerPerso"
             [style.top]="(this.data.lieuActuel.scale&&this.data.lieuActuel.scale>1?(this.data.lieuActuel.scale)*20+79+'px':'84px')"
-            [style.transform]="'scale(' + (this.data.lieuActuel.scale?this.data.lieuActuel.scale:1) + ')'">
+            [style.transform]="'scale(' + (this.data.lieuActuel.scale?this.data.lieuActuel.scale:1) + ')'"
+            [style.left]="(perso.overrideX?perso.overrideX+'%':'40%')">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img class="imageperso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
-                <div class="shadow " cdkDragHandle></div>
+                <div class="flexCenter">
+                    <div class="shadow " cdkDragHandle></div>
+                </div>
             </div>
         </div>
 

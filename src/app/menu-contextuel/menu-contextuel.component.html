@@ -30,15 +30,34 @@
             <p *ngFor="let equipe of teams" class="choix" (click)="teamSelected=equipe"
                 [style.color]="teamSelected==equipe?'red':'white'">{{equipe}}</p>
         </div>
+        <div class="flex levels">
+            <p class="level">Level :</p>
+            <div *ngIf="entitySelected!=undefined" class="flex">
+                <p class="choixSansTransi" *ngIf="!entitySelected.levels">Un seul niveau disponible</p>
+                <p *ngFor="let level of entitySelected.levels" class="choix" (click)="clickMonsterLevel(level)"
+                    [style.color]="monsterLevelSelected==level?'red':'white'">{{level.niveau}}</p>
+            </div>
+
+        </div>
+        <div class="apercu" *ngIf="entitySelected">
+            <app-infos-entite [perso]="entitySelected" [type]="getType()">
+            </app-infos-entite>
+            <!-- LEVEL =================================================== -->
+
+            <app-level [niveau]="entitySelected.niveau"></app-level>
+
+        </div>
         <p>{{focus?focus.niveau + ' - ' + focus.nom:'&nbsp;'}}</p>
         <div class="persos flex">
             <div *ngFor="let entite of getEntitesPossibles()">
-                <app-icone-personnage [perso]="entite" [selected]="entitySelected==entite" (mouseover)="focus=entite"
+                <app-icone-personnage [perso]="entite"
+                    [selected]="entitySelected!=undefined&&entitySelected.nom==entite.nom" (mouseover)="focus=entite"
                     (mouseout)="focus=undefined" (click)="clickEntite(entite)">
                 </app-icone-personnage>
                 <p class="pv">{{entite.pdv}}</p>
                 <p class="pm">{{entite.mana}}</p>
             </div>
         </div>
+        <p class="choix" *ngIf="entitySelected!=undefined" (click)="addEntity()">Valider</p>
     </div>
 </div>
