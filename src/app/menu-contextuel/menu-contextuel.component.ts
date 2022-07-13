@@ -73,10 +73,8 @@ export class MenuContextuelComponent implements OnInit {
   }
 
   addEntity() {
-    if (this.entitySelected) {
       const addEntity: addEntity = { entite: this.entitySelected, menuContextuel: this.menu, team: this.teamSelected };
       this.majEvent.emit(addEntity);
-    }
   }
 
   getType() {

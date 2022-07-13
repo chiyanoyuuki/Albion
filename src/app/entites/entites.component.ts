@@ -41,7 +41,7 @@ export class EntitesComponent implements OnInit, DoCheck {
   }
 
   public isReverted(perso: Entite) {
-    return !perso.solo && Number(perso.nom.replace(/[a-zA-Z ]*/, "")) % 2 != 0;
+    return !perso.solo && Number(perso.nom.replace(/[^0-9]*/, "")) % 2 != 0;
   }
 
   public getEntites() {

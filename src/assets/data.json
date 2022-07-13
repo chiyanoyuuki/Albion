@@ -905,7 +905,8 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "araignee_1"
+            "id": "araignee_geante",
+            "overrideX": 20
         },
         {
             "x": 650,
@@ -923,7 +924,8 @@
             "mana": 26,
             "tournoi": false,
             "id": "araigneeboss",
-            "type": "boss"
+            "type": "boss",
+            "overrideX": 25
         },
         {
             "x": 383,
@@ -940,7 +942,7 @@
             "manamax": 6,
             "mana": 6,
             "tournoi": false,
-            "id": "assassin_1",
+            "id": "assassin",
             "actif": false
         },
         {
@@ -958,7 +960,8 @@
             "manamax": 12,
             "mana": 12,
             "tournoi": false,
-            "id": "jeunetroll"
+            "id": "jeunetroll",
+            "overrideX": 35
         },
         {
             "x": 555,
@@ -1093,7 +1096,7 @@
                 "manamax": 10,
                 "mana": 10,
                 "tournoi": false,
-                "id": "loup_3"
+                "id": "loup_sauvage"
             }
         ]
     },
@@ -1163,7 +1166,14 @@
             "personnagesActuels": [
                 "Bjorn Côtes de Fer",
                 "Sienna Hurlevent",
-                "Joshua Tronc"
+                "Joshua Tronc",
+                "Gandalf le Roux",
+                "Gontrand",
+                "Araignée Géante 01",
+                "Araignée Matriarche",
+                "Assassin 01",
+                "Jeune Troll 01",
+                "Rat Géant 01"
             ],
             "pnjs": [
                 {
@@ -1181,24 +1191,7 @@
                     "manamax": 10,
                     "mana": 10,
                     "tournoi": false,
-                    "id": "loup_3"
-                },
-                {
-                    "x": 800,
-                    "y": 1,
-                    "xcombat": 800,
-                    "ycombat": 1,
-                    "nom": "Loup Sauvage 02",
-                    "image": "loupsauvage",
-                    "solo": false,
-                    "etat": "",
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "pdv": 24,
-                    "manamax": 10,
-                    "mana": 10,
-                    "tournoi": false,
-                    "id": "loup_3"
+                    "id": "loup_sauvage"
                 }
             ]
         },
@@ -2796,6 +2789,7 @@
             "mana": 8,
             "tournoi": false,
             "id": "araignee_geante",
+            "overrideX": 20,
             "levels": [
                 {
                     "niveau": 1,
@@ -2840,7 +2834,8 @@
             "mana": 26,
             "tournoi": false,
             "id": "araigneeboss",
-            "type": "boss"
+            "type": "boss",
+            "overrideX": 25
         },
         {
             "x": 555,
@@ -2858,6 +2853,7 @@
             "pdv": 20,
             "manamax": 8,
             "mana": 8,
+            "overrideX": 5,
             "levels": [
                 {
                     "niveau": 1,
@@ -2920,7 +2916,8 @@
             "mana": 48,
             "tournoi": false,
             "id": "troll",
-            "type": "megaboss"
+            "type": "megaboss",
+            "overrideX": 35
         },
         {
             "x": 232,
@@ -2937,7 +2934,8 @@
             "manamax": 12,
             "mana": 12,
             "tournoi": false,
-            "id": "jeunetroll"
+            "id": "jeunetroll",
+            "overrideX": 35
         },
         {
             "x": 800,

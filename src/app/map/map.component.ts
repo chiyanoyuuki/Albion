@@ -130,16 +130,34 @@ export class MapComponent implements OnInit {
     this.menuContextuel = undefined;
     addEntite.entite.x = addEntite.menuContextuel.x;
     addEntite.entite.y = addEntite.menuContextuel.y;
+
+    if (!addEntite.entite.solo) {
+      const nomEntite = addEntite.entite.nom;
+      let nb = 1;
+      this.data.lieux.forEach((lieu: Lieu) => {
+        lieu.personnagesActuels.forEach((nom: string) => {
+          if (nom.startsWith(nomEntite)) { nb++; }
+        })
+        lieu.pnjs.forEach((entite: Entite) => {
+          if (entite.nom.startsWith(nomEntite)) { nb++; }
+        })
+      })
+      addEntite.entite.nom = addEntite.entite.nom + ' ' + ('0' + nb).slice(-2);
+    }
+
     if (addEntite.team == "Ami") {
       this.data.equipe.push(addEntite.entite);
       this.data.lieuActuel.personnagesActuels.push(addEntite.entite.nom);
+      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.personnagesActuels.push(addEntite.entite.nom);
     }
     else if (addEntite.team == "Neutre") {
       this.data.pnjsNeutres.push(addEntite.entite);
       this.data.lieuActuel.personnagesActuels.push(addEntite.entite.nom);
+      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.personnagesActuels.push(addEntite.entite.nom);
     }
     else {
       this.data.lieuActuel.pnjs.push(addEntite.entite);
+      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.pnjs.push(addEntite.entite);
     }
   }
 }
