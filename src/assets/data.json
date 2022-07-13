@@ -1721,7 +1721,8 @@
             "tournoi": false,
             "id": "kaynproks",
             "type": "boss",
-            "desc": "Un des 4 bras droits armés du roi de Fjorh"
+            "desc": "Un des 4 bras droits armés du roi de Fjorh",
+            "overrideX": 27
         },
         {
             "x": 800,
@@ -1905,7 +1906,8 @@
             "mana": 12,
             "tournoi": false,
             "id": "vladsams",
-            "desc": "Un assassin présent lors du raid du repaire à Fjorh"
+            "desc": "Un assassin présent lors du raid du repaire à Fjorh",
+            "overrideX": 29
         },
         {
             "x": 800,
@@ -1941,7 +1943,8 @@
             "mana": 7,
             "tournoi": true,
             "id": "klaskdrurf",
-            "desc": "Un des nains du tournoi de Dusk"
+            "desc": "Un des nains du tournoi de Dusk",
+            "overrideX": 25
         },
         {
             "x": 800,
@@ -2158,7 +2161,8 @@
             "mana": 15,
             "tournoi": true,
             "id": "olgadurst",
-            "desc": "Une des participantes du tournoi de Dusk"
+            "desc": "Une des participantes du tournoi de Dusk",
+            "overrideX": 32
         },
         {
             "x": 800,
@@ -2471,7 +2475,8 @@
             "manamax": 17,
             "mana": 17,
             "tournoi": false,
-            "id": "joshuatronc"
+            "id": "joshuatronc",
+            "overrideX": 33
         },
         {
             "x": 800,
@@ -2729,7 +2734,8 @@
             "mana": 26,
             "tournoi": false,
             "id": "ratboss",
-            "type": "boss"
+            "type": "boss",
+            "overrideX": 32
         },
         {
             "x": 800,
@@ -2802,7 +2808,8 @@
             "tournoi": false,
             "id": "painsakeru",
             "type": "boss",
-            "desc": "Le boss des Archers"
+            "desc": "Le boss des Archers",
+            "overrideX": 37
         },
         {
             "x": 800,
@@ -2840,7 +2847,8 @@
             "tournoi": false,
             "id": "dragon",
             "type": "megaboss",
-            "desc": "Le tout dernier dragon vivant"
+            "desc": "Le tout dernier dragon vivant",
+            "overrideX": 15
         },
         {
             "x": 800,
