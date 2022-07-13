@@ -59,19 +59,25 @@ export class MapComponent implements OnInit {
 
   clickRetour() {
     this.menuContextuel = undefined;
-    this.data.lieuActuel = this.data.lieuActuel.ancienLieu;
+    let lieutmp = this.data.lieux.find((lieu:Lieu)=>lieu.id==this.data.lieuActuel.parent);
+    if(lieutmp){this.data.lieuActuel=lieutmp;}
   }
 
   changeLieu(lieu: Lieu) {
     this.menuContextuel = undefined;
     this.changingTo = undefined;
-    lieu.ancienLieu = this.data.lieuActuel;
     this.data.lieuActuel = lieu;
   }
 
   rentrerLieu(lieu: Lieu) {
     this.menuContextuel = undefined;
-    this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
+    let nb = this.getEntitesPresentes(this.data.equipe).length + this.getEntitesPresentes(this.data.pnjsNeutres).length + this.getEntitesPresentes(this.data.lieuActuel.pnjs).length;
+    if (nb == 0) {
+      this.changeLieu(lieu);
+    }
+    else {
+      this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
+    }
   }
 
   rentrerPerso(lieu: Lieu, perso: Entite) {

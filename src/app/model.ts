@@ -74,7 +74,6 @@ export class Lieu {
 	public pnjs: Entite[];
 	public desac: boolean;
 	public parent: string;
-	public ancienLieu: Lieu;
 	public personnagesActuels: string[];
 	public scale: number;
 	public entreex: number;
