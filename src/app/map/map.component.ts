@@ -81,6 +81,30 @@ export class MapComponent implements OnInit {
   }
 
   rentrerPerso(lieu: Lieu, perso: Entite) {
+    if (lieu.startX && lieu.startY) {
+      perso.xcombat = lieu.startX;
+      perso.ycombat = lieu.startY;
+      lieu.personnagesActuels.forEach(nomPerso => {
+        let personnage = this.data.equipe.find(element => element.nom === nomPerso);
+        if (!personnage) {
+          personnage = this.data.pnjsNeutres.find(element => element.nom === nomPerso);
+        }
+        if (personnage) {
+          if (personnage.xcombat == lieu.startX && personnage.ycombat == lieu.startY) {
+            perso.xcombat = lieu.startX + 30 * lieu.scale;
+          }
+          else if (personnage.xcombat == lieu.startX + 30 * lieu.scale && personnage.ycombat == lieu.startY) {
+            perso.ycombat = lieu.startY + 30 * lieu.scale;
+            perso.xcombat = lieu.startX;
+          }
+        }
+      });
+      lieu.pnjs.forEach(personnage => {
+        if (personnage.xcombat === perso.xcombat && personnage.ycombat === perso.ycombat) {
+          perso.xcombat = lieu.startX + 30;
+        }
+      });
+    }
     this.persoHovered = [];
     this.menuContextuel = undefined;
     let personnagesActuels = this.data.lieuActuel.personnagesActuels;
@@ -91,6 +115,10 @@ export class MapComponent implements OnInit {
   }
 
   rentrerPnj(lieu: Lieu, perso: Entite) {
+    if (lieu.startX && lieu.startY) {
+      perso.xcombat = lieu.startX;
+      perso.ycombat = lieu.startY;
+    }
     this.persoHovered = [];
     this.menuContextuel = undefined;
     let personnagesActuels = this.data.lieuActuel.pnjs;

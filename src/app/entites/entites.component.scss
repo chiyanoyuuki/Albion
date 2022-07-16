@@ -101,16 +101,30 @@
     bottom: 100%;
     left: 50%;
     transform: translate(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
     width: 400%;
+    height: 400px;
+    overflow: scroll;
+}
+.container-block {
+    background-image: url("../../assets/fonts/fond.png");
+    border: 2px solid black;
     padding: 0.5rem;
-    padding-top: 1.5rem;
+    color: black;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    gap: 0.5rem;
-    border-radius: 6px;
+    align-items: center;
+    position: relative;
+}
+.container-block .edit{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.container-block .edit:hover{
+    color: red;
 }
 
 .container-stats button {
@@ -120,29 +134,171 @@
     cursor: pointer;
 }
 
-.container-stats .block-perso {
+.container-stats .container1{
+    width: 65%;
+    border-right: 2px solid black;
+    padding-right: 5px;
+}
+.container-stats .container1 .block1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.container-stats .container1 .block1 .minia{
+    position: relative;
+}
+.container-stats .container1 .block1 .minia img{
+    background-color: #ddd;
+    border-radius: 50%;
+    border: 1px solid darkgray;
+    width: 110px;;
+}
+.container-stats .container1 .block1 .minia .minia2 {
     position: absolute;
-    top: 0.5rem;
+    bottom: -20px;
+    left: -6px;
+    display: flex;
+    justify-content: center;
+}
+.container-stats .container1 .block1 .minia .minia2 ul{
+    display: flex;
+}
+.container-stats .container1 .block1 .minia .minia2 img{
+    background-color: #ddd;
+    border-radius: 50%;
+    border: 1px solid darkgray;
+    width:50px;
+    cursor: pointer;
+}
+.container-stats .container1 .block1 .info-base {
+    display: flex;
+    flex-flow: column;
+    gap: 0.3rem;
+}
+.container-stats .container1 .block2 div{
+    display: flex;
+    gap: 0.3rem;
+}
+.container-stats .container1 .block2 div img{
+    width: 50px;
+}
+
+.container-stats .container2{
+    width: 30%;
+}
+.container-stats .container2 .separator{
+    width: 90%;
+    height: 2px;
+    background-color: black;
+    margin: 0.5rem 0 0.5rem 0;
+}
+.container-stats .container2 ul li{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-stats .container3{
+    width: 100%;
+    display: flex;
+    margin: 1rem 0 0 0;
+    background-image: url("../../assets/fonts/fond_jaune_fonce.png");
+    border: 2px solid black;
+    margin-bottom: -2px;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
+.container-stats .container3 h3{
+    cursor: pointer;
+    color: black;
+    transition: all 0.2s;
+}
+.container-stats .container3 h3:hover{
+    color: red;
+}
+.container-stats .container3 .separator{
+    height: 25px;
+    width: 2px;
+    background-color: black;
+    margin: 0 1rem 0 1rem;
+}
+
+.container-stats .container4{
+    width: 100%;
+}
+.container-stats .container4 ul{
+    display: flex;
+    gap: 2px;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.container-stats .container4 ul li{
+    border: 2px solid black;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: black;
+    display: flex;
+    gap: 7px;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    position: relative;
+}
+.container-stats .container4 ul li img{
+    width: 100%;
+}
+.container-stats .container4 ul li p{
+    position: absolute;
+    top: 5px;
     left: 50%;
     transform: translate(-50%);
-    text-align: center;
 }
-
-.container-stats .block-forme {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-flow: row wrap;
+.container-stats .container4 ul li span{
+    padding: 0.2rem;
+    border: 1mm ridge rgba(59, 59, 59, 0.6);
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
 }
-
-.container-stats p {
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    gap: 0.4rem;
+.container-stats .container5 ul li{
+    margin-top: 1rem;
+}
+.container-stats .container6 ul li{
+    margin-top: 1rem;
 }
 
 .title {
     color: red;
     margin-bottom: 0.4rem;
+}
+
+//PDVMANA ==================================
+.pdvmana p {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.pdvmana img {
+    width: 100%;
+    height: 50%;
+}
+.grouppdvmana{
+    margin-bottom: -0.8rem;
+}
+.fill {
+    position: absolute;
+}
+
+.pnjsNeutres .text {
+    background-color: #a08300dd;
+}
+
+.ennemis .text {
+    background-color: #8d0000dd;
 }

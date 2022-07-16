@@ -18,7 +18,11 @@
             "mana": 40,
             "etat": "Bonne Santé",
             "formes": [
-                "Humain"
+                {
+                    "nom": "Humain",
+                    "image": "sorciere",
+                    "minia": "sorcierem"
+                }
             ],
             "forme": "Humain",
             "actif": false,
@@ -159,14 +163,6 @@
                 {
                     "nom": "",
                     "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
                 }
             ]
         },
@@ -180,6 +176,7 @@
             "histoire": "Trapeur origaire des montagnes enneigées du nord D'Albion, Bjorn a vécu toute sa vie dans les montagnes, il vie de la chasse, de la pêche et de la vente de fourrure, il est accompagné depuis de nombreuses années par un loup blanc qu'il a recueilli bébé après qu'il ait malheureusement du tuer se mère pour survivre. Un jour où il était à la chasse, une tempête de neige se leva et forca Bjorn à se réfugier dans une grotte non loin de là. Cros blanc, le loup de Bjorn commenca à s'agiter après quelques instants, puis se mit à courir vers le fond de la grotte, Bjorn le suivi, les parois de la grotte commençaient à changer, les parois étaient devenues comme du cristal, Bjorn vi Croc blanc auprès d'une étrange grosse pierre bleu. Bjorn décida de la ramèner chez lui et de la cacher en pensant que cette pierre pourrait être précieuse. Après quelques temps, Bjorn remarqua des changements troublants sur la flore autour de chez lui et commenca à s'interroger, le lendemain il reçu la visite d'un mercenaire de renom à la recherche d'une pierre précieuse pour le Roi Herarld..",
             "classe": "trappeur",
             "image": "trappeur",
+            "minia": "trappeurm",
             "team": true,
             "niveau": 3,
             "pdvmax": 30,
@@ -188,8 +185,16 @@
             "mana": 15,
             "etat": "Bonne Santé",
             "formes": [
-                "Humain",
-                "Loup Sinistre"
+                {
+                    "nom": "Humain",
+                    "image": "trappeur",
+                    "minia": "trappeurm"
+                },
+                {
+                    "nom": "Loup Sinistre",
+                    "image": "Loup Sinistre",
+                    "minia": "Loup Sinistrem"
+                }
             ],
             "forme": "Humain",
             "actif": false,
@@ -284,10 +289,6 @@
                     "qte": 1
                 },
                 {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
                     "nom": "Carquois Renforcé (50)",
                     "qte": 1
                 },
@@ -309,10 +310,6 @@
                 },
                 {
                     "nom": "Queue de Rat Patriarche",
-                    "qte": 1
-                },
-                {
-                    "nom": "",
                     "qte": 1
                 },
                 {
@@ -359,7 +356,11 @@
             "mana": 12,
             "etat": "Bonne Santé",
             "formes": [
-                "Humain"
+                {
+                    "nom": "Humain",
+                    "image": "mercenaire",
+                    "minia": "mercenairem"
+                }
             ],
             "forme": "Humain",
             "actif": false,
@@ -500,14 +501,6 @@
                 {
                     "nom": "",
                     "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
                 }
             ]
         },
@@ -529,7 +522,11 @@
             "mana": 26,
             "etat": "Bonne Santé",
             "formes": [
-                "Humain"
+                {
+                    "nom": "Humain",
+                    "image": "assassin",
+                    "minia": "assassinm"
+                }
             ],
             "forme": "Humain",
             "actif": false,
@@ -670,14 +667,6 @@
                 {
                     "nom": "",
                     "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
                 }
             ]
         },
@@ -699,9 +688,21 @@
             "mana": 28,
             "etat": "Bonne Santé",
             "formes": [
-                "Humain",
-                "Aigle",
-                "Ours"
+                {
+                    "nom": "Humain",
+                    "image": "Sienna",
+                    "minia": "Siennam"
+                },
+                {
+                    "nom": "Aigle",
+                    "image": "Aigle",
+                    "minia": "Aiglem"
+                },
+                {
+                    "nom": "Ours",
+                    "image": "Ours",
+                    "minia": "Oursm"
+                }
             ],
             "forme": "Humain",
             "actif": false,
@@ -893,7 +894,7 @@
         },
         {
             "nom": "Protection d'une espèce rare",
-            "perso": "Bjron Côtes de Fer",
+            "perso": "Bjorn Côtes de Fer",
             "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie.",
             "etat": "Protéger l'oeuf de dragon jusqu'à son éclosion",
             "etape": 1
@@ -1179,6 +1180,8 @@
             "image": "Dusk",
             "x": 869,
             "y": 771,
+            "startX": 1185,
+            "startY": 1065,
             "finx": 168,
             "finy": 135,
             "parent": "map",
@@ -1206,6 +1209,8 @@
             "parent": "map",
             "x": 421,
             "y": 51,
+            "startX": 1065,
+            "startY": 610,
             "finx": 70,
             "finy": 70,
             "desac": false,
@@ -1235,6 +1240,8 @@
             "image": "grotteNord",
             "x": 630,
             "y": 515,
+            "startX": 730,
+            "startY": 830,
             "finx": 160,
             "finy": 200,
             "desac": false,
@@ -1248,6 +1255,8 @@
             "image": "LabyrintheSouterrain",
             "x": 1220,
             "y": 260,
+            "startX": 210,
+            "startY": 640,
             "finx": 100,
             "finy": 60,
             "desac": true,
@@ -1262,6 +1271,8 @@
             "image": "Taverne",
             "x": 570,
             "y": 500,
+            "startX": 420,
+            "startY": 255,
             "finx": 208,
             "finy": 130,
             "desac": true,
@@ -1276,6 +1287,8 @@
             "image": "ShopArmor",
             "x": 700,
             "y": 250,
+            "startX": 940,
+            "startY": 395,
             "finx": 208,
             "finy": 130,
             "desac": true,
@@ -1290,6 +1303,8 @@
             "image": "Fort",
             "x": 120,
             "y": 250,
+            "startX": 25,
+            "startY": 180,
             "finx": 212,
             "finy": 116,
             "desac": false,
@@ -1303,6 +1318,8 @@
             "parent": "map",
             "x": 918,
             "y": 377,
+            "startX": 570,
+            "startY": 835,
             "finx": 265,
             "finy": 229,
             "desac": false,
@@ -1357,6 +1374,8 @@
             "image": "Foret",
             "x": 1348,
             "y": 526,
+            "startX": 20,
+            "startY": 365,
             "finx": 250,
             "parent": "map",
             "finy": 120,
@@ -1398,6 +1417,8 @@
             "image": "haul",
             "x": 552,
             "y": 297,
+            "startX": 250,
+            "startY": 775,
             "finx": 117,
             "finy": 129,
             "parent": "map",

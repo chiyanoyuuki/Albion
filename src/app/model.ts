@@ -69,6 +69,8 @@ export class Lieu {
 	public image: string;
 	public x: number;
 	public y: number;
+	public startX: number;
+	public startY: number;
 	public finx: number;
 	public finy: number;
 	public pnjs: Entite[];
