@@ -17,7 +17,7 @@ export class MapComponent implements OnInit {
   public persoHovered: string[] = [];
   public menuContextuel: MenuContextuel | undefined;
 
-  constructor() { }
+  constructor() {  }
 
   ngOnInit(): void {
 
