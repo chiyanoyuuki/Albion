@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Data } from '@angular/router';
-import { Entite, MenuContextuel, Rule } from '../model';
+import { addEntity, Entite, MenuContextuel } from '../model';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-menu-contextuel',
@@ -12,49 +13,127 @@ export class MenuContextuelComponent implements OnInit {
   @Input() data: Data;
   @Input() menu: MenuContextuel;
 
-  public levels: number[];
-  public alphabet: string[];
+  @Output() majEvent = new EventEmitter<addEntity>();
+  @Output() deleteEvent = new EventEmitter<string>();
 
+
+  private setting = { element: { dynamicDownload: null as unknown as HTMLElement } }
   public letterSelected: string = "";
   public levelSelected: number = 0;
-  public entitySelected: Entite | undefined = undefined;
+  public typeSelected: string | undefined = undefined;
+  public teamSelected: string = "Neutre";
+  public entitySelected: Entite;
+  public monsterLevelSelected: { niveau: number, pdvmax: number, manamax: number } | undefined = undefined;
+  public delete: string = "Supprimer";
 
-  public rules: Rule[] = [
-    { "nom": "OnlyPnjs", "active": false },
-    { "nom": "OnlyMonstres", "active": false }
-  ];
+  public alphabet: string[];
+  public levels: number[];
+  public types: string[] = ["PNJS", "Monstres"];
+  public teams: string[] = ["Ami", "Neutre", "Ennemi"];
+
   public focus: Entite | undefined;
   public add: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.levels = Array.from({ length: 8 }, (_, i) => i + 1);
+    this.levels = Array.from({ length: 9 }, (_, i) => i + 1);
     let alpha = Array.from(Array(26)).map((e, i) => i + 65);
     this.alphabet = alpha.map((x) => String.fromCharCode(x));
+    this.entitySelected = this.getEntitesPossibles()[0];
+
   }
 
   getEntitesPossibles() {
     let entitesPossibles: Entite[] = [];
     let pnjsActuels: string[] = [];
-    this.data.pnjsNeutres.forEach((entite: Entite) => { pnjsActuels.push(entite.id); });
-    this.data.pnjs.forEach((entite: Entite) => { if (!pnjsActuels.includes(entite.id)) { entitesPossibles.push(entite) } });
+    this.data.pnjsNeutres.forEach((entite: Entite) => { pnjsActuels.push(entite.nom); });
+    this.data.pnjs.forEach((entite: Entite) => { if (!pnjsActuels.includes(entite.nom)) { entitesPossibles.push(entite) } });
 
-    if (this.rules[0].active) { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }
-    else if (this.rules[1].active) { entitesPossibles = entitesPossibles.filter((entite: Entite) => !entite.solo); }
+    if (this.typeSelected == "PNJS") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }
+    else if (this.typeSelected == "Monstres") { entitesPossibles = entitesPossibles.filter((entite: Entite) => !entite.solo); }
 
     if (this.letterSelected != "") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.nom.startsWith(this.letterSelected)); }
     if (this.levelSelected != 0) { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.niveau == this.levelSelected); }
 
-    return entitesPossibles.sort((a: Entite, b: Entite) => {
+    entitesPossibles = entitesPossibles.sort((a: Entite, b: Entite) => {
       return a.nom > b.nom ? 1 : -1;
+    });
+
+    return entitesPossibles;
+  }
+
+  clickEntite(entite: Entite) {
+    if (this.entitySelected == undefined || this.entitySelected.nom != entite.nom) {
+      let entiteTmp = Object.assign({}, entite);
+      if (entite.levels) {
+        this.monsterLevelSelected = entite.levels[0];
+      }
+      this.entitySelected = entiteTmp;
+      return;
+    }
+  }
+
+  addEntity() {
+    const addEntity: addEntity = { entite: this.entitySelected, menuContextuel: this.menu, team: this.teamSelected };
+    this.majEvent.emit(addEntity);
+  }
+
+  deletion() {
+    if (this.delete == "Supprimer") { this.delete = "Confirmer suppression"; }
+    else {
+      console.log("emit");
+      this.deleteEvent.emit();
+    }
+  }
+
+  getType() {
+    if (this.teamSelected == "Neutre") { return "pnjsNeutres"; }
+    else if (this.teamSelected == "Ami") { return "team"; }
+    else { return "ennemis"; }
+  }
+
+  clickMonsterLevel(level: { niveau: number, pdvmax: number, manamax: number }) {
+    this.monsterLevelSelected = level;
+    if (this.entitySelected) {
+      this.entitySelected.niveau = level.niveau;
+      this.entitySelected.pdvmax = level.pdvmax;
+      this.entitySelected.pdv = level.pdvmax;
+      this.entitySelected.manamax = level.manamax;
+      this.entitySelected.mana = level.manamax;
+    }
+  }
+
+  //SAUVEGARDE
+
+  public sauvegarde() {
+    this.fakeValidateUserData().subscribe((res: any) => {
+      this.dyanmicDownloadByHtmlTag({
+        fileName: 'AlbionSave.json',
+        text: JSON.stringify(res)
+      });
     });
   }
 
-  clickRule(rule: Rule) {
-    rule.active = !rule.active;
-    if (rule.nom == "OnlyMonstres") { this.rules[0].active = false; }
-    else if (rule.nom == "OnlyPnjs") { this.rules[1].active = false; }
+  private fakeValidateUserData() {
+    let sauvegarde = JSON.stringify(this.data);
+    return of(sauvegarde);
+  }
+
+  private dyanmicDownloadByHtmlTag(arg: {
+    fileName: string,
+    text: string
+  }) {
+    if (!this.setting.element.dynamicDownload) {
+      this.setting.element.dynamicDownload = document.createElement('a');
+    }
+    const element = this.setting.element.dynamicDownload;
+    const fileType = arg.fileName.indexOf('.json') > -1 ? 'text/json' : 'text/plain';
+    element.setAttribute('href', `data:${fileType};charset=utf-8,${encodeURIComponent(arg.text)}`);
+    element.setAttribute('download', arg.fileName);
+
+    var event = new MouseEvent("click");
+    element.dispatchEvent(event);
   }
 
 }

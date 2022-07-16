@@ -1,4 +1,4 @@
-import { Entite, Data } from '../model';
+import { Entite, Data, MenuContextuel, Lieu } from '../model';
 import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
@@ -14,6 +14,8 @@ export class EntitesComponent implements OnInit, DoCheck {
 
   public entites: any;
   public focus: any;
+  public menuContextuel: MenuContextuel | undefined;
+  public persoMenuContextuel: Entite | undefined;
 
   constructor() { }
 
@@ -41,7 +43,7 @@ export class EntitesComponent implements OnInit, DoCheck {
   }
 
   public isReverted(perso: Entite) {
-    return !perso.solo && Number(perso.nom.replace(/[a-zA-Z ]*/, "")) % 2 != 0;
+    return !perso.solo && Number(perso.nom.replace(/[^0-9]*/, "")) % 2 != 0;
   }
 
   public getEntites() {
@@ -58,5 +60,42 @@ export class EntitesComponent implements OnInit, DoCheck {
 
   public clickPerso(perso: Entite) {
 
+  }
+
+  clicDroit(event: MouseEvent, perso: Entite) {
+    this.focus = undefined;
+    if (this.menuContextuel == undefined) {
+      this.persoMenuContextuel = perso;
+      this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "entite" };
+    }
+    else {
+      this.persoMenuContextuel = undefined;
+      this.menuContextuel = undefined;
+    }
+
+  }
+
+  public majFromChild() {
+    let entite = this.persoMenuContextuel;
+    if (!entite) { return }
+    if (this.type == "personnages") {
+      this.data.equipe.splice(this.data.equipe.indexOf(entite), 1);
+      this.data.lieuActuel.personnagesActuels.splice(this.data.lieuActuel.personnagesActuels.indexOf(entite.nom), 1);
+    }
+    else if (this.type == "pnjsNeutres") {
+      this.data.pnjsNeutres.splice(this.data.pnjsNeutres.indexOf(entite), 1);
+      this.data.lieuActuel.personnagesActuels.splice(this.data.lieuActuel.personnagesActuels.indexOf(entite.nom), 1);
+    }
+    else if (this.type == "ennemis") {
+      this.data.lieuActuel.pnjs.splice(this.data.lieuActuel.pnjs.indexOf(entite), 1);
+    }
+    this.persoMenuContextuel = undefined;
+    this.menuContextuel = undefined;
+    this.majMap();
+  }
+
+  majMap() {
+    let location = this.data.lieux.find((l: Lieu) => l.id == this.data.lieuActuel.id);
+    location = this.data.lieuActuel;
   }
 }

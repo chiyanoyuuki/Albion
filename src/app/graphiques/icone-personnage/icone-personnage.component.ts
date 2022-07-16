@@ -9,6 +9,7 @@ import { Entite } from '../../model';
 export class IconePersonnageComponent implements OnInit {
 
   @Input() perso: Entite;
+  @Input() selected: boolean;
 
   constructor() { }
 

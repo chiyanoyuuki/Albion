@@ -1,6 +1,6 @@
 import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Data, Entite, Lieu, MenuContextuel } from '../model';
+import { addEntity, Data, Entite, Lieu, MenuContextuel } from '../model';
 
 @Component({
   selector: 'app-map',
@@ -59,19 +59,25 @@ export class MapComponent implements OnInit {
 
   clickRetour() {
     this.menuContextuel = undefined;
-    this.data.lieuActuel = this.data.lieuActuel.ancienLieu;
+    let lieutmp = this.data.lieux.find((lieu:Lieu)=>lieu.id==this.data.lieuActuel.parent);
+    if(lieutmp){this.data.lieuActuel=lieutmp;}
   }
 
   changeLieu(lieu: Lieu) {
     this.menuContextuel = undefined;
     this.changingTo = undefined;
-    lieu.ancienLieu = this.data.lieuActuel;
     this.data.lieuActuel = lieu;
   }
 
   rentrerLieu(lieu: Lieu) {
     this.menuContextuel = undefined;
-    this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
+    let nb = this.getEntitesPresentes(this.data.equipe).length + this.getEntitesPresentes(this.data.pnjsNeutres).length + this.getEntitesPresentes(this.data.lieuActuel.pnjs).length;
+    if (nb == 0) {
+      this.changeLieu(lieu);
+    }
+    else {
+      this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
+    }
   }
 
   rentrerPerso(lieu: Lieu, perso: Entite) {
@@ -81,6 +87,7 @@ export class MapComponent implements OnInit {
     let index = personnagesActuels.indexOf(perso.nom);
     personnagesActuels.splice(index, 1);
     lieu.personnagesActuels.push(perso.nom);
+    this.majMap();
   }
 
   rentrerPnj(lieu: Lieu, perso: Entite) {
@@ -90,6 +97,12 @@ export class MapComponent implements OnInit {
     let index = personnagesActuels.indexOf(perso);
     personnagesActuels.splice(index, 1);
     lieu.pnjs.push(perso);
+    this.majMap();
+  }
+
+  majMap() {
+    let location = this.data.lieux.find((l: Lieu) => l.id == this.data.lieuActuel.id);
+    location = this.data.lieuActuel;
   }
 
   sortirPerso(lieu: Lieu, perso: Entite) {
@@ -105,14 +118,22 @@ export class MapComponent implements OnInit {
 
     let personnagesActuels = lieu.personnagesActuels;
     let index = personnagesActuels.indexOf(perso.nom);
-    if (index != -1) { personnagesActuels.splice(index, 1); this.data.lieuActuel.personnagesActuels.push(perso.nom); }
-    else { index = lieu.pnjs.indexOf(perso); lieu.pnjs.splice(index, 1); this.data.lieuActuel.pnjs.push(perso); }
+    if (index != -1) {
+      personnagesActuels.splice(index, 1);
+      this.data.lieuActuel.personnagesActuels.push(perso.nom);
+    }
+    else {
+      index = lieu.pnjs.indexOf(perso);
+      lieu.pnjs.splice(index, 1);
+      this.data.lieuActuel.pnjs.push(perso);
+    }
+    this.majMap();
   }
 
   clicDroitMap(event: MouseEvent) {
     this.focus = undefined;
     this.changingTo = undefined;
-    this.menuContextuel = { x: event.offsetX, y: event.offsetY };
+    this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" };
   }
 
   //AUTRE=========================================================================
@@ -124,5 +145,42 @@ export class MapComponent implements OnInit {
       lieu.y = lieu.y + tmp.y;;
     }
     $event.source._dragRef.reset();
+  }
+
+  public majFromChild(addEntite: addEntity) {
+    this.menuContextuel = undefined;
+    addEntite.entite.x = addEntite.menuContextuel.x;
+    addEntite.entite.y = addEntite.menuContextuel.y;
+
+    if (!addEntite.entite.solo) {
+      const nomEntite = addEntite.entite.nom;
+      let nb = 1;
+      this.data.lieux.forEach((lieu: Lieu) => {
+        lieu.personnagesActuels.forEach((nom: string) => {
+          if (nom.startsWith(nomEntite)) { nb++; }
+        })
+        lieu.pnjs.forEach((entite: Entite) => {
+          if (entite.nom.startsWith(nomEntite)) { nb++; }
+        })
+      })
+      addEntite.entite.nom = addEntite.entite.nom + ' ' + ('0' + nb).slice(-2);
+    }
+
+    if (addEntite.team == "Ami") {
+      this.data.equipe.push(addEntite.entite);
+      this.data.lieuActuel.personnagesActuels.push(addEntite.entite.nom);
+      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.personnagesActuels.push(addEntite.entite.nom);
+    }
+    else if (addEntite.team == "Neutre") {
+      this.data.pnjsNeutres.push(addEntite.entite);
+      this.data.lieuActuel.personnagesActuels.push(addEntite.entite.nom);
+      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.personnagesActuels.push(addEntite.entite.nom);
+    }
+    else {
+      this.data.lieuActuel.pnjs.push(addEntite.entite);
+      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.pnjs.push(addEntite.entite);
+    }
+
+    this.majMap();
   }
 }

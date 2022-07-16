@@ -2,10 +2,10 @@
     "equipe": [
         {
             "id": "lunastormwood",
-            "x": 904,
-            "y": 819,
-            "xcombat": 452,
-            "ycombat": 627,
+            "x": 366,
+            "y": 143,
+            "xcombat": 1716,
+            "ycombat": 611,
             "nom": "Luna Stormwood",
             "histoire": "Origaire d'une grande famille d'alchimiste de la forêt d'aubelune au sud-est D'Albion dont le père est décédé et la mère à soudainement disparu il y plusieurs semaines. Luna se met donc en quête de retrouver sa mère, elle apprend que sa mère est parti vers le nord dans les montage pour étudier des phonèmes climatique étrange. Elle se met donc en route pour les montagnes, arrivée à l'endroit où la végétation a subis des changements inexplicable, Luna commence à s'interroger, après plusieurs jours de recherche, elle surprend une conversation avec un mercenaire et un homme qui vie dans les montagnes, ces deux personnes parlent d'une grosse pierre précieuse que le roi Herald recherche, après quelques instants, grâce aux recherches qu'elles a effectués ces jours précédents, elle commence à comprendre de quoi il s'agit et décide d'aller à la rencontre de ces deux hommes..",
             "classe": "sorciere",
@@ -174,8 +174,8 @@
             "id": "bjorncotesdefer",
             "x": 1166,
             "y": 959,
-            "xcombat": 107,
-            "ycombat": 105,
+            "xcombat": 893,
+            "ycombat": 626,
             "nom": "Bjorn Côtes de Fer",
             "histoire": "Trapeur origaire des montagnes enneigées du nord D'Albion, Bjorn a vécu toute sa vie dans les montagnes, il vie de la chasse, de la pêche et de la vente de fourrure, il est accompagné depuis de nombreuses années par un loup blanc qu'il a recueilli bébé après qu'il ait malheureusement du tuer se mère pour survivre. Un jour où il était à la chasse, une tempête de neige se leva et forca Bjorn à se réfugier dans une grotte non loin de là. Cros blanc, le loup de Bjorn commenca à s'agiter après quelques instants, puis se mit à courir vers le fond de la grotte, Bjorn le suivi, les parois de la grotte commençaient à changer, les parois étaient devenues comme du cristal, Bjorn vi Croc blanc auprès d'une étrange grosse pierre bleu. Bjorn décida de la ramèner chez lui et de la cacher en pensant que cette pierre pourrait être précieuse. Après quelques temps, Bjorn remarqua des changements troublants sur la flore autour de chez lui et commenca à s'interroger, le lendemain il reçu la visite d'un mercenaire de renom à la recherche d'une pierre précieuse pour le Roi Herarld..",
             "classe": "trappeur",
@@ -343,10 +343,10 @@
         },
         {
             "id": "gandalfleroux",
-            "x": 1259,
-            "y": 945,
-            "xcombat": 107,
-            "ycombat": 225,
+            "x": 665,
+            "y": 362,
+            "xcombat": 688,
+            "ycombat": 530,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
             "classe": "mercenaire",
@@ -513,10 +513,10 @@
         },
         {
             "id": "arlequin",
-            "x": 297,
-            "y": 558,
-            "xcombat": 107,
-            "ycombat": 345,
+            "x": 555,
+            "y": 118,
+            "xcombat": 1294,
+            "ycombat": 516,
             "nom": "Arlequin",
             "histoire": "Arlequin vient de l'île de Sagüt au Sud-Ouest de Albion. Son île fut complètement détruite en quelques instants lorsqu'il n'avait que 10 ans. Il vagabonda ensuite en volant des provisions aux quatres coins du monde pour survivre. Il fît la connaissance d'un mâitre sabreur avec qui il apprit le maniement des lames pendant quelques années. Il obtint le magnifique Katana de son maître lorsqu'il décéda de vieillesse. Après cela, il rencontra un groupe d'aventuriers avec qui il passa quelques années. Un beau jour, ils se retrouvérent dans une embuscade et sans explication, Arlequin fût vendu aux assassins en échange de la vie du reste du groupe. Arlequin dût assassiner des centaines de personnes sur les ordres des assassins les années qui suivèrent. Il réussit à se débarasser de la totalité de ses ravisseurs avant de retourner vagabonder seul, désormais plus renfermé que jamais et ayant plus de difficulté à participer à des combats qu'il jugerait inutiles.",
             "classe": "assassin",
@@ -685,8 +685,8 @@
             "id": "siennahurlevent",
             "x": 782,
             "y": 738,
-            "xcombat": 107,
-            "ycombat": 465,
+            "xcombat": 486,
+            "ycombat": 529,
             "nom": "Sienna Hurlevent",
             "histoire": "Depuis son plus jeune age, Sienna a parcouru la forêt de XXX jusqu'à en reconnaitre les moindres changement dans la faune et la flore. Jeune druidesse elfe de 107 ans, elle a été formée aux arcanes de la magie de métamorphose par l'archimage Louge dans la plus grande discression. Les autres races ignores beaucoup de chose sur la vie des elfes après tout. Sienna s'est mis en tete de parcourir le monde au coté de son fidèle compagnon, Pipou l'écureuil. Elle a un but précis : trouver un remède pour guérir sa famille rongé par un maux qu'aucun elfe n'a encore vu auparavant.",
             "classe": "druide",
@@ -854,43 +854,7 @@
             ]
         }
     ],
-    "pnjsNeutres": [
-        {
-            "x": 1346,
-            "y": 268,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Gontrand",
-            "image": "Gontrand",
-            "solo": true,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 18,
-            "mana": 18,
-            "tournoi": true,
-            "id": "gontrand",
-            "desc": "Mercenaire originaire de Ghrain"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Joshua Tronc",
-            "image": "Joshua Tronc",
-            "solo": true,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 17,
-            "mana": 17,
-            "tournoi": false,
-            "id": "joshuatronc"
-        }
-    ],
+    "pnjsNeutres": [],
     "quetesprincipales": [
         {
             "nom": "Un oeuf de dragon ?",
@@ -968,56 +932,25 @@
         }
     ],
     "lieuActuel": {
-        "id": "map",
-        "nom": "map",
-        "image": "map",
-        "x": 0,
-        "y": 0,
-        "finx": 0,
+        "parent": "fjorh",
+        "id": "prisonfjorh",
+        "nom": "Prison de Fjorh",
+        "image": "prisonFjorh",
+        "x": 440,
+        "y": 230,
+        "finx": 165,
         "finy": 0,
-        "desac": true,
-        "parent": "",
+        "desac": false,
+        "pnjs": [],
         "personnagesActuels": [
+            "Luna Stormwood",
+            "Gandalf le Roux",
             "Bjorn Côtes de Fer",
-            "Sienna Hurlevent",
-            "Joshua Tronc"
+            "Arlequin",
+            "Sienna Hurlevent"
         ],
-        "pnjs": [
-            {
-                "x": 1248,
-                "y": 311,
-                "xcombat": 800,
-                "ycombat": 1,
-                "nom": "Loup Sauvage 01",
-                "image": "loupsauvage",
-                "solo": false,
-                "etat": "",
-                "niveau": 3,
-                "pdvmax": 24,
-                "pdv": 24,
-                "manamax": 10,
-                "mana": 10,
-                "tournoi": false,
-                "id": "loup_3"
-            },
-            {
-                "x": 1423,
-                "y": 355,
-                "xcombat": 800,
-                "ycombat": 1,
-                "nom": "Loup Sauvage 02",
-                "image": "loupsauvage",
-                "solo": false,
-                "etat": "",
-                "niveau": 3,
-                "pdvmax": 24,
-                "pdv": 24,
-                "manamax": 10,
-                "mana": 10,
-                "tournoi": false,
-                "id": "loup_3"
-            }
-        ]
+        "scale": 5,
+        "ancienLieu": "fjorh"
     },
     "boutiques": [
         {
@@ -1082,47 +1015,8 @@
             "parent": "",
             "entreex": 0,
             "entreey": 0,
-            "personnagesActuels": [
-                "Bjorn Côtes de Fer",
-                "Sienna Hurlevent",
-                "Joshua Tronc"
-            ],
-            "pnjs": [
-                {
-                    "x": 800,
-                    "y": 1,
-                    "xcombat": 800,
-                    "ycombat": 1,
-                    "nom": "Loup Sauvage 01",
-                    "image": "loupsauvage",
-                    "solo": false,
-                    "etat": "",
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "pdv": 24,
-                    "manamax": 10,
-                    "mana": 10,
-                    "tournoi": false,
-                    "id": "loup_3"
-                },
-                {
-                    "x": 800,
-                    "y": 1,
-                    "xcombat": 800,
-                    "ycombat": 1,
-                    "nom": "Loup Sauvage 02",
-                    "image": "loupsauvage",
-                    "solo": false,
-                    "etat": "",
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "pdv": 24,
-                    "manamax": 10,
-                    "mana": 10,
-                    "tournoi": false,
-                    "id": "loup_3"
-                }
-            ]
+            "personnagesActuels": [],
+            "pnjs": []
         },
         {
             "id": "boutiquearlequin",
@@ -1190,6 +1084,53 @@
             "desac": true,
             "pnjs": [],
             "personnagesActuels": []
+        },
+        {
+            "parent": "fjorh",
+            "id": "prisonfjorh",
+            "nom": "Prison de Fjorh",
+            "image": "prisonFjorh",
+            "x": 440,
+            "y": 230,
+            "finx": 165,
+            "finy": 0,
+            "desac": false,
+            "pnjs": [],
+            "personnagesActuels": [
+                "Luna Stormwood",
+                "Gandalf le Roux",
+                "Bjorn Côtes de Fer",
+                "Arlequin",
+                "Sienna Hurlevent"
+            ],
+            "scale": 4,
+            "ancienLieu": {
+                "id": "fjorh",
+                "nom": "Fjorh",
+                "image": "Fjorh",
+                "parent": "map",
+                "x": 918,
+                "y": 377,
+                "finx": 265,
+                "finy": 229,
+                "desac": false,
+                "scale": 0.6,
+                "pnjs": [],
+                "personnagesActuels": [],
+                "ancienLieu": {
+                    "id": "map",
+                    "nom": "map",
+                    "image": "map",
+                    "x": 0,
+                    "y": 0,
+                    "finx": 0,
+                    "finy": 0,
+                    "desac": true,
+                    "parent": "",
+                    "personnagesActuels": [],
+                    "pnjs": []
+                }
+            }
         },
         {
             "parent": "dusk",
@@ -1269,12 +1210,23 @@
             "finy": 70,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [
-                "Luna Stormwood"
-            ],
+            "personnagesActuels": [],
             "scale": 2,
             "enterx": 976,
-            "entery": 751
+            "entery": 751,
+            "ancienLieu": {
+                "id": "map",
+                "nom": "map",
+                "image": "map",
+                "x": 0,
+                "y": 0,
+                "finx": 0,
+                "finy": 0,
+                "desac": true,
+                "parent": "",
+                "personnagesActuels": [],
+                "pnjs": []
+            }
         },
         {
             "parent": "entreegrottenord",
@@ -1287,9 +1239,7 @@
             "finy": 200,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [
-                "Arlequin"
-            ]
+            "personnagesActuels": []
         },
         {
             "parent": "fjorh",
@@ -1357,29 +1307,21 @@
             "finy": 229,
             "desac": false,
             "scale": 0.6,
-            "pnjs": [
-                {
-                    "x": 1248,
-                    "y": 311,
-                    "xcombat": 800,
-                    "ycombat": 1,
-                    "nom": "Loup Sauvage 03",
-                    "image": "loupsauvage",
-                    "solo": false,
-                    "etat": "",
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "pdv": 24,
-                    "manamax": 10,
-                    "mana": 10,
-                    "tournoi": false,
-                    "id": "loup_3"
-                }
-            ],
-            "personnagesActuels": [
-                "Gandalf le Roux",
-                "Gontrand"
-            ]
+            "pnjs": [],
+            "personnagesActuels": [],
+            "ancienLieu": {
+                "id": "map",
+                "nom": "map",
+                "image": "map",
+                "x": 0,
+                "y": 0,
+                "finx": 0,
+                "finy": 0,
+                "desac": true,
+                "parent": "",
+                "personnagesActuels": [],
+                "pnjs": []
+            }
         },
         {
             "id": "foretsudfjorh",
@@ -1649,58 +1591,29 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "soldat_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Soldat",
-            "image": "Soldat",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "soldat_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Soldat",
-            "image": "Soldat",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "soldat_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Soldat",
-            "image": "Soldat",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "soldat_4"
+            "id": "soldat",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 10,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 16,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 20,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 24,
+                    "manamax": 12
+                }
+            ]
         },
         {
             "x": 800,
@@ -1717,58 +1630,29 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "archer_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Archer",
-            "image": "Archer",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "archer_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Archer",
-            "image": "Archer",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "archer_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Archer",
-            "image": "Archer",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "archer_4"
+            "id": "archer",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 6,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 12,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 16,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 20,
+                    "manamax": 12
+                }
+            ]
         },
         {
             "x": 800,
@@ -1785,58 +1669,29 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "chef_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Chef",
-            "image": "Chef",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "chef_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Chef",
-            "image": "Chef",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "chef_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Chef",
-            "image": "Chef",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 20,
-            "mana": 20,
-            "tournoi": false,
-            "id": "chef_4"
+            "id": "chef",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 14,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 18,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 26,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 32,
+                    "manamax": 20
+                }
+            ]
         },
         {
             "x": 800,
@@ -1891,7 +1746,8 @@
             "tournoi": false,
             "id": "kaynproks",
             "type": "boss",
-            "desc": "Un des 4 bras droits armés du roi de Fjorh"
+            "desc": "Un des 4 bras droits armés du roi de Fjorh",
+            "overrideX": 27
         },
         {
             "x": 800,
@@ -1912,8 +1768,8 @@
             "desc": "Petit chef d'un groupe d'asassins"
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 383,
+            "y": 411,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Assassin",
@@ -1926,58 +1782,30 @@
             "manamax": 6,
             "mana": 6,
             "tournoi": false,
-            "id": "assassin_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Assassin",
-            "image": "assassins",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 8,
-            "mana": 8,
-            "tournoi": false,
-            "id": "assassin_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Assassin",
-            "image": "assassins",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "assassin_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Assassin",
-            "image": "assassins",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "assassin_4"
+            "id": "assassin",
+            "actif": false,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 10,
+                    "manamax": 6
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 16,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 20,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 24,
+                    "manamax": 12
+                }
+            ]
         },
         {
             "x": 800,
@@ -2103,7 +1931,8 @@
             "mana": 12,
             "tournoi": false,
             "id": "vladsams",
-            "desc": "Un assassin présent lors du raid du repaire à Fjorh"
+            "desc": "Un assassin présent lors du raid du repaire à Fjorh",
+            "overrideX": 29
         },
         {
             "x": 800,
@@ -2139,7 +1968,8 @@
             "mana": 7,
             "tournoi": true,
             "id": "klaskdrurf",
-            "desc": "Un des nains du tournoi de Dusk"
+            "desc": "Un des nains du tournoi de Dusk",
+            "overrideX": 25
         },
         {
             "x": 800,
@@ -2356,7 +2186,8 @@
             "mana": 15,
             "tournoi": true,
             "id": "olgadurst",
-            "desc": "Une des participantes du tournoi de Dusk"
+            "desc": "Une des participantes du tournoi de Dusk",
+            "overrideX": 32
         },
         {
             "x": 800,
@@ -2669,7 +2500,8 @@
             "manamax": 17,
             "mana": 17,
             "tournoi": false,
-            "id": "joshuatronc"
+            "id": "joshuatronc",
+            "overrideX": 33
         },
         {
             "x": 800,
@@ -2686,58 +2518,29 @@
             "manamax": 12,
             "mana": 12,
             "tournoi": false,
-            "id": "voleur_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Voleur",
-            "image": "Voleur",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "voleur_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Voleur",
-            "image": "Voleur",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 14,
-            "pdv": 14,
-            "manamax": 20,
-            "mana": 20,
-            "tournoi": false,
-            "id": "voleur_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Voleur",
-            "image": "Voleur",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 26,
-            "mana": 26,
-            "tournoi": false,
-            "id": "voleur_4"
+            "id": "voleur",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 8,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 12,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 14,
+                    "manamax": 20
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 18,
+                    "manamax": 26
+                }
+            ]
         },
         {
             "x": 800,
@@ -2832,8 +2635,8 @@
             "desc": "Le boss des assassins"
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 821,
+            "y": 222,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Araignée Géante",
@@ -2846,79 +2649,39 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "araignee_1"
+            "id": "araignee_geante",
+            "overrideX": 20,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 20,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 34,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 40,
+                    "manamax": 18
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 50,
+                    "manamax": 20
+                }
+            ]
         },
         {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "araignee_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 34,
-            "pdv": 34,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "araignee_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 40,
-            "pdv": 40,
-            "manamax": 18,
-            "mana": 18,
-            "tournoi": false,
-            "id": "araignee_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Araignée Géante",
-            "image": "araignee",
-            "solo": false,
-            "etat": "",
-            "niveau": 5,
-            "pdvmax": 50,
-            "pdv": 50,
-            "manamax": 20,
-            "mana": 20,
-            "tournoi": false,
-            "id": "araignee_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
+            "x": 650,
+            "y": 235,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Araignée Matriarche",
@@ -2932,92 +2695,53 @@
             "mana": 26,
             "tournoi": false,
             "id": "araigneeboss",
-            "type": "boss"
+            "type": "boss",
+            "overrideX": 25
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 555,
+            "y": 435,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Rat Géant",
             "image": "Rat Geant",
             "solo": false,
             "etat": "",
+            "tournoi": false,
+            "id": "rat_geant",
             "niveau": 1,
             "pdvmax": 20,
             "pdv": 20,
             "manamax": 8,
             "mana": 8,
-            "tournoi": false,
-            "id": "rat_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "rat_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 34,
-            "pdv": 34,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "rat_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 40,
-            "pdv": 40,
-            "manamax": 18,
-            "mana": 18,
-            "tournoi": false,
-            "id": "rat_4"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Rat Géant",
-            "image": "Rat Geant",
-            "solo": false,
-            "etat": "",
-            "niveau": 5,
-            "pdvmax": 50,
-            "pdv": 50,
-            "manamax": 20,
-            "mana": 20,
-            "tournoi": false,
-            "id": "rat_5"
+            "overrideX": 5,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 20,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 34,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 40,
+                    "manamax": 18
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 50,
+                    "manamax": 20
+                }
+            ]
         },
         {
             "x": 800,
@@ -3035,7 +2759,8 @@
             "mana": 26,
             "tournoi": false,
             "id": "ratboss",
-            "type": "boss"
+            "type": "boss",
+            "overrideX": 32
         },
         {
             "x": 800,
@@ -3053,11 +2778,12 @@
             "mana": 48,
             "tournoi": false,
             "id": "troll",
-            "type": "megaboss"
+            "type": "megaboss",
+            "overrideX": 35
         },
         {
-            "x": 800,
-            "y": 1,
+            "x": 232,
+            "y": 475,
             "xcombat": 800,
             "ycombat": 1,
             "nom": "Jeune Troll",
@@ -3070,7 +2796,8 @@
             "manamax": 12,
             "mana": 12,
             "tournoi": false,
-            "id": "jeunetroll"
+            "id": "jeunetroll",
+            "overrideX": 35
         },
         {
             "x": 800,
@@ -3106,7 +2833,8 @@
             "tournoi": false,
             "id": "painsakeru",
             "type": "boss",
-            "desc": "Le boss des Archers"
+            "desc": "Le boss des Archers",
+            "overrideX": 37
         },
         {
             "x": 800,
@@ -3144,7 +2872,8 @@
             "tournoi": false,
             "id": "dragon",
             "type": "megaboss",
-            "desc": "Le tout dernier dragon vivant"
+            "desc": "Le tout dernier dragon vivant",
+            "overrideX": 15
         },
         {
             "x": 800,
@@ -3180,75 +2909,34 @@
             "manamax": 8,
             "mana": 8,
             "tournoi": false,
-            "id": "loup_1"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Loup Sauvage",
-            "image": "loupsauvage",
-            "solo": false,
-            "etat": "",
-            "niveau": 2,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "loup_2"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Loup Sauvage",
-            "image": "loupsauvage",
-            "solo": false,
-            "etat": "",
-            "niveau": 3,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 10,
-            "mana": 10,
-            "tournoi": false,
-            "id": "loup_3"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Loup Sauvage",
-            "image": "loupsauvage",
-            "solo": false,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 12,
-            "mana": 12,
-            "tournoi": false,
-            "id": "loup_4"
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
-            "nom": "Loup Sauvage",
-            "image": "loupsauvage",
-            "solo": false,
-            "etat": "",
-            "niveau": 5,
-            "pdvmax": 36,
-            "pdv": 36,
-            "manamax": 16,
-            "mana": 16,
-            "tournoi": false,
-            "id": "loup_5"
+            "id": "loup",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 12,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 18,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 24,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 36,
+                    "manamax": 16
+                }
+            ]
         },
         {
             "x": 800,

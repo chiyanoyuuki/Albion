@@ -2,7 +2,7 @@
     <div [ngClass]="{'container':true,'dead':perso.pdv<=0}" *ngFor="let perso of getEntites()"
         [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
         [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (cdkDragEnded)="dragEnd($event,perso)"
-        cdkDrag>
+        (contextmenu)="clicDroit($event, perso)" cdkDrag>
 
         <!-- PARTIE INFOS =================================================== -->
 
@@ -14,16 +14,26 @@
 
         <div class="containerPerso"
             [style.top]="(this.data.lieuActuel.scale&&this.data.lieuActuel.scale>1?(this.data.lieuActuel.scale)*20+79+'px':'84px')"
-            [style.transform]="'scale(' + (this.data.lieuActuel.scale?this.data.lieuActuel.scale:1) + ')'">
+            [style.transform]="'scale(' + (this.data.lieuActuel.scale?this.data.lieuActuel.scale:1) + ')'"
+            [style.left]="(perso.overrideX?perso.overrideX+'%':'40%')">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img class="imageperso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
-                <div class="shadow " cdkDragHandle></div>
+                <div class="flexCenter">
+                    <div class="shadow " cdkDragHandle></div>
+                </div>
             </div>
         </div>
 
         <!-- LEVEL =================================================== -->
 
         <app-level [niveau]="perso.niveau"></app-level>
+
+        <!-- ========================== MENU CONTEXTUEL ========================== -->
+
+        <app-menu-contextuel class="menuContextuel"
+            *ngIf="menuContextuel&&persoMenuContextuel&&persoMenuContextuel==perso" [menu]="menuContextuel"
+            [data]="data" (deleteEvent)="majFromChild()">
+        </app-menu-contextuel>
 
         <!-- STATS PERSO ACTIF ================================================= -->
 
