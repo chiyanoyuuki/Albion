@@ -30,11 +30,15 @@
 }
 
 //TEXTES =====================================
-.text {
+.text-etat{
     background-color: #000000bb;
     color: white;
     text-align: center;
     white-space: nowrap;
+    transition: all 0.4s;
+}
+.text-etat:hover{
+    color: rgb(255, 255, 160);
 }
 
 .nom {
@@ -48,4 +52,16 @@
 .nom,
 .pdvmanadiv p {
     font-family: "Medieval", Arial, Helvetica, sans-serif;
+    transition: all 0.4s;
+}
+.pdvmanadiv p:hover {
+    color: red;
+}
+.formulaire{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    border: 2px solid black;
+    z-index: 2;
+    display: flex;
 }

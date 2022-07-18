@@ -9,6 +9,7 @@ import { MenuContextuelComponent } from './menu-contextuel/menu-contextuel.compo
 import { IconePersonnageComponent } from './graphiques/icone-personnage/icone-personnage.component';
 import { LevelComponent } from './graphiques/level/level.component';
 import { InfosEntiteComponent } from './graphiques/infos-entite/infos-entite.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InfosEntiteComponent } from './graphiques/infos-entite/infos-entite.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DragDropModule
+    DragDropModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

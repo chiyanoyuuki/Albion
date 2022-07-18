@@ -3,10 +3,11 @@
     position: absolute;
     width: 140px;
     z-index: 100;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .entite {
-    overflow: hidden;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border: 1px solid transparent;
@@ -102,9 +103,7 @@
     left: 50%;
     transform: translate(-50%);
     width: 400%;
-    height: 415px;
-}
-.container-block {
+    height: 435px;
     background-image: url("../../assets/fonts/fond.png");
     border: 2px solid black;
     padding: 0.5rem;
@@ -113,73 +112,70 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
-.container-block .edit{
+.container-stats .formulaire{
     position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    z-index: 2;
 }
-.container-block .edit:hover{
-    color: red;
-}
-
-.container-stats button {
-    height: 18px;
-    width: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.container-stats .container1{
+.container-stats .info_perso{
     width: 65%;
     border-right: 2px solid black;
     padding-right: 5px;
 }
-.container-stats .container1 .block1 {
+.container-stats .info_perso .block1 {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
 }
-.container-stats .container1 .block1 .minia{
+.container-stats .info_perso .block1 .minia{
     position: relative;
 }
-.container-stats .container1 .block1 .minia img{
+.container-stats .info_perso .block1 .minia img{
     background-color: #ddd;
     border-radius: 50%;
     border: 1px solid darkgray;
     width: 110px;;
 }
-.container-stats .container1 .block1 .minia .minia2 {
+.container-stats .info_perso .block1 .minia .minia2 {
     position: absolute;
     bottom: -20px;
     left: -6px;
     display: flex;
     justify-content: center;
 }
-.container-stats .container1 .block1 .minia .minia2 ul{
+.container-stats .info_perso .block1 .minia .minia2 ul{
     display: flex;
 }
-.container-stats .container1 .block1 .minia .minia2 img{
+.container-stats .info_perso .block1 .minia .minia2 img{
     background-color: #ddd;
     border-radius: 50%;
     border: 1px solid darkgray;
     width:50px;
     cursor: pointer;
 }
-.container-stats .container1 .block1 .info-base {
+.container-stats .info_perso .block1 .info-base {
     display: flex;
     flex-flow: column;
     gap: 0.3rem;
 }
-.container-stats .container1 .block2 div{
+.container-stats .info_perso .block1 .info-base div p:hover{
+    cursor: pointer;
+    color: red;
+}
+.container-stats .info_perso .argent div{
     display: flex;
     gap: 0.3rem;
+    cursor: pointer;
 }
-.container-stats .container1 .block2 div img{
+.container-stats .info_perso .argent div:hover p{
+    color: red;
+}
+.container-stats .info_perso .argent div img{
     width: 50px;
 }
 
@@ -195,6 +191,10 @@
 .container-stats .container2 ul li{
     display: flex;
     justify-content: space-between;
+}
+.container-stats .container2 ul li p:hover{
+    cursor: pointer;
+    color: red;
 }
 
 .container-stats .container3{
@@ -255,9 +255,12 @@
 }
 .container-stats .container4 .ul .li p{
     position: absolute;
-    top: 5px;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
 }
 .container-stats .container4 .ul .li span{
     border: 1mm ridge rgba(255, 255, 255, 0.6);
@@ -269,6 +272,11 @@
 }
 .container-stats .container5 ul li{
     margin-top: 1rem;
+}
+.container-stats .container6 ul{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 130px;
 }
 .container-stats .container6 ul li{
     margin-top: 1rem;

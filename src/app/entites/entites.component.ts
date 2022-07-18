@@ -1,4 +1,4 @@
-import { Entite, Data, MenuContextuel, Lieu } from '../model';
+import { Entite, Data, MenuContextuel, Lieu, Objet } from '../model';
 import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
@@ -20,6 +20,10 @@ export class EntitesComponent implements OnInit, DoCheck {
   public menuContextuel: MenuContextuel | undefined;
   public persoMenuContextuel: Entite | undefined;
   public ongletActif: string = "inventaire";
+  public objetActif: Objet | undefined;
+  public formulaire: string;
+  public quantite: string;
+  public gain: string;
 
   constructor() { }
 
@@ -89,6 +93,64 @@ export class EntitesComponent implements OnInit, DoCheck {
       this.menuContextuel = undefined;
     }
 
+  }
+
+  form(perso: Entite){
+    if (!this.quantite.match(/^-?[0-9]+$/g)) {
+      return;
+    }
+    let quantiteNbr: number = Number(this.quantite);
+    if (this.formulaire == 'gold') {
+      perso.argent += quantiteNbr;
+      if (perso.argent < 0) {
+        perso.argent = 0; 
+      }
+    }else if (this.formulaire == 'pv') {
+      perso.pdv += quantiteNbr;
+      if (perso.pdv > perso.pdvmax) {
+        perso.pdv = perso.pdvmax;
+      }else if (perso.pdv < 0) {
+        perso.pdv = 0;
+      }
+    }else if (this.formulaire == 'mana') {
+      perso.mana += quantiteNbr;
+      if (perso.mana > perso.manamax) {
+        perso.mana = perso.manamax;
+      }else if (perso.mana < 0) {
+        perso.mana = 0;
+      }
+    }
+    this.formulaire = "";
+  }
+
+  clickGain(perso: Entite, clicked: string){
+    if (!this.gain) { 
+      this.gain = clicked; 
+    }else if (this.gain = clicked) {
+      if (clicked == 'Niveau') {
+        perso.niveau += 1;
+      }
+      perso.stats.forEach(element => {
+        if (element.nom == clicked) {
+          element.qte += 1;
+        }
+      });
+      perso.inventaire.forEach(element => {
+        if (element.nom == clicked) {
+          element.qte -= 1;
+          let item = perso.inventaire.find(objet => objet.nom == clicked);
+          if (element.qte == 0) {
+            if (item) {
+              item.nom = "";
+              item.image = "";
+            }
+          }else if (item && element.qte < 0) {
+            item.qte = 0;
+          }
+        }
+      });
+      this.gain = "";
+    }
   }
 
   public majFromChild() {
