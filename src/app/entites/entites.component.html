@@ -120,15 +120,13 @@
                     <h3 (click)="ongletActif = 'queteSecondaire'">Quêtes Secondaires</h3>
                 </div>
                 <div class="container4">
-                    <ul *ngIf="ongletActif == 'inventaire'">
-                        <li *ngFor="let stuff of perso.inventaire">
-                            <img src="./assets/images/{{ stuff.nom }}.png"/>
-                            <p *ngIf="stuff.nom">{{ stuff.nom }}</p>
-                            <div>
-                                <span *ngIf="stuff.nom">{{ stuff.qte }}</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <div *ngIf="ongletActif == 'inventaire'" class="ul">
+                        <div *ngFor="let stuff of perso.inventaire" class="li">
+                            <img class="fond_objet" src="./assets/images/vide_inventaire.png"/>
+                            <img class="objet" *ngIf="stuff.image" src="./assets/images/{{ stuff.nom }}.png"/>
+                            <span *ngIf="stuff.nom">{{ stuff.qte }}</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="container5">
                     <ul *ngIf="ongletActif == 'quetePrincipale'">

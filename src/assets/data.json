@@ -266,6 +266,7 @@
             "inventaire": [
                 {
                     "nom": "Pieges",
+                    "image": "Pieges",
                     "qte": 2
                 },
                 {
@@ -1318,8 +1319,33 @@
             "parent": "map",
             "x": 918,
             "y": 377,
-            "startX": 570,
-            "startY": 835,
+            "position_start": [
+                {
+                    "id": 0,
+                    "startX": 570,
+                    "startY": 835
+                },
+                {
+                    "id": 1,
+                    "startX": 585,
+                    "startY": 835
+                },
+                {
+                    "id": 2,
+                    "startX": 570,
+                    "startY": 820
+                },
+                {
+                    "id": 3,
+                    "startX": 570,
+                    "startY": 850
+                },
+                {
+                    "id": 4,
+                    "startX": 555,
+                    "startY": 835
+                }
+            ],
             "finx": 265,
             "finy": 229,
             "desac": false,

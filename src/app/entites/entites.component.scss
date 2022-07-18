@@ -102,8 +102,7 @@
     left: 50%;
     transform: translate(-50%);
     width: 400%;
-    height: 400px;
-    overflow: scroll;
+    height: 415px;
 }
 .container-block {
     background-image: url("../../assets/fonts/fond.png");
@@ -225,42 +224,48 @@
 .container-stats .container4{
     width: 100%;
 }
-.container-stats .container4 ul{
+.container-stats .container4 .ul{
     display: flex;
     gap: 2px;
     flex-flow: row wrap;
     justify-content: center;
 }
-.container-stats .container4 ul li{
+.container-stats .container4 .ul .li{
     border: 2px solid black;
     width: 50px;
     height: 50px;
     text-align: center;
     color: black;
     display: flex;
-    gap: 7px;
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
     font-size: 0.7rem;
     position: relative;
 }
-.container-stats .container4 ul li img{
-    width: 100%;
+.container-stats .container4 .ul .li .fond_objet{
+    width: 50px;
+    height: 50px;
 }
-.container-stats .container4 ul li p{
+.container-stats .container4 .ul .li .objet{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    margin: 5px;
+}
+.container-stats .container4 .ul .li p{
     position: absolute;
     top: 5px;
     left: 50%;
     transform: translate(-50%);
 }
-.container-stats .container4 ul li span{
-    padding: 0.2rem;
-    border: 1mm ridge rgba(59, 59, 59, 0.6);
+.container-stats .container4 .ul .li span{
+    border: 1mm ridge rgba(255, 255, 255, 0.6);
+    width: 10px;
     position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translate(-50%);
+    bottom: -5px;
+    right: -5px;
+    color: white;
 }
 .container-stats .container5 ul li{
     margin-top: 1rem;

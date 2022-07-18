@@ -1,6 +1,6 @@
 import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { addEntity, Data, Entite, Lieu, MenuContextuel } from '../model';
+import { addEntity, Data, Entite, Lieu, MenuContextuel, Position } from '../model';
 
 @Component({
   selector: 'app-map',
@@ -81,27 +81,34 @@ export class MapComponent implements OnInit {
   }
 
   rentrerPerso(lieu: Lieu, perso: Entite) {
-    if (lieu.startX && lieu.startY) {
-      perso.xcombat = lieu.startX;
-      perso.ycombat = lieu.startY;
-      lieu.personnagesActuels.forEach(nomPerso => {
-        let personnage = this.data.equipe.find(element => element.nom === nomPerso);
-        if (!personnage) {
-          personnage = this.data.pnjsNeutres.find(element => element.nom === nomPerso);
-        }
-        if (personnage) {
-          if (personnage.xcombat == lieu.startX && personnage.ycombat == lieu.startY) {
-            perso.xcombat = lieu.startX + 30 * lieu.scale;
+    if (lieu.position_start) {
+      let trouve = false;
+      lieu.position_start.forEach((position: Position) => {
+        if (!trouve) {
+        let personnageSurLaPosition:Entite | undefined = undefined;
+          lieu.personnagesActuels.forEach(persosEtPotes => {
+            let personnageDansTeamOuNeutre = this.data.equipe.find(persosEquipe => persosEquipe.nom === persosEtPotes);
+            if (!personnageDansTeamOuNeutre) {
+              personnageDansTeamOuNeutre = this.data.pnjsNeutres.find(persoNeutre => persoNeutre.nom === persosEtPotes);
+            }
+            if (personnageDansTeamOuNeutre) {
+              if (personnageDansTeamOuNeutre.xcombat == position.startX && personnageDansTeamOuNeutre.ycombat == position.startY) {
+                personnageSurLaPosition = personnageDansTeamOuNeutre;
+              }
+            }
+          });
+          if (!personnageSurLaPosition) {
+            lieu.pnjs.forEach(ennemi => {
+              if (ennemi.xcombat === position.startX && ennemi.ycombat === position.startY) {
+                personnageSurLaPosition = ennemi;
+              }
+            });
           }
-          else if (personnage.xcombat == lieu.startX + 30 * lieu.scale && personnage.ycombat == lieu.startY) {
-            perso.ycombat = lieu.startY + 30 * lieu.scale;
-            perso.xcombat = lieu.startX;
+          if (!personnageSurLaPosition) {
+            trouve = true;
+            perso.xcombat = position.startX;
+            perso.ycombat = position.startY;
           }
-        }
-      });
-      lieu.pnjs.forEach(personnage => {
-        if (personnage.xcombat === perso.xcombat && personnage.ycombat === perso.ycombat) {
-          perso.xcombat = lieu.startX + 30;
         }
       });
     }
@@ -115,9 +122,35 @@ export class MapComponent implements OnInit {
   }
 
   rentrerPnj(lieu: Lieu, perso: Entite) {
-    if (lieu.startX && lieu.startY) {
-      perso.xcombat = lieu.startX;
-      perso.ycombat = lieu.startY;
+    if (lieu.position_start) {
+      let personnageSurLaPosition:Entite | undefined = undefined;
+      lieu.position_start.forEach((position: Position) => {
+        if (!personnageSurLaPosition) {
+          console.log(position.id);
+          lieu.personnagesActuels.forEach(persosEtPotes => {
+            let personnageDansTeamOuNeutre = this.data.equipe.find(persosEquipe => persosEquipe.nom === persosEtPotes);
+            if (!personnageDansTeamOuNeutre) {
+              personnageDansTeamOuNeutre = this.data.pnjsNeutres.find(persoNeutre => persoNeutre.nom === persosEtPotes);
+            }
+            if (personnageDansTeamOuNeutre) {
+              if (personnageDansTeamOuNeutre.xcombat == position.startX && personnageDansTeamOuNeutre.ycombat == position.startY) {
+                personnageSurLaPosition = personnageDansTeamOuNeutre;
+              }
+            }
+          });
+          if (!personnageSurLaPosition) {
+            lieu.pnjs.forEach(ennemi => {
+              if (ennemi.xcombat === position.startX && ennemi.ycombat === position.startY) {
+                personnageSurLaPosition = ennemi;
+              }
+            });
+          }
+          if (!personnageSurLaPosition) {
+            perso.xcombat = position.startX;
+            perso.ycombat = position.startY;
+          }
+        }
+      });
     }
     this.persoHovered = [];
     this.menuContextuel = undefined;
