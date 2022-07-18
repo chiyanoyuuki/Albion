@@ -63,12 +63,19 @@ export class Quete {
 	public etape: number;
 }
 
+export class Position {
+	public id: number;
+	public startX: number;
+	public startY: number;
+}
+
 export class Lieu {
 	public id: string;
 	public nom: string;
 	public image: string;
 	public x: number;
 	public y: number;
+	public position_start: Position[];
 	public finx: number;
 	public finy: number;
 	public pnjs: Entite[];

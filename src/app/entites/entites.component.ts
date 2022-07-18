@@ -13,20 +13,30 @@ export class EntitesComponent implements OnInit, DoCheck {
   @Input() type: string;
 
   public entites: any;
+  public quetePrincipale: any;
+  public queteSecondaire: any;
+  public quetes: any;
   public focus: any;
   public menuContextuel: MenuContextuel | undefined;
   public persoMenuContextuel: Entite | undefined;
+  public ongletActif: string = "inventaire";
 
   constructor() { }
 
   ngOnInit(): void {
-
+    
   }
 
   ngDoCheck(): void {
     if (this.type == "personnages") { this.entites = this.data.equipe };
     if (this.type == "pnjsNeutres") { this.entites = this.data.pnjsNeutres };
     if (this.type == "ennemis") { this.entites = this.data.lieuActuel.pnjs };
+    this.quetePrincipale = this.data.quetesprincipales;
+    this.queteSecondaire = this.data.quetessecondaires;
+    this.quetes = [
+      this.quetePrincipale,
+      this.queteSecondaire
+    ]
   }
 
   public dragEnd($event: CdkDragEnd, perso: Entite) {
@@ -51,6 +61,12 @@ export class EntitesComponent implements OnInit, DoCheck {
     return this.entites.filter((entite: Entite) =>
       this.data.lieuActuel.personnagesActuels.includes(entite.nom)
     );
+  }
+  public getQuetePrincipale() {
+    return this.quetePrincipale;
+  }
+  public getQueteSecondaire() {
+    return this.queteSecondaire;
   }
 
   public getScale() {

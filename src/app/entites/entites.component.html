@@ -38,59 +38,122 @@
         <!-- STATS PERSO ACTIF ================================================= -->
 
         <div *ngIf="perso.actif" class="container-stats">
-            <div class="block-perso">
-                <h2>{{ perso.nom }}</h2>
-                <h3>{{ perso.classe | titlecase }}</h3>
-                <h3>{{ perso.etat }}</h3>
-            </div>
-            <div class="block-forme">
-                <div>
-                    <p><span class="title">Forme actuelle : </span>{{ perso.forme }}</p>
+            <div class="container-block">
+                <div class="container1">
+                    <div class="block1">
+                        <div class="minia">
+                            <ul>
+                                <li *ngFor="let form of perso.formes">
+                                    <img *ngIf="form.nom == perso.forme" src="./assets/images/{{form.minia}}.png" (click)="perso.forme = form.nom">
+                                </li>
+                            </ul>
+                            <div class="minia2">
+                                <ul>
+                                    <li *ngFor="let form of perso.formes">
+                                        <img *ngIf="form.nom != perso.forme" src="./assets/images/{{form.minia}}.png" (click)="perso.forme = form.nom">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="info-base">
+                            <h3>{{ perso.nom }}</h3>
+                            <div>
+                                <p>Niveau {{ perso.niveau }}</p>
+                            </div>
+                            <h3>{{ perso.classe | titlecase }}</h3>
+                            <h3>{{ perso.etat }}</h3>
+                            <p><span class="title">Forme : </span>{{ perso.forme }}</p>
+                        </div>
+                    </div>
+                    <div class="flex bottomGroup">
+                        <div class="pdvmana">
+                            <div class="flex pdvmanadiv">
+                                <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
+                                <div class="grouppdvmana">
+                                    <img class="fill" draggable="false" src="./assets/images/pdvfill{{(type=='ennemis'?'2':'')}}.PNG"
+                                        [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
+                                    <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                                </div>
+                            </div>
+                            <div class="flex pdvmanadiv">
+                                <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
+                                <div class="grouppdvmana">
+                                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG" />
+                                    <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block2">
+                        <div>
+                            <img src="./assets/images/piece d'or.png"/>
+                            <p>{{ perso.argent }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container2">
+                    <div>
+                        <div>
+                            <span class="title">Arme principale : </span>
+                            <br>
+                            <p *ngIf="perso.arme1">{{ perso.arme1 }}</p>
+                        </div>
+                        <div>
+                            <span class="title">Arme secondaire : </span>
+                            <br>
+                            <p *ngIf="perso.arme2">{{ perso.arme2 }}</p>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <h2>Statistique</h2>
                     <ul>
-                        <p class="title">Transformation possible:</p>
-                        <li *ngFor="let forme of perso.formes">
-                            <p *ngIf="forme != perso.forme" (click)="perso.forme = forme">{{ forme }}</p>
+                        <li *ngFor="let stat of perso.stats">
+                            <p>{{ stat.nom }} : {{ stat.qte }}</p>
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <p>
-                        <button (click)="perso.argent = perso.argent - 1">-</button>
-                        Or: {{ perso.argent }}
-                        <button (click)="perso.argent = perso.argent + 1">+</button>
-                    </p>
+                <div class="container3">
+                    <h3 (click)="ongletActif = 'inventaire'">Stuffs</h3>
+                    <div class="separator"></div>
+                    <h3 (click)="ongletActif = 'quetePrincipale'">Quêtes Principales</h3>
+                    <div class="separator"></div>
+                    <h3 (click)="ongletActif = 'queteSecondaire'">Quêtes Secondaires</h3>
+                </div>
+                <div class="container4">
+                    <div *ngIf="ongletActif == 'inventaire'" class="ul">
+                        <div *ngFor="let stuff of perso.inventaire" class="li">
+                            <img class="fond_objet" src="./assets/images/vide_inventaire.png"/>
+                            <img class="objet" *ngIf="stuff.image" src="./assets/images/{{ stuff.nom }}.png"/>
+                            <span *ngIf="stuff.nom">{{ stuff.qte }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container5">
+                    <ul *ngIf="ongletActif == 'quetePrincipale'">
+                        <li *ngFor="let quete of getQuetePrincipale()">
+                            <div *ngIf="quete.perso == perso.nom">
+                                <h3>{{ quete.nom }}</h3>
+                                <p>{{ quete.description }}</p>
+                                <p>Etape : {{ quete.etape }}</p>
+                                <h4>{{ quete.etat }}</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container6">
+                    <ul *ngIf="ongletActif == 'queteSecondaire'">
+                        <li *ngFor="let quete of getQueteSecondaire()">
+                            <div>
+                                <h3>{{ quete.nom }}</h3>
+                                <p>{{ quete.description }}</p>
+                                <p>Etape : {{ quete.etape }}</p>
+                                <h4>{{ quete.etat }}</h4>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="block-armes flex width-100 between">
-                <p *ngIf="perso.arme1"><span class="title">Main principale : </span>{{ perso.arme1 }}</p>
-                <p *ngIf="perso.arme2"><span class="title">Main secondaire : </span>{{ perso.arme2 }}</p>
-            </div>
-            <div class="block-stats">
-                <h3 class="title">Stats Perso :</h3>
-                <ul>
-                    <li *ngFor="let stat of perso.stats">
-                        <p>
-                            <button (click)="stat.qte = stat.qte - 1">-</button>
-                            {{ stat.nom }} : {{ stat.qte }}
-                            <button (click)="stat.qte = stat.qte + 1">+</button>
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <div class="block-stuff">
-                <h3 class="title">Stuffs Perso :</h3>
-                <ul>
-                    <li *ngFor="let stuff of perso.inventaire">
-                        <p *ngIf="stuff.qte">
-                            <button (click)="stuff.qte = stuff.qte - 1">-</button>
-                            {{ stuff.nom }} : {{ stuff.qte }}
-                            <button (click)="stuff.qte = stuff.qte + 1">+</button>
-                        </p>
-                    </li>
-                </ul>
-
-            </div>
+            
         </div>
     </div>
 </div>

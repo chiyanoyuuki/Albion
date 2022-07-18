@@ -1,11 +1,9 @@
 Bugs appecus
 
-- Certaines entités trop épaisses ne sont pas bien affichées ( ombre et image décalées )
 
 Idées Charles
 
 - Menu Contextuel, ajouter un combat rapide dans la nature
-- Ajouter le niveau de chaque entite
 - Position d'arrivée sur chaque map
 - Amelioration visuelle du bloc stats (paul)
 - Système d'ajout des entités 
@@ -13,6 +11,8 @@ Idées Charles
 - Changer une entité de team
 - Séparer un maximum l'appli en composants pour faciliter les devs et surtout découper le code en microservices
 - Base de données ?
+- listing position de depart pour chaque lieu
+- positionner chaque entité en fonction de position possible du lieu
 
 Idées Paul
 

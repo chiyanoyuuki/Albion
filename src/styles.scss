@@ -2,10 +2,16 @@
     font-family: "Medieval";
     src: local("Medieval"), url(./assets/fonts/medieval.ttf) format("truetype");
 }
-
 @font-face {
     font-family: "Medieval2";
     src: local("Medieval2"), url(./assets/fonts/medieval2.ttf) format("truetype");
+}
+
+// PNJS
+.PNJ .container{
+    display:grid;
+    position:absolute;
+    width:140px;
 }
 
 * {
