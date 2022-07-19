@@ -35,7 +35,10 @@
     color: white;
     text-align: center;
     white-space: nowrap;
-    transition: all 0.4s;
+    transition: all 0.2s;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border: 1px solid black;
 }
 .text-etat:hover{
     color: rgb(255, 255, 160);

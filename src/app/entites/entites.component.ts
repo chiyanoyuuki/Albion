@@ -1,5 +1,5 @@
 import { Entite, Data, MenuContextuel, Lieu, Objet } from '../model';
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, HostListener, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -124,9 +124,9 @@ export class EntitesComponent implements OnInit, DoCheck {
   }
 
   clickGain(perso: Entite, clicked: string){
-    if (!this.gain) { 
+    if (this.gain != clicked) { 
       this.gain = clicked; 
-    }else if (this.gain = clicked) {
+    }else if (this.gain == clicked) {
       if (clicked == 'Niveau') {
         perso.niveau += 1;
       }

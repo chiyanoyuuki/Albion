@@ -8,6 +8,7 @@
         <div class="formulaire" *ngIf="formulaire == 'pv' || formulaire == 'mana'">
             <input id="quantite" type="text" [(ngModel)]="quantite">
             <button (click)="form(perso)">Ok</button>
+            <button (click)="formulaire = ''">X</button>
         </div>
         <div class="pdvmana">
             <div class="flex pdvmanadiv">

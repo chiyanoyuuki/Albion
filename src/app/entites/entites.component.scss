@@ -3,14 +3,12 @@
     position: absolute;
     width: 140px;
     z-index: 100;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
 }
 
 .entite {
+    border: 1px solid transparent;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border: 1px solid transparent;
     transition: all 0.2s;
 }
 
@@ -254,10 +252,7 @@
     margin: 5px;
 }
 .container-stats .container4 .ul .li p{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: -33px;
     color: white;
     white-space: nowrap;
     z-index: 1;

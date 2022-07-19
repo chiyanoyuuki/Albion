@@ -41,6 +41,7 @@
             <div class="formulaire" *ngIf="formulaire == 'gold' || formulaire == 'pv' || formulaire == 'mana'">
                 <input id="quantite" type="text" [(ngModel)]="quantite">
                 <button (click)="form(perso)">Ok</button>
+                <button (click)="formulaire = ''">X</button>
             </div>
             <div class="info_perso">
                 <div class="block1">
@@ -124,7 +125,7 @@
             </div>
             <div class="container4">
                 <div *ngIf="ongletActif == 'inventaire'" class="ul">
-                    <div *ngFor="let stuff of perso.inventaire" class="li" (mouseover)="objetActif = stuff" (mouseout)="objetActif = undefined" (click)="clickGain(perso, stuff.nom)">
+                    <div *ngFor="let stuff of perso.inventaire" class="li" (mouseover)="objetActif = stuff" (mouseleave)="objetActif = undefined;gain = ''" (click)="clickGain(perso, stuff.nom)">
                         <img class="fond_objet" src="./assets/images/vide_inventaire.png"/>
                         <img class="objet" *ngIf="stuff.image" src="./assets/images/{{ stuff.image }}.png"/>
                         <p [hidden]="objetActif != stuff">{{gain == stuff.nom && gain ? 'Confirmer utilisation ?' : stuff.nom}}</p>
