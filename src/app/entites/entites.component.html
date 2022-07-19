@@ -1,8 +1,10 @@
 <div>
     <div [ngClass]="{'container':true,'dead':perso.pdv<=0}" *ngFor="let perso of getEntitesPresentes()"
         [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
-        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (cdkDragEnded)="dragEnd($event,perso)"
-        (contextmenu)="clicDroit($event, perso)" cdkDrag>
+        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'"
+        [style.z-index]="perso==lastPersoClicked?2:1" (cdkDragEnded)="dragEnd($event,perso)"
+        (cdkDragStarted)="lastPersoClicked=perso" (contextmenu)="clicDroit($event, perso)"
+        (click)="lastPersoClicked=perso" cdkDrag>
 
         <!-- PARTIE INFOS =================================================== -->
 
@@ -37,7 +39,12 @@
 
         <!-- STATS PERSO ACTIF ================================================= -->
 
-        <div *ngIf="(persoActuel == 'equipe' || persoActuel == 'neutre' || persoActuel == 'pnj') && nomPersoActuel == perso.nom" class="container-stats">
+        <app-stats-personnage [perso]="perso"
+            *ngIf="(persoActuel == 'equipe' || persoActuel == 'neutre' || persoActuel == 'ennemi') && nomPersoActuel == perso.nom">
+        </app-stats-personnage>
+
+        <div *ngIf=" false && (persoActuel == 'equipe' || persoActuel == 'neutre' || persoActuel == 'ennemi') && nomPersoActuel == perso.nom"
+            class="container-stats">
             <div class="formulaire" *ngIf="formulaire == 'gold' || formulaire == 'pv' || formulaire == 'mana'">
                 <input id="quantite" type="text" [(ngModel)]="quantite">
                 <button (click)="form(perso)">Ok</button>
@@ -47,14 +54,16 @@
                 <div class="block1">
                     <div class="minia">
                         <ul>
-                            <li *ngFor="let form of perso.formes">
-                                <img *ngIf="form.nom == perso.forme" src="./assets/images/{{form.minia}}.png" (click)="perso.forme = form.nom">
+                            <li *ngFor="let formePossible of perso.formes">
+                                <img *ngIf="formePossible == perso.forme" src="./assets/images/{{formePossible.minia}}.png"
+                                    (click)="perso.forme = formePossible">
                             </li>
                         </ul>
                         <div class="minia2">
                             <ul>
-                                <li *ngFor="let form of perso.formes">
-                                    <img *ngIf="form.nom != perso.forme" src="./assets/images/{{form.minia}}.png" (click)="perso.forme = form.nom">
+                                <li *ngFor="let formePossible of perso.formes">
+                                    <img *ngIf="formePossible != perso.forme" src="./assets/images/{{formePossible.minia}}.png"
+                                        (click)="perso.forme = formePossible">
                                 </li>
                             </ul>
                         </div>
@@ -62,7 +71,8 @@
                     <div class="info-base">
                         <h3>{{ perso.nom }}</h3>
                         <div>
-                            <p (click)="clickGain(perso, 'Niveau')">{{gain == 'Niveau' ? 'Confirmer gain ?' : 'Niveau'}} {{ gain != "Niveau" ? perso.niveau : "" }}</p>
+                            <p (click)="clickGain(perso, 'Niveau')">{{gain == 'Niveau' ? 'Confirmer gain ?' : 'Niveau'}}
+                                {{ gain != "Niveau" ? perso.niveau : "" }}</p>
                         </div>
                         <h3>{{ perso.classe | titlecase }}</h3>
                         <h3>{{ perso.etat }}</h3>
@@ -74,9 +84,10 @@
                         <div class="flex pdvmanadiv">
                             <p class="pdvtext" (click)="formulaire = 'pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
                             <div class="grouppdvmana">
-                                <img class="fill" draggable="false" src="./assets/images/pdvfill{{(perso.team==2?'2':'')}}.PNG"
+                                <img class="fill" draggable="false"
+                                    src="./assets/images/pdvfill{{(perso.team==2?'2':'')}}.PNG"
                                     [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
-                                <img draggable="false" src="./assets/images/pdvmanabar.png"/>
+                                <img draggable="false" src="./assets/images/pdvmanabar.png" />
                             </div>
                         </div>
                         <div class="flex pdvmanadiv">
@@ -90,7 +101,7 @@
                 </div>
                 <div class="argent" (click)="formulaire = 'gold'">
                     <div>
-                        <img src="./assets/images/piece d'or.png"/>
+                        <img src="./assets/images/piece d'or.png" />
                         <p>{{ perso.argent }}</p>
                     </div>
                 </div>
@@ -112,7 +123,8 @@
                 <h2>Statistique</h2>
                 <ul>
                     <li *ngFor="let stat of perso.stats">
-                        <p (click)="clickGain(perso, stat.nom)">{{gain == stat.nom ? 'Confirmer gain ?' : stat.nom}} {{ gain != stat.nom ? stat.qte : "" }}</p>
+                        <p (click)="clickGain(perso, stat.nom)">{{gain == stat.nom ? 'Confirmer gain ?' : stat.nom}} {{
+                            gain != stat.nom ? stat.qte : "" }}</p>
                     </li>
                 </ul>
             </div>
@@ -125,10 +137,12 @@
             </div>
             <div class="container4">
                 <div *ngIf="ongletActif == 'inventaire'" class="ul">
-                    <div *ngFor="let stuff of perso.inventaire" class="li" (mouseover)="objetActif = stuff" (mouseleave)="objetActif = undefined;gain = ''" (click)="clickGain(perso, stuff.nom)">
-                        <img class="fond_objet" src="./assets/images/vide_inventaire.png"/>
-                        <img class="objet" *ngIf="stuff.image" src="./assets/images/{{ stuff.image }}.png"/>
-                        <p [hidden]="objetActif != stuff">{{gain == stuff.nom && gain != undefined ? 'Confirmer utilisation ?' : stuff.nom}}</p>
+                    <div *ngFor="let stuff of perso.inventaire" class="li" (mouseover)="objetActif = stuff"
+                        (mouseleave)="objetActif = undefined;gain = ''" (click)="clickGain(perso, stuff.nom)">
+                        <img class="fond_objet" src="./assets/images/vide_inventaire.png" />
+                        <img class="objet" *ngIf="stuff.image" src="./assets/images/{{ stuff.image }}.png" />
+                        <p [hidden]="objetActif != stuff">{{gain == stuff.nom && gain != undefined ? 'Confirmer
+                            utilisation ?' : stuff.nom}}</p>
                         <span *ngIf="stuff.nom">{{ stuff.qte }}</span>
                     </div>
                 </div>

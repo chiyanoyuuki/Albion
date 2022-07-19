@@ -34,8 +34,8 @@ export class Entite {
 	public stuff: string[];
 	public argent: number;
 	public inventaire: ObjetInventaire[];
-	public formes: {nom:string,image:string,minia:string}[];
-	public forme: string;
+	public formes: Forme[];
+	public forme: Forme;
 	public familier: Entite;
 	public solo: boolean;
 	public tournoi: boolean;
@@ -45,15 +45,22 @@ export class Entite {
 	public levels: { niveau: number, pdvmax: number, manamax: number }[]
 }
 
+export class Forme {
+	public nom: string;
+	public image: string;
+	public minia: string;
+}
+
 export class Boutique {
 	public nom: string;
 	public objets: ObjetAAcheter[];
 }
 
-export class ObjetInventaire { 
-	public nom: string; 
-	public qte: number; 
-	public image: string }
+export class ObjetInventaire {
+	public nom: string;
+	public qte: number;
+	public image: string
+}
 
 export class ObjetAAcheter {
 	public nom: string;

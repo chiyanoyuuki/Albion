@@ -1,0 +1,93 @@
+<div class="container" cdkDrag>
+    <!-- PARTIE HAUTE -->
+    <div class="flex">
+        <div class="groupeHautGauche">
+            <div class="flex">
+                <div class="hautGauche">
+                    <div class="flex">
+                        <div class="iconeEtGolds">
+                            <img class="icone" src="./assets/images/{{perso.forme.minia}}.png">
+                        </div>
+
+                        <div class="data">
+                            <p class="nom bigText">{{perso.nom}}</p>
+                            <p class="etat">{{perso.etat}}</p>
+                            <p class="niveau clickable bigText" (click)="clickGain(perso, 'Niveau')">{{gain == 'Niveau'
+                                ?
+                                'Confirmer
+                                gain ?' : 'Niveau'}}
+                                {{ gain != "Niveau" ? perso.niveau : "" }}</p>
+                        </div>
+                    </div>
+
+                    <div class="pdvmana">
+                        <div class="flex pdvmanadiv">
+                            <p class="pdvtext" (click)="formulaire = 'pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
+                            <div class="grouppdvmana">
+                                <img class="fill" draggable="false"
+                                    src="./assets/images/pdvfill{{(perso.team==2?'2':'')}}.PNG"
+                                    [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
+                                <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                            </div>
+                        </div>
+                        <div class="flex pdvmanadiv">
+                            <p class="manatext" (click)="formulaire = 'mana'">{{perso.mana}}/{{perso.manamax}}</p>
+                            <div class="grouppdvmana">
+                                <img class="fill" draggable="false" src="./assets/images/manafill.PNG"
+                                    [style.width]="(perso.mana/perso.manamax)*100+'%'" />
+                                <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="groupeHautDroite">
+
+                    <p class="bigText">Statistiques</p>
+                    <p class="clickable" *ngFor="let stat of perso.stats" (click)="clickGain(perso, stat.nom)">{{gain ==
+                        stat.nom ? 'Confirmer gain ?' : stat.nom}} {{
+                        gain != stat.nom ? stat.qte : "" }}</p>
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+
+            <div class="flex between">
+
+                <div>
+                    <div class="flex">
+                        <p class="bold">Arme principale :&nbsp;</p>
+                        <p>{{perso.arme1}}</p>
+                    </div>
+                    <div class="flex">
+                        <p class="bold">Arme secondaire :&nbsp;</p>
+                        <p>{{perso.arme2}}</p>
+                    </div>
+                </div>
+
+                <div class="flex golds">
+                    <img src="../../../assets/images/pieces.png" />
+                    <p (click)="formulaire = 'gold'">{{perso.argent}}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- PARTIE BASSE -->
+
+    <div>
+        <div class="flex onglets">
+            <p class="choix" (click)="ongletActif = 'inventaire'">Inventaire</p>
+            <p class="choix" (click)="ongletActif = 'quetesPrincipales'">Quêtes principales</p>
+            <p class="choix" (click)="ongletActif = 'quetesSecondaires'">Quêtes secondaires</p>
+        </div>
+
+        <div class="inventaire">
+            <div class="objet" *ngFor="let item of perso.inventaire">
+            </div>
+        </div>
+    </div>
+</div>

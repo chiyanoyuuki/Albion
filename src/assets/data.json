@@ -3,16 +3,16 @@
         {
             "id": "lunastormwood",
             "x": 366,
-            "y": 143,
+            "y": 343,
             "xcombat": 1716,
             "ycombat": 611,
             "nom": "Luna Stormwood",
             "histoire": "Origaire d'une grande famille d'alchimiste de la forêt d'aubelune au sud-est D'Albion dont le père est décédé et la mère à soudainement disparu il y plusieurs semaines. Luna se met donc en quête de retrouver sa mère, elle apprend que sa mère est parti vers le nord dans les montage pour étudier des phonèmes climatique étrange. Elle se met donc en route pour les montagnes, arrivée à l'endroit où la végétation a subis des changements inexplicable, Luna commence à s'interroger, après plusieurs jours de recherche, elle surprend une conversation avec un mercenaire et un homme qui vie dans les montagnes, ces deux personnes parlent d'une grosse pierre précieuse que le roi Herald recherche, après quelques instants, grâce aux recherches qu'elles a effectués ces jours précédents, elle commence à comprendre de quoi il s'agit et décide d'aller à la rencontre de ces deux hommes..",
-            "classe": "sorciere",
+            "classe": "Sorciere",
             "image": "sorciere",
             "team": 0,
             "niveau": 3,
-            "lieu": "prisonfjorh",
+            "lieu": "map",
             "pdvmax": 16,
             "pdv": 16,
             "manamax": 40,
@@ -25,7 +25,11 @@
                     "minia": "sorcierem"
                 }
             ],
-            "forme": "Humain",
+            "forme": {
+                "nom": "Humain",
+                "image": "sorciere",
+                "minia": "sorcierem"
+            },
             "actif": false,
             "stats": [
                 {
@@ -198,7 +202,11 @@
                     "minia": "Loup Sinistrem"
                 }
             ],
-            "forme": "Humain",
+            "forme": {
+                "nom": "Humain",
+                "image": "trappeur",
+                "minia": "trappeurm"
+            },
             "actif": false,
             "stats": [
                 {
@@ -383,7 +391,11 @@
                     "minia": "mercenairem"
                 }
             ],
-            "forme": "Humain",
+            "forme": {
+                "nom": "Humain",
+                "image": "mercenaire",
+                "minia": "mercenairem"
+            },
             "actif": false,
             "stats": [
                 {
@@ -550,7 +562,11 @@
                     "minia": "assassinm"
                 }
             ],
-            "forme": "Humain",
+            "forme": {
+                "nom": "Humain",
+                "image": "assassin",
+                "minia": "assassinm"
+            },
             "actif": false,
             "stats": [
                 {
@@ -727,7 +743,11 @@
                     "minia": "Oursm"
                 }
             ],
-            "forme": "Humain",
+            "forme": {
+                "nom": "Humain",
+                "image": "Sienna",
+                "minia": "Siennam"
+            },
             "actif": false,
             "stats": [
                 {
@@ -955,18 +975,18 @@
         }
     ],
     "lieuActuel": {
-        "parent": "fjorh",
-        "id": "prisonfjorh",
-        "nom": "Prison de Fjorh",
-        "image": "prisonFjorh",
-        "x": 440,
-        "y": 230,
-        "finx": 165,
+        "id": "map",
+        "nom": "map",
+        "image": "map",
+        "x": 0,
+        "y": 0,
+        "finx": 0,
         "finy": 0,
-        "desac": false,
-        "pnjs": [],
-        "scale": 5,
-        "ancienLieu": "fjorh"
+        "desac": true,
+        "parent": "",
+        "entreex": 0,
+        "entreey": 0,
+        "pnjs": []
     },
     "boutiques": [
         {
@@ -1128,13 +1148,6 @@
             "finy": 0,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [
-                "Luna Stormwood",
-                "Gandalf le Roux",
-                "Bjorn Côtes de Fer",
-                "Arlequin",
-                "Sienna Hurlevent"
-            ],
             "scale": 4,
             "ancienLieu": {
                 "id": "fjorh",
