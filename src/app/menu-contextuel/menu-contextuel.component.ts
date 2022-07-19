@@ -82,7 +82,6 @@ export class MenuContextuelComponent implements OnInit {
   deletion() {
     if (this.delete == "Supprimer") { this.delete = "Confirmer suppression"; }
     else {
-      console.log("emit");
       this.deleteEvent.emit();
     }
   }

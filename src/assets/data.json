@@ -271,70 +271,87 @@
                 },
                 {
                     "nom": "Flèches",
+                    "image": "Flèches",
                     "qte": 39
                 },
                 {
                     "nom": "Objets de jet",
+                    "image": "Objets de jet",
                     "qte": 8
                 },
                 {
                     "nom": "Queue de Rat Géant",
+                    "image": "Queue",
                     "qte": 1
                 },
                 {
                     "nom": "Parchemin non traduit",
+                    "image": "Parchemin",
                     "qte": 1
                 },
                 {
                     "nom": "Dague en Acier",
+                    "image": "Dague en Acier",
                     "qte": 1
                 },
                 {
                     "nom": "Carquois Renforcé (50)",
+                    "image": "Carquoi Renforcé",
                     "qte": 1
                 },
                 {
                     "nom": "Flèches de métal",
+                    "image": "Fleche de métal",
                     "qte": 10
                 },
                 {
                     "nom": "Bandages",
+                    "image": "Bandage",
                     "qte": 2
                 },
                 {
                     "nom": "Arc de grande qualité",
+                    "image": "Arc de qualité",
                     "qte": 1
                 },
                 {
                     "nom": "Patte de Rat Patriarche",
+                    "image": "Patte",
                     "qte": 1
                 },
                 {
                     "nom": "Queue de Rat Patriarche",
+                    "image": "Queue",
                     "qte": 1
                 },
                 {
                     "nom": "",
+                    "image": "",
                     "qte": 0
                 },
                 {
                     "nom": "",
+                    "image": "",
                     "qte": 0
                 },
                 {
                     "nom": "",
+                    "image": "",
                     "qte": 0
                 },
                 {
                     "nom": "",
+                    "image": "",
                     "qte": 0
                 },
                 {
                     "nom": "",
+                    "image": "",
                     "qte": 0
                 },
                 {
                     "nom": "",
+                    "image": "",
                     "qte": 0
                 }
             ]
@@ -1040,6 +1057,28 @@
             "image": "CampDeBandits",
             "x": 1185,
             "y": 45,
+            "position_start": [
+                {
+                    "startX": 20,
+                    "startY": 605
+                },
+                {
+                    "startX": 12,
+                    "startY": 505
+                },
+                {
+                    "startX": 0,
+                    "startY": 710
+                },
+                {
+                    "startX": 85,
+                    "startY": 665
+                },
+                {
+                    "startX": 60,
+                    "startY": 550
+                }
+            ],
             "finx": 70,
             "finy": 70,
             "desac": false,
@@ -1154,6 +1193,16 @@
             "image": "Taverne3",
             "x": 520,
             "y": 965,
+            "position_start": [
+                {
+                    "startX": 430,
+                    "startY": 580
+                },
+                {
+                    "startX": 300,
+                    "startY": 570
+                }
+            ],
             "finx": 340,
             "finy": 145,
             "desac": true,
@@ -1168,6 +1217,24 @@
             "image": "ShopArmor2",
             "x": 1480,
             "y": 810,
+            "position_start": [
+                {
+                    "startX": 480,
+                    "startY": 645
+                },
+                {
+                    "startX": 700,
+                    "startY": 645
+                },
+                {
+                    "startX": 960,
+                    "startY": 630
+                },
+                {
+                    "startX": 1140,
+                    "startY": 610
+                }
+            ],
             "finx": 300,
             "finy": 160,
             "desac": true,
@@ -1181,8 +1248,28 @@
             "image": "Dusk",
             "x": 869,
             "y": 771,
-            "startX": 1185,
-            "startY": 1065,
+            "position_start": [
+                {
+                    "startX": 1120,
+                    "startY": 1050
+                },
+                {
+                    "startX": 1180,
+                    "startY": 1065
+                },
+                {
+                    "startX": 1100,
+                    "startY": 1085
+                },
+                {
+                    "startX": 940,
+                    "startY": 1080
+                },
+                {
+                    "startX": 1290,
+                    "startY": 1075
+                }
+            ],
             "finx": 168,
             "finy": 135,
             "parent": "map",
@@ -1210,8 +1297,28 @@
             "parent": "map",
             "x": 421,
             "y": 51,
-            "startX": 1065,
-            "startY": 610,
+            "position_start": [
+                {
+                    "startX": 1635,
+                    "startY": 735
+                },
+                {
+                    "startX": 1550,
+                    "startY": 800
+                },
+                {
+                    "startX": 1500,
+                    "startY": 710
+                },
+                {
+                    "startX": 1350,
+                    "startY": 720
+                },
+                {
+                    "startX": 1170,
+                    "startY": 700
+                }
+            ],
             "finx": 70,
             "finy": 70,
             "desac": false,
@@ -1241,8 +1348,28 @@
             "image": "grotteNord",
             "x": 630,
             "y": 515,
-            "startX": 730,
-            "startY": 830,
+            "position_start": [
+                {
+                    "startX": 1675,
+                    "startY": 955
+                },
+                {
+                    "startX": 1615,
+                    "startY": 900
+                },
+                {
+                    "startX": 1545,
+                    "startY": 985
+                },
+                {
+                    "startX": 1445,
+                    "startY": 915
+                },
+                {
+                    "startX": 1465,
+                    "startY": 820
+                }
+            ],
             "finx": 160,
             "finy": 200,
             "desac": false,
@@ -1256,8 +1383,28 @@
             "image": "LabyrintheSouterrain",
             "x": 1220,
             "y": 260,
-            "startX": 210,
-            "startY": 640,
+            "position_start": [
+                {
+                    "startX": 305,
+                    "startY": 645
+                },
+                {
+                    "startX": 380,
+                    "startY": 635
+                },
+                {
+                    "startX": 200,
+                    "startY": 615
+                },
+                {
+                    "startX": 175,
+                    "startY": 645
+                },
+                {
+                    "startX": 456,
+                    "startY": 625
+                }
+            ],
             "finx": 100,
             "finy": 60,
             "desac": true,
@@ -1272,8 +1419,28 @@
             "image": "Taverne",
             "x": 570,
             "y": 500,
-            "startX": 420,
-            "startY": 255,
+            "position_start": [
+                {
+                    "startX": 80,
+                    "startY": 15
+                },
+                {
+                    "startX": 185,
+                    "startY": 65
+                },
+                {
+                    "startX": 270,
+                    "startY": 135
+                },
+                {
+                    "startX": 375,
+                    "startY": 265
+                },
+                {
+                    "startX": 495,
+                    "startY": 285
+                }
+            ],
             "finx": 208,
             "finy": 130,
             "desac": true,
@@ -1288,8 +1455,20 @@
             "image": "ShopArmor",
             "x": 700,
             "y": 250,
-            "startX": 940,
-            "startY": 395,
+            "position_start": [
+                {
+                    "startX": 860,
+                    "startY": 390
+                },
+                {
+                    "startX": 1025,
+                    "startY": 395
+                },
+                {
+                    "startX": 375,
+                    "startY": 500
+                }
+            ],
             "finx": 208,
             "finy": 130,
             "desac": true,
@@ -1304,8 +1483,28 @@
             "image": "Fort",
             "x": 120,
             "y": 250,
-            "startX": 25,
-            "startY": 180,
+            "position_start": [
+                {
+                    "startX": 155,
+                    "startY": 185
+                },
+                {
+                    "startX": 105,
+                    "startY": 135
+                },
+                {
+                    "startX": 100,
+                    "startY": 200
+                },
+                {
+                    "startX": 40,
+                    "startY": 125
+                },
+                {
+                    "startX": 40,
+                    "startY": 215
+                }
+            ],
             "finx": 212,
             "finy": 116,
             "desac": false,
@@ -1321,27 +1520,22 @@
             "y": 377,
             "position_start": [
                 {
-                    "id": 0,
                     "startX": 570,
                     "startY": 835
                 },
                 {
-                    "id": 1,
                     "startX": 585,
                     "startY": 835
                 },
                 {
-                    "id": 2,
                     "startX": 570,
                     "startY": 820
                 },
                 {
-                    "id": 3,
                     "startX": 570,
                     "startY": 850
                 },
                 {
-                    "id": 4,
                     "startX": 555,
                     "startY": 835
                 }
@@ -1386,6 +1580,28 @@
             "image": "foret2",
             "x": 593,
             "y": 140,
+            "position_start": [
+                {
+                    "startX": 1610,
+                    "startY": 800
+                },
+                {
+                    "startX": 1510,
+                    "startY": 810
+                },
+                {
+                    "startX": 1390,
+                    "startY": 805
+                },
+                {
+                    "startX": 1375,
+                    "startY": 745
+                },
+                {
+                    "startX": 1475,
+                    "startY": 720
+                }
+            ],
             "parent": "map",
             "finx": 292,
             "finy": 140,
@@ -1417,6 +1633,28 @@
             "image": "taverneghrain",
             "x": 1000,
             "y": 650,
+            "position_start": [
+                {
+                    "startX": 1745,
+                    "startY": 20
+                },
+                {
+                    "startX": 1635,
+                    "startY": -80
+                },
+                {
+                    "startX": 1770,
+                    "startY": 365
+                },
+                {
+                    "startX": 1430,
+                    "startY": 325
+                },
+                {
+                    "startX": 1170,
+                    "startY": 385
+                }
+            ],
             "finx": 100,
             "finy": 100,
             "desac": false,
@@ -1430,6 +1668,28 @@
             "image": "Ghrain",
             "x": 1713,
             "y": 215,
+            "position_start": [
+                {
+                    "startX": -20,
+                    "startY": 960
+                },
+                {
+                    "startX": 20,
+                    "startY": 960
+                },
+                {
+                    "startX": 65,
+                    "startY": 925
+                },
+                {
+                    "startX": 90,
+                    "startY": 955
+                },
+                {
+                    "startX": 115,
+                    "startY": 930
+                }
+            ],
             "finx": 139,
             "finy": 135,
             "parent": "map",
@@ -1443,8 +1703,28 @@
             "image": "haul",
             "x": 552,
             "y": 297,
-            "startX": 250,
-            "startY": 775,
+            "position_start": [
+                {
+                    "startX": 280,
+                    "startY": 750
+                },
+                {
+                    "startX": 300,
+                    "startY": 790
+                },
+                {
+                    "startX": 225,
+                    "startY": 780
+                },
+                {
+                    "startX": 245,
+                    "startY": 820
+                },
+                {
+                    "startX": 185,
+                    "startY": 810
+                }
+            ],
             "finx": 117,
             "finy": 129,
             "parent": "map",
@@ -1459,6 +1739,28 @@
             "image": "haulisland",
             "x": 250,
             "y": 291,
+            "position_start": [
+                {
+                    "startX": 35,
+                    "startY": 415
+                },
+                {
+                    "startX": 110,
+                    "startY": 400
+                },
+                {
+                    "startX": 15,
+                    "startY": 505
+                },
+                {
+                    "startX": 205,
+                    "startY": 420
+                },
+                {
+                    "startX": 200,
+                    "startY": 525
+                }
+            ],
             "finx": 100,
             "finy": 100,
             "parent": "map",
@@ -1473,6 +1775,28 @@
             "image": "Plage",
             "x": 472,
             "y": 289,
+            "position_start": [
+                {
+                    "startX": 1730,
+                    "startY": 450
+                },
+                {
+                    "startX": 1632,
+                    "startY": 427
+                },
+                {
+                    "startX": 1530,
+                    "startY": 410
+                },
+                {
+                    "startX": 1595,
+                    "startY": 480
+                },
+                {
+                    "startX": 1480,
+                    "startY": 475
+                }
+            ],
             "finx": 57,
             "finy": 100,
             "parent": "map",

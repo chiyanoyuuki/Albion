@@ -1,11 +1,18 @@
 <div [ngClass]="type">
-    <p class="text nom">{{perso.nom}}</p>
-    <p class="text etat">{{perso.etat?perso.etat:'Bonne santé'}}</p>
+    <div (click)="perso.actif=!perso.actif" class="text-etat">
+        <p class="text nom">{{perso.nom}}</p>
+        <p class="text etat">{{perso.etat?perso.etat:'Bonne santé'}}</p>
+    </div>
 
     <div class="flex bottomGroup">
+        <div class="formulaire" *ngIf="formulaire == 'pv' || formulaire == 'mana'">
+            <input id="quantite" type="text" [(ngModel)]="quantite">
+            <button (click)="form(perso)">Ok</button>
+            <button (click)="formulaire = ''">X</button>
+        </div>
         <div class="pdvmana">
             <div class="flex pdvmanadiv">
-                <p class="pdvtext">{{perso.pdv}}/{{perso.pdvmax}}</p>
+                <p class="pdvtext" (click)="formulaire = 'pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
                 <div class="grouppdvmana">
                     <img class="fill" draggable="false" src="./assets/images/pdvfill{{(type=='ennemis'?'2':'')}}.PNG"
                         [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
@@ -13,7 +20,7 @@
                 </div>
             </div>
             <div class="flex pdvmanadiv">
-                <p class="manatext">{{perso.mana}}/{{perso.manamax}}</p>
+                <p class="manatext" (click)="formulaire = 'mana'">{{perso.mana}}/{{perso.manamax}}</p>
                 <div class="grouppdvmana">
                     <img class="fill" draggable="false" src="./assets/images/manafill.PNG" />
                     <img draggable="false" src="./assets/images/pdvmanabar.png" />

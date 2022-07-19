@@ -81,11 +81,31 @@ export class MapComponent implements OnInit {
   }
 
   rentrerPerso(lieu: Lieu, perso: Entite) {
+    this.verifPositionDeDepart(lieu, perso);
+    let personnagesActuels = this.data.lieuActuel.personnagesActuels;
+    let index = personnagesActuels.indexOf(perso.nom);
+    personnagesActuels.splice(index, 1);
+    lieu.personnagesActuels.push(perso.nom);
+    this.majMap();
+  }
+
+  rentrerPnj(lieu: Lieu, perso: Entite) {
+    this.verifPositionDeDepart(lieu, perso);
+    let personnagesActuels = this.data.lieuActuel.pnjs;
+    let index = personnagesActuels.indexOf(perso);
+    personnagesActuels.splice(index, 1);
+    lieu.pnjs.push(perso);
+    this.majMap();
+  }
+
+  verifPositionDeDepart(lieu: Lieu, perso: Entite) {
+    this.persoHovered = [];
+    this.menuContextuel = undefined;
     if (lieu.position_start) {
       let trouve = false;
       lieu.position_start.forEach((position: Position) => {
         if (!trouve) {
-        let personnageSurLaPosition:Entite | undefined = undefined;
+          let personnageSurLaPosition:Entite | undefined = undefined;
           lieu.personnagesActuels.forEach(persosEtPotes => {
             let personnageDansTeamOuNeutre = this.data.equipe.find(persosEquipe => persosEquipe.nom === persosEtPotes);
             if (!personnageDansTeamOuNeutre) {
@@ -111,54 +131,11 @@ export class MapComponent implements OnInit {
           }
         }
       });
+      if (!trouve) {
+        perso.xcombat = lieu.position_start[0].startX;
+        perso.ycombat = lieu.position_start[0].startY;
+      }
     }
-    this.persoHovered = [];
-    this.menuContextuel = undefined;
-    let personnagesActuels = this.data.lieuActuel.personnagesActuels;
-    let index = personnagesActuels.indexOf(perso.nom);
-    personnagesActuels.splice(index, 1);
-    lieu.personnagesActuels.push(perso.nom);
-    this.majMap();
-  }
-
-  rentrerPnj(lieu: Lieu, perso: Entite) {
-    if (lieu.position_start) {
-      let personnageSurLaPosition:Entite | undefined = undefined;
-      lieu.position_start.forEach((position: Position) => {
-        if (!personnageSurLaPosition) {
-          console.log(position.id);
-          lieu.personnagesActuels.forEach(persosEtPotes => {
-            let personnageDansTeamOuNeutre = this.data.equipe.find(persosEquipe => persosEquipe.nom === persosEtPotes);
-            if (!personnageDansTeamOuNeutre) {
-              personnageDansTeamOuNeutre = this.data.pnjsNeutres.find(persoNeutre => persoNeutre.nom === persosEtPotes);
-            }
-            if (personnageDansTeamOuNeutre) {
-              if (personnageDansTeamOuNeutre.xcombat == position.startX && personnageDansTeamOuNeutre.ycombat == position.startY) {
-                personnageSurLaPosition = personnageDansTeamOuNeutre;
-              }
-            }
-          });
-          if (!personnageSurLaPosition) {
-            lieu.pnjs.forEach(ennemi => {
-              if (ennemi.xcombat === position.startX && ennemi.ycombat === position.startY) {
-                personnageSurLaPosition = ennemi;
-              }
-            });
-          }
-          if (!personnageSurLaPosition) {
-            perso.xcombat = position.startX;
-            perso.ycombat = position.startY;
-          }
-        }
-      });
-    }
-    this.persoHovered = [];
-    this.menuContextuel = undefined;
-    let personnagesActuels = this.data.lieuActuel.pnjs;
-    let index = personnagesActuels.indexOf(perso);
-    personnagesActuels.splice(index, 1);
-    lieu.pnjs.push(perso);
-    this.majMap();
   }
 
   majMap() {

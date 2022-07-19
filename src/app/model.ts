@@ -33,7 +33,7 @@ export class Entite {
 	public sorts: string[]
 	public stuff: string[];
 	public argent: number;
-	public inventaire: { nom: string, qte: number }[];
+	public inventaire: { nom: string, qte: number, image: string }[];
 	public formes: string[];
 	public forme: string;
 	public familier: Entite;
