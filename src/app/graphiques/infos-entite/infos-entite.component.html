@@ -1,5 +1,5 @@
 <div [ngClass]="type">
-    <div (click)="perso.actif=!perso.actif" class="text-etat">
+    <div (click)="infoPerso(perso)" class="text-etat">
         <p class="text nom">{{perso.nom}}</p>
         <p class="text etat">{{perso.etat?perso.etat:'Bonne santé'}}</p>
     </div>

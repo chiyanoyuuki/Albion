@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Entite } from 'src/app/model';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Entite, Data } from 'src/app/model';
 
 @Component({
   selector: 'app-infos-entite',
@@ -9,6 +9,8 @@ import { Entite } from 'src/app/model';
 export class InfosEntiteComponent implements OnInit {
   @Input() perso: Entite;
   @Input() type: string;
+  @Input() data: Data;
+  @Output() persoActuel = new EventEmitter<Entite>();
   
   public formulaire: string;
   public quantite: string;
@@ -40,6 +42,10 @@ export class InfosEntiteComponent implements OnInit {
       }
     }
     this.formulaire = "";
+  }
+
+  infoPerso(perso: Entite) {
+    this.persoActuel.emit(perso);
   }
 
 }

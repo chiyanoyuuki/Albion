@@ -7,7 +7,7 @@
         <!-- PARTIE INFOS =================================================== -->
 
         <div class="entite">
-            <app-infos-entite [perso]="perso" [type]="type"></app-infos-entite>
+            <app-infos-entite [perso]="perso" [type]="type" (persoActuel)="clickPersoActuel($event)"></app-infos-entite>
         </div>
 
         <!-- IMAGE + SHADOW =================================================== -->
@@ -37,7 +37,7 @@
 
         <!-- STATS PERSO ACTIF ================================================= -->
 
-        <div *ngIf="perso.actif" class="container-stats">
+        <div *ngIf="(persoActuel == 'equipe' || persoActuel == 'neutre' || persoActuel == 'pnj') && nomPersoActuel == perso.nom" class="container-stats">
             <div class="formulaire" *ngIf="formulaire == 'gold' || formulaire == 'pv' || formulaire == 'mana'">
                 <input id="quantite" type="text" [(ngModel)]="quantite">
                 <button (click)="form(perso)">Ok</button>
