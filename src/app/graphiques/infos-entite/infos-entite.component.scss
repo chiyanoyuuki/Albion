@@ -21,16 +21,8 @@
     border: 1px solid black;
 }
 
-.pnjsNeutres .text {
-    background-color: #a08300dd;
-}
-
-.ennemis .text {
-    background-color: #8d0000dd;
-}
-
 //TEXTES =====================================
-.text-etat{
+.text-etat {
     background-color: #000000bb;
     color: white;
     text-align: center;
@@ -40,7 +32,16 @@
     border-top-right-radius: 14px;
     border: 1px solid black;
 }
-.text-etat:hover{
+
+.pnjsNeutres .text-etat {
+    background-color: #a08300dd;
+}
+
+.ennemis .text-etat {
+    background-color: #8d0000dd;
+}
+
+.text-etat:hover {
     color: rgb(255, 255, 160);
 }
 
@@ -57,10 +58,12 @@
     font-family: "Medieval", Arial, Helvetica, sans-serif;
     transition: all 0.4s;
 }
+
 .pdvmanadiv p:hover {
     color: red;
 }
-.formulaire{
+
+.formulaire {
     position: absolute;
     top: 0;
     left: 100%;

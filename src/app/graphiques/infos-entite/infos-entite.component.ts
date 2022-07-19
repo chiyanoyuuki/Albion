@@ -8,7 +8,6 @@ import { Entite } from 'src/app/model';
 })
 export class InfosEntiteComponent implements OnInit {
   @Input() perso: Entite;
-  @Input() type: string;
   
   public formulaire: string;
   public quantite: string;

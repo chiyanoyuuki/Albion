@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     window.addEventListener("beforeunload", function (e) {
       var confirmationMessage = "\o/";
-      console.log("cond");
       e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
       return confirmationMessage;              // Gecko, WebKit, Chrome <34
     });
@@ -30,33 +29,5 @@ export class AppComponent implements OnInit {
 
     console.log(this.data);
     //Verifications
-    //Entites non placées==================================================================
-    const lieux: Lieu[] = this.data.lieux;
-    let persos: string[] = [];
-    lieux.forEach((lieu: Lieu) => {
-      if (lieu.personnagesActuels) { lieu.personnagesActuels.forEach((nom: string) => persos.push(nom)); }
-    });
-    //Personnages de l'équipe
-    const persosManquants: Entite[] = this.data.equipe.filter((perso: Entite) =>
-      !persos.includes(perso.nom)
-    );
-    if (persosManquants.length > 0) { console.warn("Des personnages de l'équipe ne sont pas placés !"); persosManquants.forEach(p => console.log(p.nom)); }
-    //Pnjs Neutres
-    const amisManquants: Entite[] = this.data.pnjsNeutres.filter((perso: Entite) =>
-      !persos.includes(perso.nom)
-    );
-    if (amisManquants.length > 0) { console.warn("Des PNJs neutres ne sont pas placés !"); amisManquants.forEach(p => console.log(p.nom)); }
-    //PersonnagesActuels non définie pour un lieu===================================================================
-    let manquePersonnagesActuels: string[] = [];
-    lieux.forEach((lieu: Lieu) => {
-      if (!lieu.personnagesActuels) { manquePersonnagesActuels.push(lieu.id); }
-    });
-    if (manquePersonnagesActuels.length > 0) { console.warn("Des lieux n'ont pas de personnagesActuels !"); manquePersonnagesActuels.forEach(p => console.log(p)); }
-    //Points d'entrée non définis pour un lieu===================================================================
-    let manqueEntrees: string[] = [];
-    lieux.forEach((lieu: Lieu) => {
-      if (lieu.entreex == undefined) { manqueEntrees.push(lieu.id); }
-    });
-    if (manqueEntrees.length > 0) { console.warn("Des lieux n'ont pas de points d'entrée !"); manqueEntrees.forEach(p => console.log(p)); }
   }
 }
