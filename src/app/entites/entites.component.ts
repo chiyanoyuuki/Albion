@@ -22,6 +22,8 @@ export class EntitesComponent implements OnInit {
   public formulaire: string;
   public quantite: string;
   public gain: string;
+  public persoActuel: string;
+  public nomPersoActuel: string;
 
   constructor() { }
 
@@ -61,8 +63,26 @@ export class EntitesComponent implements OnInit {
   }
 
 
-  public clickPerso(perso: Entite) {
-
+  public clickPersoActuel(perso: Entite) {
+    this.persoActuel = '';
+    if (this.nomPersoActuel == perso.nom) {
+      this.nomPersoActuel = '';
+      return;
+    }
+    this.nomPersoActuel = perso.nom;
+    let personnageDansTeamOuNeutre = this.data.equipe.find(persosEquipe => persosEquipe.nom == perso.nom);
+    if (personnageDansTeamOuNeutre) {
+      this.persoActuel = 'equipe';
+    }else if (!personnageDansTeamOuNeutre) {
+      personnageDansTeamOuNeutre = this.data.pnjsNeutres.find(persoNeutre => persoNeutre.nom == perso.nom);
+      if (personnageDansTeamOuNeutre) {
+        this.persoActuel = 'neutre';
+      }else{
+        if (perso.pdv == 0) {
+          this.persoActuel = 'pnj';
+        }
+      }
+    }
   }
 
   clicDroit(event: MouseEvent, perso: Entite) {
