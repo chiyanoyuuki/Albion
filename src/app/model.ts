@@ -1,6 +1,5 @@
 export class Data {
-	public equipe: Entite[];
-	public pnjsNeutres: Entite[];
+	public entites: Entite[];
 	public quetesprincipales: Quete[];
 	public quetessecondaires: Quete[];
 	public lieuActuel: Lieu;
@@ -11,6 +10,7 @@ export class Data {
 }
 
 export class Entite {
+	public lieu: string;
 	public x: number;
 	public y: number;
 	public xcombat: number;
@@ -23,7 +23,7 @@ export class Entite {
 	public manamax: number;
 	public mana: number;
 	public image: string;
-	public team: boolean;
+	public team: number;
 	public actif: boolean;
 	public histoire: string;
 	public classe: string;
@@ -33,8 +33,8 @@ export class Entite {
 	public sorts: string[]
 	public stuff: string[];
 	public argent: number;
-	public inventaire: { nom: string, qte: number, image: string }[];
-	public formes: string[];
+	public inventaire: ObjetInventaire[];
+	public formes: {nom:string,image:string,minia:string}[];
 	public forme: string;
 	public familier: Entite;
 	public solo: boolean;
@@ -47,10 +47,15 @@ export class Entite {
 
 export class Boutique {
 	public nom: string;
-	public objets: Objet[];
+	public objets: ObjetAAcheter[];
 }
 
-export class Objet {
+export class ObjetInventaire { 
+	public nom: string; 
+	public qte: number; 
+	public image: string }
+
+export class ObjetAAcheter {
 	public nom: string;
 	public qte: number;
 	public prix: number;
@@ -78,10 +83,8 @@ export class Lieu {
 	public position_start: Position[];
 	public finx: number;
 	public finy: number;
-	public pnjs: Entite[];
 	public desac: boolean;
 	public parent: string;
-	public personnagesActuels: string[];
 	public scale: number;
 	public entreex: number;
 	public entreey: number;

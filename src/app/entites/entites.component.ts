@@ -1,4 +1,4 @@
-import { Entite, Data, MenuContextuel, Lieu, Objet } from '../model';
+import { Entite, Data, MenuContextuel, Lieu, ObjetInventaire } from '../model';
 import { Component, DoCheck, HostListener, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
@@ -7,12 +7,10 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
   templateUrl: './entites.component.html',
   styleUrls: ['./entites.component.scss']
 })
-export class EntitesComponent implements OnInit, DoCheck {
+export class EntitesComponent implements OnInit {
 
   @Input() data: Data;
-  @Input() type: string;
 
-  public entites: any;
   public quetePrincipale: any;
   public queteSecondaire: any;
   public quetes: any;
@@ -20,7 +18,7 @@ export class EntitesComponent implements OnInit, DoCheck {
   public menuContextuel: MenuContextuel | undefined;
   public persoMenuContextuel: Entite | undefined;
   public ongletActif: string = "inventaire";
-  public objetActif: Objet | undefined;
+  public objetActif: ObjetInventaire | undefined;
   public formulaire: string;
   public quantite: string;
   public gain: string;
@@ -28,19 +26,7 @@ export class EntitesComponent implements OnInit, DoCheck {
   constructor() { }
 
   ngOnInit(): void {
-    
-  }
 
-  ngDoCheck(): void {
-    if (this.type == "personnages") { this.entites = this.data.equipe };
-    if (this.type == "pnjsNeutres") { this.entites = this.data.pnjsNeutres };
-    if (this.type == "ennemis") { this.entites = this.data.lieuActuel.pnjs };
-    this.quetePrincipale = this.data.quetesprincipales;
-    this.queteSecondaire = this.data.quetessecondaires;
-    this.quetes = [
-      this.quetePrincipale,
-      this.queteSecondaire
-    ]
   }
 
   public dragEnd($event: CdkDragEnd, perso: Entite) {
@@ -60,11 +46,8 @@ export class EntitesComponent implements OnInit, DoCheck {
     return !perso.solo && Number(perso.nom.replace(/[^0-9]*/, "")) % 2 != 0;
   }
 
-  public getEntites() {
-    if (this.type == "ennemis") { return this.entites; }
-    return this.entites.filter((entite: Entite) =>
-      this.data.lieuActuel.personnagesActuels.includes(entite.nom)
-    );
+  public getEntitesPresentes() {
+    return this.data.entites.filter((entite: Entite) => entite.lieu == this.data.lieuActuel.id);
   }
   public getQuetePrincipale() {
     return this.quetePrincipale;
@@ -95,7 +78,7 @@ export class EntitesComponent implements OnInit, DoCheck {
 
   }
 
-  form(perso: Entite){
+  form(perso: Entite) {
     if (!this.quantite.match(/^-?[0-9]+$/g)) {
       return;
     }
@@ -103,30 +86,30 @@ export class EntitesComponent implements OnInit, DoCheck {
     if (this.formulaire == 'gold') {
       perso.argent += quantiteNbr;
       if (perso.argent < 0) {
-        perso.argent = 0; 
+        perso.argent = 0;
       }
-    }else if (this.formulaire == 'pv') {
+    } else if (this.formulaire == 'pv') {
       perso.pdv += quantiteNbr;
       if (perso.pdv > perso.pdvmax) {
         perso.pdv = perso.pdvmax;
-      }else if (perso.pdv < 0) {
+      } else if (perso.pdv < 0) {
         perso.pdv = 0;
       }
-    }else if (this.formulaire == 'mana') {
+    } else if (this.formulaire == 'mana') {
       perso.mana += quantiteNbr;
       if (perso.mana > perso.manamax) {
         perso.mana = perso.manamax;
-      }else if (perso.mana < 0) {
+      } else if (perso.mana < 0) {
         perso.mana = 0;
       }
     }
     this.formulaire = "";
   }
 
-  clickGain(perso: Entite, clicked: string){
-    if (this.gain != clicked) { 
-      this.gain = clicked; 
-    }else if (this.gain == clicked) {
+  clickGain(perso: Entite, clicked: string) {
+    if (this.gain != clicked) {
+      this.gain = clicked;
+    } else if (this.gain == clicked) {
       if (clicked == 'Niveau') {
         perso.niveau += 1;
       }
@@ -144,7 +127,7 @@ export class EntitesComponent implements OnInit, DoCheck {
               item.nom = "";
               item.image = "";
             }
-          }else if (item && element.qte < 0) {
+          } else if (item && element.qte < 0) {
             item.qte = 0;
           }
         }
@@ -156,17 +139,7 @@ export class EntitesComponent implements OnInit, DoCheck {
   public majFromChild() {
     let entite = this.persoMenuContextuel;
     if (!entite) { return }
-    if (this.type == "personnages") {
-      this.data.equipe.splice(this.data.equipe.indexOf(entite), 1);
-      this.data.lieuActuel.personnagesActuels.splice(this.data.lieuActuel.personnagesActuels.indexOf(entite.nom), 1);
-    }
-    else if (this.type == "pnjsNeutres") {
-      this.data.pnjsNeutres.splice(this.data.pnjsNeutres.indexOf(entite), 1);
-      this.data.lieuActuel.personnagesActuels.splice(this.data.lieuActuel.personnagesActuels.indexOf(entite.nom), 1);
-    }
-    else if (this.type == "ennemis") {
-      this.data.lieuActuel.pnjs.splice(this.data.lieuActuel.pnjs.indexOf(entite), 1);
-    }
+    this.data.entites.splice(this.data.entites.indexOf(entite), 1);
     this.persoMenuContextuel = undefined;
     this.menuContextuel = undefined;
     this.majMap();

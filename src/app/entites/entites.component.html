@@ -1,5 +1,5 @@
-<div [ngClass]="type">
-    <div [ngClass]="{'container':true,'dead':perso.pdv<=0}" *ngFor="let perso of getEntites()"
+<div>
+    <div [ngClass]="{'container':true,'dead':perso.pdv<=0}" *ngFor="let perso of getEntitesPresentes()"
         [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
         [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (cdkDragEnded)="dragEnd($event,perso)"
         (contextmenu)="clicDroit($event, perso)" cdkDrag>
@@ -7,7 +7,7 @@
         <!-- PARTIE INFOS =================================================== -->
 
         <div class="entite">
-            <app-infos-entite [perso]="perso" [type]="type"></app-infos-entite>
+            <app-infos-entite [perso]="perso"></app-infos-entite>
         </div>
 
         <!-- IMAGE + SHADOW =================================================== -->
@@ -74,7 +74,7 @@
                         <div class="flex pdvmanadiv">
                             <p class="pdvtext" (click)="formulaire = 'pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
                             <div class="grouppdvmana">
-                                <img class="fill" draggable="false" src="./assets/images/pdvfill{{(type=='ennemis'?'2':'')}}.PNG"
+                                <img class="fill" draggable="false" src="./assets/images/pdvfill{{(perso.team==2?'2':'')}}.PNG"
                                     [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
                                 <img draggable="false" src="./assets/images/pdvmanabar.png"/>
                             </div>
@@ -128,7 +128,7 @@
                     <div *ngFor="let stuff of perso.inventaire" class="li" (mouseover)="objetActif = stuff" (mouseleave)="objetActif = undefined;gain = ''" (click)="clickGain(perso, stuff.nom)">
                         <img class="fond_objet" src="./assets/images/vide_inventaire.png"/>
                         <img class="objet" *ngIf="stuff.image" src="./assets/images/{{ stuff.image }}.png"/>
-                        <p [hidden]="objetActif != stuff">{{gain == stuff.nom && gain ? 'Confirmer utilisation ?' : stuff.nom}}</p>
+                        <p [hidden]="objetActif != stuff">{{gain == stuff.nom && gain != undefined ? 'Confirmer utilisation ?' : stuff.nom}}</p>
                         <span *ngIf="stuff.nom">{{ stuff.qte }}</span>
                     </div>
                 </div>

@@ -17,7 +17,7 @@
 
         <div class="personnagesInside">
             <div>
-                <app-icone-personnage *ngFor="let perso of getPersonnagesInside(lieu)" [perso]="perso"
+                <app-icone-personnage *ngFor="let perso of getPersonnagesDansLieu(lieu)" [perso]="perso"
                     (mouseover)="focus=perso" (click)="sortirPerso(lieu,perso)"></app-icone-personnage>
             </div>
         </div>
@@ -29,8 +29,8 @@
             <div class="line"></div>
             <div class="flexCenter">
                 <div>
-                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(data.equipe)" [perso]="perso"
-                        (mouseover)="focus=perso" (click)="rentrerPerso(lieu,perso)"
+                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(0)" [perso]="perso"
+                        (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
                         (mouseover)="persoHovered[0]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
                         (mouseout)="persoHovered[0]=''"></app-icone-personnage>
                 </div>
@@ -38,8 +38,8 @@
             <p class="nomPerso">{{persoHovered[0]}}</p>
             <div class="flexCenter">
                 <div>
-                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(data.pnjsNeutres)" [perso]="perso"
-                        (mouseover)="focus=perso" (click)="rentrerPerso(lieu,perso)"
+                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(1)" [perso]="perso"
+                        (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
                         (mouseover)="persoHovered[1]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
                         (mouseout)="persoHovered[1]=''"></app-icone-personnage>
                 </div>
@@ -47,8 +47,8 @@
             <p class="nomPerso">{{persoHovered[1]}}</p>
             <div class="flexCenter">
                 <div>
-                    <app-icone-personnage *ngFor="let perso of data.lieuActuel.pnjs" [perso]="perso"
-                        (mouseover)="focus=perso" (click)="rentrerPnj(lieu,perso)"
+                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(2)" [perso]="perso"
+                        (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
                         (mouseover)="persoHovered[2]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
                         (mouseout)="persoHovered[2]=''"></app-icone-personnage>
                 </div>
@@ -61,12 +61,7 @@
 
     <!-- ========================== PERSONNAGES ========================== -->
 
-    <app-entites [data]="data" [type]="'personnages'" class="entites">
-    </app-entites>
-    <app-entites [data]="data" [type]="'pnjsNeutres'" class="entites">
-    </app-entites>
-    <app-entites [data]="data" [type]="'ennemis'" class="entites">
-    </app-entites>
+    <app-entites [data]="data" class="entites"></app-entites>
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 
