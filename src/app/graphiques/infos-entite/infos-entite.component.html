@@ -1,5 +1,5 @@
-<div [ngClass]="type">
-    <div (click)="infoPerso(perso)" class="text-etat">
+<div [ngClass]="{'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}">
+    <div (click)="perso.actif=!perso.actif" class="text-etat">
         <p class="text nom">{{perso.nom}}</p>
         <p class="text etat">{{perso.etat?perso.etat:'Bonne santé'}}</p>
     </div>
@@ -14,7 +14,7 @@
             <div class="flex pdvmanadiv">
                 <p class="pdvtext" (click)="formulaire = 'pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
                 <div class="grouppdvmana">
-                    <img class="fill" draggable="false" src="./assets/images/pdvfill{{(type=='ennemis'?'2':'')}}.PNG"
+                    <img class="fill" draggable="false" src="./assets/images/pdvfill{{(perso.team==2?'2':'')}}.PNG"
                         [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
                     <img draggable="false" src="./assets/images/pdvmanabar.png" />
                 </div>

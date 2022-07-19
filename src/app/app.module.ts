@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { EntitesComponent } from './entites/entites.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HttpClientModule } from '@angular/common/http';
 import { MenuContextuelComponent } from './menu-contextuel/menu-contextuel.component';
 import { IconePersonnageComponent } from './graphiques/icone-personnage/icone-personnage.component';
 import { LevelComponent } from './graphiques/level/level.component';
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     DragDropModule,
     FormsModule

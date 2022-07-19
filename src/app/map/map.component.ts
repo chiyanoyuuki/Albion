@@ -17,7 +17,7 @@ export class MapComponent implements OnInit {
   public persoHovered: string[] = [];
   public menuContextuel: MenuContextuel | undefined;
 
-  constructor() {  }
+  constructor() { }
 
   ngOnInit(): void {
 
@@ -25,28 +25,20 @@ export class MapComponent implements OnInit {
 
   //GET=================================================================
 
-  getPersonnagesInside(lieu: Lieu) {
-    let personnagesInside: Entite[] = [];
-    const personnagesActuels = lieu.personnagesActuels;
-    if ((!personnagesActuels || lieu.personnagesActuels.length == 0) && lieu.pnjs.length == 0) { return personnagesInside; }
-    this.data.equipe.forEach((perso: Entite) => {
-      if (personnagesActuels.includes(perso.nom)) { personnagesInside.push(perso); }
-    });
-    this.data.pnjsNeutres.forEach((perso: Entite) => {
-      if (personnagesActuels.includes(perso.nom)) { personnagesInside.push(perso); }
-    });
-    lieu.pnjs.forEach((entite: Entite) => personnagesInside.push(entite));
-    return personnagesInside;
+  getPersonnagesDansLieu(lieu: Lieu) {
+    return this.data.entites.filter((entite: Entite) => entite.lieu == lieu.id);
   }
 
   getLieux(): Lieu[] {
     return this.data.lieux.filter(lieu => lieu.parent == this.data.lieuActuel.id);
   }
 
-  public getEntitesPresentes(entites: Entite[]) {
-    return entites.filter((entite: Entite) =>
-      this.data.lieuActuel.personnagesActuels.includes(entite.nom)
-    );
+  getPersosSurMapActuelle() {
+    return this.data.entites.filter((entite: Entite) => entite.lieu == this.data.lieuActuel.id);
+  }
+
+  getEntitesPresentes(nb: number) {
+    return this.getPersosSurMapActuelle().filter((entite: Entite) => entite.team == nb);
   }
 
   //CLICKS==================================================================
@@ -59,8 +51,8 @@ export class MapComponent implements OnInit {
 
   clickRetour() {
     this.menuContextuel = undefined;
-    let lieutmp = this.data.lieux.find((lieu:Lieu)=>lieu.id==this.data.lieuActuel.parent);
-    if(lieutmp){this.data.lieuActuel=lieutmp;}
+    let lieutmp = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.parent);
+    if (lieutmp) { this.data.lieuActuel = lieutmp; }
   }
 
   changeLieu(lieu: Lieu) {
@@ -71,7 +63,7 @@ export class MapComponent implements OnInit {
 
   rentrerLieu(lieu: Lieu) {
     this.menuContextuel = undefined;
-    let nb = this.getEntitesPresentes(this.data.equipe).length + this.getEntitesPresentes(this.data.pnjsNeutres).length + this.getEntitesPresentes(this.data.lieuActuel.pnjs).length;
+    let nb = this.getPersosSurMapActuelle().length;
     if (nb == 0) {
       this.changeLieu(lieu);
     }
@@ -80,50 +72,25 @@ export class MapComponent implements OnInit {
     }
   }
 
-  rentrerPerso(lieu: Lieu, perso: Entite) {
+  rentrerEntite(lieu: Lieu, perso: Entite) {
     this.verifPositionDeDepart(lieu, perso);
-    let personnagesActuels = this.data.lieuActuel.personnagesActuels;
-    let index = personnagesActuels.indexOf(perso.nom);
-    personnagesActuels.splice(index, 1);
-    lieu.personnagesActuels.push(perso.nom);
-    this.majMap();
-  }
-
-  rentrerPnj(lieu: Lieu, perso: Entite) {
-    this.verifPositionDeDepart(lieu, perso);
-    let personnagesActuels = this.data.lieuActuel.pnjs;
-    let index = personnagesActuels.indexOf(perso);
-    personnagesActuels.splice(index, 1);
-    lieu.pnjs.push(perso);
-    this.majMap();
+    perso.lieu = lieu.id;
   }
 
   verifPositionDeDepart(lieu: Lieu, perso: Entite) {
     this.persoHovered = [];
     this.menuContextuel = undefined;
     if (lieu.position_start) {
+      let persosACheck = this.getPersonnagesDansLieu(lieu);
       let trouve = false;
       lieu.position_start.forEach((position: Position) => {
         if (!trouve) {
-          let personnageSurLaPosition:Entite | undefined = undefined;
-          lieu.personnagesActuels.forEach(persosEtPotes => {
-            let personnageDansTeamOuNeutre = this.data.equipe.find(persosEquipe => persosEquipe.nom === persosEtPotes);
-            if (!personnageDansTeamOuNeutre) {
-              personnageDansTeamOuNeutre = this.data.pnjsNeutres.find(persoNeutre => persoNeutre.nom === persosEtPotes);
-            }
-            if (personnageDansTeamOuNeutre) {
-              if (personnageDansTeamOuNeutre.xcombat == position.startX && personnageDansTeamOuNeutre.ycombat == position.startY) {
-                personnageSurLaPosition = personnageDansTeamOuNeutre;
-              }
+          let personnageSurLaPosition: Entite | undefined = undefined;
+          persosACheck.forEach((persoDansLieu: Entite) => {
+            if (persoDansLieu.xcombat == position.startX && persoDansLieu.ycombat == position.startY) {
+              personnageSurLaPosition = persoDansLieu;
             }
           });
-          if (!personnageSurLaPosition) {
-            lieu.pnjs.forEach(ennemi => {
-              if (ennemi.xcombat === position.startX && ennemi.ycombat === position.startY) {
-                personnageSurLaPosition = ennemi;
-              }
-            });
-          }
           if (!personnageSurLaPosition) {
             trouve = true;
             perso.xcombat = position.startX;
@@ -138,11 +105,6 @@ export class MapComponent implements OnInit {
     }
   }
 
-  majMap() {
-    let location = this.data.lieux.find((l: Lieu) => l.id == this.data.lieuActuel.id);
-    location = this.data.lieuActuel;
-  }
-
   sortirPerso(lieu: Lieu, perso: Entite) {
     this.menuContextuel = undefined;
     if (this.data.lieuActuel.parent == "") {
@@ -153,19 +115,7 @@ export class MapComponent implements OnInit {
       perso.xcombat = lieu.x;
       perso.ycombat = lieu.y;
     }
-
-    let personnagesActuels = lieu.personnagesActuels;
-    let index = personnagesActuels.indexOf(perso.nom);
-    if (index != -1) {
-      personnagesActuels.splice(index, 1);
-      this.data.lieuActuel.personnagesActuels.push(perso.nom);
-    }
-    else {
-      index = lieu.pnjs.indexOf(perso);
-      lieu.pnjs.splice(index, 1);
-      this.data.lieuActuel.pnjs.push(perso);
-    }
-    this.majMap();
+    perso.lieu = lieu.parent;
   }
 
   clicDroitMap(event: MouseEvent) {
@@ -189,36 +139,20 @@ export class MapComponent implements OnInit {
     this.menuContextuel = undefined;
     addEntite.entite.x = addEntite.menuContextuel.x;
     addEntite.entite.y = addEntite.menuContextuel.y;
+    addEntite.entite.lieu = this.data.lieuActuel.id;
+
+    if (addEntite.team == "Ami") { addEntite.entite.team = 0; }
+    else if (addEntite.team == "Neutre") { addEntite.entite.team = 1; }
+    else { addEntite.entite.team = 2; }
 
     if (!addEntite.entite.solo) {
       const nomEntite = addEntite.entite.nom;
       let nb = 1;
-      this.data.lieux.forEach((lieu: Lieu) => {
-        lieu.personnagesActuels.forEach((nom: string) => {
-          if (nom.startsWith(nomEntite)) { nb++; }
-        })
-        lieu.pnjs.forEach((entite: Entite) => {
-          if (entite.nom.startsWith(nomEntite)) { nb++; }
-        })
-      })
+      this.data.entites.forEach((entite: Entite) => {
+        if (entite.nom.startsWith(nomEntite)) { nb += 1; }
+      });
       addEntite.entite.nom = addEntite.entite.nom + ' ' + ('0' + nb).slice(-2);
     }
-
-    if (addEntite.team == "Ami") {
-      this.data.equipe.push(addEntite.entite);
-      this.data.lieuActuel.personnagesActuels.push(addEntite.entite.nom);
-      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.personnagesActuels.push(addEntite.entite.nom);
-    }
-    else if (addEntite.team == "Neutre") {
-      this.data.pnjsNeutres.push(addEntite.entite);
-      this.data.lieuActuel.personnagesActuels.push(addEntite.entite.nom);
-      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.personnagesActuels.push(addEntite.entite.nom);
-    }
-    else {
-      this.data.lieuActuel.pnjs.push(addEntite.entite);
-      this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id)?.pnjs.push(addEntite.entite);
-    }
-
-    this.majMap();
+    this.data.entites.push(addEntite.entite);
   }
 }

@@ -41,14 +41,13 @@ export class MenuContextuelComponent implements OnInit {
     let alpha = Array.from(Array(26)).map((e, i) => i + 65);
     this.alphabet = alpha.map((x) => String.fromCharCode(x));
     this.entitySelected = this.getEntitesPossibles()[0];
-
+    this.entitySelected.team = 1;
   }
 
   getEntitesPossibles() {
-    let entitesPossibles: Entite[] = [];
-    let pnjsActuels: string[] = [];
-    this.data.pnjsNeutres.forEach((entite: Entite) => { pnjsActuels.push(entite.nom); });
-    this.data.pnjs.forEach((entite: Entite) => { if (!pnjsActuels.includes(entite.nom)) { entitesPossibles.push(entite) } });
+    let entitesPossibles: Entite[] = this.data.pnjs.filter((entitePossible: Entite) =>
+      !this.data.entites.some((entitePresente: Entite) => entitePresente.nom == entitePossible.nom)
+    );
 
     if (this.typeSelected == "PNJS") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }
     else if (this.typeSelected == "Monstres") { entitesPossibles = entitesPossibles.filter((entite: Entite) => !entite.solo); }
@@ -86,12 +85,6 @@ export class MenuContextuelComponent implements OnInit {
     }
   }
 
-  getType() {
-    if (this.teamSelected == "Neutre") { return "pnjsNeutres"; }
-    else if (this.teamSelected == "Ami") { return "team"; }
-    else { return "ennemis"; }
-  }
-
   clickMonsterLevel(level: { niveau: number, pdvmax: number, manamax: number }) {
     this.monsterLevelSelected = level;
     if (this.entitySelected) {
@@ -117,6 +110,13 @@ export class MenuContextuelComponent implements OnInit {
   private fakeValidateUserData() {
     let sauvegarde = JSON.stringify(this.data);
     return of(sauvegarde);
+  }
+
+  public clickTeam(equipe: string) {
+    this.teamSelected = equipe;
+    if (equipe == "Ami") { this.entitySelected.team = 0; }
+    else if (equipe == "Neutre") { this.entitySelected.team = 1; }
+    else { this.entitySelected.team = 2; }
   }
 
   private dyanmicDownloadByHtmlTag(arg: {

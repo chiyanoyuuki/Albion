@@ -3,6 +3,10 @@ p {
     text-align: center;
 }
 
+.fenetre:hover {
+    cursor: move;
+}
+
 .choix {
     color: white;
     white-space: nowrap;

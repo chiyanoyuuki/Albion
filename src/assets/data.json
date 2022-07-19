@@ -1,5 +1,5 @@
 {
-    "equipe": [
+    "entites": [
         {
             "id": "lunastormwood",
             "x": 366,
@@ -10,8 +10,9 @@
             "histoire": "Origaire d'une grande famille d'alchimiste de la forêt d'aubelune au sud-est D'Albion dont le père est décédé et la mère à soudainement disparu il y plusieurs semaines. Luna se met donc en quête de retrouver sa mère, elle apprend que sa mère est parti vers le nord dans les montage pour étudier des phonèmes climatique étrange. Elle se met donc en route pour les montagnes, arrivée à l'endroit où la végétation a subis des changements inexplicable, Luna commence à s'interroger, après plusieurs jours de recherche, elle surprend une conversation avec un mercenaire et un homme qui vie dans les montagnes, ces deux personnes parlent d'une grosse pierre précieuse que le roi Herald recherche, après quelques instants, grâce aux recherches qu'elles a effectués ces jours précédents, elle commence à comprendre de quoi il s'agit et décide d'aller à la rencontre de ces deux hommes..",
             "classe": "sorciere",
             "image": "sorciere",
-            "team": true,
+            "team": 0,
             "niveau": 3,
+            "lieu": "prisonfjorh",
             "pdvmax": 16,
             "pdv": 16,
             "manamax": 40,
@@ -170,6 +171,7 @@
             "id": "bjorncotesdefer",
             "x": 1166,
             "y": 959,
+            "lieu": "prisonfjorh",
             "xcombat": 893,
             "ycombat": 626,
             "nom": "Bjorn Côtes de Fer",
@@ -177,7 +179,7 @@
             "classe": "trappeur",
             "image": "trappeur",
             "minia": "trappeurm",
-            "team": true,
+            "team": 0,
             "niveau": 3,
             "pdvmax": 30,
             "pdv": 0,
@@ -361,12 +363,13 @@
             "x": 665,
             "y": 362,
             "xcombat": 688,
+            "lieu": "prisonfjorh",
             "ycombat": 530,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
             "classe": "mercenaire",
             "image": "mercenaire",
-            "team": true,
+            "team": 0,
             "niveau": 3,
             "pdvmax": 38,
             "pdv": 12,
@@ -527,12 +530,13 @@
             "x": 555,
             "y": 118,
             "xcombat": 1294,
+            "lieu": "prisonfjorh",
             "ycombat": 516,
             "nom": "Arlequin",
             "histoire": "Arlequin vient de l'île de Sagüt au Sud-Ouest de Albion. Son île fut complètement détruite en quelques instants lorsqu'il n'avait que 10 ans. Il vagabonda ensuite en volant des provisions aux quatres coins du monde pour survivre. Il fît la connaissance d'un mâitre sabreur avec qui il apprit le maniement des lames pendant quelques années. Il obtint le magnifique Katana de son maître lorsqu'il décéda de vieillesse. Après cela, il rencontra un groupe d'aventuriers avec qui il passa quelques années. Un beau jour, ils se retrouvérent dans une embuscade et sans explication, Arlequin fût vendu aux assassins en échange de la vie du reste du groupe. Arlequin dût assassiner des centaines de personnes sur les ordres des assassins les années qui suivèrent. Il réussit à se débarasser de la totalité de ses ravisseurs avant de retourner vagabonder seul, désormais plus renfermé que jamais et ayant plus de difficulté à participer à des combats qu'il jugerait inutiles.",
             "classe": "assassin",
             "image": "assassin",
-            "team": true,
+            "team": 0,
             "niveau": 3,
             "pdvmax": 24,
             "pdv": 24,
@@ -694,11 +698,12 @@
             "y": 738,
             "xcombat": 486,
             "ycombat": 529,
+            "lieu": "prisonfjorh",
             "nom": "Sienna Hurlevent",
             "histoire": "Depuis son plus jeune age, Sienna a parcouru la forêt de XXX jusqu'à en reconnaitre les moindres changement dans la faune et la flore. Jeune druidesse elfe de 107 ans, elle a été formée aux arcanes de la magie de métamorphose par l'archimage Louge dans la plus grande discression. Les autres races ignores beaucoup de chose sur la vie des elfes après tout. Sienna s'est mis en tete de parcourir le monde au coté de son fidèle compagnon, Pipou l'écureuil. Elle a un but précis : trouver un remède pour guérir sa famille rongé par un maux qu'aucun elfe n'a encore vu auparavant.",
             "classe": "druide",
             "image": "Sienna",
-            "team": true,
+            "team": 0,
             "niveau": 3,
             "pdvmax": 24,
             "pdv": 24,
@@ -873,7 +878,6 @@
             ]
         }
     ],
-    "pnjsNeutres": [],
     "quetesprincipales": [
         {
             "nom": "Un oeuf de dragon ?",
@@ -961,13 +965,6 @@
         "finy": 0,
         "desac": false,
         "pnjs": [],
-        "personnagesActuels": [
-            "Luna Stormwood",
-            "Gandalf le Roux",
-            "Bjorn Côtes de Fer",
-            "Arlequin",
-            "Sienna Hurlevent"
-        ],
         "scale": 5,
         "ancienLieu": "fjorh"
     },
@@ -1034,7 +1031,6 @@
             "parent": "",
             "entreex": 0,
             "entreey": 0,
-            "personnagesActuels": [],
             "pnjs": []
         },
         {
@@ -1048,7 +1044,6 @@
             "desac": true,
             "parent": "map",
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 4
         },
         {
@@ -1084,7 +1079,6 @@
             "desac": false,
             "pnjs": [],
             "parent": "map",
-            "personnagesActuels": [],
             "scale": 1.5
         },
         {
@@ -1097,8 +1091,7 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1110,8 +1103,7 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1123,8 +1115,7 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "parent": "fjorh",
@@ -1157,7 +1148,6 @@
                 "desac": false,
                 "scale": 0.6,
                 "pnjs": [],
-                "personnagesActuels": [],
                 "ancienLieu": {
                     "id": "map",
                     "nom": "map",
@@ -1168,7 +1158,6 @@
                     "finy": 0,
                     "desac": true,
                     "parent": "",
-                    "personnagesActuels": [],
                     "pnjs": []
                 }
             }
@@ -1183,8 +1172,7 @@
             "finx": 150,
             "finy": 140,
             "desac": false,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "parent": "dusk",
@@ -1207,7 +1195,6 @@
             "finy": 145,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 4
         },
         {
@@ -1239,7 +1226,6 @@
             "finy": 160,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 5
         },
         {
@@ -1274,8 +1260,7 @@
             "finy": 135,
             "parent": "map",
             "desac": false,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "parent": "labyrinthesouterrainfjorh",
@@ -1287,8 +1272,7 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "id": "entreegrottenord",
@@ -1323,7 +1307,6 @@
             "finy": 70,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 2,
             "enterx": 976,
             "entery": 751,
@@ -1337,7 +1320,6 @@
                 "finy": 0,
                 "desac": true,
                 "parent": "",
-                "personnagesActuels": [],
                 "pnjs": []
             }
         },
@@ -1373,8 +1355,7 @@
             "finx": 160,
             "finy": 200,
             "desac": false,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "parent": "fjorh",
@@ -1409,7 +1390,6 @@
             "finy": 60,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 2
         },
         {
@@ -1445,7 +1425,6 @@
             "finy": 130,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 3
         },
         {
@@ -1473,7 +1452,6 @@
             "finy": 130,
             "desac": true,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 5
         },
         {
@@ -1508,8 +1486,7 @@
             "finx": 212,
             "finy": 116,
             "desac": false,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "id": "fjorh",
@@ -1545,7 +1522,6 @@
             "desac": false,
             "scale": 0.6,
             "pnjs": [],
-            "personnagesActuels": [],
             "ancienLieu": {
                 "id": "map",
                 "nom": "map",
@@ -1556,7 +1532,6 @@
                 "finy": 0,
                 "desac": true,
                 "parent": "",
-                "personnagesActuels": [],
                 "pnjs": []
             }
         },
@@ -1571,7 +1546,6 @@
             "finy": 69,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 2
         },
         {
@@ -1607,7 +1581,6 @@
             "finy": 140,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 2
         },
         {
@@ -1623,7 +1596,6 @@
             "finy": 120,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 0.7
         },
         {
@@ -1659,7 +1631,6 @@
             "finy": 100,
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 4
         },
         {
@@ -1694,8 +1665,7 @@
             "finy": 135,
             "parent": "map",
             "desac": false,
-            "pnjs": [],
-            "personnagesActuels": []
+            "pnjs": []
         },
         {
             "id": "haul",
@@ -1730,7 +1700,6 @@
             "parent": "map",
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 0.7
         },
         {
@@ -1766,7 +1735,6 @@
             "parent": "map",
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 3
         },
         {
@@ -1802,7 +1770,6 @@
             "parent": "map",
             "desac": false,
             "pnjs": [],
-            "personnagesActuels": [],
             "scale": 3
         }
     ],

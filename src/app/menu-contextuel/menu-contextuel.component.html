@@ -1,4 +1,4 @@
-<div class="fenetre" [style.left]="menu.x+'px'" [style.top]="menu.y+'px'">
+<div class="fenetre" [style.left]="menu.x+'px'" [style.top]="menu.y+'px'" cdkDrag>
     <div *ngIf="add==false">
         <p *ngIf="menu.type=='map'" class="choix" (click)="add=true;">Ajouter une entité</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
@@ -28,7 +28,7 @@
         <div class="line"></div>
         <div class="flex levels">
             <p class="level">Team :</p>
-            <p *ngFor="let equipe of teams" class="choix" (click)="teamSelected=equipe"
+            <p *ngFor="let equipe of teams" class="choix" (click)="clickTeam(equipe)"
                 [style.color]="teamSelected==equipe?'red':'white'">{{equipe}}</p>
         </div>
         <div class="flex levels">
@@ -41,8 +41,7 @@
 
         </div>
         <div class="apercu" *ngIf="entitySelected">
-            <app-infos-entite [perso]="entitySelected" [type]="getType()">
-            </app-infos-entite>
+            <app-infos-entite [perso]="entitySelected"></app-infos-entite>
             <!-- LEVEL =================================================== -->
 
             <app-level [niveau]="entitySelected.niveau"></app-level>

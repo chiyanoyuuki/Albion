@@ -8,7 +8,6 @@ import { Entite, Data } from 'src/app/model';
 })
 export class InfosEntiteComponent implements OnInit {
   @Input() perso: Entite;
-  @Input() type: string;
   @Input() data: Data;
   @Output() persoActuel = new EventEmitter<Entite>();
   
