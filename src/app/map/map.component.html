@@ -65,7 +65,7 @@
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 
-    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data" (majEvent)="majFromChild($event)">
+    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data" (addEntityEvent)="addEntity($event)">
     </app-menu-contextuel>
 
 </div>

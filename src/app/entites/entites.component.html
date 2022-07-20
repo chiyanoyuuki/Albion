@@ -1,5 +1,6 @@
 <div>
-    <div [ngClass]="{'container':true,'dead':perso.pdv<=0}" *ngFor="let perso of getEntitesPresentes()"
+    <div [ngClass]="{'container':true,'dead':perso.pdv<=0,'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}"
+        *ngFor="let perso of getEntitesPresentes()"
         [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
         [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'"
         [style.z-index]="perso==lastPersoClicked?2:1" (cdkDragEnded)="dragEnd($event,perso)"
@@ -15,16 +16,16 @@
         <!-- IMAGE + SHADOW =================================================== -->
 
         <div class="containerPerso"
-            [style.top]="(this.data.lieuActuel.scale&&this.data.lieuActuel.scale>1?(this.data.lieuActuel.scale)*20+79+'px':'84px')"
-            [style.transform]="'scale(' + (this.data.lieuActuel.scale?this.data.lieuActuel.scale:1) + ')'"
+            [style.top]="getTop(perso)"
+            [style.transform]="getScale(perso)"
             [style.left]="(perso.overrideX?perso.overrideX+'%':'40%')">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
-                    [style.left]="perso.familier.overrideX+'px'" src="./assets/images/{{perso.familier.image}}.png"
+                    [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'" [style.height]="perso.familier.posHeight+'px'" src="./assets/images/{{perso.familier.image}}.png"
                     cdkDragHandle />
                 <img class="imageperso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
                 <div class="flexCenter">
-                    <div class="shadow " cdkDragHandle></div>
+                    <div class="shadow" cdkDragHandle></div>
                 </div>
             </div>
         </div>
@@ -37,13 +38,14 @@
 
         <app-menu-contextuel class="menuContextuel"
             *ngIf="menuContextuel&&persoMenuContextuel&&persoMenuContextuel==perso" [menu]="menuContextuel"
-            [perso]="perso" [data]="data" (deleteEvent)="majFromChild()">
+            [perso]="perso" [data]="data" (deleteEntityEvent)="delete()" (closeEvent)="menuContextuel=undefined">
         </app-menu-contextuel>
 
         <!-- STATS PERSO ACTIF ================================================= -->
 
         <app-stats-personnage [perso]="perso" [data]="data" (closeForm)="persoActuel='';nomPersoActuel=''"
-            *ngIf="(persoActuel == 'equipe' || persoActuel == 'neutre' || persoActuel == 'ennemi') && nomPersoActuel == perso.nom">
+            *ngIf="nomPersoActuel == perso.nom">
         </app-stats-personnage>
+
     </div>
 </div>

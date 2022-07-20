@@ -1,9 +1,21 @@
-.container {
+.containerStats {
     background-image: url("../../../assets/images/fond-stats.png");
     width: 450px;
-    height: 330px;
-    top: -440px;
-    left: -175px;
+    height: 300px;
+    top: -410px;
+    z-index: 2;
+    left: 70px;
+    position: absolute;
+    border: 2px ridge #202020;
+    padding: 10px;
+}
+
+.containerStuff {
+    background-image: url("../../../assets/images/fond-stats.png");
+    width: 220px;
+    height: 300px;
+    top: -410px;
+    left: -210px;
     position: absolute;
     z-index: 2;
     border: 2px ridge #202020;
@@ -54,6 +66,10 @@
     margin-right: 5px;
 }
 
+.choix {
+    font-size: 17px !important;
+}
+
 .hautGauche {
     width: 65%;
 }
@@ -99,10 +115,6 @@
     justify-content: center;
 }
 
-.clickable:hover {
-    color: rgb(158, 18, 18) !important;
-    cursor: pointer;
-}
 
 .onglets {
     margin-top: 5px;
@@ -122,6 +134,17 @@
     flex-flow: wrap;
 }
 
+.containerStuff .objet {
+    position: absolute;
+}
+
+.personnage {
+    height: 250px;
+    left: 50%;
+    transform: translate(-50%);
+    top: 5px;
+}
+
 .objet {
     width: 50px;
     height: 50px;
@@ -135,6 +158,7 @@
     height: 40px;
     top: 5px;
     left: 5px;
+    z-index: 2;
 }
 
 .nomItem {
@@ -142,7 +166,7 @@
     top: 30%;
     width: 200px;
     left: -75px;
-    z-index: 1;
+    z-index: 3;
     pointer-events: none;
     display: flex;
     justify-content: center;
@@ -163,11 +187,12 @@
     position: absolute;
     background-color: rgb(20, 20, 20) !important;
     border-radius: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .nomItem p {
     width: fit-content;
+    z-index: 30;
 }
 
 .objet:hover {
@@ -177,8 +202,6 @@
 //Golds
 .containerGolds {
     height: fit-content;
-    top: 10px;
-    right: 5%;
 }
 
 .golds img {
@@ -209,4 +232,8 @@
     color: white;
     text-align: center;
     border-radius: 100%;
+}
+
+.end {
+    justify-content: end;
 }

@@ -14,6 +14,7 @@
             "team": 0,
             "niveau": 3,
             "pdvmax": 16,
+            "statutFamilier": "",
             "pdv": 16,
             "manamax": 40,
             "mana": 40,
@@ -53,21 +54,103 @@
                     "qte": 9
                 }
             ],
-            "arme1": "Grimoire Usé",
-            "arme2": "Dague de fer en bon état",
             "sorts": [
-                "Ronces",
-                "Boost de Concentration",
-                "",
-                "",
-                ""
+                {
+                    "nom": "Ronces",
+                    "image": "sort_ronces"
+                },
+                {
+                    "nom": "Boost de concentration",
+                    "image": "sort_boost_concentration"
+                }
             ],
             "stuff": [
-                "",
-                "",
-                "",
-                "",
-                ""
+                {
+                    "emplacement": "Tête",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Torse",
+                    "objet": {
+                        "nom": "Tunique de prison",
+                        "emplacement": "Torse",
+                        "image": "tunique_prison"
+                    }
+                },
+                {
+                    "emplacement": "Gants",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Jambes",
+                    "objet": {
+                        "nom": "Pantalon de prison",
+                        "emplacement": "Jambes",
+                        "image": "pantalon_prison"
+                    }
+                },
+                {
+                    "emplacement": "Bottes",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme1",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme2",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Collier",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Anneau",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                }
             ],
             "familier": {
                 "x": 876,
@@ -76,7 +159,8 @@
                 "ycombat": 585,
                 "nom": "Brindhibou",
                 "image": "Brindhibou",
-                "team": true,
+                "forceDivScale": 4,
+                "team": 0,
                 "niveau": 1,
                 "pdvmax": 8,
                 "pdv": 8,
@@ -93,37 +177,41 @@
                 "sort3": "",
                 "sort4": "",
                 "sort5": "",
-                "actif": false
+                "actif": false,
+                "type": "familier",
+                "posHeight": 25,
+                "posLinkedX": 16,
+                "posLinkedY": 35
             },
-            "argent": 30,
+            "argent": 0,
             "inventaire": [
                 {
-                    "nom": "Herbes",
-                    "qte": 15
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Potions ( Collante, Soin )",
-                    "qte": 10
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Petits Cristaux",
-                    "qte": 8
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Materiaux (Patte de lapin .. )",
-                    "qte": 13
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Antidote",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Patte de Rat Patriarche",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Gros Cristaux",
-                    "qte": 2
+                    "nom": "",
+                    "qte": 0
                 },
                 {
                     "nom": "",
@@ -173,8 +261,8 @@
         },
         {
             "id": "bjorncotesdefer",
-            "x": 366,
-            "y": 343,
+            "x": 704,
+            "y": 406,
             "lieu": "map",
             "xcombat": 893,
             "ycombat": 626,
@@ -230,23 +318,169 @@
                     "qte": 6
                 }
             ],
-            "arme1": "Arc Traditionnel",
-            "arme2": "Dague Rouillée",
             "sorts": [
-                "Pistage",
-                "Bandages d'Urgence",
-                "",
-                "",
-                ""
+                {
+                    "nom": "Pistage",
+                    "image": "sort_pistage"
+                },
+                {
+                    "nom": "Bandages d'Urgence",
+                    "image": "sort_bandage"
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                }
             ],
             "stuff": [
-                "Carquois:35",
-                "",
-                "",
-                "",
-                ""
+                {
+                    "emplacement": "Tête",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Torse",
+                    "objet": {
+                        "nom": "Tunique de prison",
+                        "emplacement": "Torse",
+                        "image": "tunique_prison"
+                    }
+                },
+                {
+                    "emplacement": "Gants",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Jambes",
+                    "objet": {
+                        "nom": "Pantalon de prison",
+                        "emplacement": "Jambes",
+                        "image": "pantalon_prison"
+                    }
+                },
+                {
+                    "emplacement": "Bottes",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme1",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme2",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Collier",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Anneau",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                }
             ],
-            "statutFamilier":"",
+            "statutFamilier": "",
             "familier": {
                 "x": 1316,
                 "y": 977,
@@ -254,10 +488,11 @@
                 "ycombat": 705,
                 "nom": "Croc Blanc",
                 "image": "Croc Blanc",
-                "team": true,
+                "team": 0,
                 "niveau": 2,
                 "pdvmax": 18,
-                "overrideX":-30,
+                "overrideX": 25,
+                "posLinkedX": -30,
                 "pdv": 18,
                 "manamax": 10,
                 "mana": 10,
@@ -272,69 +507,72 @@
                 "sort3": "Sprint",
                 "sort4": "",
                 "sort5": "",
-                "actif": false
+                "actif": false,
+                "type": "familier"
             },
-            "argent": 478,
+            "argent": 0,
             "inventaire": [
                 {
-                    "nom": "Pieges",
-                    "image": "Pieges",
-                    "qte": 2
+                    "emplacement": "",
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Flèches",
-                    "image": "fleches",
-                    "qte": 39
+                    "emplacement": "",
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Objets de jet",
-                    "image": "objets_de_jet",
-                    "qte": 8
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Queue de Rat Géant",
-                    "image": "queue_rat_geant",
-                    "qte": 1
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Parchemin non traduit",
-                    "image": "Parchemin",
-                    "qte": 1
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Dague en Acier",
-                    "image": "dague_en_acier",
-                    "qte": 1
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Carquois Renforcé (50)",
-                    "image": "carquoi_renforce",
-                    "qte": 1
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Flèches de métal",
-                    "image": "fleches_de_metal",
-                    "qte": 10
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Bandages",
-                    "image": "bandages",
-                    "qte": 2
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Arc de grande qualité",
-                    "image": "arc_de_qualite",
-                    "qte": 1
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Patte de Rat Patriarche",
-                    "image": "patte_rat",
-                    "qte": 1
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Queue de Rat Patriarche",
-                    "image": "queue_rat_patriarche",
-                    "qte": 1
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
                     "nom": "",
@@ -379,6 +617,7 @@
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
             "classe": "mercenaire",
             "image": "mercenaire",
+            "statutFamilier": "",
             "team": 0,
             "niveau": 3,
             "pdvmax": 38,
@@ -421,8 +660,6 @@
                     "qte": 7
                 }
             ],
-            "arme1": "Epée à deux mains",
-            "arme2": "Dague de fer",
             "sorts": [
                 "Assommer",
                 "Parade",
@@ -431,11 +668,92 @@
                 ""
             ],
             "stuff": [
-                "Armure de fer (Bon état)",
-                "Arc à poulie",
-                "Carquois:20",
-                "",
-                ""
+                {
+                    "emplacement": "Tête",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Torse",
+                    "objet": {
+                        "nom": "Tunique de prison",
+                        "emplacement": "Torse",
+                        "image": "tunique_prison"
+                    }
+                },
+                {
+                    "emplacement": "Gants",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Jambes",
+                    "objet": {
+                        "nom": "Pantalon de prison",
+                        "emplacement": "Jambes",
+                        "image": "pantalon_prison"
+                    }
+                },
+                {
+                    "emplacement": "Bottes",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme1",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme2",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Collier",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Anneau",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                }
             ],
             "familier": {
                 "x": 1196,
@@ -444,9 +762,10 @@
                 "ycombat": 825,
                 "nom": "Lucky",
                 "image": "Lucky",
-                "team": true,
+                "team": 0,
                 "niveau": 1,
                 "pdvmax": 16,
+                "type": "familier",
                 "pdv": 16,
                 "manamax": 4,
                 "mana": 4,
@@ -461,45 +780,46 @@
                 "sort3": "",
                 "sort4": "",
                 "sort5": "",
-                "actif": false
+                "actif": false,
+                "overrideX": 34
             },
-            "argent": 271,
+            "argent": 0,
             "inventaire": [
                 {
-                    "nom": "Saphir étrange",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Manuel de Survie",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Flèches",
-                    "qte": 20
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Patte de Rat Patriarche",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Coupon participation tournoi",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Contrat traque assassins",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Cristal de forge",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Peaux de loup",
-                    "qte": 4
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Epée d'argent",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
                     "nom": "",
@@ -553,6 +873,7 @@
             "team": 0,
             "niveau": 3,
             "pdvmax": 24,
+            "statutFamilier": "",
             "pdv": 24,
             "manamax": 26,
             "mana": 26,
@@ -592,8 +913,6 @@
                     "qte": 7
                 }
             ],
-            "arme1": "Epée à une main",
-            "arme2": "Dague de fer",
             "sorts": [
                 "?",
                 "?",
@@ -602,11 +921,92 @@
                 "?"
             ],
             "stuff": [
-                "",
-                "",
-                "",
-                "",
-                ""
+                {
+                    "emplacement": "Tête",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Torse",
+                    "objet": {
+                        "nom": "Tunique de prison",
+                        "emplacement": "Torse",
+                        "image": "tunique_prison"
+                    }
+                },
+                {
+                    "emplacement": "Gants",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Jambes",
+                    "objet": {
+                        "nom": "Pantalon de prison",
+                        "emplacement": "Jambes",
+                        "image": "pantalon_prison"
+                    }
+                },
+                {
+                    "emplacement": "Bottes",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme1",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme2",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Collier",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Anneau",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                }
             ],
             "familier": {
                 "x": 356,
@@ -615,7 +1015,8 @@
                 "ycombat": 945,
                 "nom": "Gen",
                 "image": "Gen",
-                "team": true,
+                "forceDivScale": 4,
+                "team": 0,
                 "niveau": 1,
                 "pdvmax": 8,
                 "pdv": 8,
@@ -625,6 +1026,7 @@
                 "resistance": 1,
                 "puissance": 1,
                 "agilite": 1,
+                "type": "familier",
                 "intelligence": 1,
                 "style": 1,
                 "sort1": "Coup de Langue",
@@ -632,29 +1034,32 @@
                 "sort3": "",
                 "sort4": "",
                 "sort5": "",
-                "actif": false
+                "actif": false,
+                "posLinkedX": 10,
+                "posLinkedY": 45,
+                "posHeight": 17
             },
-            "argent": 100,
+            "argent": 0,
             "inventaire": [
                 {
-                    "nom": "Objets divers pour tours",
-                    "qte": 7
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Parchemins",
-                    "qte": 5
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Antidote",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Armure renforcée en cuir (Usée)",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Sanada Yukimura",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
                     "nom": "",
@@ -722,6 +1127,7 @@
             "classe": "druide",
             "image": "Sienna",
             "team": 0,
+            "statutFamilier": "",
             "niveau": 3,
             "pdvmax": 24,
             "pdv": 24,
@@ -773,8 +1179,6 @@
                     "qte": 8
                 }
             ],
-            "arme1": "Bâton",
-            "arme2": "",
             "sorts": [
                 "",
                 "",
@@ -783,11 +1187,92 @@
                 ""
             ],
             "stuff": [
-                "",
-                "",
-                "",
-                "",
-                ""
+                {
+                    "emplacement": "Tête",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Torse",
+                    "objet": {
+                        "nom": "Tunique de prison",
+                        "emplacement": "Torse",
+                        "image": "tunique_prison"
+                    }
+                },
+                {
+                    "emplacement": "Gants",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Jambes",
+                    "objet": {
+                        "nom": "Pantalon de prison",
+                        "emplacement": "Jambes",
+                        "image": "pantalon_prison"
+                    }
+                },
+                {
+                    "emplacement": "Bottes",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme1",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Arme2",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Collier",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                },
+                {
+                    "emplacement": "Anneau",
+                    "objet": {
+                        "nom": "",
+                        "image": ""
+                    }
+                }
             ],
             "familier": {
                 "x": 847,
@@ -796,13 +1281,18 @@
                 "ycombat": 1065,
                 "nom": "Pipou",
                 "image": "Pipou",
-                "team": true,
+                "team": 0,
+                "type": "familier",
+                "overrideX": 27,
                 "niveau": 1,
                 "pdvmax": 6,
                 "pdv": 6,
                 "manamax": 12,
                 "mana": 12,
                 "etat": "Bonne Santé",
+                "posLinkedX": 17,
+                "posLinkedY": 40,
+                "posHeight": 20,
                 "resistance": 1,
                 "puissance": 1,
                 "agilite": 1,
@@ -813,21 +1303,22 @@
                 "sort3": "",
                 "sort4": "",
                 "sort5": "",
-                "actif": false
+                "actif": false,
+                "forceDivScale": 4
             },
-            "argent": 41,
+            "argent": 0,
             "inventaire": [
                 {
-                    "nom": "Objets de jet en métal",
-                    "qte": 3
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Patte de Rat Patriarche",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
-                    "nom": "Dague de magicien",
-                    "qte": 1
+                    "nom": "",
+                    "qte": 0
                 },
                 {
                     "nom": "",
@@ -1142,32 +1633,7 @@
             "finy": 0,
             "desac": false,
             "pnjs": [],
-            "scale": 4,
-            "ancienLieu": {
-                "id": "fjorh",
-                "nom": "Fjorh",
-                "image": "Fjorh",
-                "parent": "map",
-                "x": 918,
-                "y": 377,
-                "finx": 265,
-                "finy": 229,
-                "desac": false,
-                "scale": 0.6,
-                "pnjs": [],
-                "ancienLieu": {
-                    "id": "map",
-                    "nom": "map",
-                    "image": "map",
-                    "x": 0,
-                    "y": 0,
-                    "finx": 0,
-                    "finy": 0,
-                    "desac": true,
-                    "parent": "",
-                    "pnjs": []
-                }
-            }
+            "scale": 4
         },
         {
             "parent": "dusk",
@@ -1316,19 +1782,7 @@
             "pnjs": [],
             "scale": 2,
             "enterx": 976,
-            "entery": 751,
-            "ancienLieu": {
-                "id": "map",
-                "nom": "map",
-                "image": "map",
-                "x": 0,
-                "y": 0,
-                "finx": 0,
-                "finy": 0,
-                "desac": true,
-                "parent": "",
-                "pnjs": []
-            }
+            "entery": 751
         },
         {
             "parent": "entreegrottenord",
@@ -1528,19 +1982,7 @@
             "finy": 229,
             "desac": false,
             "scale": 0.6,
-            "pnjs": [],
-            "ancienLieu": {
-                "id": "map",
-                "nom": "map",
-                "image": "map",
-                "x": 0,
-                "y": 0,
-                "finx": 0,
-                "finy": 0,
-                "desac": true,
-                "parent": "",
-                "pnjs": []
-            }
+            "pnjs": []
         },
         {
             "id": "foretsudfjorh",
@@ -3317,6 +3759,68 @@
             "tournoi": false,
             "id": "noelkadim",
             "type": "boss"
+        }
+    ],
+    "positionsStuff": [
+        {
+            "emplacement": "Tête",
+            "x": 185,
+            "y": 25
+        },
+        {
+            "emplacement": "Torse",
+            "x": 185,
+            "y": 85
+        },
+        {
+            "emplacement": "Gants",
+            "x": 185,
+            "y": 145
+        },
+        {
+            "emplacement": "Jambes",
+            "x": 185,
+            "y": 205
+        },
+        {
+            "emplacement": "Bottes",
+            "x": 185,
+            "y": 265
+        },
+        {
+            "emplacement": "Arme1",
+            "x": 65,
+            "y": 265
+        },
+        {
+            "emplacement": "Arme2",
+            "x": 125,
+            "y": 265
+        },
+        {
+            "emplacement": "Utilitaire",
+            "x": 5,
+            "y": 25
+        },
+        {
+            "emplacement": "Collier",
+            "x": 5,
+            "y": 85
+        },
+        {
+            "emplacement": "Epaulieres",
+            "x": 5,
+            "y": 145
+        },
+        {
+            "emplacement": "Ceinture",
+            "x": 5,
+            "y": 205
+        },
+        {
+            "emplacement": "Anneau",
+            "x": 5,
+            "y": 265
         }
     ]
 }

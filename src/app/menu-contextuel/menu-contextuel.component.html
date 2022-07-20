@@ -4,10 +4,10 @@
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
         <p *ngIf="menu.type=='entite'&&perso.team!=0" class="choix" (click)="deletion()">{{delete}}</p>
         <p *ngIf="menu.type=='entite'&&perso.familier" class="choix"
-            (click)="perso.statutFamilier=='lie'?perso.statutFamilier='':perso.statutFamilier='lie'">
+            (click)="clickLierFamilier()">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
         <p *ngIf="menu.type=='entite'&&perso.familier" class="choix"
-            (click)="perso.statutFamilier=='affiche'?perso.statutFamilier='':perso.statutFamilier='affiche'">
+            (click)="clickAfficherFamilier()">
             {{(perso.statutFamilier=='affiche'?'Cacher Familier':'Afficher Familier')}}</p>
     </div>
 
