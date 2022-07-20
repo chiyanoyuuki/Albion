@@ -136,8 +136,14 @@ export class MapComponent implements OnInit {
 
   public majFromChild(addEntite: addEntity) {
     this.menuContextuel = undefined;
-    addEntite.entite.x = addEntite.menuContextuel.x;
-    addEntite.entite.y = addEntite.menuContextuel.y;
+    if (this.data.lieuActuel.id == 'map') {
+      addEntite.entite.x = addEntite.menuContextuel.x;
+      addEntite.entite.y = addEntite.menuContextuel.y;
+    }
+    else {
+      addEntite.entite.xcombat = addEntite.menuContextuel.x;
+      addEntite.entite.ycombat = addEntite.menuContextuel.y;
+    }
     addEntite.entite.lieu = this.data.lieuActuel.id;
 
     if (addEntite.team == "Ami") { addEntite.entite.team = 0; }

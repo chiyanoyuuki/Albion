@@ -12,6 +12,7 @@ import { LevelComponent } from './graphiques/level/level.component';
 import { InfosEntiteComponent } from './graphiques/infos-entite/infos-entite.component';
 import { FormsModule } from '@angular/forms';
 import { StatsPersonnageComponent } from './graphiques/stats-personnage/stats-personnage.component';
+import { FormulaireComponent } from './graphiques/formulaire/formulaire.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { StatsPersonnageComponent } from './graphiques/stats-personnage/stats-pe
     IconePersonnageComponent,
     LevelComponent,
     InfosEntiteComponent,
-    StatsPersonnageComponent
+    StatsPersonnageComponent,
+    FormulaireComponent
   ],
   imports: [
     BrowserModule,

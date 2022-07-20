@@ -49,7 +49,12 @@
     width: fit-content;
 }
 
-.imageperso {
+.imagefamilier {
+    position: absolute;
+}
+
+.imageperso,
+.imagefamilier {
     height: 65px;
     transition: all 0.2s;
 }
@@ -65,7 +70,8 @@
     transition: all 0.2s;
 }
 
-.perso:hover .imageperso {
+.perso:hover .imageperso,
+.perso:hover .imagefamilier {
     cursor: grab;
     transform: scale(1.2);
 }

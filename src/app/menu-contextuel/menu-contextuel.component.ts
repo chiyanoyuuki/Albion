@@ -12,6 +12,7 @@ export class MenuContextuelComponent implements OnInit {
 
   @Input() data: Data;
   @Input() menu: MenuContextuel;
+  @Input() perso: Entite;
 
   @Output() majEvent = new EventEmitter<addEntity>();
   @Output() deleteEvent = new EventEmitter<string>();

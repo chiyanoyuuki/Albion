@@ -2,7 +2,7 @@
     background-image: url("../../../assets/images/fond-stats.png");
     width: 450px;
     height: 330px;
-    top: -400px;
+    top: -440px;
     left: -175px;
     position: absolute;
     z-index: 2;
@@ -47,10 +47,6 @@
 .pdvmanadiv p {
     font-family: "Medieval", Arial, Helvetica, sans-serif;
     transition: all 0.4s;
-}
-
-.pdvmanadiv p:hover {
-    color: red;
 }
 
 .groupeHautGauche {
@@ -100,11 +96,11 @@
 
 .etat {
     top: -7px;
-    text-align: center;
+    justify-content: center;
 }
 
 .clickable:hover {
-    color: rgb(158, 18, 18);
+    color: rgb(158, 18, 18) !important;
     cursor: pointer;
 }
 
@@ -179,8 +175,7 @@
 }
 
 //Golds
-
-.golds {
+.containerGolds {
     height: fit-content;
     top: 10px;
     right: 5%;
@@ -201,4 +196,17 @@
     border: 2px solid black;
     border-top: unset;
     padding: 10px;
+}
+
+.croix {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border: 2px solid black;
+    background-color: #404040;
+    width: 25px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 100%;
 }

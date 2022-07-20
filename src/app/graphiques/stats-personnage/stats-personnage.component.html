@@ -1,4 +1,5 @@
 <div class="container" cdkDrag>
+    <p class="croix clickable" (click)="close()">X</p>
     <!-- PARTIE HAUTE -->
     <div class="flex">
         <div class="groupeHautGauche">
@@ -11,7 +12,12 @@
 
                         <div class="data">
                             <p class="nom bigText">{{perso.nom}}</p>
-                            <p class="etat">{{perso.etat}}</p>
+                            <div class="etat flex">
+                                <p class="clickable" (click)="formulaire='etat'">
+                                    {{perso.etat}}</p>
+                                <app-formulaire *ngIf="formulaire=='etat'" [perso]="perso" [formulaire]="formulaire"
+                                    (closeForm)="formulaire=''"></app-formulaire>
+                            </div>
                             <p class="niveau clickable bigText" (click)="clickGain(perso, 'Niveau')">{{gain == 'Niveau'
                                 ?
                                 'Confirmer
@@ -22,21 +28,26 @@
 
                     <div class="pdvmana">
                         <div class="flex pdvmanadiv">
-                            <p class="pdvtext" (click)="formulaire = 'pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
+                            <p class="pdvtext clickable" (click)="formulaire='pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
                             <div class="grouppdvmana">
                                 <img class="fill" draggable="false"
                                     src="./assets/images/pdvfill{{(perso.team==2?'2':'')}}.PNG"
                                     [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
                                 <img draggable="false" src="./assets/images/pdvmanabar.png" />
                             </div>
+                            <app-formulaire *ngIf="formulaire=='pv'" [perso]="perso" [formulaire]="formulaire"
+                                (closeForm)="formulaire=''"></app-formulaire>
                         </div>
                         <div class="flex pdvmanadiv">
-                            <p class="manatext" (click)="formulaire = 'mana'">{{perso.mana}}/{{perso.manamax}}</p>
+                            <p class="manatext clickable" (click)="formulaire='mana'">{{perso.mana}}/{{perso.manamax}}
+                            </p>
                             <div class="grouppdvmana">
                                 <img class="fill" draggable="false" src="./assets/images/manafill.PNG"
                                     [style.width]="(perso.mana/perso.manamax)*100+'%'" />
                                 <img draggable="false" src="./assets/images/pdvmanabar.png" />
                             </div>
+                            <app-formulaire *ngIf="formulaire=='mana'" [perso]="perso" [formulaire]="formulaire"
+                                (closeForm)="formulaire=''"></app-formulaire>
                         </div>
                     </div>
                 </div>
@@ -66,9 +77,15 @@
                     </div>
                 </div>
 
-                <div class="flex golds">
-                    <img src="../../../assets/images/pieces.png" />
-                    <p (click)="formulaire = 'gold'">{{perso.argent}}</p>
+
+                <div class="containerGolds flex">
+                    <div class="flex golds clickable" (click)="formulaire='gold'">
+                        <img src="../../../assets/images/pieces.png" />
+                        <p>{{perso.argent}}</p>
+                    </div>
+
+                    <app-formulaire *ngIf="formulaire=='gold'" [perso]="perso" [formulaire]="formulaire"
+                        (closeForm)="formulaire=''"></app-formulaire>
                 </div>
             </div>
         </div>
