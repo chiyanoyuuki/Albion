@@ -70,6 +70,7 @@ export class ObjetAAcheter {
 
 export class Quete {
 	public nom: string;
+	public perso: string;
 	public description: string;
 	public etat: string;
 	public etape: number;

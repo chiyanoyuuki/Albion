@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Entite, ObjetInventaire } from 'src/app/model';
+import { Data, Entite, ObjetInventaire, Quete } from 'src/app/model';
 
 @Component({
   selector: 'app-stats-personnage',
@@ -8,11 +8,13 @@ import { Entite, ObjetInventaire } from 'src/app/model';
 })
 export class StatsPersonnageComponent implements OnInit {
 
+  @Input() data: Data;
   @Input() perso: Entite;
 
   public gain: string;
   public formulaire: string;
   public ongletActif: string = "inventaire";
+  public objetActif: ObjetInventaire | undefined;
 
   constructor() { }
 
@@ -37,8 +39,8 @@ export class StatsPersonnageComponent implements OnInit {
           let item = perso.inventaire.find(objet => objet.nom == clicked);
           if (element.qte == 0) {
             if (item) {
-              item.nom = "";
-              item.image = "";
+              perso.inventaire.splice(perso.inventaire.indexOf(item), 1);
+              perso.inventaire.push({ "nom": '', "image": '', qte: 0 });
             }
           } else if (item && element.qte < 0) {
             item.qte = 0;
@@ -47,6 +49,12 @@ export class StatsPersonnageComponent implements OnInit {
       });
       this.gain = "";
     }
+  }
+
+  getQuetesPrincipales() {
+    return this.data.quetesprincipales.filter((quete: Quete) =>
+      quete.perso == this.perso.nom || quete.perso == "Toute l'équipe"
+    );
   }
 
 }

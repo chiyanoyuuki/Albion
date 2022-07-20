@@ -4,6 +4,7 @@
             "id": "lunastormwood",
             "x": 366,
             "y": 343,
+            "lieu": "prisonfjorh",
             "xcombat": 1716,
             "ycombat": 611,
             "nom": "Luna Stormwood",
@@ -12,7 +13,6 @@
             "image": "sorciere",
             "team": 0,
             "niveau": 3,
-            "lieu": "map",
             "pdvmax": 16,
             "pdv": 16,
             "manamax": 40,
@@ -173,9 +173,9 @@
         },
         {
             "id": "bjorncotesdefer",
-            "x": 1166,
-            "y": 959,
-            "lieu": "prisonfjorh",
+            "x": 366,
+            "y": 343,
+            "lieu": "map",
             "xcombat": 893,
             "ycombat": 626,
             "nom": "Bjorn Côtes de Fer",
@@ -276,62 +276,62 @@
             "inventaire": [
                 {
                     "nom": "Pieges",
-                    "image": "Pieges",
+                    "image": "pieges",
                     "qte": 2
                 },
                 {
                     "nom": "Flèches",
-                    "image": "Flèches",
+                    "image": "fleches",
                     "qte": 39
                 },
                 {
                     "nom": "Objets de jet",
-                    "image": "Objets de jet",
+                    "image": "objets_de_jet",
                     "qte": 8
                 },
                 {
                     "nom": "Queue de Rat Géant",
-                    "image": "Queue",
+                    "image": "queue_rat_geant",
                     "qte": 1
                 },
                 {
                     "nom": "Parchemin non traduit",
-                    "image": "Parchemin",
+                    "image": "parchemin",
                     "qte": 1
                 },
                 {
                     "nom": "Dague en Acier",
-                    "image": "Dague en Acier",
+                    "image": "dague_en_acier",
                     "qte": 1
                 },
                 {
                     "nom": "Carquois Renforcé (50)",
-                    "image": "Carquoi Renforcé",
+                    "image": "carquoi_renforce",
                     "qte": 1
                 },
                 {
                     "nom": "Flèches de métal",
-                    "image": "Fleche de métal",
+                    "image": "fleches_de_metal",
                     "qte": 10
                 },
                 {
                     "nom": "Bandages",
-                    "image": "Bandage",
+                    "image": "bandages",
                     "qte": 2
                 },
                 {
                     "nom": "Arc de grande qualité",
-                    "image": "Arc de qualité",
+                    "image": "arc_de_qualite",
                     "qte": 1
                 },
                 {
                     "nom": "Patte de Rat Patriarche",
-                    "image": "Patte",
+                    "image": "patte_rat",
                     "qte": 1
                 },
                 {
                     "nom": "Queue de Rat Patriarche",
-                    "image": "Queue",
+                    "image": "queue_rat_patriarche",
                     "qte": 1
                 },
                 {
@@ -712,9 +712,9 @@
             "id": "siennahurlevent",
             "x": 782,
             "y": 738,
+            "lieu": "prisonfjorh",
             "xcombat": 486,
             "ycombat": 529,
-            "lieu": "prisonfjorh",
             "nom": "Sienna Hurlevent",
             "histoire": "Depuis son plus jeune age, Sienna a parcouru la forêt de XXX jusqu'à en reconnaitre les moindres changement dans la faune et la flore. Jeune druidesse elfe de 107 ans, elle a été formée aux arcanes de la magie de métamorphose par l'archimage Louge dans la plus grande discression. Les autres races ignores beaucoup de chose sur la vie des elfes après tout. Sienna s'est mis en tete de parcourir le monde au coté de son fidèle compagnon, Pipou l'écureuil. Elle a un but précis : trouver un remède pour guérir sa famille rongé par un maux qu'aucun elfe n'a encore vu auparavant.",
             "classe": "druide",
@@ -826,14 +826,6 @@
                 {
                     "nom": "Dague de magicien",
                     "qte": 1
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
                 },
                 {
                     "nom": "",

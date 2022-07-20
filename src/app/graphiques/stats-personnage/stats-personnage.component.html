@@ -6,7 +6,7 @@
                 <div class="hautGauche">
                     <div class="flex">
                         <div class="iconeEtGolds">
-                            <img class="icone" src="./assets/images/{{perso.forme.minia}}.png">
+                            <img *ngIf="perso.forme" class="icone" src="./assets/images/{{perso.forme.minia}}.png">
                         </div>
 
                         <div class="data">
@@ -85,8 +85,33 @@
             <p class="choix" (click)="ongletActif = 'quetesSecondaires'">Quêtes secondaires</p>
         </div>
 
-        <div class="inventaire">
-            <div class="objet" *ngFor="let item of perso.inventaire">
+        <div class="inventaire" *ngIf="ongletActif == 'inventaire'">
+            <div class="objet" *ngFor="let item of perso.inventaire" (mouseover)="objetActif = item"
+                (mouseleave)="objetActif = undefined;gain = ''" (click)="clickGain(perso, item.nom)">
+                <img *ngIf="item.image" src="./assets/images/{{ item.image }}.png" />
+                <div class="nomItem">
+                    <p [hidden]="objetActif != item">{{gain == item.nom && gain != '' ? 'Confirmer
+                        utilisation ?' : item.nom}}</p>
+                </div>
+                <p *ngIf="item.qte>0" class="qteObjet">{{item.qte}}</p>
+            </div>
+        </div>
+
+        <div class="quetes" *ngIf="ongletActif == 'quetesPrincipales'">
+            <div *ngFor="let quete of getQuetesPrincipales();let i=index">
+                <div class="line" *ngIf="i!=0"></div>
+                <p class="bigText">{{quete.nom}}</p>
+                <p>{{quete.description}}</p>
+                <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
+            </div>
+        </div>
+
+        <div class="quetes" *ngIf="ongletActif == 'quetesSecondaires'">
+            <div *ngFor="let quete of data.quetessecondaires;let i=index">
+                <div class="line" *ngIf="i!=0"></div>
+                <p class="bigText">{{quete.nom}}</p>
+                <p>{{quete.description}}</p>
+                <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
             </div>
         </div>
     </div>
