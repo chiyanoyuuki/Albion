@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Data, Entite, ObjetInventaire, Quete } from 'src/app/model';
 
 @Component({
@@ -10,11 +10,13 @@ export class StatsPersonnageComponent implements OnInit {
 
   @Input() data: Data;
   @Input() perso: Entite;
+  @Output() closeForm = new EventEmitter<null>();
 
   public gain: string;
   public formulaire: string;
   public ongletActif: string = "inventaire";
   public objetActif: ObjetInventaire | undefined;
+  public quantite: string;
 
   constructor() { }
 
@@ -57,4 +59,7 @@ export class StatsPersonnageComponent implements OnInit {
     );
   }
 
+  close() {
+    this.closeForm.emit();
+  }
 }

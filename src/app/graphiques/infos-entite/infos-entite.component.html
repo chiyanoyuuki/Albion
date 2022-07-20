@@ -5,11 +5,6 @@
     </div>
 
     <div class="flex bottomGroup">
-        <div class="formulaire" *ngIf="formulaire == 'pv' || formulaire == 'mana'">
-            <input id="quantite" type="text" [(ngModel)]="quantite">
-            <button (click)="form(perso)">Ok</button>
-            <button (click)="formulaire = ''">X</button>
-        </div>
         <div class="pdvmana">
             <div class="flex pdvmanadiv">
                 <p class="pdvtext" (click)="formulaire = 'pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
@@ -18,13 +13,18 @@
                         [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
                     <img draggable="false" src="./assets/images/pdvmanabar.png" />
                 </div>
+                <app-formulaire *ngIf="formulaire=='pv'" [perso]="perso" [formulaire]="formulaire"
+                    (closeForm)="formulaire=''"></app-formulaire>
             </div>
             <div class="flex pdvmanadiv">
                 <p class="manatext" (click)="formulaire = 'mana'">{{perso.mana}}/{{perso.manamax}}</p>
                 <div class="grouppdvmana">
-                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG" [style.width]="(perso.mana/perso.manamax)*100+'%'"/>
+                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG"
+                        [style.width]="(perso.mana/perso.manamax)*100+'%'" />
                     <img draggable="false" src="./assets/images/pdvmanabar.png" />
                 </div>
+                <app-formulaire *ngIf="formulaire=='mana'" [perso]="perso" [formulaire]="formulaire"
+                    (closeForm)="formulaire=''"></app-formulaire>
             </div>
         </div>
     </div>

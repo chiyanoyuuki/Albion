@@ -37,6 +37,7 @@ export class Entite {
 	public formes: Forme[];
 	public forme: Forme;
 	public familier: Entite;
+	public statutFamilier: string;
 	public solo: boolean;
 	public tournoi: boolean;
 	public id: string;

@@ -19,6 +19,9 @@
             [style.transform]="'scale(' + (this.data.lieuActuel.scale?this.data.lieuActuel.scale:1) + ')'"
             [style.left]="(perso.overrideX?perso.overrideX+'%':'40%')">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
+                <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
+                    [style.left]="perso.familier.overrideX+'px'" src="./assets/images/{{perso.familier.image}}.png"
+                    cdkDragHandle />
                 <img class="imageperso" draggable="false" src="./assets/images/{{perso.image}}.png" cdkDragHandle />
                 <div class="flexCenter">
                     <div class="shadow " cdkDragHandle></div>
@@ -34,12 +37,12 @@
 
         <app-menu-contextuel class="menuContextuel"
             *ngIf="menuContextuel&&persoMenuContextuel&&persoMenuContextuel==perso" [menu]="menuContextuel"
-            [data]="data" (deleteEvent)="majFromChild()">
+            [perso]="perso" [data]="data" (deleteEvent)="majFromChild()">
         </app-menu-contextuel>
 
         <!-- STATS PERSO ACTIF ================================================= -->
 
-        <app-stats-personnage [perso]="perso" [data]="data"
+        <app-stats-personnage [perso]="perso" [data]="data" (closeForm)="persoActuel='';nomPersoActuel=''"
             *ngIf="(persoActuel == 'equipe' || persoActuel == 'neutre' || persoActuel == 'ennemi') && nomPersoActuel == perso.nom">
         </app-stats-personnage>
     </div>
