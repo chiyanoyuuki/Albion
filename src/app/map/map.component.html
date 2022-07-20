@@ -1,6 +1,6 @@
 <div>
 
-    <img draggable="false" class="retour clickable" [hidden]="data.lieuActuel.parent==''"
+    <img draggable="false" class="retour" [hidden]="data.lieuActuel.parent==''"
         src="./assets/images/retour.png" (click)="clickRetour()" (mouseover)="focus=undefined" />
     <img draggable="false" class="map" src="./assets/images/{{data.lieuActuel.image}}.png" (click)="clicMap()"
         (contextmenu)="clicDroitMap($event)" />

@@ -49,6 +49,12 @@
     top: 30px;
 }
 
+.retour:hover {
+    cursor: pointer;
+    border-color: red !important;
+    background-color: #000000bb !important;
+}
+
 .personnagesInside {
     position: absolute;
     top: -25px;

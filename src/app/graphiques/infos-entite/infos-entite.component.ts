@@ -43,8 +43,8 @@ export class InfosEntiteComponent implements OnInit {
     this.formulaire = "";
   }
 
-  infoPerso(perso: Entite) {
-    this.persoActuel.emit(perso);
+  infoPerso() {
+    this.persoActuel.emit(this.perso);
   }
 
 }

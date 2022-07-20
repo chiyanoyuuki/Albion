@@ -24,6 +24,7 @@ export class EntitesComponent implements OnInit {
   public gain: string;
   public persoActuel: string;
   public nomPersoActuel: string;
+  public lastPersoClicked: Entite|undefined;
 
   constructor() { }
 
@@ -70,19 +71,17 @@ export class EntitesComponent implements OnInit {
       return;
     }
     this.nomPersoActuel = perso.nom;
-    let personnageDansTeamOuNeutre = this.data.equipe.find(persosEquipe => persosEquipe.nom == perso.nom);
-    if (personnageDansTeamOuNeutre) {
+
+    if (perso.team == 0) {
       this.persoActuel = 'equipe';
-    }else if (!personnageDansTeamOuNeutre) {
-      personnageDansTeamOuNeutre = this.data.pnjsNeutres.find(persoNeutre => persoNeutre.nom == perso.nom);
-      if (personnageDansTeamOuNeutre) {
-        this.persoActuel = 'neutre';
-      }else{
-        if (perso.pdv == 0) {
-          this.persoActuel = 'pnj';
-        }
-      }
+    } else if (perso.team == 1) {
+      this.persoActuel = 'neutre';
+    } else {
+      this.persoActuel = 'ennemi';
     }
+
+    console.log("this.persoActuel", this.persoActuel);
+    console.log("this.nomPersoActuel", this.nomPersoActuel);
   }
 
   clicDroit(event: MouseEvent, perso: Entite) {
@@ -162,11 +161,5 @@ export class EntitesComponent implements OnInit {
     this.data.entites.splice(this.data.entites.indexOf(entite), 1);
     this.persoMenuContextuel = undefined;
     this.menuContextuel = undefined;
-    this.majMap();
-  }
-
-  majMap() {
-    let location = this.data.lieux.find((l: Lieu) => l.id == this.data.lieuActuel.id);
-    location = this.data.lieuActuel;
   }
 }

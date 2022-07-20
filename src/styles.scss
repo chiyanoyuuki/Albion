@@ -39,13 +39,6 @@ p {
     position: absolute;
 }
 
-.clickable:hover {
-    cursor: pointer;
-    border: 1px solid;
-    border-color: red !important;
-    background-color: #000000bb !important;
-}
-
 .bold {
     font-weight: bold;
 }
@@ -104,7 +97,7 @@ p {
     border: 3px ridge #bbbbbb;
     background-color: #202020ee;
     position: absolute;
-    z-index: 10;
+    z-index: 2;
     padding: 20px;
     border-radius: 40px;
 }
@@ -142,5 +135,5 @@ app-icone-personnage:hover {
 
 app-level {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
 }

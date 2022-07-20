@@ -1,0 +1,204 @@
+.container {
+    background-image: url("../../../assets/images/fond-stats.png");
+    width: 450px;
+    height: 330px;
+    top: -400px;
+    left: -175px;
+    position: absolute;
+    z-index: 2;
+    border: 2px ridge #202020;
+    padding: 10px;
+}
+
+.container:hover {
+    cursor: move;
+}
+
+//PDVMANA ==================================
+.pdvmana p {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.pdvmana img {
+    width: 100%;
+    height: 100%;
+}
+
+.fill {
+    position: absolute;
+}
+
+.grouppdvmana {
+    border: 1px solid black;
+    width: 90%;
+    height: 20px;
+    margin-bottom: 2px;
+}
+
+.pdvmanadiv {
+    justify-content: center;
+}
+
+.pdvmanadiv p {
+    font-family: "Medieval", Arial, Helvetica, sans-serif;
+    transition: all 0.4s;
+}
+
+.pdvmanadiv p:hover {
+    color: red;
+}
+
+.groupeHautGauche {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.hautGauche {
+    width: 65%;
+}
+
+.groupeHautDroite {
+    text-align: center;
+    margin: auto;
+}
+
+.icone {
+    width: 80px;
+    border: 2px ridge #202020;
+    border-radius: 100%;
+    background-color: #808080bb;
+    z-index: 2;
+}
+
+.iconeEtGolds {
+    width: 30%;
+}
+
+.data {
+    top: 10px;
+    width: 60%;
+}
+
+.line {
+    border-color: black;
+    border-width: 2px;
+    width: 95%;
+}
+
+//textes
+.bigText {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.etat {
+    top: -7px;
+    text-align: center;
+}
+
+.clickable:hover {
+    color: rgb(158, 18, 18);
+    cursor: pointer;
+}
+
+.onglets {
+    margin-top: 5px;
+    justify-content: space-around;
+    border: 2px solid black;
+    background-image: url("../../../assets/images/fond_jaune_fonce.png");
+}
+
+.niveau {
+    top: -10px;
+}
+
+//Inventaire
+
+.inventaire {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.objet {
+    width: 50px;
+    height: 50px;
+    background-image: url("../../../assets/images/vide_inventaire.png");
+    background-size: 50px;
+}
+
+.objet img {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 5px;
+    left: 5px;
+}
+
+.nomItem {
+    position: absolute;
+    top: 30%;
+    width: 200px;
+    left: -75px;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.objet p {
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #40404080;
+}
+
+.qteObjet {
+    width: 20px;
+    border: 1px solid black;
+    right: -3px;
+    bottom: -3px;
+    position: absolute;
+    background-color: rgb(20, 20, 20) !important;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.nomItem p {
+    width: fit-content;
+}
+
+.objet:hover {
+    cursor: pointer;
+}
+
+//Golds
+
+.golds {
+    height: fit-content;
+    top: 10px;
+    right: 5%;
+}
+
+.golds img {
+    width: 30px;
+    height: 23px;
+    margin-right: 5px;
+}
+
+//Quetes
+
+.quetes {
+    height: 80px;
+    overflow-y: auto;
+    max-height: 200px;
+    border: 2px solid black;
+    border-top: unset;
+    padding: 10px;
+}

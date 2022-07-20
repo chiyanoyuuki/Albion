@@ -12,7 +12,6 @@ export class MapComponent implements OnInit {
   @Input() data: Data;
 
   public focus: any;
-  public personnagesActuels: Entite[];
   public changingTo: Lieu | undefined;
   public persoHovered: string[] = [];
   public menuContextuel: MenuContextuel | undefined;

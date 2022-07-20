@@ -1,5 +1,5 @@
 <div [ngClass]="{'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}">
-    <div (click)="perso.actif=!perso.actif" class="text-etat">
+    <div (click)="infoPerso()" class="text-etat">
         <p class="text nom">{{perso.nom}}</p>
         <p class="text etat">{{perso.etat?perso.etat:'Bonne santé'}}</p>
     </div>
@@ -22,7 +22,7 @@
             <div class="flex pdvmanadiv">
                 <p class="manatext" (click)="formulaire = 'mana'">{{perso.mana}}/{{perso.manamax}}</p>
                 <div class="grouppdvmana">
-                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG" />
+                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG" [style.width]="(perso.mana/perso.manamax)*100+'%'"/>
                     <img draggable="false" src="./assets/images/pdvmanabar.png" />
                 </div>
             </div>

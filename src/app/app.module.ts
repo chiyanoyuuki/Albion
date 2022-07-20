@@ -11,6 +11,7 @@ import { IconePersonnageComponent } from './graphiques/icone-personnage/icone-pe
 import { LevelComponent } from './graphiques/level/level.component';
 import { InfosEntiteComponent } from './graphiques/infos-entite/infos-entite.component';
 import { FormsModule } from '@angular/forms';
+import { StatsPersonnageComponent } from './graphiques/stats-personnage/stats-personnage.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     MenuContextuelComponent,
     IconePersonnageComponent,
     LevelComponent,
-    InfosEntiteComponent
+    InfosEntiteComponent,
+    StatsPersonnageComponent
   ],
   imports: [
     BrowserModule,

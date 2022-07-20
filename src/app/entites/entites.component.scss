@@ -2,7 +2,7 @@
     display: grid;
     position: absolute;
     width: 140px;
-    z-index: 5;
+    z-index: 1;
 }
 
 .entite {
@@ -50,7 +50,6 @@
 }
 
 .imageperso {
-    z-index: 2;
     height: 65px;
     transition: all 0.2s;
 }
@@ -62,7 +61,6 @@
     height: 20px;
     border: 1px solid #00ff0030;
     border-radius: 100%;
-    z-index: 1;
     background-color: #00000050;
     transition: all 0.2s;
 }
@@ -80,257 +78,19 @@
 
 //AMIS =================================================
 
-
-
 .pnjsNeutres .shadow {
     border: 1px solid #a08300dd;
 }
 
 //ENNEMIS ==============================================
 
-
-
 .ennemis .shadow {
     border: 1px solid #8d0000dd;
 }
 
 //STATS =================================================
-.container-stats {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translate(-50%);
-    width: 400%;
-    height: 435px;
-    background-image: url("../../assets/fonts/fond.png");
-    border: 2px solid black;
-    padding: 0.5rem;
-    color: black;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-}
-
-.container-stats .formulaire {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid black;
-    z-index: 2;
-}
-
-.container-stats .info_perso {
-    width: 65%;
-    border-right: 2px solid black;
-    padding-right: 5px;
-}
-
-.container-stats .info_perso .block1 {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.container-stats .info_perso .block1 .minia {
-    position: relative;
-}
-
-.container-stats .info_perso .block1 .minia img {
-    background-color: #ddd;
-    border-radius: 50%;
-    border: 1px solid darkgray;
-    width: 110px;
-    ;
-}
-
-.container-stats .info_perso .block1 .minia .minia2 {
-    position: absolute;
-    bottom: -20px;
-    left: -6px;
-    display: flex;
-    justify-content: center;
-}
-
-.container-stats .info_perso .block1 .minia .minia2 ul {
-    display: flex;
-}
-
-.container-stats .info_perso .block1 .minia .minia2 img {
-    background-color: #ddd;
-    border-radius: 50%;
-    border: 1px solid darkgray;
-    width: 50px;
-    cursor: pointer;
-}
-
-.container-stats .info_perso .block1 .info-base {
-    display: flex;
-    flex-flow: column;
-    gap: 0.3rem;
-}
-
-.container-stats .info_perso .block1 .info-base div p:hover {
-    cursor: pointer;
-    color: red;
-}
-
-.container-stats .info_perso .argent div {
-    display: flex;
-    gap: 0.3rem;
-    cursor: pointer;
-}
-
-.container-stats .info_perso .argent div:hover p {
-    color: red;
-}
-
-.container-stats .info_perso .argent div img {
-    width: 50px;
-}
-
-.container-stats .container2 {
-    width: 30%;
-}
-
-.container-stats .container2 .separator {
-    width: 90%;
-    height: 2px;
-    background-color: black;
-    margin: 0.5rem 0 0.5rem 0;
-}
-
-.container-stats .container2 ul li {
-    display: flex;
-    justify-content: space-between;
-}
-
-.container-stats .container2 ul li p:hover {
-    cursor: pointer;
-    color: red;
-}
-
-.container-stats .container3 {
-    width: 100%;
-    display: flex;
-    margin: 1rem 0 0 0;
-    background-image: url("../../assets/fonts/fond_jaune_fonce.png");
-    border: 2px solid black;
-    margin-bottom: -2px;
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-}
-
-.container-stats .container3 h3 {
-    cursor: pointer;
-    color: black;
-    transition: all 0.2s;
-}
-
-.container-stats .container3 h3:hover {
-    color: red;
-}
-
-.container-stats .container3 .separator {
-    height: 25px;
-    width: 2px;
-    background-color: black;
-    margin: 0 1rem 0 1rem;
-}
-
-.container-stats .container4 {
-    width: 100%;
-}
-
-.container-stats .container4 .ul {
-    display: flex;
-    gap: 2px;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-.container-stats .container4 .ul .li {
-    border: 2px solid black;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    color: black;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.7rem;
-    position: relative;
-}
-
-.container-stats .container4 .ul .li .fond_objet {
-    width: 50px;
-    height: 50px;
-}
-
-.container-stats .container4 .ul .li .objet {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    margin: 5px;
-}
-
-.container-stats .container4 .ul .li p {
-    top: -33px;
-    color: white;
-    white-space: nowrap;
-    z-index: 1;
-}
-
-.container-stats .container4 .ul .li span {
-    border: 1mm ridge rgba(255, 255, 255, 0.6);
-    width: 10px;
-    position: absolute;
-    bottom: -5px;
-    right: -5px;
-    color: white;
-}
-
-.container-stats .container5 ul li {
-    margin-top: 1rem;
-}
-
-.container-stats .container6 ul {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 130px;
-}
-
-.container-stats .container6 ul li {
-    margin-top: 1rem;
-}
 
 .title {
     color: red;
     margin-bottom: 0.4rem;
-}
-
-//PDVMANA ==================================
-.pdvmana p {
-    color: white;
-    font-weight: bold;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    z-index: 1;
-}
-
-.pdvmana img {
-    width: 100%;
-    height: 50%;
-}
-
-.grouppdvmana {
-    margin-bottom: -0.8rem;
-}
-
-.fill {
-    position: absolute;
 }
