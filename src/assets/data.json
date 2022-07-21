@@ -22,14 +22,12 @@
             "formes": [
                 {
                     "nom": "Humain",
-                    "image": "sorciere",
-                    "minia": "sorcierem"
+                    "image": "sorciere"
                 }
             ],
             "forme": {
                 "nom": "Humain",
-                "image": "sorciere",
-                "minia": "sorcierem"
+                "image": "sorciere"
             },
             "actif": false,
             "stats": [
@@ -62,6 +60,70 @@
                 {
                     "nom": "Boost de concentration",
                     "image": "sort_boost_concentration"
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
                 }
             ],
             "stuff": [
@@ -270,7 +332,6 @@
             "histoire": "Trapeur origaire des montagnes enneigées du nord D'Albion, Bjorn a vécu toute sa vie dans les montagnes, il vie de la chasse, de la pêche et de la vente de fourrure, il est accompagné depuis de nombreuses années par un loup blanc qu'il a recueilli bébé après qu'il ait malheureusement du tuer se mère pour survivre. Un jour où il était à la chasse, une tempête de neige se leva et forca Bjorn à se réfugier dans une grotte non loin de là. Cros blanc, le loup de Bjorn commenca à s'agiter après quelques instants, puis se mit à courir vers le fond de la grotte, Bjorn le suivi, les parois de la grotte commençaient à changer, les parois étaient devenues comme du cristal, Bjorn vi Croc blanc auprès d'une étrange grosse pierre bleu. Bjorn décida de la ramèner chez lui et de la cacher en pensant que cette pierre pourrait être précieuse. Après quelques temps, Bjorn remarqua des changements troublants sur la flore autour de chez lui et commenca à s'interroger, le lendemain il reçu la visite d'un mercenaire de renom à la recherche d'une pierre précieuse pour le Roi Herarld..",
             "classe": "trappeur",
             "image": "trappeur",
-            "minia": "trappeurm",
             "team": 0,
             "niveau": 3,
             "pdvmax": 30,
@@ -281,19 +342,16 @@
             "formes": [
                 {
                     "nom": "Humain",
-                    "image": "trappeur",
-                    "minia": "trappeurm"
+                    "image": "trappeur"
                 },
                 {
                     "nom": "Loup Sinistre",
-                    "image": "Loup Sinistre",
-                    "minia": "Loup Sinistrem"
+                    "image": "Loup Sinistre"
                 }
             ],
             "forme": {
                 "nom": "Humain",
-                "image": "trappeur",
-                "minia": "trappeurm"
+                "image": "trappeur"
             },
             "actif": false,
             "stats": [
@@ -628,14 +686,12 @@
             "formes": [
                 {
                     "nom": "Humain",
-                    "image": "mercenaire",
-                    "minia": "mercenairem"
+                    "image": "mercenaire"
                 }
             ],
             "forme": {
                 "nom": "Humain",
-                "image": "mercenaire",
-                "minia": "mercenairem"
+                "image": "mercenaire"
             },
             "actif": false,
             "stats": [
@@ -661,11 +717,78 @@
                 }
             ],
             "sorts": [
-                "Assommer",
-                "Parade",
-                "",
-                "",
-                ""
+                {
+                    "nom": "Assommer",
+                    "image": "sort_assommer"
+                },
+                {
+                    "nom": "Parade",
+                    "image": "sort_parade"
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                }
             ],
             "stuff": [
                 {
@@ -881,14 +1004,12 @@
             "formes": [
                 {
                     "nom": "Humain",
-                    "image": "assassin",
-                    "minia": "assassinm"
+                    "image": "assassin"
                 }
             ],
             "forme": {
                 "nom": "Humain",
-                "image": "assassin",
-                "minia": "assassinm"
+                "image": "assassin"
             },
             "actif": false,
             "stats": [
@@ -914,11 +1035,78 @@
                 }
             ],
             "sorts": [
-                "?",
-                "?",
-                "?",
-                "?",
-                "?"
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                }
             ],
             "stuff": [
                 {
@@ -1137,24 +1325,20 @@
             "formes": [
                 {
                     "nom": "Humain",
-                    "image": "Sienna",
-                    "minia": "Siennam"
+                    "image": "Sienna"
                 },
                 {
                     "nom": "Aigle",
-                    "image": "Aigle",
-                    "minia": "Aiglem"
+                    "image": "Aigle"
                 },
                 {
                     "nom": "Ours",
-                    "image": "Ours",
-                    "minia": "Oursm"
+                    "image": "Ours"
                 }
             ],
             "forme": {
                 "nom": "Humain",
-                "image": "Sienna",
-                "minia": "Siennam"
+                "image": "Sienna"
             },
             "actif": false,
             "stats": [
@@ -1180,11 +1364,78 @@
                 }
             ],
             "sorts": [
-                "",
-                "",
-                "",
-                "",
-                ""
+                {
+                    "nom": "Bourrasque",
+                    "image": "sort_bourrasque"
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                },
+                {
+                    "nom": "",
+                    "image": ""
+                }
             ],
             "stuff": [
                 {

@@ -57,7 +57,6 @@ export class Equipement {
 export class Forme {
 	public nom: string;
 	public image: string;
-	public minia: string;
 }
 
 export class Boutique {
