@@ -1,134 +1,163 @@
-<div class="container" cdkDrag>
-    <p class="croix clickable" (click)="close()">X</p>
-    <!-- PARTIE HAUTE -->
-    <div class="flex">
-        <div class="groupeHautGauche">
-            <div class="flex">
-                <div class="hautGauche">
-                    <div class="flex">
-                        <div class="iconeEtGolds">
-                            <img *ngIf="perso.forme" class="icone" src="./assets/images/{{perso.forme.minia}}.png">
-                        </div>
+<div class="flex">
 
-                        <div class="data">
-                            <p class="nom bigText">{{perso.nom}}</p>
-                            <div class="etat flex">
-                                <p class="clickable" (click)="formulaire='etat'">
-                                    {{perso.etat}}</p>
-                                <app-formulaire *ngIf="formulaire=='etat'" [perso]="perso" [formulaire]="formulaire"
-                                    (closeForm)="formulaire=''"></app-formulaire>
-                            </div>
-                            <p class="niveau clickable bigText" (click)="clickGain(perso, 'Niveau')">{{gain == 'Niveau'
-                                ?
-                                'Confirmer
-                                gain ?' : 'Niveau'}}
-                                {{ gain != "Niveau" ? perso.niveau : "" }}</p>
-                        </div>
-                    </div>
+    <div class="containerStuff" cdkDrag>
+        <p class="croix clickable" (click)="close()">X</p>
 
-                    <div class="pdvmana">
-                        <div class="flex pdvmanadiv">
-                            <p class="pdvtext clickable" (click)="formulaire='pv'">{{perso.pdv}}/{{perso.pdvmax}}</p>
-                            <div class="grouppdvmana">
-                                <img class="fill" draggable="false"
-                                    src="./assets/images/pdvfill{{(perso.team==2?'2':'')}}.PNG"
-                                    [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
-                                <img draggable="false" src="./assets/images/pdvmanabar.png" />
-                            </div>
-                            <app-formulaire *ngIf="formulaire=='pv'" [perso]="perso" [formulaire]="formulaire"
-                                (closeForm)="formulaire=''"></app-formulaire>
-                        </div>
-                        <div class="flex pdvmanadiv">
-                            <p class="manatext clickable" (click)="formulaire='mana'">{{perso.mana}}/{{perso.manamax}}
-                            </p>
-                            <div class="grouppdvmana">
-                                <img class="fill" draggable="false" src="./assets/images/manafill.PNG"
-                                    [style.width]="(perso.mana/perso.manamax)*100+'%'" />
-                                <img draggable="false" src="./assets/images/pdvmanabar.png" />
-                            </div>
-                            <app-formulaire *ngIf="formulaire=='mana'" [perso]="perso" [formulaire]="formulaire"
-                                (closeForm)="formulaire=''"></app-formulaire>
-                        </div>
-                    </div>
-                </div>
+        <img class="personnage" src="../../../assets/images/{{perso.image}}.png">
 
-                <div class="groupeHautDroite">
-
-                    <p class="bigText">Statistiques</p>
-                    <p class="clickable" *ngFor="let stat of perso.stats" (click)="clickGain(perso, stat.nom)">{{gain ==
-                        stat.nom ? 'Confirmer gain ?' : stat.nom}} {{
-                        gain != stat.nom ? stat.qte : "" }}</p>
-                </div>
-
-            </div>
-
-            <div class="line"></div>
-
-            <div class="flex between">
-
-                <div>
-                    <div class="flex">
-                        <p class="bold">Arme principale :&nbsp;</p>
-                        <p>{{perso.arme1}}</p>
-                    </div>
-                    <div class="flex">
-                        <p class="bold">Arme secondaire :&nbsp;</p>
-                        <p>{{perso.arme2}}</p>
-                    </div>
-                </div>
-
-
-                <div class="containerGolds flex">
-                    <div class="flex golds clickable" (click)="formulaire='gold'">
-                        <img src="../../../assets/images/pieces.png" />
-                        <p>{{perso.argent}}</p>
-                    </div>
-
-                    <app-formulaire *ngIf="formulaire=='gold'" [perso]="perso" [formulaire]="formulaire"
-                        (closeForm)="formulaire=''"></app-formulaire>
-                </div>
+        <div class="objet" *ngFor="let emplacement of perso.stuff" id="{{emplacement.emplacement}}"
+            (mouseover)="objetActifStuff = emplacement" (mouseleave)="objetActifStuff = undefined;gain = ''"
+            [style.left]="getLeft(emplacement)" [style.top]="getTop(emplacement)"
+            (click)="clickGainStuff(perso, emplacement)"
+            [style.filter]="emplacementFocused==emplacement.emplacement?'brightness(300%)':'brightness(100%)'">
+            <img *ngIf="emplacement.objet.image" src="./assets/images/{{ emplacement.objet.image }}.png" />
+            <div class="nomItem">
+                <p [hidden]="objetActifStuff != emplacement">{{gain == emplacement.objet.nom && gain != '' ? 'Confirmer
+                    enlever ?' : emplacement.objet.nom}}</p>
             </div>
         </div>
-
 
     </div>
 
-    <!-- PARTIE BASSE -->
+    <div class="containerStats" [cdkDragDisabled]="objetActifInventaire!=undefined" cdkDrag>
+        <p class="croix clickable" (click)="close()">X</p>
+        <!-- PARTIE HAUTE -->
+        <div class="flex">
+            <div class="groupeHautGauche">
+                <div class="flex">
+                    <div class="hautGauche">
+                        <div class="flex">
+                            <div class="iconeEtGolds">
+                                <img *ngIf="perso.forme" class="icone" src="./assets/images/{{perso.forme.minia}}.png">
+                            </div>
 
-    <div>
-        <div class="flex onglets">
-            <p class="choix" (click)="ongletActif = 'inventaire'">Inventaire</p>
-            <p class="choix" (click)="ongletActif = 'quetesPrincipales'">Quêtes principales</p>
-            <p class="choix" (click)="ongletActif = 'quetesSecondaires'">Quêtes secondaires</p>
-        </div>
+                            <div class="data">
+                                <p class="nom bigText">{{perso.nom}}</p>
+                                <div class="etat flex">
+                                    <p class="clickable" (click)="formulaire='etat'">
+                                        {{perso.etat}}</p>
+                                    <app-formulaire *ngIf="formulaire=='etat'" [perso]="perso" [formulaire]="formulaire"
+                                        (closeForm)="formulaire=''"></app-formulaire>
+                                </div>
+                                <p class="niveau clickable bigText" (click)="clickGain(perso, 'Niveau')">{{gain ==
+                                    'Niveau'
+                                    ?
+                                    'Confirmer
+                                    gain ?' : 'Niveau'}}
+                                    {{ gain != "Niveau" ? perso.niveau : "" }}</p>
+                            </div>
+                        </div>
 
-        <div class="inventaire" *ngIf="ongletActif == 'inventaire'">
-            <div class="objet" *ngFor="let item of perso.inventaire" (mouseover)="objetActif = item"
-                (mouseleave)="objetActif = undefined;gain = ''" (click)="clickGain(perso, item.nom)">
-                <img *ngIf="item.image" src="./assets/images/{{ item.image }}.png" />
-                <div class="nomItem">
-                    <p [hidden]="objetActif != item">{{gain == item.nom && gain != '' ? 'Confirmer
-                        utilisation ?' : item.nom}}</p>
+                        <div class="pdvmana">
+                            <div class="flex pdvmanadiv">
+                                <p class="pdvtext clickable" (click)="formulaire='pv'">{{perso.pdv}}/{{perso.pdvmax}}
+                                </p>
+                                <div class="grouppdvmana">
+                                    <img class="fill" draggable="false"
+                                        src="./assets/images/pdvfill{{(perso.team==2?'2':'')}}.PNG"
+                                        [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
+                                    <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                                </div>
+                                <app-formulaire *ngIf="formulaire=='pv'" [perso]="perso" [formulaire]="formulaire"
+                                    (closeForm)="formulaire=''"></app-formulaire>
+                            </div>
+                            <div class="flex pdvmanadiv">
+                                <p class="manatext clickable" (click)="formulaire='mana'">
+                                    {{perso.mana}}/{{perso.manamax}}
+                                </p>
+                                <div class="grouppdvmana">
+                                    <img class="fill" draggable="false" src="./assets/images/manafill.PNG"
+                                        [style.width]="(perso.mana/perso.manamax)*100+'%'" />
+                                    <img draggable="false" src="./assets/images/pdvmanabar.png" />
+                                </div>
+                                <app-formulaire *ngIf="formulaire=='mana'" [perso]="perso" [formulaire]="formulaire"
+                                    (closeForm)="formulaire=''"></app-formulaire>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="groupeHautDroite">
+
+                        <p class="bigText">Statistiques</p>
+                        <p class="clickable" *ngFor="let stat of perso.stats" (click)="clickGain(perso, stat.nom)">
+                            {{gain ==
+                            stat.nom ? 'Confirmer gain ?' : stat.nom}} {{
+                            gain != stat.nom ? stat.qte : "" }}</p>
+                    </div>
+
                 </div>
-                <p *ngIf="item.qte>0" class="qteObjet">{{item.qte}}</p>
+
+                <div class="flex end">
+
+                    <div class="containerGolds flex">
+                        <div class="flex golds clickable" (click)="formulaire='gold'">
+                            <img src="../../../assets/images/pieces.png" />
+                            <p>{{perso.argent}}</p>
+                        </div>
+
+                        <app-formulaire *ngIf="formulaire=='gold'" [perso]="perso" [formulaire]="formulaire"
+                            (closeForm)="formulaire=''"></app-formulaire>
+                    </div>
+                </div>
             </div>
+
+
         </div>
 
-        <div class="quetes" *ngIf="ongletActif == 'quetesPrincipales'">
-            <div *ngFor="let quete of getQuetesPrincipales();let i=index">
-                <div class="line" *ngIf="i!=0"></div>
-                <p class="bigText">{{quete.nom}}</p>
-                <p>{{quete.description}}</p>
-                <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
-            </div>
-        </div>
+        <!-- PARTIE BASSE -->
 
-        <div class="quetes" *ngIf="ongletActif == 'quetesSecondaires'">
-            <div *ngFor="let quete of data.quetessecondaires;let i=index">
-                <div class="line" *ngIf="i!=0"></div>
-                <p class="bigText">{{quete.nom}}</p>
-                <p>{{quete.description}}</p>
-                <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
+        <div>
+            <div class="flex onglets">
+                <p class="choix" [style.color]="ongletActif=='inventaire'?'white':'black'"
+                    (click)="ongletActif = 'inventaire'">Inventaire</p>
+                <p class="choix" [style.color]="ongletActif=='sorts'?'white':'black'" (click)="ongletActif = 'sorts'">
+                    Sorts</p>
+                <p class="choix" [style.color]="ongletActif=='quetesPrincipales'?'white':'black'"
+                    (click)="ongletActif = 'quetesPrincipales'">Quêtes principales</p>
+                <p class="choix" [style.color]="ongletActif=='quetesSecondaires'?'white':'black'"
+                    (click)="ongletActif = 'quetesSecondaires'">Quêtes secondaires</p>
+            </div>
+
+            <div class="inventaire" *ngIf="ongletActif == 'inventaire'">
+                <div class="objet" id="{{item.nom}}" *ngFor="let item of perso.inventaire"
+                    (mouseover)="objetActifInventaire = item" (mouseleave)="objetActifInventaire = undefined;gain = ''"
+                    (click)="clickGain(perso, item.nom)">
+                    <img *ngIf="item.image" src="./assets/images/{{ item.image }}.png"
+                        (cdkDragEnded)="dragEnd($event,item)" (cdkDragStarted)="dragStart(item)" cdkDrag />
+                    <div class="nomItem">
+                        <p [hidden]="objetActifInventaire != item">{{gain == item.nom && gain != '' ? 'Confirmer
+                            utilisation ?' : item.nom}}</p>
+                    </div>
+                    <p *ngIf="item.qte>0" class="qteObjet">{{item.qte}}</p>
+                </div>
+            </div>
+
+            <div class="inventaire" *ngIf="ongletActif == 'sorts'">
+                <div class="objet" *ngFor="let sort of perso.sorts" (mouseover)="sortActif = sort"
+                    (mouseleave)="sortActif = undefined">
+                    <img *ngIf="sort.image" src="./assets/images/{{ sort.image }}.png" />
+                    <div class="nomItem">
+                        <p [hidden]="sortActif != sort">{{sort.nom}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quetes" *ngIf="ongletActif == 'quetesPrincipales'">
+                <div *ngFor="let quete of getQuetesPrincipales();let i=index">
+                    <div class="line" *ngIf="i!=0"></div>
+                    <p class="bigText">{{quete.nom}}</p>
+                    <p>{{quete.description}}</p>
+                    <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
+                </div>
+            </div>
+
+            <div class="quetes" *ngIf="ongletActif == 'quetesSecondaires'">
+                <div *ngFor="let quete of data.quetessecondaires;let i=index">
+                    <div class="line" *ngIf="i!=0"></div>
+                    <p class="bigText">{{quete.nom}}</p>
+                    <p>{{quete.description}}</p>
+                    <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
+                </div>
             </div>
         </div>
     </div>

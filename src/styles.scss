@@ -8,6 +8,12 @@
     src: local("Medieval2"), url(./assets/fonts/medieval2.ttf) format("truetype");
 }
 
+
+.clickable:hover {
+    color: rgb(158, 18, 18) !important;
+    cursor: pointer;
+}
+
 // PNJS
 .PNJ .container {
     display: grid;

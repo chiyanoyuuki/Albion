@@ -134,7 +134,7 @@ export class MapComponent implements OnInit {
     $event.source._dragRef.reset();
   }
 
-  public majFromChild(addEntite: addEntity) {
+  public addEntity(addEntite: addEntity) {
     this.menuContextuel = undefined;
     if (this.data.lieuActuel.id == 'map') {
       addEntite.entite.x = addEntite.menuContextuel.x;

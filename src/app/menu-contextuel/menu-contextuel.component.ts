@@ -14,8 +14,9 @@ export class MenuContextuelComponent implements OnInit {
   @Input() menu: MenuContextuel;
   @Input() perso: Entite;
 
-  @Output() majEvent = new EventEmitter<addEntity>();
-  @Output() deleteEvent = new EventEmitter<string>();
+  @Output() addEntityEvent = new EventEmitter<addEntity>();
+  @Output() deleteEntityEvent = new EventEmitter<string>();
+  @Output() closeEvent = new EventEmitter<null>();
 
 
   private setting = { element: { dynamicDownload: null as unknown as HTMLElement } }
@@ -76,14 +77,18 @@ export class MenuContextuelComponent implements OnInit {
 
   addEntity() {
     const addEntity: addEntity = { entite: this.entitySelected, menuContextuel: this.menu, team: this.teamSelected };
-    this.majEvent.emit(addEntity);
+    this.addEntityEvent.emit(addEntity);
   }
 
   deletion() {
     if (this.delete == "Supprimer") { this.delete = "Confirmer suppression"; }
     else {
-      this.deleteEvent.emit();
+      this.deleteEntityEvent.emit();
     }
+  }
+
+  close() {
+    this.closeEvent.emit();
   }
 
   clickMonsterLevel(level: { niveau: number, pdvmax: number, manamax: number }) {
@@ -95,6 +100,30 @@ export class MenuContextuelComponent implements OnInit {
       this.entitySelected.manamax = level.manamax;
       this.entitySelected.mana = level.manamax;
     }
+  }
+
+  clickLierFamilier() {
+    if (this.perso.statutFamilier == 'lie') { this.perso.statutFamilier = '' }
+    else {
+      this.perso.statutFamilier = 'lie'
+    }
+    this.close();
+  }
+
+  clickAfficherFamilier() {
+    if (this.perso.statutFamilier == 'affiche') { this.perso.statutFamilier = '' }
+    else {
+      if (this.data.lieuActuel.id == 'map') {
+        this.perso.familier.x = this.perso.x + 50;
+        this.perso.familier.y = this.perso.y;
+      }
+      else {
+        this.perso.familier.xcombat = this.perso.x + 50;
+        this.perso.familier.ycombat = this.perso.y;
+      }
+      this.perso.statutFamilier = 'affiche'
+    }
+    this.close();
   }
 
   //SAUVEGARDE
