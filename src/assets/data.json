@@ -571,71 +571,71 @@
             "argent": 0,
             "inventaire": [
                 {
-                    "emplacement": "",
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "emplacement": "",
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "Clef de la prison",
-                    "image": "clef_prison",
+                    "emplacement": "Arme",
+                    "nom": "Dague en Acier",
+                    "image": "dague_en_acier",
                     "qte": 1
+                },
+                {
+                    "emplacement": "",
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
                     "nom": "",
@@ -4026,6 +4026,7 @@
             "image": "fleches_de_metal"
         },
         {
+            "emplacement": "Utilitaire",
             "nom": "Objets de jet",
             "image": "objets_de_jet"
         },
@@ -4042,14 +4043,17 @@
             "image": "parchemin"
         },
         {
+            "emplacement": "Arme",
             "nom": "Dague en Acier",
             "image": "dague_en_acier"
         },
         {
+            "emplacement": "Arme",
             "nom": "Dague de magicien",
             "image": "dague_magicien"
         },
         {
+            "emplacement": "Utilitaire",
             "nom": "Carquois renforcé (50)",
             "image": "carquoi_renforce"
         },
@@ -4058,10 +4062,12 @@
             "image": "bandages"
         },
         {
+            "emplacement": "Arme",
             "nom": "Arc",
             "image": "arc"
         },
         {
+            "emplacement": "Arme",
             "nom": "Arc de grande qualité",
             "image": "arc_de_qualite"
         },
@@ -4122,22 +4128,27 @@
             "image": "peau_de_loup"
         },
         {
+            "emplacement": "Arme",
             "nom": "Epée d'argent",
             "image": "epee_argent"
         },
         {
+            "emplacement": "Torse",
             "nom": "Armure renforcée en cuir (Usée)",
             "image": "armure_renforcee_en_cuir"
         },
         {
+            "emplacement": "Arme",
             "nom": "Sanada Yukimura",
             "image": "sabre_grande_qualite"
         },
         {
+            "emplacement": "Torse",
             "nom": "Tunique de prison",
             "image": "tunique_prison"
         },
         {
+            "emplacement": "Jambes",
             "nom": "Pantalon de prison",
             "image": "pantalon_prison"
         },

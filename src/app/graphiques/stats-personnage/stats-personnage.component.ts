@@ -23,6 +23,7 @@ export class StatsPersonnageComponent implements OnInit {
   public focus: boolean = false;
   public emplacementFocused: string;
   public itemDragged: string;
+  public fenetreFocused: string = "";
 
   constructor() { }
 
@@ -71,8 +72,6 @@ export class StatsPersonnageComponent implements OnInit {
           emplacementLibre.image = clicked.objet.image;
           emplacementLibre.nom = clicked.objet.nom;
           emplacementLibre.qte = 1;
-
-          console.log(emplacementLibre);
         }
       }
       clicked.objet = { "emplacement": '', "nom": '', "image": '', qte: 0 };
@@ -104,7 +103,13 @@ export class StatsPersonnageComponent implements OnInit {
     let tmp = $event.source.getFreeDragPosition();
 
     const offsetsStart = document.getElementById(this.itemDragged)?.getBoundingClientRect();
-    const offsetsEnd = document.getElementById(this.emplacementFocused)?.getBoundingClientRect();
+    let offsetsEnd = document.getElementById(this.emplacementFocused)?.getBoundingClientRect();
+    let offsetsEnd2;
+    if (this.emplacementFocused == "Arme") {
+      offsetsEnd = document.getElementById(this.emplacementFocused + '1')?.getBoundingClientRect();
+      offsetsEnd2 = document.getElementById(this.emplacementFocused + '2')?.getBoundingClientRect();
+    }
+
     if (offsetsStart && offsetsEnd) {
       const endLeft = offsetsStart.left + tmp.x + 20;
       const endTop = offsetsStart.top + tmp.y + 20;
@@ -112,9 +117,25 @@ export class StatsPersonnageComponent implements OnInit {
       const posStartX = offsetsEnd.left;
       const posStartY = offsetsEnd.top;
 
-      if (endLeft >= posStartX && endLeft <= posStartX + 50 && endTop >= posStartY && endTop <= posStartY + 50) {
+      let finiDansEmplacement: boolean = false;
+      let finiDansEmplacement1: boolean = false;
+      let finiDansEmplacement2: boolean = false;
+
+      if (offsetsEnd2) {
+        const posStartX2 = offsetsEnd2.left;
+        const posStartY2 = offsetsEnd2.top;
+        finiDansEmplacement2 = endLeft >= posStartX2 && endLeft <= posStartX2 + 50 && endTop >= posStartY2 && endTop <= posStartY2 + 50;
+      }
+      finiDansEmplacement1 = endLeft >= posStartX && endLeft <= posStartX + 50 && endTop >= posStartY && endTop <= posStartY + 50;
+
+      finiDansEmplacement = finiDansEmplacement1 || finiDansEmplacement2;
+
+      if (finiDansEmplacement) {
         let emplacementVide = this.perso.inventaire.find((objet: ObjetInventaire) => objet.nom == "");
-        let stuffConcerne = this.perso.stuff.find((stuff: Equipement) => stuff.emplacement == this.emplacementFocused);
+        let stuffConcerne = this.perso.stuff.find((stuff: Equipement) =>
+        (stuff.emplacement == this.emplacementFocused ||
+          (stuff.emplacement == "Arme1" && this.emplacementFocused == "Arme" && finiDansEmplacement1) ||
+          (stuff.emplacement == "Arme2" && this.emplacementFocused == "Arme" && finiDansEmplacement2)));
         let ancienStuff = Object.assign({}, stuffConcerne);
 
         if ((emplacementVide || (!emplacementVide && item.qte == 1)) && ancienStuff.objet.nom != item.nom) {
@@ -156,5 +177,9 @@ export class StatsPersonnageComponent implements OnInit {
   public dragStart(item: ObjetInventaire) {
     this.emplacementFocused = item.emplacement;
     this.itemDragged = item.nom;
+  }
+
+  public isEmplacementFocused(emplacement: Equipement) {
+    return this.emplacementFocused != "" && emplacement.emplacement.startsWith(this.emplacementFocused);
   }
 }
