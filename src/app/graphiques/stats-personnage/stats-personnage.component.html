@@ -166,9 +166,12 @@
     </div>
 </div>
 
+
+    <!-- BOUTIQUE -->
+
 <div *ngIf="perso.boutique == data.lieuActuel.id" class="containerVendeur" cdkDrag>
     <p class="bigText">{{data.lieuActuel.nom}}</p>
-    <div class="containerBoutique">
+    <div class="containerBoutique m-t-20">
         <div class="navPerso flex center">
             <div *ngFor="let perso of persoPresentInLieu();let i=index" class="clickable flex align-center perso" (click)="focusPersoBoutique = perso">
                 <div class="separator" *ngIf="i!=0"></div>
@@ -176,7 +179,7 @@
             </div>
         </div>
         <div class="flex between m-t-20">
-            <div class="inventairePersoBoutique flex" *ngIf="focusPersoBoutique">
+            <div class="inventairePersoBoutique flex between column" *ngIf="focusPersoBoutique">
                 <div class="flex around align-center width-100">
                     <div>
                         <img *ngIf="focusPersoBoutique.forme" class="icone"

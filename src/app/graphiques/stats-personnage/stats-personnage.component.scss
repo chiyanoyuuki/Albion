@@ -241,7 +241,7 @@
 /* containerVendeur */
 
 .containerVendeur{
-    background-image: url("../../../assets/images/fond-stats.png");
+    background-color:rgba(0, 0, 0, 0.5);
     width: 900px;
     top: -250px;
     z-index: 2;
@@ -250,17 +250,10 @@
     border: 2px ridge #202020;
     padding: 10px;
     cursor: move;
-}
-.containerBoutique{
-    margin-top: 1rem;
-}
-.navBoutique{
     color: white;
-    background-image: url("../../../assets/images/fond_jaune_fonce.png");
 }
 .navPerso{
-    color: white;
-    background-color: rgb(32, 32, 32);
+    background-image: url("../../../assets/images/fond_jaune_fonce.png");
     padding: 0 0.5rem 0 0.5rem;
 }
 .navPerso .perso{
@@ -278,7 +271,8 @@
     padding: 0.7rem 0 0.7rem 0;
     border: 2px solid black;
     padding: 0.5rem;
-    color: white;
+    background-image: url("../../../assets/images/fond-stats.png");
+    flex-flow: column;
 }
 .inventairePersoBoutique .bigText{
     width: 40%;
@@ -288,11 +282,11 @@
     flex-flow: wrap;
     border: 2px solid black;
     padding: 0.5rem;
-    color: white;
     gap: 0.5rem;
     height: 250px;
     overflow-x: hidden;
     overflow-y: auto;
+    background-image: url("../../../assets/images/fond-stats.png");
 }
 .objetInventaireBoutique{
     background-color: #40404050;
