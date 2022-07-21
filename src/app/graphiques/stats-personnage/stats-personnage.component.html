@@ -1,6 +1,7 @@
 <div *ngIF="perso.team == 0" class="flex">
 
-    <div class="containerStuff" cdkDrag>
+    <div class="containerStuff" [style.z-index]="fenetreFocused=='inventaire'?9:2" (mouseover)="fenetreFocused='inventaire'"
+        cdkDrag>
         <p class="croix clickable" (click)="close()">X</p>
 
         <img class="personnage" src="../../../assets/images/entites/{{perso.image}}.png">
@@ -8,8 +9,8 @@
         <div class="objet" *ngFor="let emplacement of perso.stuff" id="{{emplacement.emplacement}}"
             (mouseover)="objetActifStuff = emplacement" (mouseleave)="objetActifStuff = undefined;gain = ''"
             [style.left]="getLeft(emplacement)" [style.top]="getTop(emplacement)"
-            (click)="clickGainStuff(perso, emplacement)"
-            [style.filter]="emplacementFocused==emplacement.emplacement?'brightness(300%)':'brightness(100%)'">
+            [style.z-index]="objetActifStuff == emplacement?9:2" (click)="clickGainStuff(perso, emplacement)"
+            [style.filter]="isEmplacementFocused(emplacement)?'brightness(300%)':'brightness(100%)'">
             <img *ngIf="emplacement.objet.image" src="./assets/images/items/{{ emplacement.objet.image }}.png" />
             <div class="nomItem">
                 <p [hidden]="objetActifStuff != emplacement">{{gain == emplacement.objet.nom && gain != '' ? 'Confirmer
@@ -19,7 +20,8 @@
 
     </div>
 
-    <div class="containerStats" [cdkDragDisabled]="objetActifInventaire!=undefined" cdkDrag>
+    <div class="containerStats" [style.z-index]="fenetreFocused=='stats'?9:2"
+        [cdkDragDisabled]="objetActifInventaire!=undefined" (mouseover)="fenetreFocused='stats'" cdkDrag>
         <p class="croix clickable" (click)="close()">X</p>
         <!-- PARTIE HAUTE -->
         <div class="flex">
@@ -28,7 +30,8 @@
                     <div class="hautGauche">
                         <div class="flex">
                             <div class="iconeEtGolds">
-                                <img *ngIf="perso.forme" class="icone" src="./assets/images/entites/minias/{{perso.forme.image}}.png">
+                                <img *ngIf="perso.forme" class="icone"
+                                    src="./assets/images/entites/minias/{{perso.forme.image}}.png">
                             </div>
 
                             <div class="data">
