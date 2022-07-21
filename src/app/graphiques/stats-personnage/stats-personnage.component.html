@@ -3,14 +3,14 @@
     <div class="containerStuff" cdkDrag>
         <p class="croix clickable" (click)="close()">X</p>
 
-        <img class="personnage" src="../../../assets/images/{{perso.image}}.png">
+        <img class="personnage" src="../../../assets/images/entites/{{perso.image}}.png">
 
         <div class="objet" *ngFor="let emplacement of perso.stuff" id="{{emplacement.emplacement}}"
             (mouseover)="objetActifStuff = emplacement" (mouseleave)="objetActifStuff = undefined;gain = ''"
             [style.left]="getLeft(emplacement)" [style.top]="getTop(emplacement)"
             (click)="clickGainStuff(perso, emplacement)"
             [style.filter]="emplacementFocused==emplacement.emplacement?'brightness(300%)':'brightness(100%)'">
-            <img *ngIf="emplacement.objet.image" src="./assets/images/{{ emplacement.objet.image }}.png" />
+            <img *ngIf="emplacement.objet.image" src="./assets/images/items/{{ emplacement.objet.image }}.png" />
             <div class="nomItem">
                 <p [hidden]="objetActifStuff != emplacement">{{gain == emplacement.objet.nom && gain != '' ? 'Confirmer
                     enlever ?' : emplacement.objet.nom}}</p>
@@ -28,7 +28,7 @@
                     <div class="hautGauche">
                         <div class="flex">
                             <div class="iconeEtGolds">
-                                <img *ngIf="perso.forme" class="icone" src="./assets/images/{{perso.forme.minia}}.png">
+                                <img *ngIf="perso.forme" class="icone" src="./assets/images/entites/minias/{{perso.forme.image}}.png">
                             </div>
 
                             <div class="data">
@@ -122,7 +122,7 @@
                 <div class="objet" id="{{item.nom}}" *ngFor="let item of perso.inventaire"
                     (mouseover)="objetActifInventaire = item" (mouseleave)="objetActifInventaire = undefined;gain = ''"
                     (click)="clickGain(perso, item.nom)">
-                    <img *ngIf="item.image" src="./assets/images/{{ item.image }}.png"
+                    <img *ngIf="item.image" src="./assets/images/items/{{ item.image }}.png"
                         (cdkDragEnded)="dragEnd($event,item)" (cdkDragStarted)="dragStart(item)" cdkDrag />
                     <div class="nomItem">
                         <p [hidden]="objetActifInventaire != item">{{gain == item.nom && gain != '' ? 'Confirmer
@@ -135,7 +135,7 @@
             <div class="inventaire" *ngIf="ongletActif == 'sorts'">
                 <div class="objet" *ngFor="let sort of perso.sorts" (mouseover)="sortActif = sort"
                     (mouseleave)="sortActif = undefined">
-                    <img *ngIf="sort.image" src="./assets/images/{{ sort.image }}.png" />
+                    <img *ngIf="sort.image" src="./assets/images/sorts/{{ sort.image }}.png" />
                     <div class="nomItem">
                         <p [hidden]="sortActif != sort">{{sort.nom}}</p>
                     </div>
