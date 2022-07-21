@@ -633,9 +633,9 @@
                     "qte": 0
                 },
                 {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
+                    "nom": "Clef de la prison",
+                    "image": "clef_prison",
+                    "qte": 1
                 },
                 {
                     "nom": "",
@@ -4010,6 +4010,140 @@
             "tournoi": false,
             "id": "noelkadim",
             "type": "boss"
+        }
+    ],
+    "objets": [
+        {
+            "nom": "Pieges",
+            "image": "pieges"
+        },
+        {
+            "nom": "Flèches",
+            "image": "fleches"
+        },
+        {
+            "nom": "Flèches de métal",
+            "image": "fleches_de_metal"
+        },
+        {
+            "nom": "Objets de jet",
+            "image": "objets_de_jet"
+        },
+        {
+            "nom": "Queue de Rat Géant",
+            "image": "queue_rat_geant"
+        },
+        {
+            "nom": "Patte de Rat Géant",
+            "image": "patte_rat_geant"
+        },
+        {
+            "nom": "Parchemin non traduit",
+            "image": "parchemin"
+        },
+        {
+            "nom": "Dague en Acier",
+            "image": "dague_en_acier"
+        },
+        {
+            "nom": "Dague de magicien",
+            "image": "dague_magicien"
+        },
+        {
+            "nom": "Carquois renforcé (50)",
+            "image": "carquoi_renforce"
+        },
+        {
+            "nom": "Bandages",
+            "image": "bandages"
+        },
+        {
+            "nom": "Arc",
+            "image": "arc"
+        },
+        {
+            "nom": "Arc de grande qualité",
+            "image": "arc_de_qualite"
+        },
+        {
+            "nom": "Patte de Rat Patriarche",
+            "image": "patte_rat_patriarche"
+        },
+        {
+            "nom": "Queue de Rat Patriarche",
+            "image": "queue_rat_patriarche"
+        },
+        {
+            "nom": "Herbes",
+            "image": "herbe"
+        },
+        {
+            "nom": "Potions",
+            "image": "potions"
+        },
+        {
+            "nom": "Petits Cristaux",
+            "image": "petit_cristaux"
+        },
+        {
+            "nom": "Gros Cristaux",
+            "image": "gros_cristaux"
+        },
+        {
+            "nom": "Matériaux",
+            "image": "ingredient"
+        },
+        {
+            "nom": "Antidote",
+            "image": "antidote"
+        },
+        {
+            "nom": "Saphir étrange",
+            "image": "saphir"
+        },
+        {
+            "nom": "Manuel de Survie",
+            "image": "livre"
+        },
+        {
+            "nom": "Coupon participation tournoi",
+            "image": "coupon"
+        },
+        {
+            "nom": "Contrat traque assassins",
+            "image": "contrat"
+        },
+        {
+            "nom": "Cristal de forge",
+            "image": "cristal"
+        },
+        {
+            "nom": "Peaux de loup",
+            "image": "peau_de_loup"
+        },
+        {
+            "nom": "Epée d'argent",
+            "image": "epee_argent"
+        },
+        {
+            "nom": "Armure renforcée en cuir (Usée)",
+            "image": "armure_renforcee_en_cuir"
+        },
+        {
+            "nom": "Sanada Yukimura",
+            "image": "sabre_grande_qualite"
+        },
+        {
+            "nom": "Tunique de prison",
+            "image": "tunique_prison"
+        },
+        {
+            "nom": "Pantalon de prison",
+            "image": "pantalon_prison"
+        },
+        {
+            "nom": "Clef de la prison",
+            "image": "clef_prison"
         }
     ],
     "positionsStuff": [
