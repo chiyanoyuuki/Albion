@@ -7,6 +7,7 @@ export class Data {
 	public lieux: Lieu[];
 	public catabombes: string[][];
 	public pnjs: Entite[];
+	public positionsStuff: { emplacement: string, x: number, y: number }[];
 }
 
 export class Entite {
@@ -28,10 +29,8 @@ export class Entite {
 	public histoire: string;
 	public classe: string;
 	public stats: { nom: string, qte: number }[];
-	public arme1: string;
-	public arme2: string;
-	public sorts: string[]
-	public stuff: string[];
+	public sorts: { nom: string, image: string }[]
+	public stuff: Equipement[];
 	public argent: number;
 	public inventaire: ObjetInventaire[];
 	public formes: Forme[];
@@ -43,13 +42,21 @@ export class Entite {
 	public id: string;
 	public type: string;
 	public overrideX: number;
+	public posLinkedX: number;
+	public posLinkedY: number;
+	public posHeight: number;
+	public forceDivScale: number;
 	public levels: { niveau: number, pdvmax: number, manamax: number }[]
+}
+
+export class Equipement {
+	public emplacement: string;
+	public objet: ObjetInventaire;
 }
 
 export class Forme {
 	public nom: string;
 	public image: string;
-	public minia: string;
 }
 
 export class Boutique {
@@ -58,6 +65,7 @@ export class Boutique {
 }
 
 export class ObjetInventaire {
+	public emplacement: string;
 	public nom: string;
 	public qte: number;
 	public image: string

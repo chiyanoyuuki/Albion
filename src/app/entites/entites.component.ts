@@ -1,6 +1,7 @@
 import { Entite, Data, MenuContextuel, Lieu, ObjetInventaire } from '../model';
 import { Component, DoCheck, HostListener, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-entites',
@@ -24,7 +25,7 @@ export class EntitesComponent implements OnInit {
   public gain: string;
   public persoActuel: string;
   public nomPersoActuel: string;
-  public lastPersoClicked: Entite|undefined;
+  public lastPersoClicked: Entite | undefined;
 
   constructor() { }
 
@@ -40,7 +41,7 @@ export class EntitesComponent implements OnInit {
     }
     else {
       perso.xcombat = perso.xcombat + tmp.x;
-      perso.ycombat = perso.ycombat + tmp.y;;
+      perso.ycombat = perso.ycombat + tmp.y;
     }
     $event.source._dragRef.reset();
   }
@@ -50,7 +51,10 @@ export class EntitesComponent implements OnInit {
   }
 
   public getEntitesPresentes() {
-    return this.data.entites.filter((entite: Entite) => entite.lieu == this.data.lieuActuel.id);
+    let retour: Entite[] = this.data.entites.filter((entite: Entite) => entite.lieu == this.data.lieuActuel.id);
+    let familiersactifs: Entite[] = retour.filter((entite: Entite) => entite.team == 0 && entite.statutFamilier == 'affiche');
+    familiersactifs.forEach((entite: Entite) => retour.push(entite.familier));
+    return retour;
   }
   public getQuetePrincipale() {
     return this.quetePrincipale;
@@ -58,11 +62,6 @@ export class EntitesComponent implements OnInit {
   public getQueteSecondaire() {
     return this.queteSecondaire;
   }
-
-  public getScale() {
-    return 'scale(' + this.data.lieuActuel.scale ? this.data.lieuActuel.scale : 1 + ')';
-  }
-
 
   public clickPersoActuel(perso: Entite) {
     this.persoActuel = '';
@@ -79,9 +78,6 @@ export class EntitesComponent implements OnInit {
     } else {
       this.persoActuel = 'ennemi';
     }
-
-    console.log("this.persoActuel", this.persoActuel);
-    console.log("this.nomPersoActuel", this.nomPersoActuel);
   }
 
   clicDroit(event: MouseEvent, perso: Entite) {
@@ -155,11 +151,25 @@ export class EntitesComponent implements OnInit {
     }
   }
 
-  public majFromChild() {
+  public delete() {
     let entite = this.persoMenuContextuel;
     if (!entite) { return }
     this.data.entites.splice(this.data.entites.indexOf(entite), 1);
     this.persoMenuContextuel = undefined;
     this.menuContextuel = undefined;
+  }
+
+  public getScale(perso: Entite) {
+    let scale = 1;
+    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
+    if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
+    return 'scale(' + scale + ')';
+  }
+
+  public getTop(perso: Entite) {
+    let scale = 1;
+    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
+    if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
+    return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
   }
 }
