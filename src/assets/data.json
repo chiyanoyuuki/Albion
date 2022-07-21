@@ -571,71 +571,71 @@
             "argent": 0,
             "inventaire": [
                 {
-                    "emplacement": "",
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "emplacement": "",
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "Clef de la prison",
-                    "image": "clef_prison",
+                    "emplacement": "Arme1",
+                    "nom": "Dague en Acier",
+                    "image": "dague_en_acier",
                     "qte": 1
+                },
+                {
+                    "emplacement": "",
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
+                },
+                {
+                    "nom": "",
+                    "image": "",
+                    "qte": 0
                 },
                 {
                     "nom": "",
@@ -3417,7 +3417,8 @@
             "manamax": 18,
             "mana": 18,
             "tournoi": false,
-            "id": "goliathdepercerelle"
+            "id": "goliathdepercerelle",
+            "vendeur": true
         },
         {
             "x": 800,

@@ -46,7 +46,8 @@ export class Entite {
 	public posLinkedY: number;
 	public posHeight: number;
 	public forceDivScale: number;
-	public levels: { niveau: number, pdvmax: number, manamax: number }[]
+	public levels: { niveau: number, pdvmax: number, manamax: number }[];
+	public vendeur: boolean;
 }
 
 export class Equipement {

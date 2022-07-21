@@ -1,4 +1,4 @@
-<div class="flex">
+<div *ngIF="perso.team == 0" class="flex">
 
     <div class="containerStuff" cdkDrag>
         <p class="croix clickable" (click)="close()">X</p>
@@ -161,4 +161,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIF="perso.vendeur == true">
+    <p>vendeur</p>
 </div>
