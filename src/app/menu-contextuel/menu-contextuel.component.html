@@ -2,13 +2,15 @@
     <div *ngIf="add==false">
         <p *ngIf="menu.type=='map'" class="choix" (click)="add=true;">Ajouter une entité</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
-        <p *ngIf="menu.type=='entite'&&perso.team!=0" class="choix" (click)="deletion()">{{delete}}</p>
-        <p *ngIf="menu.type=='entite'&&perso.familier" class="choix"
-            (click)="clickLierFamilier()">
+        <p *ngIf="menu.type=='entite'" class="choix" (click)="deletion()">{{delete}}</p>
+        <p *ngIf="menu.type=='entite'&&perso.familier" class="choix" (click)="clickLierFamilier()">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
-        <p *ngIf="menu.type=='entite'&&perso.familier" class="choix"
-            (click)="clickAfficherFamilier()">
+        <p *ngIf="menu.type=='entite'&&perso.familier" class="choix" (click)="clickAfficherFamilier()">
             {{(perso.statutFamilier=='affiche'?'Cacher Familier':'Afficher Familier')}}</p>
+        <p *ngIf="menu.type=='entite'&&perso.team>0" class="choix" (click)="perso.team=perso.team-1">Améliorer relation
+        </p>
+        <p *ngIf="menu.type=='entite'&&perso.team<2" class="choix" (click)="perso.team=perso.team+1">Baisser relation
+        </p>
     </div>
 
     <div *ngIf="add==true">

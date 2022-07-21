@@ -1,6 +1,6 @@
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Data, Entite, Equipement, ObjetInventaire, Quete } from 'src/app/model';
+import { Data, Entite, Equipement, ObjetInventaire, Quete, Sort } from 'src/app/model';
 
 @Component({
   selector: 'app-stats-personnage',
@@ -11,7 +11,6 @@ export class StatsPersonnageComponent implements OnInit {
 
   @Input() data: Data;
   @Input() perso: Entite;
-  @Output() closeForm = new EventEmitter<null>();
 
   public gain: string;
   public formulaire: string;
@@ -22,8 +21,9 @@ export class StatsPersonnageComponent implements OnInit {
   public quantite: string;
   public focus: boolean = false;
   public emplacementFocused: string;
-  public itemDragged: string;
+  public itemDragged: string = '';
   public fenetreFocused: string = "";
+  public inventairesPersosPossibles: Entite[] = [];
 
   constructor() { }
 
@@ -47,20 +47,21 @@ export class StatsPersonnageComponent implements OnInit {
         objetClique.qte -= 1;
         if (objetClique.qte == 0) {
           perso.inventaire.splice(perso.inventaire.indexOf(objetClique), 1);
-          perso.inventaire.push({ "emplacement": '', "nom": '', "image": '', qte: 0 });
         }
       }
       this.gain = "";
+      this.objetActifInventaire = undefined;
+      this.objetActifStuff = undefined;
     }
   }
 
-  clickGainStuff(perso: Entite, clicked: Equipement) {
-    if (this.gain != clicked.objet.nom) {
-      this.gain = clicked.objet.nom;
-    } else if (this.gain == clicked.objet.nom) {
+  clickGainStuff(perso: Entite, objetClique: Equipement) {
+    if (this.gain != objetClique.objet.nom) {
+      this.gain = objetClique.objet.nom;
+    } else if (this.gain == objetClique.objet.nom) {
       if (this.gain == "") { return; }
-      let objetDejaDansInventaire = this.perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked.objet.nom);
-      let emplacementLibre = this.perso.inventaire.find((objet: ObjetInventaire) => objet.nom == "");
+      let objetDejaDansInventaire = this.perso.inventaire.find((objet: ObjetInventaire) => objet.nom == objetClique.objet.nom);
+      let emplacementLibre = this.perso.inventaire.length < 18;
       if (!objetDejaDansInventaire && !emplacementLibre) { return; }
 
       if (objetDejaDansInventaire) {
@@ -68,14 +69,14 @@ export class StatsPersonnageComponent implements OnInit {
       }
       else {
         if (emplacementLibre) {
-          emplacementLibre.emplacement = clicked.objet.emplacement;
-          emplacementLibre.image = clicked.objet.image;
-          emplacementLibre.nom = clicked.objet.nom;
-          emplacementLibre.qte = 1;
+          objetClique.objet.qte = 1;
+          perso.inventaire.push(objetClique.objet);
         }
       }
-      clicked.objet = { "emplacement": '', "nom": '', "image": '', qte: 0 };
+      objetClique.objet = { "emplacement": '', "nom": '', "image": '', qte: 0 };
       this.gain = "";
+      this.objetActifInventaire = undefined;
+      this.objetActifStuff = undefined;
     }
   }
 
@@ -86,7 +87,7 @@ export class StatsPersonnageComponent implements OnInit {
   }
 
   close() {
-    this.closeForm.emit();
+    this.perso.actif = false;
   }
 
   getLeft(emplacement: Equipement) {
@@ -100,86 +101,171 @@ export class StatsPersonnageComponent implements OnInit {
   }
 
   public dragEnd($event: CdkDragEnd, item: ObjetInventaire) {
+    if (!this.data.itemDragged) { return; }
+    let test = true;
+    if (test) console.log("DragEnd");
+    if (test) console.log(this.inventairesPersosPossibles);
     let tmp = $event.source.getFreeDragPosition();
+    const zoneDepart = document.getElementById(this.data.itemDragged.perso.nom + this.data.itemDragged.item.nom)?.getBoundingClientRect();
 
-    const offsetsStart = document.getElementById(this.itemDragged)?.getBoundingClientRect();
-    let offsetsEnd = document.getElementById(this.emplacementFocused)?.getBoundingClientRect();
-    let offsetsEnd2;
-    if (this.emplacementFocused == "Arme") {
-      offsetsEnd = document.getElementById(this.emplacementFocused + '1')?.getBoundingClientRect();
-      offsetsEnd2 = document.getElementById(this.emplacementFocused + '2')?.getBoundingClientRect();
-    }
+    let emplacementStuff: DOMRect | undefined;
+    let emplacementArme2: DOMRect | undefined;
 
-    if (offsetsStart && offsetsEnd) {
-      const endLeft = offsetsStart.left + tmp.x + 20;
-      const endTop = offsetsStart.top + tmp.y + 20;
+    if (zoneDepart) {
+      if (test) console.log("Correspond à un stuff ou un inventaire est ouvert");
+      const endLeft = zoneDepart.left + tmp.x + 20;
+      const endTop = zoneDepart.top + tmp.y + 20;
 
-      const posStartX = offsetsEnd.left;
-      const posStartY = offsetsEnd.top;
-
-      let finiDansEmplacement: boolean = false;
       let finiDansEmplacement1: boolean = false;
       let finiDansEmplacement2: boolean = false;
+      let finiDansInventaireAutrePerso: Entite | undefined = undefined;
+      let finiDansStuffAutrePerso: Entite | undefined = undefined;
 
-      if (offsetsEnd2) {
-        const posStartX2 = offsetsEnd2.left;
-        const posStartY2 = offsetsEnd2.top;
-        finiDansEmplacement2 = endLeft >= posStartX2 && endLeft <= posStartX2 + 50 && endTop >= posStartY2 && endTop <= posStartY2 + 50;
-      }
-      finiDansEmplacement1 = endLeft >= posStartX && endLeft <= posStartX + 50 && endTop >= posStartY && endTop <= posStartY + 50;
+      this.inventairesPersosPossibles.forEach((entite: Entite) => {
+        if (test) console.log(entite.nom);
+        let inventaire = document.getElementById("inventaire" + entite.nom)?.getBoundingClientRect();
+        emplacementStuff = document.getElementById(entite.nom + this.emplacementFocused)?.getBoundingClientRect();
+        if (this.emplacementFocused == "Arme") {
+          emplacementStuff = document.getElementById(entite.nom + this.emplacementFocused + '1')?.getBoundingClientRect();
+          emplacementArme2 = document.getElementById(entite.nom + this.emplacementFocused + '2')?.getBoundingClientRect();
+        }
+        if (inventaire) {
+          const posInventaireX = inventaire.left;
+          const posInventaireY = inventaire.top;
+          let verif = endLeft >= posInventaireX && endLeft <= posInventaireX + 450 && endTop >= posInventaireY && endTop <= posInventaireY + 100;
+          if (verif) { finiDansInventaireAutrePerso = entite; if (test) console.log(entite.nom + " inventaire ok ! "); }
+        }
 
-      finiDansEmplacement = finiDansEmplacement1 || finiDansEmplacement2;
+        if (emplacementStuff && !finiDansEmplacement1) {
+          const posStartX = emplacementStuff.left;
+          const posStartY = emplacementStuff.top;
+          finiDansEmplacement1 = endLeft >= posStartX && endLeft <= posStartX + 50 && endTop >= posStartY && endTop <= posStartY + 50;
+          if (finiDansEmplacement1) { finiDansStuffAutrePerso = entite; }
+        }
 
-      if (finiDansEmplacement) {
-        let emplacementVide = this.perso.inventaire.find((objet: ObjetInventaire) => objet.nom == "");
-        let stuffConcerne = this.perso.stuff.find((stuff: Equipement) =>
+        if (emplacementArme2 && !finiDansEmplacement2) {
+          const posStartX2 = emplacementArme2.left;
+          const posStartY2 = emplacementArme2.top;
+          finiDansEmplacement2 = endLeft >= posStartX2 && endLeft <= posStartX2 + 50 && endTop >= posStartY2 && endTop <= posStartY2 + 50;
+          if (finiDansEmplacement2) { finiDansStuffAutrePerso = entite; }
+        }
+      });
+
+      if (finiDansStuffAutrePerso) {
+        if (test) console.log("Fini dans stuff");
+        console.log("this.emplacementFocused", this.emplacementFocused);
+        console.log("finiDansEmplacement1", finiDansEmplacement1);
+        console.log("finiDansEmplacement2", finiDansEmplacement2);
+        let persoFin: Entite = finiDansStuffAutrePerso;
+        let persoDebut: Entite = this.data.itemDragged.perso;
+        let emplacementVide = persoFin.inventaire.length < 18;
+        let stuffConcerne = persoFin.stuff.find((stuff: Equipement) =>
         (stuff.emplacement == this.emplacementFocused ||
           (stuff.emplacement == "Arme1" && this.emplacementFocused == "Arme" && finiDansEmplacement1) ||
           (stuff.emplacement == "Arme2" && this.emplacementFocused == "Arme" && finiDansEmplacement2)));
         let ancienStuff = Object.assign({}, stuffConcerne);
+        let objetDansInventaireFin = persoFin.inventaire.find((objet: ObjetInventaire) => objet.nom == ancienStuff.objet.nom);
 
-        if ((emplacementVide || (!emplacementVide && item.qte == 1)) && ancienStuff.objet.nom != item.nom) {
+        if (emplacementVide || (!emplacementVide && item.qte == 1) || objetDansInventaireFin) {
+          console.log("objet fini dans stuff");
+
           if (stuffConcerne) {
-            stuffConcerne.objet = item;
-            let objetDansInventaire = this.perso.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
-            if (objetDansInventaire) {
-              objetDansInventaire.qte -= 1;
-              if (objetDansInventaire.qte == 0) {
-                this.perso.inventaire.splice(this.perso.inventaire.indexOf(objetDansInventaire), 1);
-                this.perso.inventaire.push({ "emplacement": '', "nom": '', "image": '', qte: 0 });
+            console.log("StuffConcerne");
+            stuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1 };
+            let objetDansInventaireDebut = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+            if (objetDansInventaireDebut) {
+              objetDansInventaireDebut.qte -= 1;
+              if (objetDansInventaireDebut.qte == 0) {
+                persoDebut.inventaire.splice(persoDebut.inventaire.indexOf(objetDansInventaireDebut), 1);
               }
             }
 
             if (ancienStuff.objet.nom != "") {
-              let objetDejaDansInventaire = this.perso.inventaire.find((objet: ObjetInventaire) => objet.nom == ancienStuff.objet.nom);
-              if (objetDejaDansInventaire) {
-                objetDejaDansInventaire.qte += 1;
+              objetDansInventaireFin = persoFin.inventaire.find((objet: ObjetInventaire) => objet.nom == ancienStuff.objet.nom);
+              if (objetDansInventaireFin) {
+                objetDansInventaireFin.qte += 1;
               }
               else {
-
-                let emplacementLibre = this.perso.inventaire.find((objet: ObjetInventaire) => objet.nom == "");
-                if (emplacementLibre) {
-                  emplacementLibre.emplacement = ancienStuff.objet.emplacement;
-                  emplacementLibre.image = ancienStuff.objet.image;
-                  emplacementLibre.nom = ancienStuff.objet.nom;
-                  emplacementLibre.qte = 1;
+                if (emplacementVide) {
+                  persoFin.inventaire.push({ emplacement: ancienStuff.objet.emplacement, image: ancienStuff.objet.image, nom: ancienStuff.objet.nom, qte: 1 });
                 }
               }
             }
           }
         }
       }
+      else if (finiDansInventaireAutrePerso) {
+        if (test) console.log("Fini dans inventaire");
+        let persoFin: Entite = finiDansInventaireAutrePerso;
+        let persoDebut: Entite = this.data.itemDragged.perso;
+        let objetDejaDansInventaireFin = persoFin.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+        let emplacementVideInventaireFin = persoFin.inventaire.length < 18;
+        if (objetDejaDansInventaireFin) {
+          if (test) console.log("Objet déjà dans inventaire");
+          objetDejaDansInventaireFin.qte += 1;
+          let objetDansInventaire = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+          if (objetDansInventaire) {
+            if (test) console.log("Enlever 1 objet inventaire de base");
+            objetDansInventaire.qte -= 1;
+            if (objetDansInventaire.qte == 0) {
+              if (test) console.log("Supprimer objet quantite 0 inventaire de base");
+              persoDebut.inventaire.splice(persoDebut.inventaire.indexOf(objetDansInventaire), 1);
+            }
+          }
+        }
+        else if (emplacementVideInventaireFin) {
+          if (test) console.log("Emplacement vide et objet pas dans inventaire");
+          let persoFin: Entite = finiDansInventaireAutrePerso;
+          let persoDebut: Entite = this.data.itemDragged.perso;
+          persoFin.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1 });
+          let objetDansInventaire = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+          if (objetDansInventaire) {
+            objetDansInventaire.qte -= 1;
+            if (objetDansInventaire.qte == 0) {
+              persoDebut.inventaire.splice(persoDebut.inventaire.indexOf(objetDansInventaire), 1);
+            }
+          }
+
+        }
+      }
     }
+
+
     $event.source._dragRef.reset();
+    this.itemDragged = "";
+    this.objetActifInventaire = undefined;
+    this.objetActifStuff = undefined;
     this.emplacementFocused = "";
+    this.data.itemDragged = undefined;
   }
 
   public dragStart(item: ObjetInventaire) {
+    this.data.itemDragged = { perso: this.perso, item: item };
     this.emplacementFocused = item.emplacement;
     this.itemDragged = item.nom;
+    this.inventairesPersosPossibles = [];
+    this.data.entites.forEach((entite: Entite) => {
+      let id = "inventaire" + entite.nom;
+      let element = document.getElementById(id);
+      if (element) { this.inventairesPersosPossibles.push(entite); }
+    });
   }
 
   public isEmplacementFocused(emplacement: Equipement) {
     return this.emplacementFocused != "" && emplacement.emplacement.startsWith(this.emplacementFocused);
+  }
+
+  public getInventaire() {
+    let retour: ObjetInventaire[] = [];
+    this.perso.inventaire.forEach((objet: ObjetInventaire) => retour.push(objet));
+    for (let i = this.perso.inventaire.length; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0 }); }
+    return retour;
+  }
+
+  public getSorts() {
+    let retour: Sort[] = [];
+    this.perso.sorts.forEach((sort: Sort) => retour.push(sort));
+    for (let i = this.perso.sorts.length; i < 18; i++) { retour.push({ image: "", nom: "" }); }
+    return retour;
   }
 }

@@ -22,8 +22,21 @@
     padding: 10px;
 }
 
+.containerLoot {
+    background-image: url("../../../assets/images/fond-stats.png");
+    width: 450px;
+    height: 235px;
+    top: -315px;
+    left: -170px;
+    position: absolute;
+    z-index: 2;
+    border: 2px ridge #202020;
+    padding: 10px;
+}
+
 .containerStuff:hover,
-.containerStats:hover {
+.containerStats:hover,
+.containerLoot:hover {
     cursor: move;
 }
 
@@ -186,6 +199,7 @@
     position: absolute;
     background-color: rgb(20, 20, 20) !important;
     border-radius: 100%;
+    pointer-events: none;
 }
 
 .nomItem p {

@@ -64,20 +64,7 @@ export class EntitesComponent implements OnInit {
   }
 
   public clickPersoActuel(perso: Entite) {
-    this.persoActuel = '';
-    if (this.nomPersoActuel == perso.nom) {
-      this.nomPersoActuel = '';
-      return;
-    }
-    this.nomPersoActuel = perso.nom;
-
-    if (perso.team == 0) {
-      this.persoActuel = 'equipe';
-    } else if (perso.team == 1) {
-      this.persoActuel = 'neutre';
-    } else {
-      this.persoActuel = 'ennemi';
-    }
+    perso.actif = !perso.actif;
   }
 
   clicDroit(event: MouseEvent, perso: Entite) {
