@@ -102,7 +102,7 @@ export class StatsPersonnageComponent implements OnInit {
 
   public dragEnd($event: CdkDragEnd, item: ObjetInventaire) {
     if (!this.data.itemDragged) { return; }
-    let test = true;
+    let test = false;
     if (test) console.log("DragEnd");
     if (test) console.log(this.inventairesPersosPossibles);
     let tmp = $event.source.getFreeDragPosition();
@@ -133,7 +133,7 @@ export class StatsPersonnageComponent implements OnInit {
           const posInventaireX = inventaire.left;
           const posInventaireY = inventaire.top;
           let verif = endLeft >= posInventaireX && endLeft <= posInventaireX + 450 && endTop >= posInventaireY && endTop <= posInventaireY + 100;
-          if (verif) { finiDansInventaireAutrePerso = entite; if (test) console.log(entite.nom + " inventaire ok ! "); }
+          if (verif) { finiDansInventaireAutrePerso = entite; if(test)console.log(entite.nom + " inventaire ok ! "); }
         }
 
         if (emplacementStuff && !finiDansEmplacement1) {
@@ -153,9 +153,6 @@ export class StatsPersonnageComponent implements OnInit {
 
       if (finiDansStuffAutrePerso) {
         if (test) console.log("Fini dans stuff");
-        console.log("this.emplacementFocused", this.emplacementFocused);
-        console.log("finiDansEmplacement1", finiDansEmplacement1);
-        console.log("finiDansEmplacement2", finiDansEmplacement2);
         let persoFin: Entite = finiDansStuffAutrePerso;
         let persoDebut: Entite = this.data.itemDragged.perso;
         let emplacementVide = persoFin.inventaire.length < 18;
@@ -167,10 +164,9 @@ export class StatsPersonnageComponent implements OnInit {
         let objetDansInventaireFin = persoFin.inventaire.find((objet: ObjetInventaire) => objet.nom == ancienStuff.objet.nom);
 
         if (emplacementVide || (!emplacementVide && item.qte == 1) || objetDansInventaireFin) {
-          console.log("objet fini dans stuff");
+          if(test)console.log("objet fini dans stuff");
 
           if (stuffConcerne) {
-            console.log("StuffConcerne");
             stuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1 };
             let objetDansInventaireDebut = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
             if (objetDansInventaireDebut) {

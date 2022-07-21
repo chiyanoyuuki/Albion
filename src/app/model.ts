@@ -8,6 +8,7 @@ export class Data {
 	public catabombes: string[][];
 	public pnjs: Entite[];
 	public positionsStuff: { emplacement: string, x: number, y: number }[];
+	public objets: ObjetInventaire[];
 	public itemDragged: {perso:Entite,item:ObjetInventaire} | undefined;
 }
 
