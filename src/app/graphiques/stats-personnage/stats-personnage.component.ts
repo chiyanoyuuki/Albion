@@ -1,6 +1,6 @@
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Data, Entite, Equipement, ObjetInventaire, Quete } from 'src/app/model';
+import { Boutique, Data, Entite, Equipement, ObjetAAcheter, ObjetInventaire, Quete } from 'src/app/model';
 
 @Component({
   selector: 'app-stats-personnage',
@@ -14,6 +14,8 @@ export class StatsPersonnageComponent implements OnInit {
   @Output() closeForm = new EventEmitter<null>();
 
   public gain: string;
+  public achat: string;
+  public vente: string;
   public formulaire: string;
   public ongletActif: string = "inventaire";
   public objetActifInventaire: ObjetInventaire | undefined;
@@ -24,10 +26,18 @@ export class StatsPersonnageComponent implements OnInit {
   public emplacementFocused: string;
   public itemDragged: string;
   public fenetreFocused: string = "";
+  public boutique: Boutique;
+  public persoPresent: Entite;
+  public focusPersoBoutique: Entite;
+  public vendeur: Entite;
 
   constructor() { }
 
   ngOnInit(): void {
+    let boutiqueTmp = this.data.boutiques.find((boutique: Boutique) => boutique.nom == this.data.lieuActuel.id);
+    if (boutiqueTmp) {
+      this.boutique = boutiqueTmp;
+    }
   }
 
   clickGain(perso: Entite, clicked: string) {
@@ -47,7 +57,7 @@ export class StatsPersonnageComponent implements OnInit {
         objetClique.qte -= 1;
         if (objetClique.qte == 0) {
           perso.inventaire.splice(perso.inventaire.indexOf(objetClique), 1);
-          perso.inventaire.push({ "emplacement": '', "nom": '', "image": '', qte: 0 });
+          perso.inventaire.push({ "emplacement": '', "nom": '', "image": '', qte: 0, prix: 0 });
         }
       }
       this.gain = "";
@@ -74,8 +84,48 @@ export class StatsPersonnageComponent implements OnInit {
           emplacementLibre.qte = 1;
         }
       }
-      clicked.objet = { "emplacement": '', "nom": '', "image": '', qte: 0 };
+      clicked.objet = { "emplacement": '', "nom": '', "image": '', qte: 0, prix: 0 };
       this.gain = "";
+    }
+  }
+  clickVendre(perso: Entite, clicked: ObjetInventaire) {
+    if (this.vente != clicked.nom) {
+      this.vente = clicked.nom;
+    } else if (this.vente == clicked.nom) {
+      if (this.vente == "") { return }
+      let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
+      if (objetClique) {
+        objetClique.qte -= 1;
+        if (objetClique.qte == 0) {
+          perso.inventaire.splice(perso.inventaire.indexOf(objetClique), 1);
+          perso.inventaire.push({ "emplacement": '', "nom": '', "image": '', qte: 0, prix: 0 });
+        }
+      }
+      let objetPresentBoutique = this.boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
+      if (objetPresentBoutique) {
+        objetPresentBoutique.qte += 1;
+      }else{
+        this.boutique.objets.push({ "emplacement": clicked.emplacement, "nom": clicked.nom, "image": clicked.image, qte: 1, prix: clicked.prix*1.5 });
+      }
+      perso.argent += clicked.prix;
+      this.vente = "";
+    }
+  }
+  clickAcheter(perso: Entite, clicked: ObjetInventaire) {
+    if (this.achat != clicked.nom) {
+      this.achat = clicked.nom;
+    } else if (this.achat == clicked.nom) {
+      if (this.achat == "") { return }
+      if (perso.argent < clicked.prix) { return }
+      let objetPresentBoutique = this.boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
+      if (objetPresentBoutique) {
+        objetPresentBoutique.qte -= 1;
+        if (objetPresentBoutique.qte == 0) {
+          this.boutique.objets.splice(this.boutique.objets.indexOf(objetPresentBoutique), 1);
+        }
+      }
+      perso.argent -= clicked.prix;
+      this.achat = "";
     }
   }
 
@@ -146,7 +196,7 @@ export class StatsPersonnageComponent implements OnInit {
               objetDansInventaire.qte -= 1;
               if (objetDansInventaire.qte == 0) {
                 this.perso.inventaire.splice(this.perso.inventaire.indexOf(objetDansInventaire), 1);
-                this.perso.inventaire.push({ "emplacement": '', "nom": '', "image": '', qte: 0 });
+                this.perso.inventaire.push({ "emplacement": '', "nom": '', "image": '', qte: 0, prix: 0 });
               }
             }
 
@@ -181,5 +231,15 @@ export class StatsPersonnageComponent implements OnInit {
 
   public isEmplacementFocused(emplacement: Equipement) {
     return this.emplacementFocused != "" && emplacement.emplacement.startsWith(this.emplacementFocused);
+  }
+
+
+  // Pour la boutique
+  persoPresentInLieu(){
+    let persos = this.data.entites.filter((perso: Entite) => perso.team == 0 && perso.lieu == this.data.lieuActuel.id);
+    if (persos.length > 0 && !this.focusPersoBoutique) {
+      this.focusPersoBoutique = persos[0];
+    }
+    return persos;
   }
 }

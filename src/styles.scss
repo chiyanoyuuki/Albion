@@ -73,13 +73,17 @@ p {
 .between {
     justify-content: space-between;
 }
-
+.around{
+    justify-content: space-around;
+}
 .align-center {
     align-items: center;
 }
-
 .column {
     flex-flow: column;
+}
+.wrap{
+    flex-flow: wrap;
 }
 
 .line {
@@ -92,6 +96,10 @@ p {
 
 .width-100 {
     width: 100%;
+}
+
+.m-t-20{
+    margin-top: 20px;
 }
 
 .bigText {

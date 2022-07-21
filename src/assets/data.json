@@ -4,7 +4,7 @@
             "id": "lunastormwood",
             "x": 366,
             "y": 343,
-            "lieu": "prisonfjorh",
+            "lieu": "armurierfjorh",
             "xcombat": 1716,
             "ycombat": 611,
             "nom": "Luna Stormwood",
@@ -248,12 +248,16 @@
             "argent": 0,
             "inventaire": [
                 {
-                    "nom": "",
-                    "qte": 0
+                    "nom": "Dague de magicien",
+                    "image": "dague_magicien",
+                    "qte": 2,
+                    "prix": 20
                 },
                 {
-                    "nom": "",
-                    "qte": 0
+                    "nom": "Flèches",
+                    "image": "fleches",
+                    "qte": 20,
+                    "prix": 1
                 },
                 {
                     "nom": "",
@@ -669,7 +673,7 @@
             "x": 665,
             "y": 362,
             "xcombat": 688,
-            "lieu": "prisonfjorh",
+            "lieu": "armurierfjorh",
             "ycombat": 530,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
@@ -1632,6 +1636,26 @@
                     "qte": 0
                 }
             ]
+        },
+        {
+            "x": 800,
+            "y": 1,
+            "xcombat": 449,
+            "ycombat": 496,
+            "nom": "Goliath de Percerelle",
+            "image": "Goliath de Percerelle",
+            "solo": true,
+            "etat": "",
+            "niveau": 4,
+            "pdvmax": 55,
+            "pdv": 55,
+            "manamax": 18,
+            "mana": 18,
+            "tournoi": false,
+            "id": "goliathdepercerelle",
+            "lieu": "armurierfjorh",
+            "team": 1,
+            "boutique": "armurierfjorh"
         }
     ],
     "quetesprincipales": [
@@ -1711,18 +1735,31 @@
         }
     ],
     "lieuActuel": {
-        "id": "map",
-        "nom": "map",
-        "image": "map",
-        "x": 0,
-        "y": 0,
-        "finx": 0,
-        "finy": 0,
+        "parent": "fjorh",
+        "id": "armurierfjorh",
+        "nom": "Boutique d'armurier",
+        "image": "ShopArmor",
+        "x": 700,
+        "y": 250,
+        "position_start": [
+            {
+                "startX": 860,
+                "startY": 390
+            },
+            {
+                "startX": 1025,
+                "startY": 395
+            },
+            {
+                "startX": 375,
+                "startY": 500
+            }
+        ],
+        "finx": 208,
+        "finy": 130,
         "desac": true,
-        "parent": "",
-        "entreex": 0,
-        "entreey": 0,
-        "pnjs": []
+        "pnjs": [],
+        "scale": 5
     },
     "boutiques": [
         {
@@ -1734,40 +1771,47 @@
             "objets": []
         },
         {
-            "nom": "ShopArmor2",
+            "nom": "armurierfjorh",
             "objets": [
                 {
                     "nom": "Carquois renforcé (50)",
-                    "qte": 0,
+                    "image": "carquoi_renforce",
+                    "qte": 1,
                     "prix": 60
                 },
                 {
                     "nom": "Epée d'argent",
-                    "qte": 0,
+                    "image": "epee_argent",
+                    "qte": 1,
                     "prix": 80
                 },
                 {
                     "nom": "Flèches",
+                    "image": "fleches",
                     "qte": 186,
                     "prix": 1
                 },
                 {
                     "nom": "Flèches de métal",
+                    "image": "fleches_de_metal",
                     "qte": 40,
                     "prix": 10
                 },
                 {
-                    "nom": "Objets de jet en métal",
+                    "nom": "Objets de jet",
+                    "image": "objets_de_jet",
                     "qte": 7,
                     "prix": 15
                 },
                 {
                     "nom": "Pièces d'armures en argent",
+                    "image": "pantalon_prison",
                     "qte": 9,
                     "prix": 50
                 },
                 {
                     "nom": "Pièges élaborés",
+                    "image": "pieges",
                     "qte": 4,
                     "prix": 20
                 }
@@ -3405,8 +3449,8 @@
         {
             "x": 800,
             "y": 1,
-            "xcombat": 800,
-            "ycombat": 1,
+            "xcombat": 449,
+            "ycombat": 496,
             "nom": "Goliath de Percerelle",
             "image": "Goliath de Percerelle",
             "solo": true,
@@ -3418,7 +3462,9 @@
             "mana": 18,
             "tournoi": false,
             "id": "goliathdepercerelle",
-            "vendeur": true
+            "lieu": "armurierfjorh",
+            "team": 1,
+            "boutique": "armurierfjorh"
         },
         {
             "x": 800,

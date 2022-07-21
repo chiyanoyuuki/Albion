@@ -47,7 +47,7 @@ export class Entite {
 	public posHeight: number;
 	public forceDivScale: number;
 	public levels: { niveau: number, pdvmax: number, manamax: number }[];
-	public vendeur: boolean;
+	public boutique: string;
 }
 
 export class Equipement {
@@ -62,18 +62,20 @@ export class Forme {
 
 export class Boutique {
 	public nom: string;
-	public objets: ObjetAAcheter[];
+	public objets: ObjetInventaire[];
 }
 
 export class ObjetInventaire {
 	public emplacement: string;
 	public nom: string;
 	public qte: number;
-	public image: string
+	public image: string;
+	public prix: number;
 }
 
 export class ObjetAAcheter {
 	public nom: string;
+	public image: string;
 	public qte: number;
 	public prix: number;
 }
