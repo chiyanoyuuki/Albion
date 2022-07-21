@@ -8,6 +8,7 @@ export class Data {
 	public catabombes: string[][];
 	public pnjs: Entite[];
 	public positionsStuff: { emplacement: string, x: number, y: number }[];
+	public itemDragged: {perso:Entite,item:ObjetInventaire} | undefined;
 }
 
 export class Entite {
@@ -26,10 +27,11 @@ export class Entite {
 	public image: string;
 	public team: number;
 	public actif: boolean;
+	public joueur: boolean;
 	public histoire: string;
 	public classe: string;
 	public stats: { nom: string, qte: number }[];
-	public sorts: { nom: string, image: string }[]
+	public sorts: Sort[]
 	public stuff: Equipement[];
 	public argent: number;
 	public inventaire: ObjetInventaire[];
@@ -46,7 +48,19 @@ export class Entite {
 	public posLinkedY: number;
 	public posHeight: number;
 	public forceDivScale: number;
-	public levels: { niveau: number, pdvmax: number, manamax: number }[]
+	public levels: { niveau: number, pdvmax: number, manamax: number }[];
+	public loot: Loot[];
+}
+
+export class Sort {
+	public nom: string;
+	public image: string;
+}
+
+export class Loot {
+	public nom: string;
+	public taux: number;
+	public qte: number;
 }
 
 export class Equipement {

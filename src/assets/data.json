@@ -4,9 +4,10 @@
             "id": "lunastormwood",
             "x": 366,
             "y": 343,
-            "lieu": "prisonfjorh",
-            "xcombat": 1716,
-            "ycombat": 611,
+            "lieu": "map",
+            "xcombat": 512,
+            "ycombat": 521,
+            "joueur": true,
             "nom": "Luna Stormwood",
             "histoire": "Origaire d'une grande famille d'alchimiste de la forêt d'aubelune au sud-est D'Albion dont le père est décédé et la mère à soudainement disparu il y plusieurs semaines. Luna se met donc en quête de retrouver sa mère, elle apprend que sa mère est parti vers le nord dans les montage pour étudier des phonèmes climatique étrange. Elle se met donc en route pour les montagnes, arrivée à l'endroit où la végétation a subis des changements inexplicable, Luna commence à s'interroger, après plusieurs jours de recherche, elle surprend une conversation avec un mercenaire et un homme qui vie dans les montagnes, ces deux personnes parlent d'une grosse pierre précieuse que le roi Herald recherche, après quelques instants, grâce aux recherches qu'elles a effectués ces jours précédents, elle commence à comprendre de quoi il s'agit et décide d'aller à la rencontre de ces deux hommes..",
             "classe": "Sorciere",
@@ -60,70 +61,6 @@
                 {
                     "nom": "Boost de concentration",
                     "image": "sort_boost_concentration"
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
                 }
             ],
             "stuff": [
@@ -246,85 +183,12 @@
                 "posLinkedY": 35
             },
             "argent": 0,
-            "inventaire": [
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                }
-            ]
+            "inventaire": []
         },
         {
             "id": "bjorncotesdefer",
-            "x": 704,
-            "y": 406,
+            "x": 487,
+            "y": 464,
             "lieu": "map",
             "xcombat": 893,
             "ycombat": 626,
@@ -334,6 +198,7 @@
             "image": "trappeur",
             "team": 0,
             "niveau": 3,
+            "joueur": true,
             "pdvmax": 30,
             "pdv": 30,
             "manamax": 15,
@@ -384,70 +249,6 @@
                 {
                     "nom": "Bandages d'Urgence",
                     "image": "sort_bandage"
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
                 }
             ],
             "stuff": [
@@ -571,96 +372,10 @@
             "argent": 0,
             "inventaire": [
                 {
-                    "emplacement": "",
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "emplacement": "",
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "Clef de la prison",
-                    "image": "clef_prison",
+                    "emplacement": "Arme",
+                    "nom": "Dague en Acier",
+                    "image": "dague_en_acier",
                     "qte": 1
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "image": "",
-                    "qte": 0
                 }
             ]
         },
@@ -668,9 +383,10 @@
             "id": "gandalfleroux",
             "x": 665,
             "y": 362,
-            "xcombat": 688,
+            "xcombat": 587,
+            "joueur": true,
             "lieu": "prisonfjorh",
-            "ycombat": 530,
+            "ycombat": 529,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
             "classe": "mercenaire",
@@ -724,70 +440,6 @@
                 {
                     "nom": "Parade",
                     "image": "sort_parade"
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
                 }
             ],
             "stuff": [
@@ -907,88 +559,16 @@
                 "overrideX": 34
             },
             "argent": 0,
-            "inventaire": [
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                }
-            ]
+            "inventaire": []
         },
         {
             "id": "arlequin",
             "x": 555,
+            "joueur": true,
             "y": 118,
-            "xcombat": 1294,
+            "xcombat": 757,
             "lieu": "prisonfjorh",
-            "ycombat": 516,
+            "ycombat": 515,
             "nom": "Arlequin",
             "histoire": "Arlequin vient de l'île de Sagüt au Sud-Ouest de Albion. Son île fut complètement détruite en quelques instants lorsqu'il n'avait que 10 ans. Il vagabonda ensuite en volant des provisions aux quatres coins du monde pour survivre. Il fît la connaissance d'un mâitre sabreur avec qui il apprit le maniement des lames pendant quelques années. Il obtint le magnifique Katana de son maître lorsqu'il décéda de vieillesse. Après cela, il rencontra un groupe d'aventuriers avec qui il passa quelques années. Un beau jour, ils se retrouvérent dans une embuscade et sans explication, Arlequin fût vendu aux assassins en échange de la vie du reste du groupe. Arlequin dût assassiner des centaines de personnes sur les ordres des assassins les années qui suivèrent. Il réussit à se débarasser de la totalité de ses ravisseurs avant de retourner vagabonder seul, désormais plus renfermé que jamais et ayant plus de difficulté à participer à des combats qu'il jugerait inutiles.",
             "classe": "assassin",
@@ -1034,80 +614,7 @@
                     "qte": 7
                 }
             ],
-            "sorts": [
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                }
-            ],
+            "sorts": [],
             "stuff": [
                 {
                     "emplacement": "Tête",
@@ -1228,88 +735,16 @@
                 "posHeight": 17
             },
             "argent": 0,
-            "inventaire": [
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                }
-            ]
+            "inventaire": []
         },
         {
             "id": "siennahurlevent",
             "x": 782,
+            "joueur": true,
             "y": 738,
             "lieu": "prisonfjorh",
-            "xcombat": 486,
-            "ycombat": 529,
+            "xcombat": 697,
+            "ycombat": 523,
             "nom": "Sienna Hurlevent",
             "histoire": "Depuis son plus jeune age, Sienna a parcouru la forêt de XXX jusqu'à en reconnaitre les moindres changement dans la faune et la flore. Jeune druidesse elfe de 107 ans, elle a été formée aux arcanes de la magie de métamorphose par l'archimage Louge dans la plus grande discression. Les autres races ignores beaucoup de chose sur la vie des elfes après tout. Sienna s'est mis en tete de parcourir le monde au coté de son fidèle compagnon, Pipou l'écureuil. Elle a un but précis : trouver un remède pour guérir sa famille rongé par un maux qu'aucun elfe n'a encore vu auparavant.",
             "classe": "druide",
@@ -1367,74 +802,6 @@
                 {
                     "nom": "Bourrasque",
                     "image": "sort_bourrasque"
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
-                },
-                {
-                    "nom": "",
-                    "image": ""
                 }
             ],
             "stuff": [
@@ -1558,80 +925,86 @@
                 "forceDivScale": 4
             },
             "argent": 0,
+            "inventaire": []
+        },
+        {
+            "x": 800,
+            "y": 1,
+            "xcombat": 449,
+            "ycombat": 496,
+            "nom": "Goliath de Percerelle",
+            "image": "Goliath de Percerelle",
+            "solo": true,
+            "etat": "",
+            "niveau": 4,
+            "pdvmax": 55,
+            "pdv": 55,
+            "manamax": 18,
+            "mana": 18,
+            "tournoi": false,
+            "id": "goliathdepercerelle",
+            "lieu": "armurierfjorh",
+            "team": 1
+        },
+        {
+            "x": 716,
+            "y": 467,
+            "xcombat": 800,
+            "ycombat": 1,
+            "nom": "Araignée Géante 01",
+            "image": "araignee",
+            "solo": false,
+            "etat": "",
+            "niveau": 1,
+            "pdvmax": 20,
             "inventaire": [
                 {
-                    "nom": "",
-                    "qte": 0
+                    "nom": "Petits Cristaux",
+                    "image": "petit_cristaux",
+                    "qte": 2
                 },
                 {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
-                },
-                {
-                    "nom": "",
-                    "qte": 0
+                    "emplacement": "Utilitaire",
+                    "nom": "Carquois renforcé (50)",
+                    "image": "carquoi_renforce",
+                    "qte": 2
                 }
-            ]
+            ],
+            "pdv": 0,
+            "manamax": 8,
+            "mana": 8,
+            "tournoi": false,
+            "id": "araignee_geante",
+            "overrideX": 20,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 20,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 34,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 40,
+                    "manamax": 18
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 50,
+                    "manamax": 20
+                }
+            ],
+            "team": 2,
+            "lieu": "map"
         }
     ],
     "quetesprincipales": [
@@ -3688,6 +3061,18 @@
             "mana": 8,
             "tournoi": false,
             "id": "araignee_geante",
+            "loot": [
+                {
+                    "nom": "Petits Cristaux",
+                    "taux": "20",
+                    "qte": 2
+                },
+                {
+                    "nom": "Matériaux",
+                    "taux": "80",
+                    "qte": 2
+                }
+            ],
             "overrideX": 20,
             "levels": [
                 {
@@ -3930,7 +3315,8 @@
             "tournoi": false,
             "id": "akshanlee",
             "type": "boss",
-            "desc": ""
+            "desc": "",
+            "team": 1
         },
         {
             "x": 800,
@@ -4026,6 +3412,7 @@
             "image": "fleches_de_metal"
         },
         {
+            "emplacement": "Utilitaire",
             "nom": "Objets de jet",
             "image": "objets_de_jet"
         },
@@ -4042,14 +3429,17 @@
             "image": "parchemin"
         },
         {
+            "emplacement": "Arme",
             "nom": "Dague en Acier",
             "image": "dague_en_acier"
         },
         {
+            "emplacement": "Arme",
             "nom": "Dague de magicien",
             "image": "dague_magicien"
         },
         {
+            "emplacement": "Utilitaire",
             "nom": "Carquois renforcé (50)",
             "image": "carquoi_renforce"
         },
@@ -4058,10 +3448,12 @@
             "image": "bandages"
         },
         {
+            "emplacement": "Arme",
             "nom": "Arc",
             "image": "arc"
         },
         {
+            "emplacement": "Arme",
             "nom": "Arc de grande qualité",
             "image": "arc_de_qualite"
         },
@@ -4122,22 +3514,27 @@
             "image": "peau_de_loup"
         },
         {
+            "emplacement": "Arme",
             "nom": "Epée d'argent",
             "image": "epee_argent"
         },
         {
+            "emplacement": "Torse",
             "nom": "Armure renforcée en cuir (Usée)",
             "image": "armure_renforcee_en_cuir"
         },
         {
+            "emplacement": "Arme",
             "nom": "Sanada Yukimura",
             "image": "sabre_grande_qualite"
         },
         {
+            "emplacement": "Torse",
             "nom": "Tunique de prison",
             "image": "tunique_prison"
         },
         {
+            "emplacement": "Jambes",
             "nom": "Pantalon de prison",
             "image": "pantalon_prison"
         },
@@ -4207,5 +3604,6 @@
             "x": 5,
             "y": 265
         }
-    ]
+    ],
+    "itemDragged": {}
 }

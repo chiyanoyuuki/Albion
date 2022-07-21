@@ -147,3 +147,7 @@ app-level {
 button:hover {
     cursor: pointer;
 }
+
+.nonePointerEvents * {
+    pointer-events: none;
+}
