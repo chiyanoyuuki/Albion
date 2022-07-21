@@ -1,6 +1,6 @@
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Boutique, Data, Entite, Equipement, ObjetAAcheter, ObjetInventaire, Quete } from 'src/app/model';
+import { Boutique, Data, Entite, Equipement, ObjetInventaire, Quete } from 'src/app/model';
 
 @Component({
   selector: 'app-stats-personnage',
@@ -131,7 +131,7 @@ export class StatsPersonnageComponent implements OnInit {
 
   getQuetesPrincipales() {
     return this.data.quetesprincipales.filter((quete: Quete) =>
-      quete.perso == this.perso.nom || quete.perso == "Toute l'équipe"
+      quete.type == 'principale' || quete.type == "Toute l'équipe"
     );
   }
 

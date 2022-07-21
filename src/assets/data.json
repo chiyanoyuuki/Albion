@@ -343,6 +343,7 @@
             "manamax": 15,
             "mana": 15,
             "etat": "Bonne Santé",
+            "joueur": true,
             "formes": [
                 {
                     "nom": "Humain",
@@ -578,7 +579,8 @@
                     "emplacement": "Arme",
                     "nom": "Dague en Acier",
                     "image": "dague_en_acier",
-                    "qte": 1
+                    "qte": 1,
+                    "prix": 20
                 },
                 {
                     "emplacement": "",
@@ -1656,6 +1658,124 @@
             "lieu": "armurierfjorh",
             "team": 1,
             "boutique": "armurierfjorh"
+        }
+    ],
+    "quetes": [
+        {
+            "proprietaire": "Goliath de Percerelle",
+            "nom": "quete de dede",
+            "type": "secondaire",
+            "etatQuete": 0,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "quete de dede",
+                "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum",
+                "pnj": "Goliath de Percerelle"
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "quete de dede",
+                    "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum",
+                    "pnj": "Goliath de Percerelle"
+                },
+                {
+                    "id": 2,
+                    "nom": "Obtenez des infos",
+                    "description": "d'apres bidule, le tavernier de fjor aurai des infos",
+                    "pnj": "Forus Argo",
+                    "objets": [
+                        {
+                            "emplacement": "Arme",
+                            "nom": "Dague en Acier",
+                            "image": "dague_en_acier",
+                            "qte": 1,
+                            "prix": 20
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "nom": "Parlez au forgeron",
+                    "description": "Retourner parler au forgeron de fjor",
+                    "pnj": "Goliath de Percerelle"
+                }
+            ],
+            "recompenses": [
+                {
+                    "emplacement": "Arme",
+                    "nom": "Dague de magicien",
+                    "image": "dague_magicien",
+                    "qte": 1,
+                    "prix": 20
+                },
+                {
+                    "emplacement": "Arme",
+                    "nom": "Dague de magicien",
+                    "image": "dague_magicien",
+                    "qte": 1,
+                    "prix": 20
+                },
+                {
+                    "emplacement": "Arme",
+                    "nom": "Dague de magicien",
+                    "image": "dague_magicien",
+                    "qte": 1,
+                    "prix": 20
+                }
+            ],
+            "paiement": 20
+        },
+        {
+            "proprietaire": "Goliath de Percerelle",
+            "nom": "quete de dada",
+            "type": "secondaire",
+            "etatQuete": 0,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "quete de dada",
+                "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum",
+                "pnj": "Goliath de Percerelle"
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "quete de dada",
+                    "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum",
+                    "pnj": "Goliath de Percerelle"
+                },
+                {
+                    "id": 2,
+                    "nom": "Obtenez des infos",
+                    "description": "d'apres dada, le tavernier de fjor aurai des infos",
+                    "pnj": "Forus Argo",
+                    "objets": [
+                        {
+                            "emplacement": "Arme",
+                            "nom": "Dague en Acier",
+                            "image": "dague_en_acier",
+                            "qte": 1,
+                            "prix": 20
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "nom": "Parlez au forgeron",
+                    "description": "Retourner parler au forgeron de fjor",
+                    "pnj": "Goliath de Percerelle"
+                }
+            ],
+            "recompenses": [
+                {
+                    "emplacement": "Arme",
+                    "nom": "Dague en Acier",
+                    "image": "dague_en_acier",
+                    "qte": 1,
+                    "prix": 20
+                }
+            ],
+            "paiement": 20
         }
     ],
     "quetesprincipales": [

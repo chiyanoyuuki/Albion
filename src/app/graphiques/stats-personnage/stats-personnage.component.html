@@ -149,8 +149,8 @@
                 <div *ngFor="let quete of getQuetesPrincipales();let i=index">
                     <div class="line" *ngIf="i!=0"></div>
                     <p class="bigText">{{quete.nom}}</p>
-                    <p>{{quete.description}}</p>
-                    <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
+                    <p>{{quete.etapeEnCours.description}}</p>
+                    <p class="bold">Etape {{quete.etapeEnCours.id}} : {{quete.etapeEnCours.nom}}</p>
                 </div>
             </div>
 
@@ -158,8 +158,8 @@
                 <div *ngFor="let quete of data.quetessecondaires;let i=index">
                     <div class="line" *ngIf="i!=0"></div>
                     <p class="bigText">{{quete.nom}}</p>
-                    <p>{{quete.description}}</p>
-                    <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
+                    <p>{{quete.etapeEnCours.description}}</p>
+                    <p class="bold">Etape {{quete.etapeEnCours.id}} : {{quete.etapeEnCours.nom}}</p>
                 </div>
             </div>
         </div>
@@ -170,6 +170,7 @@
     <!-- BOUTIQUE -->
 
 <div *ngIf="perso.boutique == data.lieuActuel.id" class="containerVendeur" cdkDrag>
+    <p class="croix clickable" (click)="close()">X</p>
     <p class="bigText">{{data.lieuActuel.nom}}</p>
     <div class="containerBoutique m-t-20">
         <div class="navPerso flex center">
@@ -216,7 +217,7 @@
                         <img src="../../../assets/images/pieces.png" />
                     </div>
                     <p class="clickable achat" (click)="clickAcheter(focusPersoBoutique, item)">{{achat == item.nom && achat != '' ? 'Confirmer
-                                l\'achat' : 'Acheter'}}</p>
+                                l\'achat ?' : 'Acheter'}}</p>
                 </div>
             </div>
         </div>
