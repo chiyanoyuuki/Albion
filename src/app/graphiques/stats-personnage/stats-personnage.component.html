@@ -168,7 +168,8 @@
     </div>
 </div>
 
-<div class="containerLoot" *ngIf="perso.team==2 && perso.pdv==0"
+<div class="containerLoot" *ngIf="perso.team>0 && perso.pdv==0"
+    [style.left]="getContainerLeft()"
     [style.z-index]="(fenetreFocused=='stats'&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?8:2"
     [cdkDragDisabled]="objetActifInventaire!=undefined" (mouseover)="fenetreFocused='stats'" cdkDrag>
     <p class="croix clickable" (click)="close()">X</p>

@@ -6,9 +6,9 @@ export class Data {
 	public boutiques: Boutique[];
 	public lieux: Lieu[];
 	public catabombes: string[][];
-	public pnjs: Entite[];
 	public positionsStuff: { emplacement: string, x: number, y: number }[];
-	public itemDragged: {perso:Entite,item:ObjetInventaire} | undefined;
+	public objets: ObjetInventaire[];
+	public itemDragged: { perso: Entite, item: ObjetInventaire } | undefined;
 }
 
 export class Entite {
@@ -44,23 +44,19 @@ export class Entite {
 	public id: string;
 	public type: string;
 	public overrideX: number;
+	public overrideY: number;
 	public posLinkedX: number;
 	public posLinkedY: number;
 	public posHeight: number;
 	public forceDivScale: number;
 	public levels: { niveau: number, pdvmax: number, manamax: number }[];
-	public loot: Loot[];
+	public loot: ObjetInventaire[];
+	public peutBouger: boolean;
 }
 
 export class Sort {
 	public nom: string;
 	public image: string;
-}
-
-export class Loot {
-	public nom: string;
-	public taux: number;
-	public qte: number;
 }
 
 export class Equipement {
@@ -75,20 +71,15 @@ export class Forme {
 
 export class Boutique {
 	public nom: string;
-	public objets: ObjetAAcheter[];
+	public objets: ObjetInventaire[];
 }
 
 export class ObjetInventaire {
 	public emplacement: string;
 	public nom: string;
 	public qte: number;
-	public image: string
-}
-
-export class ObjetAAcheter {
-	public nom: string;
-	public qte: number;
-	public prix: number;
+	public image: string;
+	public taux: number;
 }
 
 export class Quete {
@@ -117,8 +108,11 @@ export class Lieu {
 	public desac: boolean;
 	public parent: string;
 	public scale: number;
+	public scaleFond: number;
 	public entreex: number;
 	public entreey: number;
+	public canEnter: boolean;
+	public canSeeInside: boolean;
 }
 
 export class Combat {
