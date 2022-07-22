@@ -53,7 +53,7 @@ export class MenuContextuelComponent implements OnInit {
 
   getEntitesPossibles() {
     let entitesPossibles: Entite[] = this.data.pnjs.filter((entitePossible: Entite) =>
-      !this.data.entites.some((entitePresente: Entite) => entitePresente.nom == entitePossible.nom)
+      !this.data.entites.some((entitePresente: Entite) => entitePresente.nom == entitePossible.nom && entitePresente.solo)
     );
 
     if (this.typeSelected == "PNJS") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }

@@ -6,8 +6,9 @@ export class Data {
 	public boutiques: Boutique[];
 	public lieux: Lieu[];
 	public catabombes: string[][];
-	public pnjs: Entite[];
 	public positionsStuff: { emplacement: string, x: number, y: number }[];
+	public objets: ObjetInventaire[];
+	public itemDragged: { perso: Entite, item: ObjetInventaire } | undefined;
 }
 
 export class Entite {
@@ -26,10 +27,11 @@ export class Entite {
 	public image: string;
 	public team: number;
 	public actif: boolean;
+	public joueur: boolean;
 	public histoire: string;
 	public classe: string;
 	public stats: { nom: string, qte: number }[];
-	public sorts: { nom: string, image: string }[]
+	public sorts: Sort[]
 	public stuff: Equipement[];
 	public argent: number;
 	public inventaire: ObjetInventaire[];
@@ -42,6 +44,7 @@ export class Entite {
 	public id: string;
 	public type: string;
 	public overrideX: number;
+	public overrideY: number;
 	public posLinkedX: number;
 	public posLinkedY: number;
 	public posHeight: number;
@@ -49,7 +52,13 @@ export class Entite {
 	public levels: { niveau: number, pdvmax: number, manamax: number }[];
 	public boutique: string;
 	public quetes: Quete[];
-	public joueur: boolean;
+	public loot: ObjetInventaire[];
+	public peutBouger: boolean;
+}
+
+export class Sort {
+	public nom: string;
+	public image: string;
 }
 
 export class Equipement {
@@ -73,6 +82,7 @@ export class ObjetInventaire {
 	public qte: number;
 	public image: string;
 	public prix: number;
+	public taux: number;
 }
 
 export class Quete {
@@ -112,8 +122,11 @@ export class Lieu {
 	public desac: boolean;
 	public parent: string;
 	public scale: number;
+	public scaleFond: number;
 	public entreex: number;
 	public entreey: number;
+	public canEnter: boolean;
+	public canSeeInside: boolean;
 }
 
 export class Combat {

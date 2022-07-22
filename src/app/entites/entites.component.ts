@@ -26,6 +26,7 @@ export class EntitesComponent implements OnInit {
   public persoActuel: string;
   public nomPersoActuel: string;
   public lastPersoClicked: Entite | undefined;
+  public mapHeight: number;
 
   constructor() { }
 
@@ -64,20 +65,7 @@ export class EntitesComponent implements OnInit {
   }
 
   public clickPersoActuel(perso: Entite) {
-    this.persoActuel = '';
-    if (this.nomPersoActuel == perso.nom) {
-      this.nomPersoActuel = '';
-      return;
-    }
-    this.nomPersoActuel = perso.nom;
-
-    if (perso.team == 0) {
-      this.persoActuel = 'equipe';
-    } else if (perso.team == 1) {
-      this.persoActuel = 'neutre';
-    } else {
-      this.persoActuel = 'ennemi';
-    }
+    perso.actif = !perso.actif;
   }
 
   clicDroit(event: MouseEvent, perso: Entite) {
@@ -162,14 +150,30 @@ export class EntitesComponent implements OnInit {
   public getScale(perso: Entite) {
     let scale = 1;
     if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
+    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
     if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
     return 'scale(' + scale + ')';
   }
 
   public getTop(perso: Entite) {
+    if (perso.overrideY) { return perso.overrideY + "%"; }
     let scale = 1;
     if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
+    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
     if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
     return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
+  }
+
+  public getNewScale(perso: Entite) {
+    let scale = this.data.lieuActuel.scale - this.data.lieuActuel.scaleFond;
+    const map = document.getElementById("map");
+    if (map) {
+      if (this.mapHeight != map.offsetHeight) {
+        this.mapHeight = map.offsetHeight;
+      }
+      let div = (this.mapHeight - 600) / (perso.ycombat - 250);
+      scale = scale / div + this.data.lieuActuel.scaleFond;
+    }
+    return scale;
   }
 }

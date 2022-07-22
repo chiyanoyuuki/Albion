@@ -44,9 +44,15 @@ export class InfosEntiteComponent implements OnInit {
   }
 
   infoPerso() {
-    if (this.perso.type != 'familier') {
+    if ((this.perso.type != 'familier' && this.perso.team == 0) || (this.perso.team > 0 && this.perso.pdv == 0)) {
       this.persoActuel.emit(this.perso);
     }
+  }
+
+  getEtat() {
+    if (this.perso.pdv == 0 && this.perso.id != "coffre") { return 'Mort'; }
+    if (this.perso.etat) { return this.perso.etat; }
+    return 'Bonne santé';
   }
 
 }

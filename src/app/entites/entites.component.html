@@ -1,11 +1,10 @@
 <div>
-    <div [ngClass]="{'container':true,'dead':perso.pdv<=0,'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}"
+    <div [ngClass]="{'container':true,'dead':(perso.pdv<=0&&perso.id!='coffre'),'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}"
         *ngFor="let perso of getEntitesPresentes()"
         [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
-        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'"
-        [style.z-index]="perso==lastPersoClicked?2:1" (cdkDragEnded)="dragEnd($event,perso)"
-        (cdkDragStarted)="lastPersoClicked=perso" (contextmenu)="clicDroit($event, perso)"
-        (click)="lastPersoClicked=perso" cdkDrag>
+        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (mouseover)="lastPersoClicked=perso"
+        [style.z-index]="(perso==lastPersoClicked&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?9:1"
+        (cdkDragEnded)="dragEnd($event,perso)" (contextmenu)="clicDroit($event, perso)" cdkDrag>
 
         <!-- PARTIE INFOS =================================================== -->
 
@@ -15,17 +14,17 @@
 
         <!-- IMAGE + SHADOW =================================================== -->
 
-        <div class="containerPerso"
-            [style.top]="getTop(perso)"
-            [style.transform]="getScale(perso)"
+        <div class="containerPerso" [style.top]="getTop(perso)" [style.transform]="getScale(perso)" 
             [style.left]="(perso.overrideX?perso.overrideX+'%':'40%')">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
-                    [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'" [style.height]="perso.familier.posHeight+'px'" src="./assets/images/entites/{{perso.familier.image}}.png"
+                    [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'"
+                    [style.height]="perso.familier.posHeight+'px'"
+                    src="./assets/images/entites/{{perso.familier.image}}.png" cdkDragHandle />
+                <img class="imageperso" draggable="false" src="./assets/images/entites/{{perso.image}}.png" 
                     cdkDragHandle />
-                <img class="imageperso" draggable="false" src="./assets/images/entites/{{perso.image}}.png" cdkDragHandle />
                 <div class="flexCenter">
-                    <div class="shadow" cdkDragHandle></div>
+                    <div *ngIf="perso.id!='cadavre'" class="shadow" cdkDragHandle></div>
                 </div>
             </div>
         </div>
@@ -44,7 +43,7 @@
         <!-- STATS PERSO ACTIF ================================================= -->
 
         <app-stats-personnage [perso]="perso" [data]="data" (closeForm)="persoActuel='';nomPersoActuel=''"
-            *ngIf="nomPersoActuel == perso.nom">
+            *ngIf="perso.actif==true">
         </app-stats-personnage>
 
     </div>

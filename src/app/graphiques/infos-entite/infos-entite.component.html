@@ -1,7 +1,7 @@
 <div [ngClass]="{'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}">
     <div (click)="infoPerso()" class="text-etat">
         <p class="text nom">{{perso.nom}}</p>
-        <p class="text etat">{{perso.etat?perso.etat:'Bonne santé'}}</p>
+        <p class="text etat">{{getEtat()}}</p>
     </div>
 
     <div class="flex bottomGroup">
