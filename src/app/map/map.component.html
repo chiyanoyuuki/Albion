@@ -1,9 +1,9 @@
 <div>
 
-    <img draggable="false" class="retour" [hidden]="data.lieuActuel.parent==''"
-        src="./assets/images/retour.png" (click)="clickRetour()" (mouseover)="focus=undefined" />
+    <img draggable="false" class="retour" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png"
+        (click)="clickRetour()" (mouseover)="focus=undefined" />
     <img draggable="false" class="map" src="./assets/images/maps/{{data.lieuActuel.image}}.png" (click)="clicMap()"
-        (contextmenu)="clicDroitMap($event)" />
+        (contextmenu)="clicDroitMap($event)" id="map" />
 
     <!-- ========================== LIEUX ========================== -->
 
@@ -16,15 +16,16 @@
         <p class="nomLieu" (mouseover)="focus=undefined">{{lieu.nom}}</p>
 
         <div class="personnagesInside">
-            <div>
-                <app-icone-personnage *ngFor="let perso of getPersonnagesDansLieu(lieu)" [perso]="perso"
+            <div *ngFor="let perso of getPersonnagesDansLieu(lieu)">
+                <app-icone-personnage  [perso]="perso"
+                    *ngIf="(lieu.canSeeInside!=undefined&&!lieu.canSeeInside&&perso.joueur)||(lieu.canSeeInside==undefined||lieu.canSeeInside)"
                     (mouseover)="focus=perso" (click)="sortirPerso(lieu,perso)"></app-icone-personnage>
             </div>
         </div>
 
         <!-- ========================== FENETRE DE CHANGEMENT DE LIEU ========================== -->
 
-        <div class="changeLieu fenetre" *ngIf="changingTo==lieu">
+        <div class="changeLieu fenetre" *ngIf="changingTo==lieu&&(lieu.canEnter==undefined||lieu.canEnter)">
             <p class="bigText">Qui rentre dans {{changingTo.nom}} ?</p>
             <div class="line"></div>
             <div class="flexCenter">
@@ -65,7 +66,8 @@
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 
-    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data" (addEntityEvent)="addEntity($event)">
+    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data"
+        (addEntityEvent)="addEntity($event)">
     </app-menu-contextuel>
 
 </div>

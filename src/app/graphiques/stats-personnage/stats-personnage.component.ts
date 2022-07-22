@@ -1,5 +1,5 @@
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Data, Entite, Equipement, ObjetInventaire, Quete, Sort } from 'src/app/model';
 
 @Component({
@@ -24,10 +24,21 @@ export class StatsPersonnageComponent implements OnInit {
   public itemDragged: string = '';
   public fenetreFocused: string = "";
   public inventairesPersosPossibles: Entite[] = [];
+  public keyPressed: string;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  keyDownEvent(event: KeyboardEvent) {
+    if (this.keyPressed != event.key) { this.keyPressed = event.key; }
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyUpEvent(event: KeyboardEvent) {
+    if (this.keyPressed != "") { this.keyPressed = ""; }
   }
 
   clickGain(perso: Entite, clicked: string) {
@@ -73,7 +84,7 @@ export class StatsPersonnageComponent implements OnInit {
           perso.inventaire.push(objetClique.objet);
         }
       }
-      objetClique.objet = { "emplacement": '', "nom": '', "image": '', qte: 0 };
+      objetClique.objet = { "emplacement": '', "nom": '', "image": '', qte: 0, taux:0 };
       this.gain = "";
       this.objetActifInventaire = undefined;
       this.objetActifStuff = undefined;
@@ -102,6 +113,9 @@ export class StatsPersonnageComponent implements OnInit {
 
   public dragEnd($event: CdkDragEnd, item: ObjetInventaire) {
     if (!this.data.itemDragged) { return; }
+    let qte = 1;
+    if (this.keyPressed == "Control") { qte = item.qte; }
+    else if (this.keyPressed == "Shift") { qte = Math.ceil(item.qte / 2); }
     let test = false;
     if (test) console.log("DragEnd");
     if (test) console.log(this.inventairesPersosPossibles);
@@ -133,7 +147,7 @@ export class StatsPersonnageComponent implements OnInit {
           const posInventaireX = inventaire.left;
           const posInventaireY = inventaire.top;
           let verif = endLeft >= posInventaireX && endLeft <= posInventaireX + 450 && endTop >= posInventaireY && endTop <= posInventaireY + 100;
-          if (verif) { finiDansInventaireAutrePerso = entite; if(test)console.log(entite.nom + " inventaire ok ! "); }
+          if (verif) { finiDansInventaireAutrePerso = entite; if (test) console.log(entite.nom + " inventaire ok ! "); }
         }
 
         if (emplacementStuff && !finiDansEmplacement1) {
@@ -164,10 +178,10 @@ export class StatsPersonnageComponent implements OnInit {
         let objetDansInventaireFin = persoFin.inventaire.find((objet: ObjetInventaire) => objet.nom == ancienStuff.objet.nom);
 
         if (emplacementVide || (!emplacementVide && item.qte == 1) || objetDansInventaireFin) {
-          if(test)console.log("objet fini dans stuff");
+          if (test) console.log("objet fini dans stuff");
 
           if (stuffConcerne) {
-            stuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1 };
+            stuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1, taux:0 };
             let objetDansInventaireDebut = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
             if (objetDansInventaireDebut) {
               objetDansInventaireDebut.qte -= 1;
@@ -183,7 +197,7 @@ export class StatsPersonnageComponent implements OnInit {
               }
               else {
                 if (emplacementVide) {
-                  persoFin.inventaire.push({ emplacement: ancienStuff.objet.emplacement, image: ancienStuff.objet.image, nom: ancienStuff.objet.nom, qte: 1 });
+                  persoFin.inventaire.push({ emplacement: ancienStuff.objet.emplacement, image: ancienStuff.objet.image, nom: ancienStuff.objet.nom, qte: 1, taux:0 });
                 }
               }
             }
@@ -191,41 +205,53 @@ export class StatsPersonnageComponent implements OnInit {
         }
       }
       else if (finiDansInventaireAutrePerso) {
-        if (test) console.log("Fini dans inventaire");
         let persoFin: Entite = finiDansInventaireAutrePerso;
         let persoDebut: Entite = this.data.itemDragged.perso;
-        let objetDejaDansInventaireFin = persoFin.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
-        let emplacementVideInventaireFin = persoFin.inventaire.length < 18;
-        if (objetDejaDansInventaireFin) {
-          if (test) console.log("Objet déjà dans inventaire");
-          objetDejaDansInventaireFin.qte += 1;
+        if (item.nom == "Argent") {
+          persoFin.argent += qte;
           let objetDansInventaire = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
           if (objetDansInventaire) {
             if (test) console.log("Enlever 1 objet inventaire de base");
-            objetDansInventaire.qte -= 1;
+            objetDansInventaire.qte -= qte;
             if (objetDansInventaire.qte == 0) {
               if (test) console.log("Supprimer objet quantite 0 inventaire de base");
               persoDebut.inventaire.splice(persoDebut.inventaire.indexOf(objetDansInventaire), 1);
             }
           }
         }
-        else if (emplacementVideInventaireFin) {
-          if (test) console.log("Emplacement vide et objet pas dans inventaire");
-          let persoFin: Entite = finiDansInventaireAutrePerso;
-          let persoDebut: Entite = this.data.itemDragged.perso;
-          persoFin.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1 });
-          let objetDansInventaire = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
-          if (objetDansInventaire) {
-            objetDansInventaire.qte -= 1;
-            if (objetDansInventaire.qte == 0) {
-              persoDebut.inventaire.splice(persoDebut.inventaire.indexOf(objetDansInventaire), 1);
+        else {
+          if (test) console.log("Fini dans inventaire");
+          let objetDejaDansInventaireFin = persoFin.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+          let emplacementVideInventaireFin = persoFin.inventaire.length < 18;
+          if (objetDejaDansInventaireFin) {
+            if (test) console.log("Objet déjà dans inventaire");
+            objetDejaDansInventaireFin.qte += qte;
+            let objetDansInventaire = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+            if (objetDansInventaire) {
+              if (test) console.log("Enlever 1 objet inventaire de base");
+              objetDansInventaire.qte -= qte;
+              if (objetDansInventaire.qte == 0) {
+                if (test) console.log("Supprimer objet quantite 0 inventaire de base");
+                persoDebut.inventaire.splice(persoDebut.inventaire.indexOf(objetDansInventaire), 1);
+              }
             }
           }
-
+          else if (emplacementVideInventaireFin) {
+            if (test) console.log("Emplacement vide et objet pas dans inventaire");
+            let persoFin: Entite = finiDansInventaireAutrePerso;
+            let persoDebut: Entite = this.data.itemDragged.perso;
+            persoFin.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: qte, taux:0 });
+            let objetDansInventaire = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+            if (objetDansInventaire) {
+              objetDansInventaire.qte -= qte;
+              if (objetDansInventaire.qte == 0) {
+                persoDebut.inventaire.splice(persoDebut.inventaire.indexOf(objetDansInventaire), 1);
+              }
+            }
+          }
         }
       }
     }
-
 
     $event.source._dragRef.reset();
     this.itemDragged = "";
@@ -253,15 +279,35 @@ export class StatsPersonnageComponent implements OnInit {
 
   public getInventaire() {
     let retour: ObjetInventaire[] = [];
-    this.perso.inventaire.forEach((objet: ObjetInventaire) => retour.push(objet));
-    for (let i = this.perso.inventaire.length; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0 }); }
+    let tailleInv = 0;
+    if (this.perso.inventaire) {
+      this.perso.inventaire.forEach((objet: ObjetInventaire) => retour.push(objet));
+      tailleInv = this.perso.inventaire.length;
+    }
+    for (let i = tailleInv; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0, taux:0 }); }
     return retour;
   }
 
   public getSorts() {
     let retour: Sort[] = [];
-    this.perso.sorts.forEach((sort: Sort) => retour.push(sort));
-    for (let i = this.perso.sorts.length; i < 18; i++) { retour.push({ image: "", nom: "" }); }
+    let tailleSorts = 0;
+    if (this.perso.sorts) {
+      this.perso.sorts.forEach((sort: Sort) => retour.push(sort));
+      tailleSorts = this.perso.sorts.length;
+    }
+    for (let i = tailleSorts; i < 18; i++) { retour.push({ image: "", nom: "" }); }
     return retour;
+  }
+
+  public getContainerLeft() {
+    let retour = -170;
+    let x = this.perso.xcombat;
+    if (this.data.lieuActuel.id == "map") {
+      x = this.perso.x;
+    }
+    if (x < 170) {
+      retour += 170 - x;
+    }
+    return retour + "px";
   }
 }

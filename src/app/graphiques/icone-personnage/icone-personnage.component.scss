@@ -1,5 +1,6 @@
 img {
     width: 50px;
+    height: 50px;
     border: 2px ridge #202020;
     border-radius: 100%;
     background-color: #808080bb;
@@ -11,7 +12,7 @@ app-level {
     left: 5px;
 }
 
-.selected{
-    border-color:red;
+.selected {
+    border-color: red;
     background-color: #ddd;
 }

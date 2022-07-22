@@ -1,6 +1,6 @@
 import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { addEntity, Data, Entite, Lieu, Loot, MenuContextuel, ObjetInventaire, Position } from '../model';
+import { addEntity, Data, Entite, Lieu, MenuContextuel, ObjetInventaire, Position } from '../model';
 
 @Component({
   selector: 'app-map',
@@ -33,7 +33,7 @@ export class MapComponent implements OnInit {
   }
 
   getPersosSurMapActuelle() {
-    return this.data.entites.filter((entite: Entite) => entite.lieu == this.data.lieuActuel.id);
+    return this.data.entites.filter((entite: Entite) => entite.lieu == this.data.lieuActuel.id && (entite.peutBouger == undefined || entite.peutBouger));
   }
 
   getEntitesPresentes(nb: number) {
@@ -55,6 +55,7 @@ export class MapComponent implements OnInit {
   }
 
   changeLieu(lieu: Lieu) {
+    this.data.entites.forEach((entite: Entite) => entite.actif = false);
     this.menuContextuel = undefined;
     this.changingTo = undefined;
     this.data.lieuActuel = lieu;
@@ -63,7 +64,7 @@ export class MapComponent implements OnInit {
   rentrerLieu(lieu: Lieu) {
     this.menuContextuel = undefined;
     let nb = this.getPersosSurMapActuelle().length;
-    if (nb == 0) {
+    if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
       this.changeLieu(lieu);
     }
     else {
@@ -94,6 +95,10 @@ export class MapComponent implements OnInit {
             trouve = true;
             perso.xcombat = position.startX;
             perso.ycombat = position.startY;
+            if (perso.statutFamilier == "affiche") {
+              perso.familier.xcombat = position.startX + 20;
+              perso.familier.ycombat = position.startY;
+            }
           }
         }
       });
@@ -135,7 +140,7 @@ export class MapComponent implements OnInit {
   }
 
   public addEntity(addEntite: addEntity) {
-    let test = true;
+    let test = false;
     this.menuContextuel = undefined;
     if (this.data.lieuActuel.id == 'map') {
       addEntite.entite.x = addEntite.menuContextuel.x;
@@ -160,30 +165,39 @@ export class MapComponent implements OnInit {
       addEntite.entite.nom = addEntite.entite.nom + ' ' + ('0' + nb).slice(-2);
     }
 
-    addEntite.entite.loot.forEach((loot: Loot) => {
-      if (test) console.log(loot.nom)
-      let objet = this.data.objets.find((item: ObjetInventaire) => item.nom == loot.nom);
-      if (objet) {
-        let inventaire = addEntite.entite.inventaire;
-        if (!inventaire) { addEntite.entite.inventaire = []; inventaire = addEntite.entite.inventaire; }
-        for (let i = 0; i < loot.qte; i++) {
-          let objetPresent = inventaire.find((item: ObjetInventaire) => item.nom == loot.nom);
-          let tmp = Math.random() * 100;
-          if (test) console.log("Jet de D100", tmp);
-          if (tmp <= loot.taux) {
-            if (test) console.log(loot.nom + " ajouté !")
-            if (objetPresent) {
-              if (test) console.log("Déjà présent");
-              objetPresent.qte += 1;
-            }
-            else {
-              if (test) console.log("Pas présent");
-              inventaire.push({ emplacement: objet.emplacement, image: objet.image, nom: objet.nom, qte: 1 });
+    if (addEntite.entite.loot) {
+      addEntite.entite.loot.forEach((loot: ObjetInventaire) => {
+        if (test) console.log(loot.nom)
+        if (loot.nom == "Argent") {
+          let qte = Math.ceil(Math.random() * loot.qte);
+          addEntite.entite.inventaire.push({ nom: "Argent", image: "argent", qte: qte, emplacement: "", taux: 0 });
+        }
+        else {
+          let objet = this.data.objets.find((item: ObjetInventaire) => item.nom == loot.nom);
+          if (objet) {
+            let inventaire = addEntite.entite.inventaire;
+            if (!inventaire) { addEntite.entite.inventaire = []; inventaire = addEntite.entite.inventaire; }
+            for (let i = 0; i < loot.qte; i++) {
+              let objetPresent = inventaire.find((item: ObjetInventaire) => item.nom == loot.nom);
+              let tmp = Math.random() * 100;
+              if (test) console.log("Jet de D100", tmp);
+              if (tmp <= loot.taux) {
+                if (test) console.log(loot.nom + " ajouté !")
+                if (objetPresent) {
+                  if (test) console.log("Déjà présent");
+                  objetPresent.qte += 1;
+                }
+                else {
+                  if (test) console.log("Pas présent");
+                  inventaire.push({ emplacement: objet.emplacement, image: objet.image, nom: objet.nom, qte: 1, taux: 0 });
+                }
+              }
             }
           }
         }
-      }
-    });
+      });
+    }
+
     if (test) console.log(addEntite.entite);
     this.data.entites.push(addEntite.entite);
   }

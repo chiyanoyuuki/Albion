@@ -60,6 +60,8 @@
     top: -25px;
     width: max-content;
     max-width: 400px;
+    display: flex;
+    flex-flow: wrap;
 }
 
 .personnagesInside img,
