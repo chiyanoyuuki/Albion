@@ -1,4 +1,4 @@
-<div class="flex" *ngIf="perso.team==0">
+<div *ngIf="perso.team == 0" class="flex">
 
     <div class="containerStuff" [style.z-index]="(fenetreFocused=='stuff'&&!data.itemDragged)?8:2"
         (mouseover)="fenetreFocused='stuff'" cdkDrag>
@@ -57,7 +57,8 @@
                                 <p class="pdvtext clickable" (click)="formulaire='pv'">{{perso.pdv}}/{{perso.pdvmax}}
                                 </p>
                                 <div class="grouppdvmana">
-                                    <img class="fill" draggable="false" src="./assets/images/pdvfill.PNG"
+                                    <img class="fill" draggable="false"
+                                        src="./assets/images/pdvfill.PNG"
                                         [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
                                     <img draggable="false" src="./assets/images/pdvmanabar.png" />
                                 </div>
@@ -151,8 +152,8 @@
                 <div *ngFor="let quete of getQuetesPrincipales();let i=index">
                     <div class="line" *ngIf="i!=0"></div>
                     <p class="bigText">{{quete.nom}}</p>
-                    <p>{{quete.description}}</p>
-                    <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
+                    <p>{{quete.etapeEnCours.description}}</p>
+                    <p class="bold">Etape {{quete.etapeEnCours.id}} : {{quete.etapeEnCours.nom}}</p>
                 </div>
             </div>
 
@@ -160,8 +161,66 @@
                 <div *ngFor="let quete of data.quetessecondaires;let i=index">
                     <div class="line" *ngIf="i!=0"></div>
                     <p class="bigText">{{quete.nom}}</p>
-                    <p>{{quete.description}}</p>
-                    <p class="bold">Etape {{quete.etape}} : {{quete.etat}}</p>
+                    <p>{{quete.etapeEnCours.description}}</p>
+                    <p class="bold">Etape {{quete.etapeEnCours.id}} : {{quete.etapeEnCours.nom}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- BOUTIQUE -->
+
+<div *ngIf="perso.boutique == data.lieuActuel.id" class="containerVendeur" cdkDrag>
+    <p class="croix clickable" (click)="close()">X</p>
+    <p class="bigText">{{data.lieuActuel.nom}}</p>
+    <div class="containerBoutique m-t-20">
+        <div class="navPerso flex center">
+            <div *ngFor="let perso of persoPresentInLieu();let i=index" class="clickable flex align-center perso" (click)="focusPersoBoutique = perso">
+                <div class="separator" *ngIf="i!=0"></div>
+                <p>{{perso.nom}}</p>
+            </div>
+        </div>
+        <div class="flex between m-t-20">
+            <div class="inventairePersoBoutique flex between column" *ngIf="focusPersoBoutique">
+                <div class="flex around align-center width-100">
+                    <div>
+                        <img *ngIf="focusPersoBoutique.forme" class="icone"
+                            src="./assets/images/entites/minias/{{focusPersoBoutique.forme.image}}.png">
+                    </div>
+                    <p class="bigText">{{focusPersoBoutique.nom}}</p>
+                    <div class="flex golds">
+                        <img src="../../../assets/images/pieces.png" />
+                        <p>{{focusPersoBoutique.argent}}</p>
+                    </div>
+                </div>
+                <div class="flex wrap">
+                    <div class="objet" id="{{objet.nom}}" *ngFor="let objet of focusPersoBoutique.inventaire"
+                        (mouseover)="objetActifInventaire = objet" (mouseleave)="objetActifInventaire = undefined;vente = ''"
+                        (click)="clickVendre(focusPersoBoutique, objet)">
+                        <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png"
+                            (cdkDragEnded)="dragEnd($event,objet)" (cdkDragStarted)="dragStart(objet)" cdkDrag />
+                        <div class="nomItem">
+                            <p [hidden]="objetActifInventaire != objet">{{vente == objet.nom && vente != '' ? 'Confirmer
+                                vendre l\'item ?' : objet.nom}}</p>
+                        </div>
+                        <p *ngIf="objet.qte>0" class="qteObjet">{{objet.qte}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="inventaireVendeurBoutique flex">
+                <div class="objetInventaireBoutique flex between align-center width-100" id="{{item.nom}}" *ngFor="let item of boutique.objets" (mouseleave)="achat = ''">
+                    <img class="imageItemBoutique" *ngIf="item.image" src="./assets/images/items/{{ item.image }}.png"
+                        (cdkDragEnded)="dragEnd($event,item)" (cdkDragStarted)="dragStart(item)" cdkDrag />
+                    <p>{{item.nom}}</p>
+                    <p>Qte: {{item.qte}}</p>
+                    <div class="flex prix">
+                        <p>Prix: {{item.prix}}&nbsp;</p>
+                        <img src="../../../assets/images/pieces.png" />
+                    </div>
+                    <p class="clickable achat" (click)="clickAcheter(focusPersoBoutique, item)">{{achat == item.nom && achat != '' ? 'Confirmer
+                                l\'achat ?' : 'Acheter'}}</p>
                 </div>
             </div>
         </div>

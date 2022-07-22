@@ -1,6 +1,6 @@
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { Data, Entite, Equipement, ObjetInventaire, Quete, Sort } from 'src/app/model';
+import { Boutique, Data, Entite, Equipement, ObjetInventaire, Quete, Sort } from 'src/app/model';
 
 @Component({
   selector: 'app-stats-personnage',
@@ -13,6 +13,8 @@ export class StatsPersonnageComponent implements OnInit {
   @Input() perso: Entite;
 
   public gain: string;
+  public achat: string;
+  public vente: string;
   public formulaire: string;
   public ongletActif: string = "inventaire";
   public objetActifInventaire: ObjetInventaire | undefined;
@@ -23,12 +25,20 @@ export class StatsPersonnageComponent implements OnInit {
   public emplacementFocused: string;
   public itemDragged: string = '';
   public fenetreFocused: string = "";
+  public boutique: Boutique;
+  public persoPresent: Entite;
+  public focusPersoBoutique: Entite;
+  public vendeur: Entite;
   public inventairesPersosPossibles: Entite[] = [];
   public keyPressed: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    let boutiqueTmp = this.data.boutiques.find((boutique: Boutique) => boutique.nom == this.data.lieuActuel.id);
+    if (boutiqueTmp) {
+      this.boutique = boutiqueTmp;
+    }
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -84,16 +94,55 @@ export class StatsPersonnageComponent implements OnInit {
           perso.inventaire.push(objetClique.objet);
         }
       }
-      objetClique.objet = { "emplacement": '', "nom": '', "image": '', qte: 0, taux:0 };
+      objetClique.objet = { "emplacement": '', "nom": '', "image": '', qte: 0, taux:0, prix:0 };
       this.gain = "";
       this.objetActifInventaire = undefined;
       this.objetActifStuff = undefined;
     }
   }
+  clickVendre(perso: Entite, clicked: ObjetInventaire) {
+    if (this.vente != clicked.nom) {
+      this.vente = clicked.nom;
+    } else if (this.vente == clicked.nom) {
+      if (this.vente == "") { return }
+      let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
+      if (objetClique) {
+        objetClique.qte -= 1;
+        if (objetClique.qte == 0) {
+          perso.inventaire.splice(perso.inventaire.indexOf(objetClique), 1);
+        }
+      }
+      let objetPresentBoutique = this.boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
+      if (objetPresentBoutique) {
+        objetPresentBoutique.qte += 1;
+      }else{
+        this.boutique.objets.push({ "emplacement": clicked.emplacement, "nom": clicked.nom, "image": clicked.image, qte: 1, prix: clicked.prix*1.5, taux:0 });
+      }
+      perso.argent += clicked.prix;
+      this.vente = "";
+    }
+  }
+  clickAcheter(perso: Entite, clicked: ObjetInventaire) {
+    if (this.achat != clicked.nom) {
+      this.achat = clicked.nom;
+    } else if (this.achat == clicked.nom) {
+      if (this.achat == "") { return }
+      if (perso.argent < clicked.prix) { return }
+      let objetPresentBoutique = this.boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
+      if (objetPresentBoutique) {
+        objetPresentBoutique.qte -= 1;
+        if (objetPresentBoutique.qte == 0) {
+          this.boutique.objets.splice(this.boutique.objets.indexOf(objetPresentBoutique), 1);
+        }
+      }
+      perso.argent -= clicked.prix;
+      this.achat = "";
+    }
+  }
 
   getQuetesPrincipales() {
     return this.data.quetesprincipales.filter((quete: Quete) =>
-      quete.perso == this.perso.nom || quete.perso == "Toute l'équipe"
+      quete.type == 'principale' || quete.type == "Toute l'équipe"
     );
   }
 
@@ -181,7 +230,7 @@ export class StatsPersonnageComponent implements OnInit {
           if (test) console.log("objet fini dans stuff");
 
           if (stuffConcerne) {
-            stuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1, taux:0 };
+            stuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1, taux:0, prix:item.prix };
             let objetDansInventaireDebut = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
             if (objetDansInventaireDebut) {
               objetDansInventaireDebut.qte -= 1;
@@ -197,7 +246,7 @@ export class StatsPersonnageComponent implements OnInit {
               }
               else {
                 if (emplacementVide) {
-                  persoFin.inventaire.push({ emplacement: ancienStuff.objet.emplacement, image: ancienStuff.objet.image, nom: ancienStuff.objet.nom, qte: 1, taux:0 });
+                  persoFin.inventaire.push({ emplacement: ancienStuff.objet.emplacement, image: ancienStuff.objet.image, nom: ancienStuff.objet.nom, qte: 1, taux:0,prix:ancienStuff.objet.prix });
                 }
               }
             }
@@ -240,7 +289,7 @@ export class StatsPersonnageComponent implements OnInit {
             if (test) console.log("Emplacement vide et objet pas dans inventaire");
             let persoFin: Entite = finiDansInventaireAutrePerso;
             let persoDebut: Entite = this.data.itemDragged.perso;
-            persoFin.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: qte, taux:0 });
+            persoFin.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: qte, taux:0,prix:item.prix });
             let objetDansInventaire = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
             if (objetDansInventaire) {
               objetDansInventaire.qte -= qte;
@@ -277,6 +326,16 @@ export class StatsPersonnageComponent implements OnInit {
     return this.emplacementFocused != "" && emplacement.emplacement.startsWith(this.emplacementFocused);
   }
 
+
+  // Pour la boutique
+  persoPresentInLieu(){
+    let persos = this.data.entites.filter((perso: Entite) => perso.team == 0 && perso.lieu == this.data.lieuActuel.id);
+    if (persos.length > 0 && !this.focusPersoBoutique) {
+      this.focusPersoBoutique = persos[0];
+    }
+    return persos;
+  }
+
   public getInventaire() {
     let retour: ObjetInventaire[] = [];
     let tailleInv = 0;
@@ -284,7 +343,7 @@ export class StatsPersonnageComponent implements OnInit {
       this.perso.inventaire.forEach((objet: ObjetInventaire) => retour.push(objet));
       tailleInv = this.perso.inventaire.length;
     }
-    for (let i = tailleInv; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0, taux:0 }); }
+    for (let i = tailleInv; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0, taux:0, prix:0 }); }
     return retour;
   }
 

@@ -170,7 +170,7 @@ export class MapComponent implements OnInit {
         if (test) console.log(loot.nom)
         if (loot.nom == "Argent") {
           let qte = Math.ceil(Math.random() * loot.qte);
-          addEntite.entite.inventaire.push({ nom: "Argent", image: "argent", qte: qte, emplacement: "", taux: 0 });
+          addEntite.entite.inventaire.push({ nom: "Argent", image: "argent", qte: qte, emplacement: "", taux: 0, prix: 0 });
         }
         else {
           let objet = this.data.objets.find((item: ObjetInventaire) => item.nom == loot.nom);
@@ -189,7 +189,7 @@ export class MapComponent implements OnInit {
                 }
                 else {
                   if (test) console.log("Pas présent");
-                  inventaire.push({ emplacement: objet.emplacement, image: objet.image, nom: objet.nom, qte: 1, taux: 0 });
+                  inventaire.push({ emplacement: objet.emplacement, image: objet.image, nom: objet.nom, qte: 1, taux: 0, prix: objet.prix });
                 }
               }
             }

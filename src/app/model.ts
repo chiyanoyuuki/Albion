@@ -50,6 +50,8 @@ export class Entite {
 	public posHeight: number;
 	public forceDivScale: number;
 	public levels: { niveau: number, pdvmax: number, manamax: number }[];
+	public boutique: string;
+	public quetes: Quete[];
 	public loot: ObjetInventaire[];
 	public peutBouger: boolean;
 }
@@ -79,15 +81,27 @@ export class ObjetInventaire {
 	public nom: string;
 	public qte: number;
 	public image: string;
+	public prix: number;
 	public taux: number;
 }
 
 export class Quete {
+	public proprietaire: string;
 	public nom: string;
-	public perso: string;
+	public type: string;
+	public etatQuete: number;
+	public etapeEnCours: Etape;
+	public etapes: Etape[];
+	public recompenses: ObjetInventaire[];
+	public paiement: number;
+}
+
+export class Etape{
+	public id: number;
+	public nom: string;
 	public description: string;
-	public etat: string;
-	public etape: number;
+	public pnj: string;
+	public objets: ObjetInventaire[];
 }
 
 export class Position {

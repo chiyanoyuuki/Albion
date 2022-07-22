@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Data } from '@angular/router';
-import { addEntity, Entite, MenuContextuel } from '../model';
+import { addEntity, Entite, Etape, MenuContextuel, ObjetInventaire, Quete } from '../model';
 import { of } from 'rxjs';
 
 @Component({
@@ -35,6 +35,11 @@ export class MenuContextuelComponent implements OnInit {
 
   public focus: Entite | undefined;
   public add: boolean = false;
+
+  public quete: boolean = false;
+  public nbrQuetes: number;
+  public focusQuete: Quete | undefined;
+  public queteAccepter: string;
 
   constructor() { }
 
@@ -124,6 +129,107 @@ export class MenuContextuelComponent implements OnInit {
       this.perso.statutFamilier = 'affiche'
     }
     this.close();
+  }
+
+  getQuetes(){
+    let quetesEnCours = this.data.quetes.filter((quete: Quete) =>
+      quete.etapeEnCours.pnj == this.perso.nom
+    );
+    if (quetesEnCours) {
+      this.nbrQuetes = quetesEnCours.length;
+      return quetesEnCours;
+    }else{
+      return false;
+    }
+  }
+
+  accepQuete(){
+    if (this.focusQuete) {
+      if (this.queteAccepter != this.focusQuete.nom) {
+        this.queteAccepter = this.focusQuete.nom;
+      } else if (this.queteAccepter == this.focusQuete.nom) {
+        this.data.quetessecondaires.push(this.focusQuete);
+        this.queteAccepter = '';
+        this.focusQuete.etatQuete = 1;
+        let queteFocus = this.focusQuete;
+        let nouvelleEtape = this.focusQuete.etapes.find((etape: Etape)=> etape.id == queteFocus.etapeEnCours.id + 1);
+        if (nouvelleEtape) {
+          this.focusQuete.etapeEnCours = nouvelleEtape;
+          this.focusQuete = undefined;
+        }
+      }
+    }
+  }
+
+  etapeSuivante(){
+    if (this.focusQuete) {
+      let etape = this.focusQuete.etapeEnCours;
+      console.log(etape.nom);
+      if (etape.objets) {
+        let entitesPresentes = this.data.entites.filter((entite: Entite)=> entite.joueur && entite.lieu == this.data.lieuActuel.id);
+        let conditionRespectees = true;
+        etape.objets.forEach((objet: ObjetInventaire) => {
+          if (conditionRespectees) {
+            console.log('conditionRespectees 1');
+            let nb = 0;
+            entitesPresentes.forEach((entite: Entite) => {
+              if (nb < objet.qte) {
+                console.log('nb < objet.qte 1');
+                console.log(objet.nom);
+                let objetDansInventaire = entite.inventaire.find((objetATrouver: ObjetInventaire)=> objetATrouver.nom == objet.nom);
+                if (objetDansInventaire) {
+                  console.log('objetDansInventaire 1');
+                  nb += objetDansInventaire.qte;
+                }
+              }
+            });
+            if (nb < objet.qte) {
+              console.log('nb < objet.qte 2');
+              conditionRespectees = false;
+            }
+          }
+        });
+        if (conditionRespectees) {
+          console.log('conditionRespectees 2');
+          etape.objets.forEach((objet: ObjetInventaire) => {
+            let nb = objet.qte;
+            entitesPresentes.forEach((entite: Entite) => {
+              if (nb > 0) {
+                let objetDansInventaire = entite.inventaire.find((objetATrouver: ObjetInventaire)=> objetATrouver.nom == objet.nom)
+                if (objetDansInventaire) {
+                  console.log('objetDansInventaire 2');
+                  if (objetDansInventaire.qte >= nb) {
+                    objetDansInventaire.qte -= nb;
+                    console.log(objetDansInventaire.qte);
+                    nb = 0;
+                    if (objetDansInventaire.qte = 0) {
+                      entite.inventaire.splice(entite.inventaire.indexOf(objetDansInventaire), 1);
+                    }
+                  }else{
+                    nb -= objetDansInventaire.qte;
+                    entite.inventaire.splice(entite.inventaire.indexOf(objetDansInventaire), 1);
+                  }
+                }
+              }
+            });
+          });
+        }
+      }
+      let queteFocus = this.focusQuete;
+      if (queteFocus.etapes.length == queteFocus.etapeEnCours.id) {
+        this.data.quetes.splice(this.data.quetes.indexOf(queteFocus), 1);
+        this.focusQuete = undefined;
+      }
+      if (queteFocus.etapeEnCours.id < queteFocus.etapes.length) {
+        console.log('this.focusQuete.etapeEnCours.id < this.focusQuete.etapes.length');
+        let nouvelleEtape = queteFocus.etapes.find((etape: Etape)=> etape.id == queteFocus.etapeEnCours.id + 1);
+        if (nouvelleEtape) {
+          console.log('nouvelleEtape');
+          queteFocus.etapeEnCours = nouvelleEtape;
+          this.focusQuete = undefined;
+        }
+      }
+    }
   }
 
   //SAUVEGARDE
