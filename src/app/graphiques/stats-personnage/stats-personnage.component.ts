@@ -94,7 +94,7 @@ export class StatsPersonnageComponent implements OnInit {
           perso.inventaire.push(objetClique.objet);
         }
       }
-      objetClique.objet = { "emplacement": '', "nom": '', "image": '', qte: 0, taux:0, prix:0 };
+      objetClique.objet = { "emplacement": '', "nom": '', "image": '', qte: 0, taux: 0, prix: 0 };
       this.gain = "";
       this.objetActifInventaire = undefined;
       this.objetActifStuff = undefined;
@@ -115,8 +115,8 @@ export class StatsPersonnageComponent implements OnInit {
       let objetPresentBoutique = this.boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
       if (objetPresentBoutique) {
         objetPresentBoutique.qte += 1;
-      }else{
-        this.boutique.objets.push({ "emplacement": clicked.emplacement, "nom": clicked.nom, "image": clicked.image, qte: 1, prix: clicked.prix*1.5, taux:0 });
+      } else {
+        this.boutique.objets.push({ "emplacement": clicked.emplacement, "nom": clicked.nom, "image": clicked.image, qte: 1, prix: clicked.prix * 1.5, taux: 0 });
       }
       perso.argent += clicked.prix;
       this.vente = "";
@@ -141,8 +141,14 @@ export class StatsPersonnageComponent implements OnInit {
   }
 
   getQuetesPrincipales() {
-    return this.data.quetesprincipales.filter((quete: Quete) =>
-      quete.type == 'principale' || quete.type == "Toute l'équipe"
+    return this.data.quetes.filter((quete: Quete) =>
+      quete.type == 'principale' && this.perso.nom == quete.perso || quete.perso == "Toute l'équipe"
+    );
+  }
+
+  getQuetesSecondaires() {
+    return this.data.quetes.filter((quete: Quete) =>
+      quete.type == 'secondaire'
     );
   }
 
@@ -230,7 +236,7 @@ export class StatsPersonnageComponent implements OnInit {
           if (test) console.log("objet fini dans stuff");
 
           if (stuffConcerne) {
-            stuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1, taux:0, prix:item.prix };
+            stuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1, taux: 0, prix: item.prix };
             let objetDansInventaireDebut = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
             if (objetDansInventaireDebut) {
               objetDansInventaireDebut.qte -= 1;
@@ -246,7 +252,7 @@ export class StatsPersonnageComponent implements OnInit {
               }
               else {
                 if (emplacementVide) {
-                  persoFin.inventaire.push({ emplacement: ancienStuff.objet.emplacement, image: ancienStuff.objet.image, nom: ancienStuff.objet.nom, qte: 1, taux:0,prix:ancienStuff.objet.prix });
+                  persoFin.inventaire.push({ emplacement: ancienStuff.objet.emplacement, image: ancienStuff.objet.image, nom: ancienStuff.objet.nom, qte: 1, taux: 0, prix: ancienStuff.objet.prix });
                 }
               }
             }
@@ -289,7 +295,7 @@ export class StatsPersonnageComponent implements OnInit {
             if (test) console.log("Emplacement vide et objet pas dans inventaire");
             let persoFin: Entite = finiDansInventaireAutrePerso;
             let persoDebut: Entite = this.data.itemDragged.perso;
-            persoFin.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: qte, taux:0,prix:item.prix });
+            persoFin.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: qte, taux: 0, prix: item.prix });
             let objetDansInventaire = persoDebut.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
             if (objetDansInventaire) {
               objetDansInventaire.qte -= qte;
@@ -328,7 +334,7 @@ export class StatsPersonnageComponent implements OnInit {
 
 
   // Pour la boutique
-  persoPresentInLieu(){
+  persoPresentInLieu() {
     let persos = this.data.entites.filter((perso: Entite) => perso.team == 0 && perso.lieu == this.data.lieuActuel.id);
     if (persos.length > 0 && !this.focusPersoBoutique) {
       this.focusPersoBoutique = persos[0];
@@ -343,7 +349,7 @@ export class StatsPersonnageComponent implements OnInit {
       this.perso.inventaire.forEach((objet: ObjetInventaire) => retour.push(objet));
       tailleInv = this.perso.inventaire.length;
     }
-    for (let i = tailleInv; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0, taux:0, prix:0 }); }
+    for (let i = tailleInv; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0, taux: 0, prix: 0 }); }
     return retour;
   }
 

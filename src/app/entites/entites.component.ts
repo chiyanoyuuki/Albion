@@ -171,8 +171,21 @@ export class EntitesComponent implements OnInit {
       if (this.mapHeight != map.offsetHeight) {
         this.mapHeight = map.offsetHeight;
       }
-      let div = (this.mapHeight - 600) / (perso.ycombat - 250);
-      scale = scale / div + this.data.lieuActuel.scaleFond;
+      let finFond = 0;
+      let height = this.mapHeight;
+      if (this.data.lieuActuel.finFond) {
+        finFond = this.data.lieuActuel.finFond;
+      }
+      height = height - finFond;
+      let posYPerso = perso.ycombat + 250;
+      if (finFond != 0 && posYPerso < this.data.lieuActuel.finFond) {
+        scale = this.data.lieuActuel.scaleFond;
+      }
+      else {
+        posYPerso = posYPerso - finFond;
+        let div = height / posYPerso;
+        scale = scale / div + this.data.lieuActuel.scaleFond;
+      }
     }
     return scale;
   }

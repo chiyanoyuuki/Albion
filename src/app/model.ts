@@ -1,7 +1,6 @@
 export class Data {
 	public entites: Entite[];
-	public quetesprincipales: Quete[];
-	public quetessecondaires: Quete[];
+	public quetes: Quete[];
 	public lieuActuel: Lieu;
 	public boutiques: Boutique[];
 	public lieux: Lieu[];
@@ -9,6 +8,8 @@ export class Data {
 	public positionsStuff: { emplacement: string, x: number, y: number }[];
 	public objets: ObjetInventaire[];
 	public itemDragged: { perso: Entite, item: ObjetInventaire } | undefined;
+	public admin: boolean;
+	public pnjs: Entite[];
 }
 
 export class Entite {
@@ -94,9 +95,10 @@ export class Quete {
 	public etapes: Etape[];
 	public recompenses: ObjetInventaire[];
 	public paiement: number;
+	public perso: string;
 }
 
-export class Etape{
+export class Etape {
 	public id: number;
 	public nom: string;
 	public description: string;
@@ -127,6 +129,9 @@ export class Lieu {
 	public entreey: number;
 	public canEnter: boolean;
 	public canSeeInside: boolean;
+	public to: string;
+	public bords: boolean;
+	public finFond: number;
 }
 
 export class Combat {
