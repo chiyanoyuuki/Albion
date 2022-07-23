@@ -189,7 +189,7 @@
             "id": "bjorncotesdefer",
             "x": 487,
             "y": 464,
-            "lieu": "prisonfjorh",
+            "lieu": "armurierfjorh",
             "xcombat": 431,
             "ycombat": 668,
             "nom": "Bjorn Côtes de Fer",
@@ -204,7 +204,6 @@
             "manamax": 15,
             "mana": 15,
             "etat": "Bonne Santé",
-            "joueur": true,
             "formes": [
                 {
                     "nom": "Humain",
@@ -370,8 +369,99 @@
                 "actif": false,
                 "type": "familier"
             },
-            "argent": 0,
-            "inventaire": []
+            "argent": 1000,
+            "inventaire": [
+                {
+                    "nom": "Manuel de Survie",
+                    "image": "livre",
+                    "qte": 1
+                },
+                {
+                    "nom": "Dague de magicien",
+                    "image": "dague_magicien",
+                    "qte": 1
+                },
+                {
+                    "nom": "Herbes",
+                    "image": "herbe",
+                    "qte": 1
+                },
+                {
+                    "nom": "Flèches",
+                    "image": "fleches",
+                    "qte": 1
+                },
+                {
+                    "nom": "Flèches de métal",
+                    "image": "fleches_de_metal",
+                    "qte": 1
+                },
+                {
+                    "nom": "Epée d'argent",
+                    "image": "epee_argent",
+                    "qte": 1
+                },
+                {
+                    "nom": "Peaux de loup",
+                    "image": "peau_de_loup",
+                    "qte": 1
+                },
+                {
+                    "nom": "Petits Cristaux",
+                    "image": "petit_cristaux",
+                    "qte": 1
+                },
+                {
+                    "nom": "Cristal de forge",
+                    "image": "cristal",
+                    "qte": 1
+                },
+                {
+                    "nom": "Gros Cristaux",
+                    "image": "gros_cristaux",
+                    "qte": 1
+                },
+                {
+                    "nom": "Pantalon de prison",
+                    "image": "pantalon_prison",
+                    "qte": 1
+                },
+                {
+                    "nom": "Tunique de prison",
+                    "image": "tunique_prison",
+                    "qte": 1
+                },
+                {
+                    "nom": "Patte de Rat Géant",
+                    "image": "patte_rat_geant",
+                    "qte": 1
+                },
+                {
+                    "nom": "Patte de Rat Patriarche",
+                    "image": "patte_rat_patriarche",
+                    "qte": 1
+                },
+                {
+                    "nom": "Queue de Rat Géant",
+                    "image": "queue_rat_geant",
+                    "qte": 1
+                },
+                {
+                    "nom": "Queue de Rat Patriarche",
+                    "image": "queue_rat_patriarche",
+                    "qte": 1
+                },
+                {
+                    "nom": "Arc de grande qualité",
+                    "image": "arc_de_qualite",
+                    "qte": 1
+                },
+                {
+                    "nom": "Arc",
+                    "image": "arc",
+                    "qte": 1
+                }
+            ]
         },
         {
             "id": "gandalfleroux",
@@ -379,7 +469,7 @@
             "y": 362,
             "xcombat": 761,
             "joueur": true,
-            "lieu": "prisonfjorh",
+            "lieu": "armurierfjorh",
             "ycombat": 563,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
@@ -552,8 +642,12 @@
                 "actif": false,
                 "overrideX": 34
             },
-            "argent": 0,
-            "inventaire": []
+            "argent": 1000,
+            "inventaire": [{
+                "nom": "Dague en Acier",
+                "image":"dague_en_acier",
+                "qte": 1
+            }]
         },
         {
             "id": "arlequin",
@@ -1379,6 +1473,21 @@
             "lieu": "armurierfjorh",
             "team": 1,
             "boutique": "armurierfjorh"
+        },
+        {
+            "nom": "Forus Argo",
+            "image": "Forus Argo",
+            "solo": true,
+            "niveau": 2,
+            "pdvmax": 20,
+            "pdv": 20,
+            "manamax": 10,
+            "mana": 10,
+            "id": "forusargo",
+            "xcombat": 908,
+            "ycombat": 485,
+            "lieu": "armurierfjorh",
+            "team": 1
         }
     ],
     "quetes": [
@@ -1576,42 +1685,30 @@
         }
     ],
     "lieuActuel": {
-        "id": "passageprison",
-        "nom": "Passage dans le mur",
-        "image": "prison3",
-        "x": 340,
-        "y": 550,
-        "finx": 0,
-        "finy": 0,
-        "desac": true,
-        "parent": "portePrison",
-        "canSeeInside": false,
-        "entreex": 0,
-        "entreey": 0,
-        "scale": 5,
-        "scaleFond": 2.5,
+        "parent": "fjorh",
+        "id": "armurierfjorh",
+        "nom": "Boutique d'armurier",
+        "image": "ShopArmor",
+        "x": 700,
+        "y": 250,
         "position_start": [
             {
-                "startX": 40,
-                "startY": 676
+                "startX": 860,
+                "startY": 390
             },
             {
-                "startX": 200,
-                "startY": 676
+                "startX": 1025,
+                "startY": 395
             },
             {
-                "startX": 360,
-                "startY": 676
-            },
-            {
-                "startX": 520,
-                "startY": 676
-            },
-            {
-                "startX": 680,
-                "startY": 676
+                "startX": 375,
+                "startY": 500
             }
-        ]
+        ],
+        "finx": 208,
+        "finy": 130,
+        "desac": true,
+        "scale": 5
     },
     "boutiques": [
         {
