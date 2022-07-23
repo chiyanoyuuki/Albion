@@ -158,7 +158,7 @@
             </div>
 
             <div class="quetes" *ngIf="ongletActif == 'quetesSecondaires'">
-                <div *ngFor="let quete of data.quetessecondaires;let i=index">
+                <div *ngFor="let quete of getQuetesSecondaires();let i=index">
                     <div class="line" *ngIf="i!=0"></div>
                     <p class="bigText">{{quete.nom}}</p>
                     <p>{{quete.etapeEnCours.description}}</p>
@@ -227,7 +227,7 @@
     </div>
 </div>
 
-<div class="containerLoot" *ngIf="perso.team>0 && perso.pdv==0"
+<div class="containerLoot" *ngIf="perso.team>0 && perso.pdv==0 || (this.perso.team>0&&this.data.admin)" 
     [style.left]="getContainerLeft()"
     [style.z-index]="(fenetreFocused=='stats'&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?8:2"
     [cdkDragDisabled]="objetActifInventaire!=undefined" (mouseover)="fenetreFocused='stats'" cdkDrag>

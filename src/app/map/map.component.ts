@@ -1,5 +1,5 @@
 import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { addEntity, Data, Entite, Lieu, MenuContextuel, ObjetInventaire, Position } from '../model';
 
 @Component({
@@ -18,6 +18,11 @@ export class MapComponent implements OnInit {
 
   constructor() { }
 
+  @HostListener('window:keyup', ['$event'])
+  keyDownEvent(event: KeyboardEvent) {
+    if (event.key == "F1") { this.data.admin = !this.data.admin; }
+  }
+
   ngOnInit(): void {
 
   }
@@ -26,6 +31,10 @@ export class MapComponent implements OnInit {
 
   getPersonnagesDansLieu(lieu: Lieu) {
     return this.data.entites.filter((entite: Entite) => entite.lieu == lieu.id);
+  }
+
+  getJoueursDansLieu(lieu: Lieu) {
+    return this.data.entites.filter((entite: Entite) => entite.lieu == lieu.id && (entite.joueur || this.data.admin));
   }
 
   getLieux(): Lieu[] {
@@ -42,10 +51,12 @@ export class MapComponent implements OnInit {
 
   //CLICKS==================================================================
 
-  clicMap() {
+  clicMap(event: MouseEvent) {
     this.menuContextuel = undefined;
     this.changingTo = undefined;
     this.focus = undefined;
+    if (this.data.admin) { console.log("MouseX : " + event.offsetX); }
+    if (this.data.admin) { console.log("MouseY : " + event.offsetY); }
   }
 
   clickRetour() {
@@ -59,6 +70,12 @@ export class MapComponent implements OnInit {
     this.menuContextuel = undefined;
     this.changingTo = undefined;
     this.data.lieuActuel = lieu;
+    if (lieu.to) {
+      let tmp = this.data.lieux.find((nouveauLieu: Lieu) => nouveauLieu.id == lieu.to);
+      if (tmp) {
+        this.data.lieuActuel = tmp;
+      }
+    }
   }
 
   rentrerLieu(lieu: Lieu) {
@@ -75,6 +92,12 @@ export class MapComponent implements OnInit {
   rentrerEntite(lieu: Lieu, perso: Entite) {
     this.verifPositionDeDepart(lieu, perso);
     perso.lieu = lieu.id;
+    if (lieu.to) {
+      let tmp = this.data.lieux.find((nouveauLieu: Lieu) => nouveauLieu.id == lieu.to);
+      if (tmp) {
+        perso.lieu = tmp.id;
+      }
+    }
   }
 
   verifPositionDeDepart(lieu: Lieu, perso: Entite) {

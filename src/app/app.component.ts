@@ -30,19 +30,22 @@ export class AppComponent implements OnInit {
     console.log(this.data);
     console.log("Verifications");
     console.log("Des objets ne sont pas définis dans le tableau global");
+    console.log("   Check inventaires et stuff entites");
     this.data.entites.forEach((entite: Entite) => {
       if (entite.inventaire) {
         entite.inventaire.forEach((objet: ObjetInventaire) => {
-          let objetDéfini = this.data.objets.find((item: ObjetInventaire) => objet.nom == item.nom && objet.image == item.image && objet.emplacement == item.emplacement);
-          if (!objetDéfini) {
-            console.log("{\"nom\": \"" + objet.nom + "\",\"image\": \"" + objet.image + "\"" + (objet.emplacement ? ",\"emplacement\": \"" + objet.emplacement + "\"}" : "}"));
+          if (objet.nom != "Argent") {
+            let objetDéfini = this.data.objets.find((item: ObjetInventaire) => objet.nom == item.nom && objet.image == item.image && objet.emplacement == item.emplacement);
+            if (!objetDéfini) {
+              console.log("{\"nom\": \"" + objet.nom + "\",\"image\": \"" + objet.image + "\"" + (objet.emplacement ? ",\"emplacement\": \"" + objet.emplacement + "\"}" : "}"));
+            }
           }
         });
       }
       if (entite.stuff) {
         entite.stuff.forEach((emplacement: Equipement) => {
           let objet = emplacement.objet;
-          if (objet.nom != "") {
+          if (objet.nom != "" && objet.nom != "Argent") {
             let objetDéfini = this.data.objets.find((item: ObjetInventaire) => objet.nom == item.nom && objet.image == item.image && objet.emplacement == item.emplacement);
             if (!objetDéfini) {
               console.log("{\"nom\": \"" + objet.nom + "\",\"image\": \"" + objet.image + "\"" + (objet.emplacement ? ",\"emplacement\": \"" + objet.emplacement + "\"}" : "}"));
@@ -51,6 +54,7 @@ export class AppComponent implements OnInit {
         });
       }
     });
+    console.log("   Check loot pnjs");
     this.data.pnjs.forEach((entite: Entite) => {
       if (entite.loot) {
         entite.loot.forEach((objet: ObjetInventaire) => {
