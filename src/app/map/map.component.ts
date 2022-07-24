@@ -29,7 +29,7 @@ export class MapComponent implements OnInit {
 
   musique(lieu: Lieu) {
     if (lieu.musique) {
-      if (!this.audio || (this.audio && this.audio.src != lieu.musique)) {
+      if (!this.audio || (this.audio && !this.audio.src.endsWith(lieu.musique + ".mp3"))) {
         if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; }
         this.audio = new Audio;
         this.audio.src = "../assets/musiques/" + lieu.musique + ".mp3";
