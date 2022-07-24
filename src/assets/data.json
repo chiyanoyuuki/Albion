@@ -4043,6 +4043,7 @@
             "id": "maisonBjorn",
             "nom": "Maison de Bjorn",
             "image": "maison_de_bjorn",
+            "musique": "maison_bjorn",
             "x": 985,
             "y": 40,
             "finx": 0,
@@ -4174,7 +4175,8 @@
             "finy": 50,
             "desac": true,
             "parent": "map",
-            "scale": 4
+            "scale": 4,
+            "musique":"boutique"
         },
         {
             "id": "campdebandits",
@@ -4263,6 +4265,7 @@
             "x": 1000,
             "y": 675,
             "finx": 150,
+            "musique": "arene",
             "finy": 140,
             "desac": false
         },
@@ -4271,6 +4274,7 @@
             "id": "tavernedusk",
             "nom": "Taverne",
             "image": "Taverne3",
+            "musique":"taverne",
             "x": 520,
             "y": 965,
             "position_start": [
@@ -4293,6 +4297,7 @@
             "id": "forgerondusk",
             "nom": "Forgeron",
             "image": "ShopArmor2",
+            "musique":"boutique",
             "x": 1480,
             "y": 810,
             "position_start": [
@@ -4322,7 +4327,7 @@
             "id": "dusk",
             "nom": "Dusk",
             "image": "Dusk",
-            "musique":"dusk",
+            "musique": "dusk",
             "x": 869,
             "y": 771,
             "position_start": [
@@ -4472,6 +4477,7 @@
             "id": "tavernefjorh",
             "nom": "Taverne",
             "image": "Taverne",
+            "musique":"taverne",
             "x": 570,
             "y": 500,
             "position_start": [
@@ -4508,6 +4514,7 @@
             "parent": "fjorh",
             "id": "armurierfjorh",
             "nom": "Boutique d'armurier",
+            "musique":"boutique",
             "image": "ShopArmor",
             "x": 700,
             "y": 250,
@@ -4543,6 +4550,7 @@
             "id": "fortfjorh",
             "nom": "Fort",
             "image": "Fort",
+            "musique": "fort",
             "x": 120,
             "y": 250,
             "position_start": [
@@ -4673,6 +4681,7 @@
         {
             "parent": "ghrain",
             "id": "taverneghrain",
+            "musique":"taverne",
             "nom": "Taverne",
             "image": "taverneghrain",
             "x": 1000,
@@ -4742,6 +4751,7 @@
             "id": "haul",
             "nom": "Haul",
             "image": "haul",
+            "musique": "haul",
             "x": 552,
             "y": 297,
             "position_start": [
