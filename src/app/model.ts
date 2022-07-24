@@ -128,13 +128,12 @@ export class Lieu {
 	public parent: string;
 	public scale: number;
 	public scaleFond: number;
-	public entreex: number;
-	public entreey: number;
 	public canEnter: boolean;
 	public canSeeInside: boolean;
 	public to: string;
 	public bords: boolean;
 	public finFond: number;
+	public musique: string;
 }
 
 export class Combat {

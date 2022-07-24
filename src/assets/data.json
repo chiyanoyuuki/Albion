@@ -61,6 +61,10 @@
                 {
                     "nom": "Boost de concentration",
                     "image": "sort_boost_concentration"
+                },
+                {
+                    "nom": "Soin Léger",
+                    "image": "sort_soin"
                 }
             ],
             "stuff": [
@@ -849,6 +853,14 @@
                 {
                     "nom": "Bourrasque",
                     "image": "sort_bourrasque"
+                },
+                {
+                    "nom": "Soin Moyen",
+                    "image": "sort_soin"
+                },
+                {
+                    "nom": "Antidote léger",
+                    "image": "sort_antidote"
                 }
             ],
             "stuff": [
@@ -2458,8 +2470,8 @@
                 }
             ],
             "team": 2,
-            "xcombat": 1125,
-            "ycombat": 353,
+            "xcombat": 1150,
+            "ycombat": 415,
             "lieu": "foretnordouest",
             "actif": false
         },
@@ -2501,8 +2513,8 @@
                 }
             ],
             "team": 2,
-            "xcombat": 556,
-            "ycombat": 554,
+            "xcombat": 598,
+            "ycombat": 408,
             "lieu": "foretnordouest",
             "actif": false
         },
@@ -2517,8 +2529,8 @@
             "mana": 26,
             "id": "erikamonark",
             "team": 2,
-            "xcombat": 764,
-            "ycombat": 363,
+            "xcombat": 763,
+            "ycombat": 404,
             "lieu": "foretnordouest",
             "actif": false
         },
@@ -2651,8 +2663,8 @@
             "id": "norbertsonn",
             "desc": "Le gagnant du tournoi de Dusk, ainsi que le 'Bro' de Gandalf",
             "team": 1,
-            "xcombat": 468,
-            "ycombat": 516,
+            "xcombat": 453,
+            "ycombat": 622,
             "lieu": "plage",
             "actif": false
         },
@@ -2668,8 +2680,8 @@
             "id": "gonzagpierdu",
             "desc": "Un des participants du tournoi de Dusk",
             "team": 1,
-            "xcombat": 853,
-            "ycombat": 506,
+            "xcombat": 1054,
+            "ycombat": 510,
             "lieu": "plage",
             "actif": false
         },
@@ -3681,23 +3693,47 @@
             "nom": "Un oeuf de dragon ?",
             "perso": "Toute l'équipe",
             "type": "principale",
-            "etape": 1,
+            "etape": 2,
             "etapeEnCours": {
-                "id": 1,
-                "nom": "L'oeuf est caché proche de la maison de Bjorn",
-                "description": "Une mysterieuse pierre s'est averée être en réalité un oeuf de dragon. Sûrement le dernier sur terre. Bjorn l'a trouvé lors d'une tempête et l'a protégé à l'interieur d'un piège extrêmement élaboré que personne ne pourra trouver. Vous ne savez pas encore quoi faire de cet oeuf"
-            }
+                "id": 2,
+                "nom": "Le dragon métamorphe",
+                "description": "Vous vous demandez si l'oeuf que vous avez trouvé peut avoir un lien avec le dragon qui sévit sur Albion."
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "L'oeuf est caché proche de la maison de Bjorn",
+                    "description": "Une mysterieuse pierre s'est averée être en réalité un oeuf de dragon. Sûrement le dernier sur terre. Bjorn l'a trouvé lors d'une tempête et l'a protégé à l'interieur d'un piège extrêmement élaboré que personne ne pourra trouver. Vous ne savez pas encore quoi faire de cet oeuf"
+                },
+                {
+                    "id": 2,
+                    "nom": "Le dragon métamorphe",
+                    "description": "Vous vous demandez si l'oeuf que vous avez trouvé peut avoir un lien avec le dragon qui sévit sur Albion."
+                }
+            ]
         },
         {
             "nom": "Une mère disparue",
             "perso": "Luna Stormwood",
             "type": "principale",
-            "etape": 5,
+            "etape": 6,
             "etapeEnCours": {
-                "id": 5,
-                "nom": "Cherche la mère dans la montagne au Nord",
-                "description": "La mère de Luna Stormwood à disparu de son domicile en laissant sa fille derrière elle. Notre équipe à essayé de la trouver dans un camp de mercenaires sur la montagne du nord sans succès. La seule piste trouvée était une adresse à Fjorh mais cela nous a menés dans un guet-apans. Sam Bells l'assassin nous a obligé à effectuer une mission de traque vers la ville de Dusk. Nous avons décidé de suivre Kayn Proks qui nous a proposé de rouler Sam en élaborant un nouveau plan. Nous avons paricipé au tounroi mais ne savons toujours pas qui est la cible."
-            }
+                "id": 6,
+                "nom": "Enfin réunis",
+                "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+            },
+            "etapes": [
+                {
+                    "id": 5,
+                    "nom": "Cherche la mère dans la montagne au Nord",
+                    "description": "La mère de Luna Stormwood à disparu de son domicile en laissant sa fille derrière elle. Notre équipe à essayé de la trouver dans un camp de mercenaires sur la montagne du nord sans succès. La seule piste trouvée était une adresse à Fjorh mais cela nous a menés dans un guet-apans. Sam Bells l'assassin nous a obligé à effectuer une mission de traque vers la ville de Dusk. Nous avons décidé de suivre Kayn Proks qui nous a proposé de rouler Sam en élaborant un nouveau plan. Nous avons paricipé au tounroi mais ne savons toujours pas qui est la cible."
+                },
+                {
+                    "id": 6,
+                    "nom": "Enfin réunis",
+                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+                }
+            ]
         },
         {
             "nom": "Frère en cavale",
@@ -3714,7 +3750,7 @@
             "nom": "Un remède à tous les maux",
             "perso": "Sienna Hurlevent",
             "type": "principale",
-            "etape": 2,
+            "etape": 3,
             "etapeEnCours": {
                 "id": 3,
                 "nom": "Partir pour Haul pour enquêter sur la faune étrange des îles.",
@@ -3742,6 +3778,37 @@
                 "nom": "Protéger l'oeuf de dragon jusqu'à son éclosion",
                 "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie."
             }
+        },
+        {
+            "nom": "Protection d'une espèce rare",
+            "perso": "Bjorn Côtes de Fer",
+            "type": "principale",
+            "etape": 1,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Protéger l'oeuf de dragon jusqu'à son éclosion",
+                "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie."
+            }
+        },
+        {
+            "nom": "Le gardien des secrets",
+            "type": "secondaire",
+            "etape": 2,
+            "etapeEnCours": {
+                "id": 2,
+                "nom": "Venir à bout du Troll Adulte",
+                "description": "Un homme nous a parlé d'un monstre qui garderait les plus grands mystères des catacombes de Fjorh"
+            }
+        },
+        {
+            "nom": "Un historien dans le besoin",
+            "type": "secondaire",
+            "etape": 1,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+            }
         }
     ],
     "lieuActuel": {
@@ -3749,6 +3816,7 @@
         "nom": "Fjorh",
         "image": "Fjorh",
         "parent": "map",
+        "musique": "fjorh",
         "x": 918,
         "y": 377,
         "position_start": [
@@ -3846,9 +3914,8 @@
             "finy": 0,
             "desac": true,
             "parent": "",
-            "entreex": 0,
-            "entreey": 0,
-            "scale": 0.5
+            "scale": 0.5,
+            "musique": "map"
         },
         {
             "id": "fenetreprison",
@@ -3860,9 +3927,83 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "parent": "prisonfjorh",
-            "entreex": 0,
-            "entreey": 0
+            "parent": "prisonfjorh"
+        },
+        {
+            "id": "iledragon",
+            "nom": "Île du dragon",
+            "image": "ile_dragon",
+            "canEnter": true,
+            "x": 365,
+            "y": 715,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "map",
+            "scale": 4,
+            "scaleFond": 0.2,
+            "finFond": 650,
+            "position_start": [
+                {
+                    "startX": 100,
+                    "startY": 730
+                },
+                {
+                    "startX": 200,
+                    "startY": 730
+                },
+                {
+                    "startX": 300,
+                    "startY": 730
+                },
+                {
+                    "startX": 400,
+                    "startY": 730
+                },
+                {
+                    "startX": 500,
+                    "startY": 730
+                }
+            ],
+            "musique": "ile_dragon"
+        },
+        {
+            "id": "forteresse",
+            "nom": "Forteresse en ruines",
+            "image": "forteresse",
+            "canEnter": true,
+            "x": 1570,
+            "y": 460,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "iledragon",
+            "scale": 2.5,
+            "scaleFond": 1,
+            "finFond": 850,
+            "position_start": [
+                {
+                    "startX": 800,
+                    "startY": 910
+                },
+                {
+                    "startX": 900,
+                    "startY": 910
+                },
+                {
+                    "startX": 1000,
+                    "startY": 910
+                },
+                {
+                    "startX": 1100,
+                    "startY": 910
+                },
+                {
+                    "startX": 1200,
+                    "startY": 910
+                }
+            ],
+            "musique": "forteresse"
         },
         {
             "id": "portePrison",
@@ -3875,8 +4016,6 @@
             "desac": true,
             "parent": "prisonfjorh",
             "canSeeInside": false,
-            "entreex": 0,
-            "entreey": 0,
             "scale": 2,
             "position_start": [
                 {
@@ -3990,8 +4129,6 @@
             "desac": true,
             "parent": "portePrison",
             "canSeeInside": false,
-            "entreex": 0,
-            "entreey": 0,
             "scale": 8,
             "scaleFond": 2.5,
             "finFond": 460,
@@ -4190,6 +4327,7 @@
             "id": "dusk",
             "nom": "Dusk",
             "image": "Dusk",
+            "musique":"dusk",
             "x": 869,
             "y": 771,
             "position_start": [
@@ -4235,6 +4373,7 @@
             "nom": "Entrée Grotte",
             "image": "entreeGrotte",
             "parent": "map",
+            "musique": "grotte_nord",
             "x": 421,
             "y": 51,
             "position_start": [
@@ -4442,6 +4581,7 @@
             "nom": "Fjorh",
             "image": "Fjorh",
             "parent": "map",
+            "musique": "fjorh",
             "x": 918,
             "y": 377,
             "position_start": [
@@ -4481,7 +4621,8 @@
             "parent": "map",
             "finy": 69,
             "desac": false,
-            "scale": 2
+            "scale": 2,
+            "musique": "foret_sud"
         },
         {
             "id": "foretnordouest",
@@ -4489,6 +4630,7 @@
             "image": "foret2",
             "x": 593,
             "y": 140,
+            "musique": "foret_nord",
             "position_start": [
                 {
                     "startX": 1610,
@@ -4515,7 +4657,9 @@
             "finx": 292,
             "finy": 140,
             "desac": false,
-            "scale": 2
+            "scale": 4.5,
+            "scaleFond": 1,
+            "finFond": 650
         },
         {
             "id": "foretestfjorh",
@@ -4569,6 +4713,7 @@
             "id": "ghrain",
             "nom": "Ghrain",
             "image": "Ghrain",
+            "musique": "ghrain",
             "x": 1713,
             "y": 215,
             "position_start": [
@@ -4638,6 +4783,7 @@
             "image": "haulisland",
             "x": 250,
             "y": 291,
+            "musique": "ile_haul",
             "position_start": [
                 {
                     "startX": 35,
@@ -4700,7 +4846,7 @@
             "desac": false,
             "scale": 8,
             "scaleFond": 1,
-            "finFond": 640
+            "finFond": 750
         }
     ],
     "catabombes": [

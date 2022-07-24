@@ -15,6 +15,7 @@ export class MapComponent implements OnInit {
   public changingTo: Lieu | undefined;
   public persoHovered: string[] = [];
   public menuContextuel: MenuContextuel | undefined;
+  public audio: HTMLAudioElement;
 
   constructor() { }
 
@@ -24,7 +25,19 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
 
+  musique(lieu: Lieu) {
+    if (lieu.musique) {
+      if (!this.audio || (this.audio && !this.audio.src.endsWith(lieu.musique + ".mp3"))) {
+        if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; }
+        this.audio = new Audio;
+        this.audio.src = "../assets/musiques/" + lieu.musique + ".mp3";
+        this.audio.load();
+        this.audio.play();
+        this.audio.loop = true;
+      }
+    }
   }
 
   //GET=================================================================
@@ -57,12 +70,13 @@ export class MapComponent implements OnInit {
     this.focus = undefined;
     if (this.data.admin) { console.log("MouseX : " + event.offsetX); }
     if (this.data.admin) { console.log("MouseY : " + event.offsetY); }
+    if (!this.audio) { this.musique(this.data.lieuActuel); }
   }
 
   clickRetour() {
     this.menuContextuel = undefined;
     let lieutmp = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.parent);
-    if (lieutmp) { this.data.lieuActuel = lieutmp; }
+    if (lieutmp) { this.data.lieuActuel = lieutmp; this.musique(lieutmp); }
   }
 
   changeLieu(lieu: Lieu) {
@@ -75,6 +89,12 @@ export class MapComponent implements OnInit {
       if (tmp) {
         this.data.lieuActuel = tmp;
       }
+    }
+    if (lieu.musique) {
+      if (!this.audio || (this.audio && this.audio.src != lieu.musique)) {
+        this.musique(lieu);
+      }
+
     }
   }
 
@@ -103,7 +123,7 @@ export class MapComponent implements OnInit {
   verifPositionDeDepart(lieu: Lieu, perso: Entite) {
     this.persoHovered = [];
     this.menuContextuel = undefined;
-    if (lieu.position_start) {
+    if (lieu.position_start && lieu.position_start.length > 0) {
       let persosACheck = this.getPersonnagesDansLieu(lieu);
       let trouve = false;
       lieu.position_start.forEach((position: Position) => {
@@ -130,6 +150,10 @@ export class MapComponent implements OnInit {
         perso.ycombat = lieu.position_start[0].startY;
       }
     }
+    else {
+      perso.xcombat = 0;
+      perso.ycombat = 0;
+    }
   }
 
   sortirPerso(lieu: Lieu, perso: Entite) {
@@ -154,6 +178,7 @@ export class MapComponent implements OnInit {
   //AUTRE=========================================================================
 
   public dragEnd($event: CdkDragEnd, lieu: Lieu) {
+    console.log("dragEnd Map");
     let tmp = $event.source.getFreeDragPosition();
     if (this.data.lieuActuel.parent == '') {
       lieu.x = lieu.x + tmp.x;
@@ -223,5 +248,12 @@ export class MapComponent implements OnInit {
 
     if (test) console.log(addEntite.entite);
     this.data.entites.push(addEntite.entite);
+  }
+
+  endDragLieu($event: CdkDragEnd, lieu: Lieu) {
+    let tmp = $event.source.getFreeDragPosition();
+    lieu.x = lieu.x + tmp.x;
+    lieu.y = lieu.y + tmp.y;
+    $event.source._dragRef.reset();
   }
 }
