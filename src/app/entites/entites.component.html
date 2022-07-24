@@ -15,8 +15,8 @@
 
         <!-- IMAGE + SHADOW =================================================== -->
 
-        <div class="containerPerso" id="containerPerso{{perso.nom}}" [style.top]="getTop(perso)" [style.scale]="getScale(perso)"
-            (mouseenter)="lastPersoClicked=perso" [style.left]="getLeft(perso)">
+        <div class="containerPerso" id="containerPerso{{perso.nom}}" [style.top]="getTop(perso)"
+            [style.scale]="getScale(perso)" (mouseenter)="lastPersoClicked=perso" [style.left]="getLeft(perso)">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
                     [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'"

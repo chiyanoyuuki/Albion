@@ -5971,13 +5971,13 @@
             "emplacement": "Arme",
             "nom": "Arc",
             "image": "arc",
-            "prix": 20
+            "prix": 25
         },
         {
             "emplacement": "Arme",
             "nom": "Arc de grande qualité",
             "image": "arc_de_qualite",
-            "prix": 30
+            "prix": 60
         },
         {
             "nom": "Argent",
@@ -5987,30 +5987,30 @@
             "emplacement": "Torse",
             "nom": "Armure de Chevalier",
             "image": "armure_chevalier",
-            "prix": 60
+            "prix": 90
         },
         {
             "emplacement": "Torse",
             "nom": "Armure renforcée en cuir (Usée)",
             "image": "armure_renforcee_en_cuir",
-            "prix": 30
+            "prix": 45
         },
         {
             "nom": "Bandages",
             "image": "bandages",
-            "prix": 2
+            "prix": 10
         },
         {
             "nom": "Carquois en cuir (20)",
             "image": "carquois_cuir",
             "emplacement": "Utilitaire",
-            "prix": 15
+            "prix": 20
         },
         {
             "emplacement": "Utilitaire",
             "nom": "Carquois renforcé (50)",
             "image": "carquoi_renforce",
-            "prix": 30
+            "prix": 45
         },
         {
             "nom": "Clef de la prison",
@@ -6035,89 +6035,89 @@
         {
             "nom": "Cristal de forge",
             "image": "cristal",
-            "prix": 20
+            "prix": 50
         },
         {
             "nom": "Crochets",
             "image": "crochets",
-            "prix": 1
+            "prix": 5
         },
         {
             "emplacement": "Arme",
             "nom": "Dague Usée",
             "image": "dague_usee",
-            "prix": 15
+            "prix": 10
         },
         {
             "emplacement": "Arme",
             "nom": "Dague de magicien",
             "image": "dague_magicien",
-            "prix": 35
+            "prix": 40
         },
         {
             "emplacement": "Arme",
             "nom": "Dague en Acier",
             "image": "dague_en_acier",
-            "prix": 30
+            "prix": 40
         },
         {
             "nom": "Défense de sanglier",
-            "image": "defense_de_sanglier",
-            "prix": 10
+            "image": "defense_sanglier",
+            "prix": 8
         },
         {
             "emplacement": "Arme",
             "nom": "Epée Rouillée",
             "image": "epee_rouillee",
-            "prix": 30
+            "prix": 25
         },
         {
             "emplacement": "Arme",
             "nom": "Epée d'argent",
             "image": "epee_argent",
-            "prix": 60
+            "prix": 70
         },
         {
             "nom": "Flèches",
             "image": "fleches",
-            "prix": 1
+            "prix": 2
         },
         {
             "nom": "Flèches de métal",
             "image": "fleches_de_metal",
-            "prix": 5
+            "prix": 6
         },
         {
             "nom": "Gros Cristaux",
             "image": "gros_cristaux",
-            "prix": 10
+            "prix": 15
         },
         {
             "nom": "Herbes",
             "image": "herbe",
-            "prix": 1
+            "prix": 7
         },
         {
             "emplacement": "Jambes",
             "nom": "Jambières de Chevalier",
             "image": "jambieres_chevalier",
-            "prix": 30
+            "prix": 70
         },
         {
             "nom": "Manuel de Survie",
             "image": "livre",
-            "prix": 3
+            "prix": 5
         },
         {
             "nom": "Matériaux",
             "image": "ingredient",
-            "prix": 10
+            "prix": 7
         },
         {
             "emplacement": "Utilitaire",
             "nom": "Objets de jet",
             "image": "objets_de_jet",
-            "prix": 15
+            "prix": 9
         },
         {
             "emplacement": "Jambes",
@@ -6133,53 +6133,53 @@
         {
             "nom": "Patte de Rat Géant",
             "image": "patte_rat_geant",
-            "prix": 4
+            "prix": 6
         },
         {
             "nom": "Patte de Rat Patriarche",
             "image": "patte_rat_patriarche",
-            "prix": 6
+            "prix": 18
         },
         {
             "nom": "Peau de sanglier",
-            "image": "peau_de_sanglier",
-            "prix": 5
+            "image": "peau_sanglier",
+            "prix": 9
         },
         {
             "nom": "Peaux de loup",
-            "image": "peau_de_loup",
-            "prix": 5
+            "image": "peau_loup",
+            "prix": 7
         },
         {
             "nom": "Petits Cristaux",
             "image": "petit_cristaux",
-            "prix": 5
+            "prix": 8
         },
         {
             "nom": "Pieges",
             "image": "item_pieges",
-            "prix": 5
+            "prix": 12
         },
         {
             "nom": "Potions",
             "image": "potion",
-            "prix": 5
+            "prix": 8
         },
         {
             "nom": "Queue de Rat Géant",
             "image": "queue_rat_geant",
-            "prix": 4
+            "prix": 9
         },
         {
             "nom": "Queue de Rat Patriarche",
             "image": "queue_rat_patriarche",
-            "prix": 6
+            "prix": 18
         },
         {
             "emplacement": "Arme",
             "nom": "Sanada Yukimura",
             "image": "sabre_grande_qualite",
-            "prix": 200
+            "prix": 250
         },
         {
             "nom": "Saphir étrange",
@@ -6194,8 +6194,18 @@
         },
         {
             "nom": "Viande de sanglier",
-            "image": "viande_de_sanglier",
-            "prix": 2
+            "image": "viande_sanglier",
+            "prix": 5
+        },
+        {
+            "nom": "Viande de loup",
+            "image": "viande_loup",
+            "prix": 4
+        },
+        {
+            "nom": "Croc de loup",
+            "image": "croc_loup",
+            "prix": 8
         }
     ],
     "positionsStuff": [
@@ -6260,5 +6270,5 @@
             "y": 265
         }
     ],
-    "admin": false
+    "admin": true
 }

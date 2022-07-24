@@ -26,6 +26,10 @@ export class AppComponent implements OnInit {
     document.oncontextmenu = function () {
       return false;
     }
+    document.onmousedown = function (e) {
+      if (e.buttons == 4) { return false; }
+      return null;
+    }
 
     console.log(this.data);
     console.log("Verifications");
