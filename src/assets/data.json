@@ -1394,6 +1394,26 @@
             "actif": false
         },
         {
+            "x": 800,
+            "y": 1,
+            "xcombat": 920,
+            "ycombat": 515,
+            "nom": "Oeuf de dragon",
+            "image": "Oeuf de dragon",
+            "solo": true,
+            "etat": "En sommeil",
+            "niveau": 50,
+            "pdvmax": 4500,
+            "pdv": 4500,
+            "manamax": 2000,
+            "mana": 2000,
+            "tournoi": false,
+            "id": "oeufdedragon",
+            "lieu": "grotte_oeuf_dragon",
+            "team": 1,
+            "actif": false
+        },
+        {
             "nom": "Soldat 02",
             "image": "Soldat",
             "solo": false,
@@ -4020,6 +4040,80 @@
             ]
         },
         {
+            "id": "maisonBjorn",
+            "nom": "Maison de Bjorn",
+            "image": "maison_de_bjorn",
+            "x": 985,
+            "y": 40,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "map",
+            "canSeeInside": false,
+            "entreex": 0,
+            "entreey": 0,
+            "scale": 6,
+            "position_start": [
+                {
+                    "startX": 340,
+                    "startY": 480
+                },
+                {
+                    "startX": 600,
+                    "startY": 480
+                },
+                {
+                    "startX": 850,
+                    "startY": 480
+                },
+                {
+                    "startX": 1100,
+                    "startY": 480
+                },
+                {
+                    "startX": 1300,
+                    "startY": 480
+                }
+            ]
+        },
+        {
+            "id": "grotte_oeuf_dragon",
+            "nom": "Grotte de l'oeuf",
+            "image": "grotte_oeuf_dragon",
+            "x": 485,
+            "y": 340,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "maisonBjorn",
+            "canSeeInside": false,
+            "entreex": 0,
+            "entreey": 0,
+            "scale": 2,
+            "position_start": [
+                {
+                    "startX": 1395,
+                    "startY": 615
+                },
+                {
+                    "startX": 1475,
+                    "startY": 635
+                },
+                {
+                    "startX": 1555,
+                    "startY": 635
+                },
+                {
+                    "startX": 1645,
+                    "startY": 660
+                },
+                {
+                    "startX": 1740,
+                    "startY": 675
+                }
+            ]
+        },
+        {
             "id": "passageprison",
             "nom": "Passage dans le mur",
             "image": "prison3",
@@ -6012,6 +6106,61 @@
             ]
         },
         {
+            "nom": "Sanglier Sauvage",
+            "image": "sanglier",
+            "solo": false,
+            "niveau": 1,
+            "pdvmax": 16,
+            "pdv": 16,
+            "manamax": 8,
+            "mana": 10,
+            "id": "sanglier",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 16,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 20,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 26,
+                    "manamax": 14
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 32,
+                    "manamax": 14
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 40,
+                    "manamax": 20
+                }
+            ],
+            "loot": [
+                {
+                    "nom": "Peau de sanglier",
+                    "taux": 30,
+                    "qte": 3
+                },
+                {
+                    "nom": "Défense de sanglier",
+                    "taux": 20,
+                    "qte": 2
+                },
+                {
+                    "nom": "Viande de sanglier",
+                    "taux": 60,
+                    "qte": 2
+                }
+            ]
+        },
+        {
             "nom": "Sonia Stormwood",
             "image": "Sonia Stormwood",
             "solo": true,
@@ -6039,17 +6188,20 @@
     "objets": [
         {
             "nom": "Antidote",
-            "image": "antidote"
+            "image": "antidote",
+            "prix": 10
         },
         {
             "emplacement": "Arme",
             "nom": "Arc",
-            "image": "arc"
+            "image": "arc",
+            "prix": 20
         },
         {
             "emplacement": "Arme",
             "nom": "Arc de grande qualité",
-            "image": "arc_de_qualite"
+            "image": "arc_de_qualite",
+            "prix": 30
         },
         {
             "nom": "Argent",
@@ -6058,164 +6210,216 @@
         {
             "emplacement": "Torse",
             "nom": "Armure de Chevalier",
-            "image": "armure_chevalier"
+            "image": "armure_chevalier",
+            "prix": 60
         },
         {
             "emplacement": "Torse",
             "nom": "Armure renforcée en cuir (Usée)",
-            "image": "armure_renforcee_en_cuir"
+            "image": "armure_renforcee_en_cuir",
+            "prix": 30
         },
         {
             "nom": "Bandages",
-            "image": "bandages"
+            "image": "bandages",
+            "prix": 2
         },
         {
             "nom": "Carquois en cuir (20)",
             "image": "carquois_cuir",
-            "emplacement": "Utilitaire"
+            "emplacement": "Utilitaire",
+            "prix": 15
         },
         {
             "emplacement": "Utilitaire",
             "nom": "Carquois renforcé (50)",
-            "image": "carquoi_renforce"
+            "image": "carquoi_renforce",
+            "prix": 30
         },
         {
             "nom": "Clef de la prison",
-            "image": "clef_prison"
+            "image": "clef_prison",
+            "prix": 1
         },
         {
             "nom": "Clé",
-            "image": "cle"
+            "image": "cle",
+            "prix": 1
         },
         {
             "nom": "Contrat traque assassins",
-            "image": "contrat"
+            "image": "contrat",
+            "prix": 1
         },
         {
             "nom": "Coupon participation tournoi",
-            "image": "coupon"
+            "image": "coupon",
+            "prix": 1
         },
         {
             "nom": "Cristal de forge",
-            "image": "cristal"
+            "image": "cristal",
+            "prix": 20
         },
         {
             "nom": "Crochets",
-            "image": "crochets"
+            "image": "crochets",
+            "prix": 1
         },
         {
             "emplacement": "Arme",
             "nom": "Dague Usée",
-            "image": "dague_usee"
+            "image": "dague_usee",
+            "prix": 15
         },
         {
             "emplacement": "Arme",
             "nom": "Dague de magicien",
-            "image": "dague_magicien"
+            "image": "dague_magicien",
+            "prix": 35
         },
         {
             "emplacement": "Arme",
             "nom": "Dague en Acier",
-            "image": "dague_en_acier"
+            "image": "dague_en_acier",
+            "prix": 30
         },
         {
             "emplacement": "Arme",
             "nom": "Epée Rouillée",
-            "image": "epee_rouillee"
+            "image": "epee_rouillee",
+            "prix": 30
         },
         {
             "emplacement": "Arme",
             "nom": "Epée d'argent",
-            "image": "epee_argent"
+            "image": "epee_argent",
+            "prix": 60
         },
         {
             "nom": "Flèches",
-            "image": "fleches"
+            "image": "fleches",
+            "prix": 1
         },
         {
             "nom": "Flèches de métal",
-            "image": "fleches_de_metal"
+            "image": "fleches_de_metal",
+            "prix": 5
         },
         {
             "nom": "Gros Cristaux",
-            "image": "gros_cristaux"
+            "image": "gros_cristaux",
+            "prix": 10
         },
         {
             "nom": "Herbes",
-            "image": "herbe"
+            "image": "herbe",
+            "prix": 1
         },
         {
             "emplacement": "Jambes",
             "nom": "Jambières de Chevalier",
-            "image": "jambieres_chevalier"
+            "image": "jambieres_chevalier",
+            "prix": 30
         },
         {
             "nom": "Manuel de Survie",
-            "image": "livre"
+            "image": "livre",
+            "prix": 3
         },
         {
             "nom": "Matériaux",
-            "image": "ingredient"
+            "image": "ingredient",
+            "prix": 10
         },
         {
             "emplacement": "Utilitaire",
             "nom": "Objets de jet",
-            "image": "objets_de_jet"
+            "image": "objets_de_jet",
+            "prix": 15
         },
         {
             "emplacement": "Jambes",
             "nom": "Pantalon de prison",
-            "image": "pantalon_prison"
+            "image": "pantalon_prison",
+            "prix": 1
         },
         {
             "nom": "Parchemin non traduit",
-            "image": "item_parchemin"
+            "image": "item_parchemin",
+            "prix": 1
         },
         {
             "nom": "Patte de Rat Géant",
-            "image": "patte_rat_geant"
+            "image": "patte_rat_geant",
+            "prix": 4
         },
         {
             "nom": "Patte de Rat Patriarche",
-            "image": "patte_rat_patriarche"
+            "image": "patte_rat_patriarche",
+            "prix": 6
         },
         {
             "nom": "Peaux de loup",
-            "image": "peau_de_loup"
+            "image": "peau_de_loup",
+            "prix": 5
         },
         {
             "nom": "Petits Cristaux",
-            "image": "petit_cristaux"
+            "image": "petit_cristaux",
+            "prix": 5
         },
         {
             "nom": "Pieges",
-            "image": "item_pieges"
+            "image": "item_pieges",
+            "prix": 5
         },
         {
             "nom": "Potions",
-            "image": "potion"
+            "image": "potion",
+            "prix": 5
         },
         {
             "nom": "Queue de Rat Géant",
-            "image": "queue_rat_geant"
+            "image": "queue_rat_geant",
+            "prix": 4
         },
         {
             "nom": "Queue de Rat Patriarche",
-            "image": "queue_rat_patriarche"
+            "image": "queue_rat_patriarche",
+            "prix": 6
         },
         {
             "emplacement": "Arme",
             "nom": "Sanada Yukimura",
-            "image": "sabre_grande_qualite"
+            "image": "sabre_grande_qualite",
+            "prix": 200
         },
         {
             "nom": "Saphir étrange",
-            "image": "saphir"
+            "image": "saphir",
+            "prix": 150
         },
         {
             "emplacement": "Torse",
             "nom": "Tunique de prison",
-            "image": "tunique_prison"
+            "image": "tunique_prison",
+            "prix": 1
+        },
+        {
+            "nom": "Peau de sanglier",
+            "image": "peau_de_sanglier",
+            "prix": 5
+        },
+        {
+            "nom": "Défense de sanglier",
+            "image": "defense_de_sanglier",
+            "prix": 10
+        },
+        {
+            "nom": "Viande de sanglier",
+            "image": "viande_de_sanglier",
+            "prix": 2
         }
     ],
     "positionsStuff": [
