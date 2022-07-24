@@ -9,7 +9,8 @@
     <!-- ========================== LIEUX ========================== -->
 
     <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'" [style.top]="lieu.y+'px'"
-        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="rentrerLieu(lieu)">
+        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="rentrerLieu(lieu)"
+        [cdkDragDisabled]="!data.admin" (cdkDragEnded)="endDragLieu($event,lieu)" cdkDrag>
 
         <!--(cdkDragEnded)="dragEnd($event,lieu)" 
         cdkDrag>-->

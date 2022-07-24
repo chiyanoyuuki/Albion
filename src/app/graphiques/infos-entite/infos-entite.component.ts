@@ -21,7 +21,7 @@ export class InfosEntiteComponent implements OnInit {
 
   getNom() {
     let nom = this.perso.nom;
-    nom = nom.replace(/ *[0-9]+ *$/g, "");
+    if (!this.data.admin) { nom = nom.replace(/ *[0-9]+ *$/g, ""); }
     return nom;
   }
 
@@ -50,7 +50,7 @@ export class InfosEntiteComponent implements OnInit {
   }
 
   infoPerso() {
-    if (this.perso.joueur || (this.perso.team > 0 && this.perso.pdv == 0) || this.perso.boutique == this.data.lieuActuel.id || (this.perso.team>0&&this.data.admin)) {
+    if (this.perso.joueur || (this.perso.team > 0 && this.perso.pdv == 0) || this.perso.boutique == this.data.lieuActuel.id || (this.perso.team > 0 && this.data.admin)) {
       this.persoActuel.emit(this.perso);
     }
   }

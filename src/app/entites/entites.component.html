@@ -2,22 +2,21 @@
     <div [ngClass]="{'container':true,'dead':(perso.pdv<=0&&perso.id!='coffre'),'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}"
         *ngFor="let perso of getEntitesPresentes()"
         [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
-        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (mouseover)="lastPersoClicked=perso"
-        (mouseleave)="lastPersoClicked=undefined"
+        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'"
         [style.z-index]="(perso==lastPersoClicked&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?9:1"
         (cdkDragEnded)="dragEnd($event,perso)" (contextmenu)="clicDroit($event, perso)" cdkDrag>
 
         <!-- PARTIE INFOS =================================================== -->
 
-        <div class="entite">
-            <app-infos-entite *ngIf="lastPersoClicked==perso" [perso]="perso" [data]="data"
-                (persoActuel)="clickPersoActuel($event)"></app-infos-entite>
+        <div class="entite" (mouseleave)="checkIfDisable()" [style.opacity]="lastPersoClicked==perso?'1':'0'"
+            [style.pointer-events]="lastPersoClicked==perso?'unset':'none'">
+            <app-infos-entite [perso]="perso" [data]="data" (persoActuel)="clickPersoActuel($event)"></app-infos-entite>
         </div>
 
         <!-- IMAGE + SHADOW =================================================== -->
 
         <div class="containerPerso" [style.top]="getTop(perso)" [style.transform]="getScale(perso)"
-            [style.left]="getLeft(perso)">
+            (mouseenter)="lastPersoClicked=perso" [style.left]="getLeft(perso)">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
                     [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'"
@@ -37,7 +36,8 @@
 
         <!-- LEVEL =================================================== -->
 
-        <app-level *ngIf="lastPersoClicked==perso" [niveau]="perso.niveau"></app-level>
+        <app-level [style.opacity]="lastPersoClicked==perso?'1':'0'" [niveau]="perso.niveau"
+            [style.pointer-events]="lastPersoClicked==perso?'unset':'none'"></app-level>
 
         <!-- ========================== MENU CONTEXTUEL ========================== -->
 
@@ -49,7 +49,7 @@
         <!-- STATS PERSO ACTIF ================================================= -->
 
         <app-stats-personnage [perso]="perso" [data]="data" (closeForm)="persoActuel='';nomPersoActuel=''"
-            *ngIf="perso.actif==true">
+            (mouseenter)="lastPersoClicked=perso" *ngIf="perso.actif==true">
         </app-stats-personnage>
 
     </div>

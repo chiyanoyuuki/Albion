@@ -27,6 +27,7 @@ export class EntitesComponent implements OnInit {
   public nomPersoActuel: string;
   public lastPersoClicked: Entite | undefined;
   public mapHeight: number;
+  public isToBeDisabled: boolean;
 
   constructor() { }
 
@@ -197,5 +198,9 @@ export class EntitesComponent implements OnInit {
       }
     }
     return scale;
+  }
+
+  public checkIfDisable() {
+    this.lastPersoClicked = undefined;
   }
 }
