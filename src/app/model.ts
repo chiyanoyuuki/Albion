@@ -55,6 +55,7 @@ export class Entite {
 	public quetes: Quete[];
 	public loot: ObjetInventaire[];
 	public peutBouger: boolean;
+	public holo: boolean;
 }
 
 export class Sort {

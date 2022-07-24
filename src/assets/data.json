@@ -2666,7 +2666,8 @@
             "xcombat": 453,
             "ycombat": 622,
             "lieu": "plage",
-            "actif": false
+            "actif": false,
+            "forceDivScale": 0.6
         },
         {
             "nom": "Gonzag Pierdu",
@@ -3686,6 +3687,43 @@
             "ycombat": 121,
             "lieu": "arenedusk",
             "actif": false
+        },
+        {
+            "nom": "Sevrus Mirola",
+            "image": "Sevrus Mirola",
+            "solo": true,
+            "niveau": 9,
+            "pdvmax": 82,
+            "pdv": 82,
+            "manamax": 404,
+            "mana": 404,
+            "id": "sevrusmirola",
+            "type": "boss",
+            "desc": "Le boss des Magiciens",
+            "team": 1,
+            "xcombat": 1036,
+            "ycombat": 606,
+            "lieu": "forteresse"
+        },
+        {
+            "nom": "Dragon",
+            "image": "dragon",
+            "solo": true,
+            "niveau": 9,
+            "pdvmax": 2242,
+            "pdv": 2242,
+            "manamax": 896,
+            "mana": 896,
+            "id": "dragon",
+            "type": "megaboss",
+            "desc": "Le tout dernier dragon vivant",
+            "overrideX": 15,
+            "team": 1,
+            "xcombat": 1170,
+            "ycombat": 409,
+            "lieu": "forteresse",
+            "forceDivScale": 0.3,
+            "holo": true
         }
     ],
     "quetes": [
@@ -4181,7 +4219,7 @@
             "desac": true,
             "parent": "map",
             "scale": 4,
-            "musique":"boutique"
+            "musique": "boutique"
         },
         {
             "id": "campdebandits",
@@ -4279,7 +4317,7 @@
             "id": "tavernedusk",
             "nom": "Taverne",
             "image": "Taverne3",
-            "musique":"taverne",
+            "musique": "taverne",
             "x": 520,
             "y": 965,
             "position_start": [
@@ -4302,7 +4340,7 @@
             "id": "forgerondusk",
             "nom": "Forgeron",
             "image": "ShopArmor2",
-            "musique":"boutique",
+            "musique": "boutique",
             "x": 1480,
             "y": 810,
             "position_start": [
@@ -4482,7 +4520,7 @@
             "id": "tavernefjorh",
             "nom": "Taverne",
             "image": "Taverne",
-            "musique":"taverne",
+            "musique": "taverne",
             "x": 570,
             "y": 500,
             "position_start": [
@@ -4519,7 +4557,7 @@
             "parent": "fjorh",
             "id": "armurierfjorh",
             "nom": "Boutique d'armurier",
-            "musique":"boutique",
+            "musique": "boutique",
             "image": "ShopArmor",
             "x": 700,
             "y": 250,
@@ -4686,7 +4724,7 @@
         {
             "parent": "ghrain",
             "id": "taverneghrain",
-            "musique":"taverne",
+            "musique": "taverne",
             "nom": "Taverne",
             "image": "taverneghrain",
             "x": 1000,
@@ -5600,7 +5638,8 @@
             "manamax": 0,
             "mana": 0,
             "id": "norbertsonn",
-            "desc": "Le gagnant du tournoi de Dusk, ainsi que le 'Bro' de Gandalf"
+            "desc": "Le gagnant du tournoi de Dusk, ainsi que le 'Bro' de Gandalf",
+            "forceDivScale": 0.6
         },
         {
             "nom": "Viega Koriss",
@@ -6300,6 +6339,11 @@
             "prix": 30
         },
         {
+            "nom": "Défense de sanglier",
+            "image": "defense_de_sanglier",
+            "prix": 10
+        },
+        {
             "emplacement": "Arme",
             "nom": "Epée Rouillée",
             "image": "epee_rouillee",
@@ -6375,6 +6419,11 @@
             "prix": 6
         },
         {
+            "nom": "Peau de sanglier",
+            "image": "peau_de_sanglier",
+            "prix": 5
+        },
+        {
             "nom": "Peaux de loup",
             "image": "peau_de_loup",
             "prix": 5
@@ -6420,16 +6469,6 @@
             "nom": "Tunique de prison",
             "image": "tunique_prison",
             "prix": 1
-        },
-        {
-            "nom": "Peau de sanglier",
-            "image": "peau_de_sanglier",
-            "prix": 5
-        },
-        {
-            "nom": "Défense de sanglier",
-            "image": "defense_de_sanglier",
-            "prix": 10
         },
         {
             "nom": "Viande de sanglier",
