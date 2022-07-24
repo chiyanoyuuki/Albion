@@ -1396,22 +1396,23 @@
         {
             "x": 800,
             "y": 1,
-            "xcombat": 920,
-            "ycombat": 515,
+            "xcombat": 910,
+            "ycombat": 550,
             "nom": "Oeuf de dragon",
             "image": "Oeuf de dragon",
             "solo": true,
             "etat": "En sommeil",
-            "niveau": 50,
-            "pdvmax": 4500,
-            "pdv": 4500,
-            "manamax": 2000,
-            "mana": 2000,
+            "niveau": 9,
+            "pdvmax": 500,
+            "pdv": 500,
+            "manamax": 0,
+            "mana": 0,
             "tournoi": false,
             "id": "oeufdedragon",
             "lieu": "grotte_oeuf_dragon",
             "team": 1,
-            "actif": false
+            "actif": false,
+            "forceDivScale": 1.5
         },
         {
             "nom": "Soldat 02",
@@ -4053,7 +4054,9 @@
             "canSeeInside": false,
             "entreex": 0,
             "entreey": 0,
-            "scale": 6,
+            "scale": 15,
+            "scaleFond": 0.5,
+            "finFond": 450,
             "position_start": [
                 {
                     "startX": 340,
@@ -4090,7 +4093,9 @@
             "canSeeInside": false,
             "entreex": 0,
             "entreey": 0,
-            "scale": 2,
+            "scale": 4,
+            "scaleFond": 2,
+            "finFond": 500,
             "position_start": [
                 {
                     "startX": 1395,
