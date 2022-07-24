@@ -3,35 +3,41 @@
         *ngFor="let perso of getEntitesPresentes()"
         [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
         [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'" (mouseover)="lastPersoClicked=perso"
+        (mouseleave)="lastPersoClicked=undefined"
         [style.z-index]="(perso==lastPersoClicked&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?9:1"
         (cdkDragEnded)="dragEnd($event,perso)" (contextmenu)="clicDroit($event, perso)" cdkDrag>
 
         <!-- PARTIE INFOS =================================================== -->
 
         <div class="entite">
-            <app-infos-entite [perso]="perso" [data]="data" (persoActuel)="clickPersoActuel($event)"></app-infos-entite>
+            <app-infos-entite *ngIf="lastPersoClicked==perso" [perso]="perso" [data]="data"
+                (persoActuel)="clickPersoActuel($event)"></app-infos-entite>
         </div>
 
         <!-- IMAGE + SHADOW =================================================== -->
 
-        <div class="containerPerso" [style.top]="getTop(perso)" [style.transform]="getScale(perso)" 
-            [style.left]="(perso.overrideX?perso.overrideX+'%':'40%')">
+        <div class="containerPerso" [style.top]="getTop(perso)" [style.transform]="getScale(perso)"
+            [style.left]="getLeft(perso)">
             <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
                 <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
                     [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'"
                     [style.height]="perso.familier.posHeight+'px'"
                     src="./assets/images/entites/{{perso.familier.image}}.png" cdkDragHandle />
-                <img class="imageperso" draggable="false" src="./assets/images/entites/{{perso.image}}.png" 
-                    cdkDragHandle />
+                <img class="imageperso" *ngIf="perso.joueur" draggable="false"
+                    src="./assets/images/entites/{{perso.forme.image}}.png" cdkDragHandle />
+                <img class="imageperso" *ngIf="!perso.joueur" draggable="false"
+                    src="./assets/images/entites/{{perso.image}}.png" cdkDragHandle />
                 <div class="flexCenter">
-                    <div *ngIf="perso.id!='cadavre'" class="shadow" cdkDragHandle></div>
+                    <div *ngIf="perso.id!='cadavre'&&(data.lieuActuel.scale&&data.lieuActuel.scale<2)" class="shadow"
+                        cdkDragHandle>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- LEVEL =================================================== -->
 
-        <app-level [niveau]="perso.niveau"></app-level>
+        <app-level *ngIf="lastPersoClicked==perso" [niveau]="perso.niveau"></app-level>
 
         <!-- ========================== MENU CONTEXTUEL ========================== -->
 

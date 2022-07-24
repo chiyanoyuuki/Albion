@@ -2,11 +2,11 @@
     "entites": [
         {
             "id": "lunastormwood",
-            "x": 366,
-            "y": 343,
-            "lieu": "prisonfjorh",
-            "xcombat": 1713,
-            "ycombat": 658,
+            "x": 1499,
+            "y": 277,
+            "lieu": "fjorh",
+            "xcombat": 1051,
+            "ycombat": 583,
             "joueur": true,
             "nom": "Luna Stormwood",
             "histoire": "Origaire d'une grande famille d'alchimiste de la forêt d'aubelune au sud-est D'Albion dont le père est décédé et la mère à soudainement disparu il y plusieurs semaines. Luna se met donc en quête de retrouver sa mère, elle apprend que sa mère est parti vers le nord dans les montage pour étudier des phonèmes climatique étrange. Elle se met donc en route pour les montagnes, arrivée à l'endroit où la végétation a subis des changements inexplicable, Luna commence à s'interroger, après plusieurs jours de recherche, elle surprend une conversation avec un mercenaire et un homme qui vie dans les montagnes, ces deux personnes parlent d'une grosse pierre précieuse que le roi Herald recherche, après quelques instants, grâce aux recherches qu'elles a effectués ces jours précédents, elle commence à comprendre de quoi il s'agit et décide d'aller à la rencontre de ces deux hommes..",
@@ -15,10 +15,10 @@
             "team": 0,
             "niveau": 3,
             "pdvmax": 16,
-            "statutFamilier": "",
-            "pdv": 16,
+            "statutFamilier": "lie",
+            "pdv": 10,
             "manamax": 40,
-            "mana": 40,
+            "mana": 22,
             "etat": "Bonne Santé",
             "formes": [
                 {
@@ -154,8 +154,8 @@
             "familier": {
                 "x": 876,
                 "y": 740,
-                "xcombat": -107,
-                "ycombat": 585,
+                "xcombat": 1269,
+                "ycombat": 820,
                 "nom": "Brindhibou",
                 "image": "Brindhibou",
                 "forceDivScale": 4,
@@ -183,15 +183,28 @@
                 "posLinkedY": 35
             },
             "argent": 0,
-            "inventaire": []
+            "inventaire": [
+                {
+                    "image": "petit_cristaux",
+                    "nom": "Petits Cristaux",
+                    "qte": 7,
+                    "taux": 0
+                },
+                {
+                    "image": "gros_cristaux",
+                    "nom": "Gros Cristaux",
+                    "qte": 1,
+                    "taux": 0
+                }
+            ]
         },
         {
             "id": "bjorncotesdefer",
-            "x": 487,
-            "y": 464,
-            "lieu": "prisonfjorh",
-            "xcombat": 431,
-            "ycombat": 668,
+            "x": 1138,
+            "y": 348,
+            "lieu": "fjorh",
+            "xcombat": 777,
+            "ycombat": 447,
             "nom": "Bjorn Côtes de Fer",
             "histoire": "Trapeur origaire des montagnes enneigées du nord D'Albion, Bjorn a vécu toute sa vie dans les montagnes, il vie de la chasse, de la pêche et de la vente de fourrure, il est accompagné depuis de nombreuses années par un loup blanc qu'il a recueilli bébé après qu'il ait malheureusement du tuer se mère pour survivre. Un jour où il était à la chasse, une tempête de neige se leva et forca Bjorn à se réfugier dans une grotte non loin de là. Cros blanc, le loup de Bjorn commenca à s'agiter après quelques instants, puis se mit à courir vers le fond de la grotte, Bjorn le suivi, les parois de la grotte commençaient à changer, les parois étaient devenues comme du cristal, Bjorn vi Croc blanc auprès d'une étrange grosse pierre bleu. Bjorn décida de la ramèner chez lui et de la cacher en pensant que cette pierre pourrait être précieuse. Après quelques temps, Bjorn remarqua des changements troublants sur la flore autour de chez lui et commenca à s'interroger, le lendemain il reçu la visite d'un mercenaire de renom à la recherche d'une pierre précieuse pour le Roi Herarld..",
             "classe": "trappeur",
@@ -200,7 +213,7 @@
             "niveau": 3,
             "joueur": true,
             "pdvmax": 30,
-            "pdv": 30,
+            "pdv": 26,
             "manamax": 15,
             "mana": 15,
             "etat": "Bonne Santé",
@@ -292,22 +305,31 @@
                 {
                     "emplacement": "Arme1",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Arme",
+                        "image": "dague_usee",
+                        "nom": "Dague Usée",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
                     "emplacement": "Arme2",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Arme",
+                        "image": "arc",
+                        "nom": "Arc",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
                     "emplacement": "Utilitaire",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Utilitaire",
+                        "image": "carquois_cuir",
+                        "nom": "Carquois en cuir (20)",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
@@ -343,8 +365,8 @@
             "familier": {
                 "x": 1316,
                 "y": 977,
-                "xcombat": -107,
-                "ycombat": 705,
+                "xcombat": 985,
+                "ycombat": 494,
                 "nom": "Croc Blanc",
                 "image": "Croc Blanc",
                 "team": 0,
@@ -369,17 +391,30 @@
                 "actif": false,
                 "type": "familier"
             },
-            "argent": 0,
-            "inventaire": []
+            "argent": 12,
+            "inventaire": [
+                {
+                    "image": "crochets",
+                    "nom": "Crochets",
+                    "qte": 6,
+                    "taux": 0
+                },
+                {
+                    "image": "fleches",
+                    "nom": "Flèches",
+                    "qte": 34,
+                    "taux": 0
+                }
+            ]
         },
         {
             "id": "gandalfleroux",
-            "x": 665,
-            "y": 362,
-            "xcombat": 761,
+            "x": 1512,
+            "y": 309,
+            "xcombat": 1016,
             "joueur": true,
-            "lieu": "prisonfjorh",
-            "ycombat": 563,
+            "lieu": "fjorh",
+            "ycombat": 578,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
             "classe": "mercenaire",
@@ -388,7 +423,7 @@
             "team": 0,
             "niveau": 3,
             "pdvmax": 38,
-            "pdv": 38,
+            "pdv": 37,
             "manamax": 12,
             "mana": 12,
             "etat": "Bonne Santé",
@@ -476,22 +511,31 @@
                 {
                     "emplacement": "Arme1",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Arme",
+                        "image": "epee_rouillee",
+                        "nom": "Epée Rouillée",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
                     "emplacement": "Arme2",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Arme",
+                        "image": "arc",
+                        "nom": "Arc",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
                     "emplacement": "Utilitaire",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Utilitaire",
+                        "image": "carquois_cuir",
+                        "nom": "Carquois en cuir (20)",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
@@ -551,17 +595,24 @@
                 "actif": false,
                 "overrideX": 34
             },
-            "argent": 0,
-            "inventaire": []
+            "argent": 3,
+            "inventaire": [
+                {
+                    "image": "fleches",
+                    "nom": "Flèches",
+                    "qte": 15,
+                    "taux": 0
+                }
+            ]
         },
         {
             "id": "arlequin",
             "x": 555,
             "joueur": true,
             "y": 118,
-            "xcombat": 1294,
+            "xcombat": 2029,
             "lieu": "prisonfjorh",
-            "ycombat": 566,
+            "ycombat": 614,
             "nom": "Arlequin",
             "histoire": "Arlequin vient de l'île de Sagüt au Sud-Ouest de Albion. Son île fut complètement détruite en quelques instants lorsqu'il n'avait que 10 ans. Il vagabonda ensuite en volant des provisions aux quatres coins du monde pour survivre. Il fît la connaissance d'un mâitre sabreur avec qui il apprit le maniement des lames pendant quelques années. Il obtint le magnifique Katana de son maître lorsqu'il décéda de vieillesse. Après cela, il rencontra un groupe d'aventuriers avec qui il passa quelques années. Un beau jour, ils se retrouvérent dans une embuscade et sans explication, Arlequin fût vendu aux assassins en échange de la vie du reste du groupe. Arlequin dût assassiner des centaines de personnes sur les ordres des assassins les années qui suivèrent. Il réussit à se débarasser de la totalité de ses ravisseurs avant de retourner vagabonder seul, désormais plus renfermé que jamais et ayant plus de difficulté à participer à des combats qu'il jugerait inutiles.",
             "classe": "assassin",
@@ -732,23 +783,23 @@
         },
         {
             "id": "siennahurlevent",
-            "x": 782,
+            "x": 1485,
             "joueur": true,
-            "y": 738,
-            "lieu": "prisonfjorh",
-            "xcombat": 1066,
-            "ycombat": 660,
+            "y": 294,
+            "lieu": "fjorh",
+            "xcombat": 1087,
+            "ycombat": 613,
             "nom": "Sienna Hurlevent",
             "histoire": "Depuis son plus jeune age, Sienna a parcouru la forêt de XXX jusqu'à en reconnaitre les moindres changement dans la faune et la flore. Jeune druidesse elfe de 107 ans, elle a été formée aux arcanes de la magie de métamorphose par l'archimage Louge dans la plus grande discression. Les autres races ignores beaucoup de chose sur la vie des elfes après tout. Sienna s'est mis en tete de parcourir le monde au coté de son fidèle compagnon, Pipou l'écureuil. Elle a un but précis : trouver un remède pour guérir sa famille rongé par un maux qu'aucun elfe n'a encore vu auparavant.",
             "classe": "druide",
             "image": "Sienna",
             "team": 0,
-            "statutFamilier": "",
+            "statutFamilier": "lie",
             "niveau": 3,
             "pdvmax": 24,
-            "pdv": 24,
+            "pdv": 16,
             "manamax": 28,
-            "mana": 28,
+            "mana": 22,
             "etat": "Bonne Santé",
             "formes": [
                 {
@@ -757,7 +808,10 @@
                 },
                 {
                     "nom": "Aigle",
-                    "image": "Aigle"
+                    "image": "Aigle",
+                    "overrideX": 7,
+                    "overrideY": 120,
+                    "forceDivScale": 1.5
                 },
                 {
                     "nom": "Ours",
@@ -852,8 +906,11 @@
                 {
                     "emplacement": "Utilitaire",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Utilitaire",
+                        "image": "objets_de_jet",
+                        "nom": "Objets de jet",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
@@ -888,8 +945,8 @@
             "familier": {
                 "x": 847,
                 "y": 817,
-                "xcombat": -107,
-                "ycombat": 1065,
+                "xcombat": 1009,
+                "ycombat": 597,
                 "nom": "Pipou",
                 "image": "Pipou",
                 "team": 0,
@@ -918,7 +975,25 @@
                 "forceDivScale": 4
             },
             "argent": 0,
-            "inventaire": []
+            "inventaire": [
+                {
+                    "emplacement": "Utilitaire",
+                    "image": "objets_de_jet",
+                    "nom": "Objets de jet",
+                    "qte": 15,
+                    "taux": 0
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "qte": 3
+                },
+                {
+                    "image": "antidote",
+                    "nom": "Antidote",
+                    "qte": 1
+                }
+            ]
         },
         {
             "nom": "Coffre 01",
@@ -938,36 +1013,7 @@
             "team": 2,
             "etat": "Vérouillé",
             "actif": false,
-            "inventaire": [
-                {
-                    "nom": "Arc",
-                    "image": "arc",
-                    "emplacement": "Arme",
-                    "qte": 2
-                },
-                {
-                    "nom": "Flèches",
-                    "image": "fleches",
-                    "qte": 50
-                },
-                {
-                    "emplacement": "Utilitaire",
-                    "nom": "Objets de jet",
-                    "image": "objets_de_jet",
-                    "qte": 16
-                },
-                {
-                    "emplacement": "Utilitaire",
-                    "nom": "Carquois en cuir (20)",
-                    "image": "carquois_cuir",
-                    "qte": 2
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 36
-                }
-            ],
+            "inventaire": [],
             "peutBouger": false
         },
         {
@@ -987,28 +1033,7 @@
             "lieu": "portePrison",
             "team": 2,
             "etat": "Ouvert",
-            "inventaire": [
-                {
-                    "nom": "Crochets",
-                    "image": "crochets",
-                    "qte": 6
-                },
-                {
-                    "nom": "Petits Cristaux",
-                    "image": "petit_cristaux",
-                    "qte": 7
-                },
-                {
-                    "nom": "Gros Cristaux",
-                    "image": "gros_cristaux",
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 22
-                }
-            ],
+            "inventaire": [],
             "peutBouger": false,
             "actif": false
         },
@@ -1028,19 +1053,7 @@
             "ycombat": 624,
             "lieu": "portePrison",
             "team": 2,
-            "inventaire": [
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 12
-                },
-                {
-                    "emplacement": "Arme",
-                    "nom": "Dague Usée",
-                    "image": "dague_usee",
-                    "qte": 1
-                }
-            ],
+            "inventaire": [],
             "peutBouger": false,
             "actif": false
         },
@@ -1056,28 +1069,11 @@
             "id": "cadavre",
             "overrideX": 20,
             "overrideY": 113,
-            "xcombat": 1090,
-            "ycombat": 792,
+            "xcombat": 982,
+            "ycombat": 801,
             "lieu": "portePrison",
             "team": 2,
-            "inventaire": [
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 5
-                },
-                {
-                    "emplacement": "Arme",
-                    "nom": "Epée Rouillée",
-                    "image": "epee_rouillee",
-                    "qte": 1
-                },
-                {
-                    "nom": "Clé",
-                    "image": "cle",
-                    "qte": 1
-                }
-            ],
+            "inventaire": [],
             "peutBouger": false,
             "actif": false
         },
@@ -1149,9 +1145,9 @@
                     "manamax": 20
                 }
             ],
-            "team": 2,
-            "xcombat": 817,
-            "ycombat": 262,
+            "team": 1,
+            "xcombat": 726,
+            "ycombat": 389,
             "lieu": "passageprison",
             "inventaire": [
                 {
@@ -1249,10 +1245,10 @@
                     "manamax": 12
                 }
             ],
-            "xcombat": 179,
-            "ycombat": 358,
+            "xcombat": 391,
+            "ycombat": 283,
             "lieu": "passageprison",
-            "team": 2,
+            "team": 1,
             "inventaire": [
                 {
                     "image": "bandages",
@@ -1344,10 +1340,10 @@
                     "manamax": 12
                 }
             ],
-            "xcombat": 898,
-            "ycombat": 435,
+            "xcombat": 890,
+            "ycombat": 483,
             "lieu": "passageprison",
-            "team": 2,
+            "team": 1,
             "inventaire": [
                 {
                     "image": "bandages",
@@ -1368,8 +1364,8 @@
         {
             "x": 800,
             "y": 1,
-            "xcombat": 1465,
-            "ycombat": 417,
+            "xcombat": 1442,
+            "ycombat": 449,
             "nom": "Goliath de Percerelle",
             "image": "Goliath de Percerelle",
             "solo": true,
@@ -1383,7 +1379,6 @@
             "id": "goliathdepercerelle",
             "lieu": "armurierfjorh",
             "team": 1,
-            "boutique": "armurierfjorh",
             "actif": false
         },
         {
@@ -1928,8 +1923,8 @@
             "id": "stigius",
             "desc": "Apprenti prêtre de Fjorh, maître soigneur de Sienna",
             "team": 0,
-            "xcombat": 1141,
-            "ycombat": 553,
+            "xcombat": 1085,
+            "ycombat": 560,
             "lieu": "fjorh",
             "actif": false
         },
@@ -2130,8 +2125,8 @@
             "id": "arthemiskemp",
             "desc": "Une des participantes du tournoi de Dusk",
             "team": 1,
-            "xcombat": 735,
-            "ycombat": 443,
+            "xcombat": 719,
+            "ycombat": 435,
             "lieu": "fjorh",
             "actif": false
         },
@@ -2147,8 +2142,8 @@
             "id": "donalbert",
             "desc": "Barman de la ville de Fjorh, chaleureux.",
             "team": 1,
-            "xcombat": 854,
-            "ycombat": 334,
+            "xcombat": 862,
+            "ycombat": 324,
             "lieu": "tavernefjorh",
             "actif": false
         },
@@ -2165,11 +2160,13 @@
             "type": "boss",
             "desc": "Un des 4 bras droits armés du roi de Fjorh",
             "overrideX": 27,
-            "team": 1,
-            "xcombat": 1573,
-            "ycombat": 588,
+            "team": 0,
+            "xcombat": 1154,
+            "ycombat": 498,
             "lieu": "tavernefjorh",
-            "actif": false
+            "actif": false,
+            "x": 1177,
+            "y": 320
         },
         {
             "nom": "Soldat 06",
@@ -2240,8 +2237,8 @@
                 }
             ],
             "team": 1,
-            "xcombat": 63,
-            "ycombat": 375,
+            "xcombat": 25,
+            "ycombat": 339,
             "lieu": "tavernefjorh",
             "inventaire": [
                 {
@@ -2758,8 +2755,8 @@
             "mana": 12,
             "id": "boregonalv",
             "team": 1,
-            "xcombat": 1015,
-            "ycombat": 345,
+            "xcombat": 970,
+            "ycombat": 342,
             "lieu": "taverneghrain",
             "actif": false
         },
@@ -2775,8 +2772,8 @@
             "id": "gerongranduc",
             "desc": "Un des participants du tournoi de Dusk, timide",
             "team": 1,
-            "xcombat": 1516,
-            "ycombat": 489,
+            "xcombat": 1298,
+            "ycombat": 398,
             "lieu": "taverneghrain",
             "actif": false
         },
@@ -3349,8 +3346,8 @@
             "desc": "Un assassin présent lors du raid du repaire à Fjorh",
             "overrideX": 29,
             "team": 1,
-            "x": 930,
-            "y": 127,
+            "x": 893,
+            "y": 120,
             "lieu": "map",
             "actif": false
         },
@@ -3450,8 +3447,8 @@
             "mana": 72,
             "id": "soniastormwood",
             "team": 0,
-            "xcombat": 1220,
-            "ycombat": 610,
+            "xcombat": 1128,
+            "ycombat": 569,
             "lieu": "fjorh",
             "actif": false
         },
@@ -3727,16 +3724,38 @@
         }
     ],
     "lieuActuel": {
-        "parent": "fjorh",
-        "id": "prisonfjorh",
-        "nom": "Prison de Fjorh",
-        "image": "prisonFjorh",
-        "x": 440,
-        "y": 230,
-        "finx": 165,
-        "finy": 0,
+        "id": "fjorh",
+        "nom": "Fjorh",
+        "image": "Fjorh",
+        "parent": "map",
+        "x": 918,
+        "y": 377,
+        "position_start": [
+            {
+                "startX": 570,
+                "startY": 835
+            },
+            {
+                "startX": 585,
+                "startY": 835
+            },
+            {
+                "startX": 570,
+                "startY": 820
+            },
+            {
+                "startX": 570,
+                "startY": 850
+            },
+            {
+                "startX": 555,
+                "startY": 835
+            }
+        ],
+        "finx": 265,
+        "finy": 229,
         "desac": false,
-        "scale": 4
+        "scale": 0.6
     },
     "boutiques": [
         {
@@ -5873,52 +5892,8 @@
     ],
     "objets": [
         {
-            "nom": "Pieges",
-            "image": "item_pieges"
-        },
-        {
-            "nom": "Flèches",
-            "image": "fleches"
-        },
-        {
-            "nom": "Flèches de métal",
-            "image": "fleches_de_metal"
-        },
-        {
-            "emplacement": "Utilitaire",
-            "nom": "Objets de jet",
-            "image": "objets_de_jet"
-        },
-        {
-            "nom": "Queue de Rat Géant",
-            "image": "queue_rat_geant"
-        },
-        {
-            "nom": "Patte de Rat Géant",
-            "image": "patte_rat_geant"
-        },
-        {
-            "nom": "Parchemin non traduit",
-            "image": "item_parchemin"
-        },
-        {
-            "emplacement": "Arme",
-            "nom": "Dague en Acier",
-            "image": "dague_en_acier"
-        },
-        {
-            "emplacement": "Arme",
-            "nom": "Dague de magicien",
-            "image": "dague_magicien"
-        },
-        {
-            "emplacement": "Utilitaire",
-            "nom": "Carquois renforcé (50)",
-            "image": "carquoi_renforce"
-        },
-        {
-            "nom": "Bandages",
-            "image": "bandages"
+            "nom": "Antidote",
+            "image": "antidote"
         },
         {
             "emplacement": "Arme",
@@ -5931,65 +5906,13 @@
             "image": "arc_de_qualite"
         },
         {
-            "nom": "Patte de Rat Patriarche",
-            "image": "patte_rat_patriarche"
+            "nom": "Argent",
+            "image": "argent"
         },
         {
-            "nom": "Queue de Rat Patriarche",
-            "image": "queue_rat_patriarche"
-        },
-        {
-            "nom": "Herbes",
-            "image": "herbe"
-        },
-        {
-            "nom": "Potions",
-            "image": "potion"
-        },
-        {
-            "nom": "Petits Cristaux",
-            "image": "petit_cristaux"
-        },
-        {
-            "nom": "Gros Cristaux",
-            "image": "gros_cristaux"
-        },
-        {
-            "nom": "Matériaux",
-            "image": "ingredient"
-        },
-        {
-            "nom": "Antidote",
-            "image": "antidote"
-        },
-        {
-            "nom": "Saphir étrange",
-            "image": "saphir"
-        },
-        {
-            "nom": "Manuel de Survie",
-            "image": "livre"
-        },
-        {
-            "nom": "Coupon participation tournoi",
-            "image": "coupon"
-        },
-        {
-            "nom": "Contrat traque assassins",
-            "image": "contrat"
-        },
-        {
-            "nom": "Cristal de forge",
-            "image": "cristal"
-        },
-        {
-            "nom": "Peaux de loup",
-            "image": "peau_de_loup"
-        },
-        {
-            "emplacement": "Arme",
-            "nom": "Epée d'argent",
-            "image": "epee_argent"
+            "emplacement": "Torse",
+            "nom": "Armure de Chevalier",
+            "image": "armure_chevalier"
         },
         {
             "emplacement": "Torse",
@@ -5997,23 +5920,8 @@
             "image": "armure_renforcee_en_cuir"
         },
         {
-            "emplacement": "Arme",
-            "nom": "Sanada Yukimura",
-            "image": "sabre_grande_qualite"
-        },
-        {
-            "emplacement": "Torse",
-            "nom": "Tunique de prison",
-            "image": "tunique_prison"
-        },
-        {
-            "emplacement": "Jambes",
-            "nom": "Pantalon de prison",
-            "image": "pantalon_prison"
-        },
-        {
-            "nom": "Clef de la prison",
-            "image": "clef_prison"
+            "nom": "Bandages",
+            "image": "bandages"
         },
         {
             "nom": "Carquois en cuir (20)",
@@ -6021,8 +5929,29 @@
             "emplacement": "Utilitaire"
         },
         {
-            "nom": "Argent",
-            "image": "argent"
+            "emplacement": "Utilitaire",
+            "nom": "Carquois renforcé (50)",
+            "image": "carquoi_renforce"
+        },
+        {
+            "nom": "Clef de la prison",
+            "image": "clef_prison"
+        },
+        {
+            "nom": "Clé",
+            "image": "cle"
+        },
+        {
+            "nom": "Contrat traque assassins",
+            "image": "contrat"
+        },
+        {
+            "nom": "Coupon participation tournoi",
+            "image": "coupon"
+        },
+        {
+            "nom": "Cristal de forge",
+            "image": "cristal"
         },
         {
             "nom": "Crochets",
@@ -6035,22 +5964,112 @@
         },
         {
             "emplacement": "Arme",
+            "nom": "Dague de magicien",
+            "image": "dague_magicien"
+        },
+        {
+            "emplacement": "Arme",
+            "nom": "Dague en Acier",
+            "image": "dague_en_acier"
+        },
+        {
+            "emplacement": "Arme",
             "nom": "Epée Rouillée",
             "image": "epee_rouillee"
         },
         {
-            "nom": "Clé",
-            "image": "cle"
+            "emplacement": "Arme",
+            "nom": "Epée d'argent",
+            "image": "epee_argent"
+        },
+        {
+            "nom": "Flèches",
+            "image": "fleches"
+        },
+        {
+            "nom": "Flèches de métal",
+            "image": "fleches_de_metal"
+        },
+        {
+            "nom": "Gros Cristaux",
+            "image": "gros_cristaux"
+        },
+        {
+            "nom": "Herbes",
+            "image": "herbe"
+        },
+        {
+            "emplacement": "Jambes",
+            "nom": "Jambières de Chevalier",
+            "image": "jambieres_chevalier"
+        },
+        {
+            "nom": "Manuel de Survie",
+            "image": "livre"
+        },
+        {
+            "nom": "Matériaux",
+            "image": "ingredient"
+        },
+        {
+            "emplacement": "Utilitaire",
+            "nom": "Objets de jet",
+            "image": "objets_de_jet"
+        },
+        {
+            "emplacement": "Jambes",
+            "nom": "Pantalon de prison",
+            "image": "pantalon_prison"
+        },
+        {
+            "nom": "Parchemin non traduit",
+            "image": "item_parchemin"
+        },
+        {
+            "nom": "Patte de Rat Géant",
+            "image": "patte_rat_geant"
+        },
+        {
+            "nom": "Patte de Rat Patriarche",
+            "image": "patte_rat_patriarche"
+        },
+        {
+            "nom": "Peaux de loup",
+            "image": "peau_de_loup"
+        },
+        {
+            "nom": "Petits Cristaux",
+            "image": "petit_cristaux"
+        },
+        {
+            "nom": "Pieges",
+            "image": "item_pieges"
+        },
+        {
+            "nom": "Potions",
+            "image": "potion"
+        },
+        {
+            "nom": "Queue de Rat Géant",
+            "image": "queue_rat_geant"
+        },
+        {
+            "nom": "Queue de Rat Patriarche",
+            "image": "queue_rat_patriarche"
+        },
+        {
+            "emplacement": "Arme",
+            "nom": "Sanada Yukimura",
+            "image": "sabre_grande_qualite"
+        },
+        {
+            "nom": "Saphir étrange",
+            "image": "saphir"
         },
         {
             "emplacement": "Torse",
-            "nom": "Armure de Chevalier",
-            "image": "armure_chevalier"
-        },
-        {
-            "emplacement" : "Jambes",
-            "nom": "Jambières de Chevalier",
-            "image": "jambieres_chevalier"
+            "nom": "Tunique de prison",
+            "image": "tunique_prison"
         }
     ],
     "positionsStuff": [
@@ -6115,6 +6134,5 @@
             "y": 265
         }
     ],
-    "itemDragged": {},
     "admin": false
 }

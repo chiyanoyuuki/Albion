@@ -70,6 +70,9 @@ export class Equipement {
 export class Forme {
 	public nom: string;
 	public image: string;
+	public forceDivScale: number;
+	public overrideX: number;
+	public overrideY: number;
 }
 
 export class Boutique {

@@ -152,16 +152,25 @@ export class EntitesComponent implements OnInit {
     if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
     if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
     if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
+    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
     return 'scale(' + scale + ')';
   }
 
   public getTop(perso: Entite) {
     if (perso.overrideY) { return perso.overrideY + "%"; }
+    if (perso.joueur && perso.forme.overrideY) { return perso.forme.overrideY + "%"; }
     let scale = 1;
     if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
     if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
     if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
+    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
     return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
+  }
+
+  public getLeft(perso: Entite) {
+    if (perso.overrideX) { return perso.overrideX + '%'; }
+    if (perso.joueur && perso.forme.overrideX) { return perso.forme.overrideX + "%"; }
+    return '40%';
   }
 
   public getNewScale(perso: Entite) {
