@@ -11,6 +11,7 @@ import { of } from 'rxjs';
 export class EntitesComponent implements OnInit {
 
   @Input() data: Data;
+  @Input() mapHeight: number;
 
   public quetePrincipale: any;
   public queteSecondaire: any;
@@ -26,7 +27,6 @@ export class EntitesComponent implements OnInit {
   public persoActuel: string;
   public nomPersoActuel: string;
   public lastPersoClicked: Entite | undefined;
-  public mapHeight: number;
   public isToBeDisabled: boolean;
 
   constructor() { }
@@ -154,7 +154,7 @@ export class EntitesComponent implements OnInit {
     if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
     if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
     if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
-    return 'scale(' + scale + ')';
+    return scale;
   }
 
   public getTop(perso: Entite) {
@@ -176,13 +176,11 @@ export class EntitesComponent implements OnInit {
 
   public getNewScale(perso: Entite) {
     let scale = this.data.lieuActuel.scale - this.data.lieuActuel.scaleFond;
-    const map = document.getElementById("map");
+    let map = document.getElementById("map");
     if (map) {
-      if (this.mapHeight != map.offsetHeight) {
-        this.mapHeight = map.offsetHeight;
-      }
       let finFond = 0;
-      let height = this.mapHeight;
+      let height = map.offsetHeight;
+      console.log(height);
       if (this.data.lieuActuel.finFond) {
         finFond = this.data.lieuActuel.finFond;
       }

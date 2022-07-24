@@ -17,7 +17,9 @@ export class InfosEntiteComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+  
 
   getNom() {
     let nom = this.perso.nom;

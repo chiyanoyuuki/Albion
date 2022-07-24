@@ -16,6 +16,8 @@ export class MapComponent implements OnInit {
   public persoHovered: string[] = [];
   public menuContextuel: MenuContextuel | undefined;
   public audio: HTMLAudioElement;
+  public mapHeight: number;
+  public image: HTMLImageElement;
 
   constructor() { }
 
@@ -24,10 +26,16 @@ export class MapComponent implements OnInit {
     if (event.key == "F1") { this.data.admin = !this.data.admin; }
   }
 
+
   ngOnInit(): void {
+    /*this.image = document.getElementById("map") as HTMLImageElement;
+    this.image.onload = function() {
+      this.mapHeight = this.image.height;
+    }*/
   }
 
   musique(lieu: Lieu) {
+    
     if (lieu.musique) {
       if (!this.audio || (this.audio && !this.audio.src.endsWith(lieu.musique + ".mp3"))) {
         if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; }
@@ -90,12 +98,7 @@ export class MapComponent implements OnInit {
         this.data.lieuActuel = tmp;
       }
     }
-    if (lieu.musique) {
-      if (!this.audio || (this.audio && this.audio.src != lieu.musique)) {
-        this.musique(lieu);
-      }
-
-    }
+    this.musique(lieu);
   }
 
   rentrerLieu(lieu: Lieu) {

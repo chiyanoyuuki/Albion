@@ -2,11 +2,11 @@
     "entites": [
         {
             "id": "lunastormwood",
-            "x": 1499,
-            "y": 277,
-            "lieu": "fjorh",
-            "xcombat": 1051,
-            "ycombat": 583,
+            "x": 1352,
+            "y": 548,
+            "lieu": "map",
+            "xcombat": 696,
+            "ycombat": 710,
             "joueur": true,
             "nom": "Luna Stormwood",
             "histoire": "Origaire d'une grande famille d'alchimiste de la forêt d'aubelune au sud-est D'Albion dont le père est décédé et la mère à soudainement disparu il y plusieurs semaines. Luna se met donc en quête de retrouver sa mère, elle apprend que sa mère est parti vers le nord dans les montage pour étudier des phonèmes climatique étrange. Elle se met donc en route pour les montagnes, arrivée à l'endroit où la végétation a subis des changements inexplicable, Luna commence à s'interroger, après plusieurs jours de recherche, elle surprend une conversation avec un mercenaire et un homme qui vie dans les montagnes, ces deux personnes parlent d'une grosse pierre précieuse que le roi Herald recherche, après quelques instants, grâce aux recherches qu'elles a effectués ces jours précédents, elle commence à comprendre de quoi il s'agit et décide d'aller à la rencontre de ces deux hommes..",
@@ -16,9 +16,9 @@
             "niveau": 3,
             "pdvmax": 16,
             "statutFamilier": "lie",
-            "pdv": 10,
+            "pdv": 16,
             "manamax": 40,
-            "mana": 22,
+            "mana": 40,
             "etat": "Bonne Santé",
             "formes": [
                 {
@@ -204,11 +204,11 @@
         },
         {
             "id": "bjorncotesdefer",
-            "x": 1138,
-            "y": 348,
-            "lieu": "fjorh",
-            "xcombat": 777,
-            "ycombat": 447,
+            "x": 1298,
+            "y": 555,
+            "lieu": "map",
+            "xcombat": 1080,
+            "ycombat": 799,
             "nom": "Bjorn Côtes de Fer",
             "histoire": "Trapeur origaire des montagnes enneigées du nord D'Albion, Bjorn a vécu toute sa vie dans les montagnes, il vie de la chasse, de la pêche et de la vente de fourrure, il est accompagné depuis de nombreuses années par un loup blanc qu'il a recueilli bébé après qu'il ait malheureusement du tuer se mère pour survivre. Un jour où il était à la chasse, une tempête de neige se leva et forca Bjorn à se réfugier dans une grotte non loin de là. Cros blanc, le loup de Bjorn commenca à s'agiter après quelques instants, puis se mit à courir vers le fond de la grotte, Bjorn le suivi, les parois de la grotte commençaient à changer, les parois étaient devenues comme du cristal, Bjorn vi Croc blanc auprès d'une étrange grosse pierre bleu. Bjorn décida de la ramèner chez lui et de la cacher en pensant que cette pierre pourrait être précieuse. Après quelques temps, Bjorn remarqua des changements troublants sur la flore autour de chez lui et commenca à s'interroger, le lendemain il reçu la visite d'un mercenaire de renom à la recherche d'une pierre précieuse pour le Roi Herarld..",
             "classe": "trappeur",
@@ -217,7 +217,7 @@
             "niveau": 3,
             "joueur": true,
             "pdvmax": 30,
-            "pdv": 26,
+            "pdv": 30,
             "manamax": 15,
             "mana": 15,
             "etat": "Bonne Santé",
@@ -319,11 +319,12 @@
                 {
                     "emplacement": "Arme2",
                     "objet": {
-                        "emplacement": "Arme",
-                        "image": "arc",
-                        "nom": "Arc",
-                        "qte": 1,
-                        "taux": 0
+                        "emplacement": "",
+                        "nom": "",
+                        "image": "",
+                        "qte": 0,
+                        "taux": 0,
+                        "prix": 0
                     }
                 },
                 {
@@ -365,12 +366,12 @@
                     }
                 }
             ],
-            "statutFamilier": "",
+            "statutFamilier": "lie",
             "familier": {
                 "x": 1316,
                 "y": 977,
-                "xcombat": 985,
-                "ycombat": 494,
+                "xcombat": 770,
+                "ycombat": 867,
                 "nom": "Croc Blanc",
                 "image": "Croc Blanc",
                 "team": 0,
@@ -406,28 +407,28 @@
                 {
                     "image": "fleches",
                     "nom": "Flèches",
-                    "qte": 34,
+                    "qte": 30,
                     "taux": 0
                 }
             ]
         },
         {
             "id": "gandalfleroux",
-            "x": 1512,
-            "y": 309,
-            "xcombat": 1016,
+            "x": 1320,
+            "y": 566,
+            "xcombat": 856,
             "joueur": true,
-            "lieu": "fjorh",
-            "ycombat": 578,
+            "lieu": "map",
+            "ycombat": 836,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
             "classe": "mercenaire",
             "image": "mercenaire",
-            "statutFamilier": "",
+            "statutFamilier": "lie",
             "team": 0,
             "niveau": 3,
             "pdvmax": 38,
-            "pdv": 37,
+            "pdv": 24,
             "manamax": 12,
             "mana": 12,
             "etat": "Bonne Santé",
@@ -604,7 +605,7 @@
                 {
                     "image": "fleches",
                     "nom": "Flèches",
-                    "qte": 15,
+                    "qte": 13,
                     "taux": 0
                 }
             ]
@@ -787,12 +788,12 @@
         },
         {
             "id": "siennahurlevent",
-            "x": 1485,
+            "x": 1371,
             "joueur": true,
-            "y": 294,
-            "lieu": "fjorh",
-            "xcombat": 1087,
-            "ycombat": 613,
+            "y": 535,
+            "lieu": "map",
+            "xcombat": 691,
+            "ycombat": 603,
             "nom": "Sienna Hurlevent",
             "histoire": "Depuis son plus jeune age, Sienna a parcouru la forêt de XXX jusqu'à en reconnaitre les moindres changement dans la faune et la flore. Jeune druidesse elfe de 107 ans, elle a été formée aux arcanes de la magie de métamorphose par l'archimage Louge dans la plus grande discression. Les autres races ignores beaucoup de chose sur la vie des elfes après tout. Sienna s'est mis en tete de parcourir le monde au coté de son fidèle compagnon, Pipou l'écureuil. Elle a un but précis : trouver un remède pour guérir sa famille rongé par un maux qu'aucun elfe n'a encore vu auparavant.",
             "classe": "druide",
@@ -801,9 +802,9 @@
             "statutFamilier": "lie",
             "niveau": 3,
             "pdvmax": 24,
-            "pdv": 16,
+            "pdv": 24,
             "manamax": 28,
-            "mana": 22,
+            "mana": 28,
             "etat": "Bonne Santé",
             "formes": [
                 {
@@ -992,18 +993,13 @@
                     "emplacement": "Utilitaire",
                     "image": "objets_de_jet",
                     "nom": "Objets de jet",
-                    "qte": 15,
+                    "qte": 21,
                     "taux": 0
                 },
                 {
                     "image": "potion",
                     "nom": "Potions",
                     "qte": 3
-                },
-                {
-                    "image": "antidote",
-                    "nom": "Antidote",
-                    "qte": 1
                 }
             ]
         },
@@ -2194,8 +2190,8 @@
             "desc": "Un des 4 bras droits armés du roi de Fjorh",
             "overrideX": 27,
             "team": 0,
-            "xcombat": 1154,
-            "ycombat": 498,
+            "xcombat": 875,
+            "ycombat": 524,
             "lieu": "tavernefjorh",
             "actif": false,
             "x": 1177,
@@ -2629,10 +2625,12 @@
             "mana": 31,
             "id": "ezironproval",
             "team": 1,
-            "xcombat": 921,
-            "ycombat": 375,
-            "lieu": "haul",
-            "actif": false
+            "xcombat": 1719,
+            "ycombat": 710,
+            "lieu": "iledragon",
+            "actif": false,
+            "x": 472,
+            "y": 289
         },
         {
             "nom": "Gontrand",
@@ -2650,133 +2648,6 @@
             "ycombat": 625,
             "lieu": "haul",
             "actif": false
-        },
-        {
-            "nom": "Norbert Sonn",
-            "image": "Norbert Sonn",
-            "solo": true,
-            "niveau": 5,
-            "pdvmax": 80,
-            "pdv": 80,
-            "manamax": 0,
-            "mana": 0,
-            "id": "norbertsonn",
-            "desc": "Le gagnant du tournoi de Dusk, ainsi que le 'Bro' de Gandalf",
-            "team": 1,
-            "xcombat": 453,
-            "ycombat": 622,
-            "lieu": "plage",
-            "actif": false,
-            "forceDivScale": 0.6
-        },
-        {
-            "nom": "Gonzag Pierdu",
-            "image": "Gonzag Pierdu",
-            "solo": true,
-            "niveau": 4,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 24,
-            "mana": 24,
-            "id": "gonzagpierdu",
-            "desc": "Un des participants du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 1054,
-            "ycombat": 510,
-            "lieu": "plage",
-            "actif": false
-        },
-        {
-            "nom": "Roturi Darpez",
-            "image": "Roturi Darpez",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 24,
-            "pdv": 9,
-            "manamax": 17,
-            "mana": 9,
-            "id": "roturidarpez",
-            "team": 1,
-            "xcombat": 487,
-            "ycombat": 421,
-            "lieu": "haulisland",
-            "actif": false
-        },
-        {
-            "nom": "Assassin 02",
-            "image": "assassins",
-            "solo": false,
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 8,
-            "mana": 8,
-            "id": "assassin",
-            "actif": false,
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 6
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "team": 2,
-            "xcombat": 654,
-            "ycombat": 394,
-            "lieu": "haulisland"
-        },
-        {
-            "nom": "Assassin 03",
-            "image": "assassins",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 10,
-            "pdv": 10,
-            "manamax": 6,
-            "mana": 6,
-            "id": "assassin",
-            "actif": false,
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 6
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "team": 2,
-            "xcombat": 264,
-            "ycombat": 404,
-            "lieu": "haulisland"
         },
         {
             "nom": "Boregon Alv",
@@ -2843,135 +2714,6 @@
             "xcombat": 698,
             "ycombat": 606,
             "lieu": "ghrain",
-            "actif": false
-        },
-        {
-            "nom": "Loup Sauvage 03",
-            "image": "loupsauvage",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 8,
-            "mana": 8,
-            "id": "loup",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 12,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 36,
-                    "manamax": 16
-                }
-            ],
-            "team": 2,
-            "xcombat": 1230,
-            "ycombat": 765,
-            "lieu": "foretestfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Loup Sauvage 04",
-            "image": "loupsauvage",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 8,
-            "mana": 8,
-            "id": "loup",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 12,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 36,
-                    "manamax": 16
-                }
-            ],
-            "team": 2,
-            "xcombat": 1042,
-            "ycombat": 806,
-            "lieu": "foretestfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Loup Sauvage 05",
-            "image": "loupsauvage",
-            "solo": false,
-            "niveau": 5,
-            "pdvmax": 36,
-            "pdv": 36,
-            "manamax": 16,
-            "mana": 16,
-            "id": "loup",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 12,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 36,
-                    "manamax": 16
-                }
-            ],
-            "team": 2,
-            "xcombat": 1156,
-            "ycombat": 843,
-            "lieu": "foretestfjorh",
             "actif": false
         },
         {
@@ -3703,7 +3445,8 @@
             "team": 1,
             "xcombat": 1036,
             "ycombat": 606,
-            "lieu": "forteresse"
+            "lieu": "forteresse",
+            "actif": false
         },
         {
             "nom": "Dragon",
@@ -3723,7 +3466,8 @@
             "ycombat": 409,
             "lieu": "forteresse",
             "forceDivScale": 0.3,
-            "holo": true
+            "holo": true,
+            "actif": false
         }
     ],
     "quetes": [
@@ -3850,39 +3594,17 @@
         }
     ],
     "lieuActuel": {
-        "id": "fjorh",
-        "nom": "Fjorh",
-        "image": "Fjorh",
-        "parent": "map",
-        "musique": "fjorh",
-        "x": 918,
-        "y": 377,
-        "position_start": [
-            {
-                "startX": 570,
-                "startY": 835
-            },
-            {
-                "startX": 585,
-                "startY": 835
-            },
-            {
-                "startX": 570,
-                "startY": 820
-            },
-            {
-                "startX": 570,
-                "startY": 850
-            },
-            {
-                "startX": 555,
-                "startY": 835
-            }
-        ],
-        "finx": 265,
-        "finy": 229,
-        "desac": false,
-        "scale": 0.6
+        "id": "map",
+        "nom": "map",
+        "image": "map",
+        "x": 0,
+        "y": 0,
+        "finx": 0,
+        "finy": 0,
+        "desac": true,
+        "parent": "",
+        "scale": 0.5,
+        "musique": "map"
     },
     "boutiques": [
         {
