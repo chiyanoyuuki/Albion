@@ -3,13 +3,13 @@
     position: absolute;
     width: 140px;
     z-index: 1;
+    height: 0px;
 }
 
 .entite {
     border: 1px solid transparent;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    transition: all 0.2s;
 }
 
 .entite:hover {
@@ -21,7 +21,7 @@
 
 //TEXTES =====================================
 .text {
-    background-color: #000000bb;
+    background-color: #00ff0030;
     color: white;
     text-align: center;
 }

@@ -2,13 +2,15 @@
 
     <img draggable="false" class="retour" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png"
         (click)="clickRetour()" (mouseover)="focus=undefined" />
-    <img draggable="false" class="map" src="./assets/images/maps/{{data.lieuActuel.image}}.png" (click)="clicMap()"
-        (contextmenu)="clicDroitMap($event)" id="map" />
+    <img draggable="false" class="map" src="./assets/images/maps/{{data.lieuActuel.image}}.png"
+        (click)="clicMap($event)" (contextmenu)="clicDroitMap($event)" id="map"
+        [style.border]="data.admin?'20px ridge #dd2020':'20px ridge #202020'" />
 
     <!-- ========================== LIEUX ========================== -->
 
     <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'" [style.top]="lieu.y+'px'"
-        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="rentrerLieu(lieu)">
+        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="rentrerLieu(lieu)"
+        [cdkDragDisabled]="!data.admin" (cdkDragEnded)="endDragLieu($event,lieu)" cdkDrag>
 
         <!--(cdkDragEnded)="dragEnd($event,lieu)" 
         cdkDrag>-->
@@ -16,10 +18,9 @@
         <p class="nomLieu" (mouseover)="focus=undefined">{{lieu.nom}}</p>
 
         <div class="personnagesInside">
-            <div *ngFor="let perso of getPersonnagesDansLieu(lieu)">
-                <app-icone-personnage  [perso]="perso"
-                    *ngIf="(lieu.canSeeInside!=undefined&&!lieu.canSeeInside&&perso.joueur)||(lieu.canSeeInside==undefined||lieu.canSeeInside)"
-                    (mouseover)="focus=perso" (click)="sortirPerso(lieu,perso)"></app-icone-personnage>
+            <div *ngFor="let perso of getJoueursDansLieu(lieu)">
+                <app-icone-personnage [perso]="perso" (mouseover)="focus=perso" (click)="sortirPerso(lieu,perso)">
+                </app-icone-personnage>
             </div>
         </div>
 
@@ -62,7 +63,7 @@
 
     <!-- ========================== PERSONNAGES ========================== -->
 
-    <app-entites [data]="data" class="entites"></app-entites>
+    <app-entites [data]="data" [mapHeight]="mapHeight" class="entites"></app-entites>
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 

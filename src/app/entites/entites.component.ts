@@ -11,6 +11,7 @@ import { of } from 'rxjs';
 export class EntitesComponent implements OnInit {
 
   @Input() data: Data;
+  @Input() mapHeight: number;
 
   public quetePrincipale: any;
   public queteSecondaire: any;
@@ -26,7 +27,7 @@ export class EntitesComponent implements OnInit {
   public persoActuel: string;
   public nomPersoActuel: string;
   public lastPersoClicked: Entite | undefined;
-  public mapHeight: number;
+  public isToBeDisabled: boolean;
 
   constructor() { }
 
@@ -152,28 +153,52 @@ export class EntitesComponent implements OnInit {
     if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
     if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
     if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
-    return 'scale(' + scale + ')';
+    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
+    return scale;
   }
 
   public getTop(perso: Entite) {
     if (perso.overrideY) { return perso.overrideY + "%"; }
+    if (perso.joueur && perso.forme.overrideY) { return perso.forme.overrideY + "%"; }
     let scale = 1;
     if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
     if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
     if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
+    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
     return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
+  }
+
+  public getLeft(perso: Entite) {
+    if (perso.overrideX) { return perso.overrideX + '%'; }
+    if (perso.joueur && perso.forme.overrideX) { return perso.forme.overrideX + "%"; }
+    return '40%';
   }
 
   public getNewScale(perso: Entite) {
     let scale = this.data.lieuActuel.scale - this.data.lieuActuel.scaleFond;
-    const map = document.getElementById("map");
+    let map = document.getElementById("map");
     if (map) {
-      if (this.mapHeight != map.offsetHeight) {
-        this.mapHeight = map.offsetHeight;
+      let finFond = 0;
+      let height = map.offsetHeight;
+      console.log(height);
+      if (this.data.lieuActuel.finFond) {
+        finFond = this.data.lieuActuel.finFond;
       }
-      let div = (this.mapHeight - 600) / (perso.ycombat - 250);
-      scale = scale / div + this.data.lieuActuel.scaleFond;
+      height = height - finFond;
+      let posYPerso = perso.ycombat + 250;
+      if (finFond != 0 && posYPerso < this.data.lieuActuel.finFond) {
+        scale = this.data.lieuActuel.scaleFond;
+      }
+      else {
+        posYPerso = posYPerso - finFond;
+        let div = height / posYPerso;
+        scale = scale / div + this.data.lieuActuel.scaleFond;
+      }
     }
     return scale;
+  }
+
+  public checkIfDisable() {
+    this.lastPersoClicked = undefined;
   }
 }

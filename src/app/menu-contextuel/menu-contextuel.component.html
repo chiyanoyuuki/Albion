@@ -1,8 +1,10 @@
 <div class="fenetre" [style.left]="menu.x+'px'" [style.top]="menu.y+'px'" cdkDrag>
-    <div *ngIf="add==false">
+    <div *ngIf="add==false&&addObjet==false">
+        <p *ngIf="menu.type=='entite'&&data.admin" class="choix" (click)="addObjet=true;">(A) Ajouter un objet</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="add=true;">Ajouter une entité</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
-        <p *ngIf="menu.type=='entite'&&getQuetes()" class="choix" (click)="quete=true;">Quetes ({{nbrQuetes}})</p>
+        <p *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix" (click)="quete=true;">Quetes ({{nbrQuetes}})
+        </p>
         <p *ngIf="menu.type=='entite'&&perso.team!=0" class="choix" (click)="deletion()">{{delete}}</p>
         <p *ngIf="menu.type=='entite'&&perso.familier" class="choix" (click)="clickLierFamilier()">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
@@ -50,7 +52,7 @@
 
         </div>
         <div class="apercu" *ngIf="entitySelected">
-            <app-infos-entite [perso]="entitySelected"></app-infos-entite>
+            <app-infos-entite [perso]="entitySelected" [data]="data"></app-infos-entite>
             <!-- LEVEL =================================================== -->
 
             <app-level [niveau]="entitySelected.niveau"></app-level>
@@ -68,6 +70,62 @@
             </div>
         </div>
         <p class="choix" *ngIf="entitySelected!=undefined" (click)="addEntity()">Valider</p>
+    </div>
+
+    <div *ngIf="addObjet==true">
+        <p class="croix clickable" (click)="close()">X</p>
+        <p class="clickable"
+            (click)="choixTypeObjet='Ajouter un objet'?choixTypeObjet='Ajouter un loot':choixTypeObjet='Ajouter un objet'">
+            {{choixTypeObjet}}</p>
+        <div class="line"></div>
+        <div class="flex levels">
+            <p *ngFor="let letter of alphabet" class="choix"
+                (click)="letterSelected==letter?letterSelected='':letterSelected=letter"
+                [style.color]="letterSelected==letter?'red':'white'">{{letter}}</p>
+        </div>
+        <div class="flex levels wrap">
+            <p class="level">Emplacement :</p>
+            <p *ngFor="let emplacement of emplacements" class="choix"
+                (click)="emplacementSelected==emplacement?emplacementSelected='':emplacementSelected=emplacement"
+                [style.color]="emplacementSelected==emplacement?'red':'white'">{{emplacement}}</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="persos objets flex wrap">
+            <div *ngFor="let objet of getLoot()" (mouseover)="objetFocus=objet" (click)="clickLoot(objet)">
+                <div class="objet">
+                    <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
+                    <p>{{objet.taux}}%</p>
+                    <p>{{objet.qte}}</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="clickable" (click)="deleteLoot()">Supprimer</p>
+
+        <div class="line"></div>
+
+        <div class="apercu flexCenter" *ngIf="objetSelected">
+            <div class="objet">
+                <img *ngIf="objetSelected.image" src="./assets/images/items/{{ objetSelected.image }}.png" />
+            </div>
+            <p class="nomItemApercu">{{objetSelected.nom}}</p>
+            <div class="formulaire">
+                <p>Taux : </p><input type="text" [(ngModel)]="taux">
+                <p>Quantite : </p><input type="text" [(ngModel)]="quantite">
+            </div>
+        </div>
+        <p>{{objetFocus?objetFocus.nom:'-'}}</p>
+        <div class="persos objets flex wrap">
+            <div *ngFor="let objet of getObjetsPossibles()" (mouseover)="objetFocus=objet"
+                (click)="objetSelected=objet">
+                <div class="objet">
+                    <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
+                </div>
+            </div>
+        </div>
+        <p class="choix" *ngIf="objetSelected!=undefined" (click)="addItem()">Valider</p>
     </div>
 </div>
 

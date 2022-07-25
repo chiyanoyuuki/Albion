@@ -1,7 +1,6 @@
 export class Data {
 	public entites: Entite[];
-	public quetesprincipales: Quete[];
-	public quetessecondaires: Quete[];
+	public quetes: Quete[];
 	public lieuActuel: Lieu;
 	public boutiques: Boutique[];
 	public lieux: Lieu[];
@@ -9,6 +8,8 @@ export class Data {
 	public positionsStuff: { emplacement: string, x: number, y: number }[];
 	public objets: ObjetInventaire[];
 	public itemDragged: { perso: Entite, item: ObjetInventaire } | undefined;
+	public admin: boolean;
+	public pnjs: Entite[];
 }
 
 export class Entite {
@@ -54,6 +55,7 @@ export class Entite {
 	public quetes: Quete[];
 	public loot: ObjetInventaire[];
 	public peutBouger: boolean;
+	public holo: boolean;
 }
 
 export class Sort {
@@ -69,6 +71,9 @@ export class Equipement {
 export class Forme {
 	public nom: string;
 	public image: string;
+	public forceDivScale: number;
+	public overrideX: number;
+	public overrideY: number;
 }
 
 export class Boutique {
@@ -94,9 +99,10 @@ export class Quete {
 	public etapes: Etape[];
 	public recompenses: ObjetInventaire[];
 	public paiement: number;
+	public perso: string;
 }
 
-export class Etape{
+export class Etape {
 	public id: number;
 	public nom: string;
 	public description: string;
@@ -123,10 +129,12 @@ export class Lieu {
 	public parent: string;
 	public scale: number;
 	public scaleFond: number;
-	public entreex: number;
-	public entreey: number;
 	public canEnter: boolean;
 	public canSeeInside: boolean;
+	public to: string;
+	public bords: boolean;
+	public finFond: number;
+	public musique: string;
 }
 
 export class Combat {

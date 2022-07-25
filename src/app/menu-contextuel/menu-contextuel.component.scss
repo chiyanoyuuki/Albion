@@ -12,6 +12,21 @@ p {
     white-space: nowrap;
 }
 
+.objets {
+    max-height: 110px;
+    overflow-y: scroll;
+}
+
+.objet img {
+    width: 36px;
+    height: 36px;
+}
+
+.objet:hover {
+    filter: brightness(50%);
+    cursor: pointer;
+}
+
 .persos {
     max-width: 560px;
     overflow-x: auto;
@@ -51,7 +66,7 @@ p {
 }
 
 /* containerQuete */
-.containerQuete{
+.containerQuete {
     background-image: url("../../assets/images/fond-stats.png");
     width: 400px;
     top: -250px;
@@ -63,6 +78,7 @@ p {
     cursor: move;
     color: white;
 }
+
 .croix {
     position: absolute;
     top: -10px;
@@ -76,23 +92,28 @@ p {
     border-radius: 100%;
     z-index: 1;
 }
-.descriptionQuetes{
+
+.descriptionQuetes {
     background-image: url("../../assets/images/fond_parchemin.png");
     padding: 0.5rem;
     gap: 0.5rem;
 }
-.descriptionQuetes p{
+
+.descriptionQuetes p {
     color: black;
 }
-.nomQuetes{
+
+.nomQuetes {
     background-image: url("../../assets/images/fond_jaune_fonce.png");
 }
-.recompensePaiement{
+
+.recompensePaiement {
     height: 100px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
-.recompense{
+
+.recompense {
     background-color: #40404050;
     padding: 5px;
     border: 1px solid black;
@@ -100,13 +121,29 @@ p {
     width: 44%;
     height: 50px;
 }
+
 .golds img {
     width: 30px;
     height: 20px;
 }
+
 .bigText {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
     width: 100%;
+}
+
+.formulaire {
+    position: relative;
+}
+
+.formulaire p {
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.nomItemApercu {
+    white-space: nowrap;
+    padding: 10px;
 }

@@ -17,6 +17,14 @@ export class InfosEntiteComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+  
+
+  getNom() {
+    let nom = this.perso.nom;
+    if (!this.data.admin) { nom = nom.replace(/ *[0-9]+ *$/g, ""); }
+    return nom;
   }
 
   form(perso: Entite) {
@@ -44,7 +52,7 @@ export class InfosEntiteComponent implements OnInit {
   }
 
   infoPerso() {
-    if (this.perso.joueur || (this.perso.team > 0 && this.perso.pdv == 0) || this.perso.boutique == this.data.lieuActuel.id) {
+    if (this.perso.joueur || (this.perso.team > 0 && this.perso.pdv == 0) || this.perso.boutique == this.data.lieuActuel.id || (this.perso.team > 0 && this.data.admin)) {
       this.persoActuel.emit(this.perso);
     }
   }
