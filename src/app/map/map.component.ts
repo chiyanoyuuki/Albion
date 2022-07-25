@@ -35,7 +35,7 @@ export class MapComponent implements OnInit {
   }
 
   musique(lieu: Lieu) {
-    
+
     if (lieu.musique) {
       if (!this.audio || (this.audio && !this.audio.src.endsWith(lieu.musique + ".mp3"))) {
         if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; }
@@ -193,6 +193,7 @@ export class MapComponent implements OnInit {
   public addEntity(addEntite: addEntity) {
     let test = false;
     this.menuContextuel = undefined;
+    addEntite.entite.inventaire = [];
     if (this.data.lieuActuel.id == 'map') {
       addEntite.entite.x = addEntite.menuContextuel.x;
       addEntite.entite.y = addEntite.menuContextuel.y;
