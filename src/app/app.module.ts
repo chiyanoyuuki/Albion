@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { StatsPersonnageComponent } from './graphiques/stats-personnage/stats-personnage.component';
 import { FormulaireComponent } from './graphiques/formulaire/formulaire.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LieuxComponent } from './graphiques/lieux/lieux.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LevelComponent,
     InfosEntiteComponent,
     StatsPersonnageComponent,
-    FormulaireComponent
+    FormulaireComponent,
+    LieuxComponent
   ],
   imports: [
     BrowserModule,
