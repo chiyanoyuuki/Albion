@@ -2,7 +2,7 @@ import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output, SimpleChanges, HostBinding } from '@angular/core';
 import { addEntity, Data, Entite, Lieu, MenuContextuel, ObjetInventaire, Position, Animation, Quete, Etape } from '../model';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { AppService } from '../app.service';
+import { AppService } from '../services/app.service';
 
 @Component({
   selector: 'app-map',
@@ -26,29 +26,15 @@ export class MapComponent implements OnInit {
   public oiseaux: boolean;
   public menuContextuel: MenuContextuel | undefined;
 
-  public windowWidth: number;
+  public windowWidth: number = 1920;
   public windowHeight: number;
   public cataclysme: boolean;
 
-  constructor(private appService:AppService) { }
+  constructor(private appService: AppService) { }
 
   @HostListener('window:keyup', ['$event'])
   keyDownEvent(event: KeyboardEvent) {
     if (event.key == "F1") { this.data.admin = !this.data.admin; }
-    if (event.key == "F8") {
-      this.cataclysme = !this.cataclysme;
-      let map = this.data.lieux.find((lieu: Lieu) => lieu.id == "map");
-      if (map) {
-        map.image = "map2";
-        if (this.data.lieuActuel.id == "map") {
-          this.data.lieuActuel.image = "map2";
-        }
-      }
-      let campdesaventuriers = this.data.lieux.find((lieu: Lieu) => lieu.id == "campdesaventuriers");
-      if (campdesaventuriers) {
-        campdesaventuriers.parent = "map";
-      }
-    }
   }
 
 
@@ -57,12 +43,7 @@ export class MapComponent implements OnInit {
     this.image.onload = function() {
       this.mapHeight = this.image.height;
     }*/
-    this.getAnimation();
-    this.windowHeight = window.innerHeight;
-    this.windowWidth = window.innerWidth;
-    if (this.windowWidth > 1920) {
-      this.windowWidth = 1920
-    }
+    //this.getAnimation();
   }
 
   getAnimation() {
@@ -85,11 +66,7 @@ export class MapComponent implements OnInit {
     if (this.data.admin) { console.log("MouseY : " + event.offsetY); }
   }
 
-  clickRetour() {
-    this.menuContextuel = undefined;
-    let lieutmp = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.parent);
-    if (lieutmp) { this.data.lieuActuel = lieutmp; }
-  }
+
 
   clicDroitMap(event: MouseEvent) {
     this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" };
@@ -111,14 +88,8 @@ export class MapComponent implements OnInit {
     let test = false;
     this.menuContextuel = undefined;
     addEntite.entite.inventaire = [];
-    if (this.data.lieuActuel.id == 'map') {
-      addEntite.entite.x = addEntite.menuContextuel.x;
-      addEntite.entite.y = addEntite.menuContextuel.y;
-    }
-    else {
-      addEntite.entite.xcombat = addEntite.menuContextuel.x;
-      addEntite.entite.ycombat = addEntite.menuContextuel.y;
-    }
+    addEntite.entite.x = addEntite.menuContextuel.x;
+    addEntite.entite.y = addEntite.menuContextuel.y;
     addEntite.entite.lieu = this.data.lieuActuel.id;
 
     if (addEntite.team == "Ami") { addEntite.entite.team = 0; }

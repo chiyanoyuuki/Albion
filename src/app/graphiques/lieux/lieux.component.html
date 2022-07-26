@@ -20,7 +20,7 @@
     <div class="changeLieu fenetre" *ngIf="changingTo&&changingTo==lieu&&(lieu.canEnter==undefined||lieu.canEnter)">
         <p class="bigText">Qui rentre dans {{changingTo.nom}} ?</p>
         <div class="line"></div>
-        <div class="flexCenter">
+        <div class="flexCenter nowrap">
             <div>
                 <app-icone-personnage *ngFor="let perso of getEntitesPresentes(0)" [perso]="perso"
                     (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
@@ -29,7 +29,7 @@
             </div>
         </div>
         <p class="nomPerso">{{persoHovered[0]}}</p>
-        <div class="flexCenter">
+        <div class="flexCenter nowrap">
             <div>
                 <app-icone-personnage *ngFor="let perso of getEntitesPresentes(1)" [perso]="perso"
                     (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
@@ -38,7 +38,7 @@
             </div>
         </div>
         <p class="nomPerso">{{persoHovered[1]}}</p>
-        <div class="flexCenter">
+        <div class="flexCenter nowrap">
             <div>
                 <app-icone-personnage *ngFor="let perso of getEntitesPresentes(2)" [perso]="perso"
                     (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"

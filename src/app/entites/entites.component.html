@@ -1,8 +1,7 @@
 <div>
     <div [ngClass]="{'container':true,'dead':(perso.pdv<=0&&perso.id!='coffre'),'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}"
-        *ngFor="let perso of getEntitesPresentes()"
-        [style.left]="(data.lieuActuel.parent==''?perso.x:perso.xcombat)+'px'"
-        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.ycombat)+'px'"
+        *ngFor="let perso of getEntitesPresentes()" [style.left]="(data.lieuActuel.parent==''?perso.x:perso.x)+'px'"
+        [style.top]="(data.lieuActuel.parent==''?perso.y:perso.y)+'px'"
         [style.z-index]="(perso==lastPersoClicked&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?9:1"
         (cdkDragEnded)="dragEnd($event,perso)" (contextmenu)="clicDroit($event, perso)" cdkDrag>
 
@@ -10,29 +9,13 @@
 
         <div class="entite" (mouseleave)="checkIfDisable()" [style.opacity]="lastPersoClicked==perso?'1':'0'"
             [style.pointer-events]="lastPersoClicked==perso?'unset':'none'">
-            <app-infos-entite [perso]="perso" [data]="data" (persoActuel)="clickPersoActuel($event)"></app-infos-entite>
+            <app-infos-entite [perso]="perso" [data]="data"></app-infos-entite>
         </div>
 
         <!-- IMAGE + SHADOW =================================================== -->
 
-        <div class="containerPerso" id="containerPerso{{perso.nom}}" [style.top]="getTop(perso)"
-            [style.scale]="getScale(perso)" (mouseenter)="lastPersoClicked=perso" [style.left]="getLeft(perso)">
-            <div class="perso" [ngClass]="{'revert':isReverted(perso)}">
-                <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
-                    [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'"
-                    [style.height]="perso.familier.posHeight+'px'"
-                    src="./assets/images/entites/{{perso.familier.image}}.png" cdkDragHandle />
-                <img class="imageperso" *ngIf="perso.joueur" draggable="false"
-                    src="./assets/images/entites/{{perso.forme.image}}.png" cdkDragHandle />
-                <img class="imageperso" *ngIf="!perso.joueur" draggable="false"
-                    src="./assets/images/entites/{{perso.image}}.png" cdkDragHandle />
-                <div class="flexCenter">
-                    <div *ngIf="perso.id!='cadavre'&&(data.lieuActuel.scale&&data.lieuActuel.scale<2)" class="shadow"
-                        cdkDragHandle>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <app-image-shadow-perso [data]="data" [perso]="perso" (mouseenter)="lastPersoClicked=perso">
+        </app-image-shadow-perso>
 
         <!-- LEVEL =================================================== -->
 
@@ -48,8 +31,8 @@
 
         <!-- STATS PERSO ACTIF ================================================= -->
 
-        <app-stats-personnage [perso]="perso" [data]="data" (closeForm)="persoActuel='';nomPersoActuel=''"
-            (mouseenter)="lastPersoClicked=perso" *ngIf="perso.actif==true">
+        <app-stats-personnage [perso]="perso" [data]="data" (mouseenter)="lastPersoClicked=perso"
+            *ngIf="perso.actif==true">
         </app-stats-personnage>
 
     </div>

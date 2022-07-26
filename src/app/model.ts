@@ -14,11 +14,9 @@ export class Data {
 }
 
 export class Entite {
-	public lieu: string;
 	public x: number;
 	public y: number;
-	public xcombat: number;
-	public ycombat: number;
+	public lieu: string;
 	public nom: string;
 	public etat: string;
 	public niveau: number;

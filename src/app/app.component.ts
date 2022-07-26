@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Entite, Equipement, Lieu, ObjetInventaire } from './model';
 import DATA from '../assets/data.json';
 import { HttpClient } from '@angular/common/http';
-import { AppService } from './app.service';
+import { AppService } from './services/app.service';
 
 @Component({
   selector: 'app-root',

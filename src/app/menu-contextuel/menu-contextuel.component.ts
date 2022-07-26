@@ -225,8 +225,8 @@ export class MenuContextuelComponent implements OnInit {
         this.perso.familier.y = this.perso.y;
       }
       else {
-        this.perso.familier.xcombat = this.perso.x + 50;
-        this.perso.familier.ycombat = this.perso.y;
+        this.perso.familier.x = this.perso.x + 50;
+        this.perso.familier.y = this.perso.y;
       }
       this.perso.statutFamilier = 'affiche'
     }

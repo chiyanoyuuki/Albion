@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PanneauQuetesComponent } from './graphiques/panneau-quetes/panneau-quetes.component';
 import { LieuxComponent } from './graphiques/lieux/lieux.component';
 import { FeuilleQueteComponent } from './graphiques/feuille-quete/feuille-quete.component';
+import { ImageShadowPersoComponent } from './graphiques/image-shadow-perso/image-shadow-perso.component';
+import { BackgroundComponent } from './graphiques/background/background.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { FeuilleQueteComponent } from './graphiques/feuille-quete/feuille-quete.
     FormulaireComponent,
     PanneauQuetesComponent,
     LieuxComponent,
-    FeuilleQueteComponent
+    FeuilleQueteComponent,
+    ImageShadowPersoComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,

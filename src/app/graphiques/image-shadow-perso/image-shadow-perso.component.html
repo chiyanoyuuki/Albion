@@ -1,0 +1,18 @@
+<div class="containerPerso" id="containerPerso{{perso.nom}}" [style.top]="getTop(perso)" [style.scale]="getScale(perso)"
+     [style.left]="getLeft(perso)">
+    <div class="perso" [ngClass]="{'revert':isReverted()}">
+        <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
+            [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'"
+            [style.height]="perso.familier.posHeight+'px'" src="./assets/images/entites/{{perso.familier.image}}.png"
+            cdkDragHandle />
+        <img class="imageperso" *ngIf="perso.joueur" draggable="false"
+            src="./assets/images/entites/{{perso.forme.image}}.png" cdkDragHandle />
+        <img class="imageperso" *ngIf="!perso.joueur" draggable="false"
+            src="./assets/images/entites/{{perso.image}}.png" cdkDragHandle />
+        <div class="flexCenter">
+            <div *ngIf="perso.id!='cadavre'&&(data.lieuActuel.scale&&data.lieuActuel.scale<2)" class="shadow"
+                cdkDragHandle>
+            </div>
+        </div>
+    </div>
+</div>
