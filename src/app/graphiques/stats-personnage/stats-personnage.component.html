@@ -136,6 +136,7 @@
                     <p *ngIf="item.qte>0" class="qteObjet">{{item.qte}}</p>
                 </div>
             </div>
+            <app-feuille-quete [focusQuete]="focusQuete" [ongletActif]="ongletActif" *ngIf="focusQuete!=undefined"></app-feuille-quete>
 
             <div class="inventaire" *ngIf="ongletActif == 'sorts'">
                 <div class="objet" *ngFor="let sort of getSorts()" (mouseover)="sortActif = sort"

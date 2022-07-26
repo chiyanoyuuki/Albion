@@ -31,6 +31,7 @@ export class StatsPersonnageComponent implements OnInit {
   public vendeur: Entite;
   public inventairesPersosPossibles: Entite[] = [];
   public keyPressed: string;
+  public focusQuete: Quete;
 
   constructor() { }
 
@@ -65,9 +66,14 @@ export class StatsPersonnageComponent implements OnInit {
       }
       let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked);
       if (objetClique) {
-        objetClique.qte -= 1;
-        if (objetClique.qte == 0) {
-          perso.inventaire.splice(perso.inventaire.indexOf(objetClique), 1);
+        let parcheminDeQuete = this.data.quetes.find((quete: Quete) => quete.nom == clicked);
+        if (parcheminDeQuete) {
+          this.focusQuete = parcheminDeQuete;
+        }else{
+          objetClique.qte -= 1;
+          if (objetClique.qte == 0) {
+            perso.inventaire.splice(perso.inventaire.indexOf(objetClique), 1);
+          }
         }
       }
       this.gain = "";

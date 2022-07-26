@@ -16,6 +16,7 @@ import { FormulaireComponent } from './graphiques/formulaire/formulaire.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PanneauQuetesComponent } from './graphiques/panneau-quetes/panneau-quetes.component';
 import { LieuxComponent } from './graphiques/lieux/lieux.component';
+import { FeuilleQueteComponent } from './graphiques/feuille-quete/feuille-quete.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LieuxComponent } from './graphiques/lieux/lieux.component';
     StatsPersonnageComponent,
     FormulaireComponent,
     PanneauQuetesComponent,
-    LieuxComponent
+    LieuxComponent,
+    FeuilleQueteComponent
   ],
   imports: [
     BrowserModule,
