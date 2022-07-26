@@ -2,6 +2,7 @@ import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output, SimpleChanges, HostBinding } from '@angular/core';
 import { addEntity, Data, Entite, Lieu, MenuContextuel, ObjetInventaire, Position, Animation, Quete, Etape } from '../model';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-map',
@@ -20,20 +21,16 @@ export class MapComponent implements OnInit {
 
   @Input() data: Data;
 
-  public focus: any;
-  public changingTo: Lieu | undefined;
-  public persoHovered: string[] = [];
-  public menuContextuel: MenuContextuel | undefined;
-  public audio: HTMLAudioElement;
   public mapHeight: number;
   public image: HTMLImageElement;
   public oiseaux: boolean;
+  public menuContextuel: MenuContextuel | undefined;
 
   public windowWidth: number;
   public windowHeight: number;
   public cataclysme: boolean;
 
-  constructor() { }
+  constructor(private appService:AppService) { }
 
   @HostListener('window:keyup', ['$event'])
   keyDownEvent(event: KeyboardEvent) {
@@ -63,6 +60,9 @@ export class MapComponent implements OnInit {
     this.getAnimation();
     this.windowHeight = window.innerHeight;
     this.windowWidth = window.innerWidth;
+    if (this.windowWidth > 1920) {
+      this.windowWidth = 1920
+    }
   }
 
   getAnimation() {
@@ -78,157 +78,20 @@ export class MapComponent implements OnInit {
     }, nbrRandom);
   }
 
-  changementDeMap(lieu: Lieu) {
-    this.windowWidth = window.innerWidth;
-    this.windowHeight = window.innerHeight;
-  }
-
-  musique(lieu: Lieu) {
-    console.log(lieu);
-    console.log(lieu.nbImage);
-    if (lieu.musique) {
-      if (!this.audio || (this.audio && !this.audio.src.endsWith(lieu.musique + ".mp3"))) {
-        if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; }
-        this.audio = new Audio;
-        this.audio.src = "../assets/musiques/" + lieu.musique + ".mp3";
-        this.audio.load();
-        this.audio.play();
-        this.audio.loop = true;
-      }
-    }
-  }
-
-  //GET=================================================================
-
-  getPersonnagesDansLieu(lieu: Lieu) {
-    return this.data.entites.filter((entite: Entite) => entite.lieu == lieu.id);
-  }
-
-  getJoueursDansLieu(lieu: Lieu) {
-    return this.data.entites.filter((entite: Entite) => entite.lieu == lieu.id && (entite.joueur || this.data.admin));
-  }
-
-  getLieux(): Lieu[] {
-    return this.data.lieux.filter(lieu => lieu.parent == this.data.lieuActuel.id);
-  }
-
-  getPersosSurMapActuelle() {
-    return this.data.entites.filter((entite: Entite) => entite.lieu == this.data.lieuActuel.id && (entite.peutBouger == undefined || entite.peutBouger));
-  }
-
-  getEntitesPresentes(nb: number) {
-    return this.getPersosSurMapActuelle().filter((entite: Entite) => entite.team == nb);
-  }
-
-  //CLICKS==================================================================
-
   clicMap(event: MouseEvent) {
+    this.appService.clickMap();
     this.menuContextuel = undefined;
-    this.changingTo = undefined;
-    this.focus = undefined;
     if (this.data.admin) { console.log("MouseX : " + event.offsetX); }
     if (this.data.admin) { console.log("MouseY : " + event.offsetY); }
-    if (!this.audio) { this.changementDeMap(this.data.lieuActuel); }
   }
 
   clickRetour() {
     this.menuContextuel = undefined;
     let lieutmp = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.parent);
-    if (lieutmp) { this.data.lieuActuel = lieutmp; this.changementDeMap(lieutmp); }
-  }
-
-  changeLieu(lieu: Lieu) {
-    this.data.entites.forEach((entite: Entite) => entite.actif = false);
-    this.menuContextuel = undefined;
-    this.changingTo = undefined;
-    this.data.lieuActuel = lieu;
-    if (lieu.to) {
-      let tmp = this.data.lieux.find((nouveauLieu: Lieu) => nouveauLieu.id == lieu.to);
-      if (tmp) {
-        this.data.lieuActuel = tmp;
-      }
-    }
-    this.changementDeMap(lieu);
-  }
-
-  rentrerLieu(lieu: Lieu) {
-    this.menuContextuel = undefined;
-    let nb = this.getPersosSurMapActuelle().length;
-    if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
-      this.changeLieu(lieu);
-    }
-    else {
-      this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
-    }
-    if (lieu.nom == 'Panneau de Quêtes') {
-      this.data.lieuActuel = lieu;
-      this.changingTo = undefined;
-    }
-  }
-
-  rentrerEntite(lieu: Lieu, perso: Entite) {
-    this.verifPositionDeDepart(lieu, perso);
-    perso.lieu = lieu.id;
-    if (lieu.to) {
-      let tmp = this.data.lieux.find((nouveauLieu: Lieu) => nouveauLieu.id == lieu.to);
-      if (tmp) {
-        perso.lieu = tmp.id;
-      }
-    }
-  }
-
-  verifPositionDeDepart(lieu: Lieu, perso: Entite) {
-    this.persoHovered = [];
-    this.menuContextuel = undefined;
-    if (lieu.position_start && lieu.position_start.length > 0) {
-      let persosACheck = this.getPersonnagesDansLieu(lieu);
-      let trouve = false;
-      lieu.position_start.forEach((position: Position) => {
-        if (!trouve) {
-          let personnageSurLaPosition: Entite | undefined = undefined;
-          persosACheck.forEach((persoDansLieu: Entite) => {
-            if (persoDansLieu.xcombat == position.startX && persoDansLieu.ycombat == position.startY) {
-              personnageSurLaPosition = persoDansLieu;
-            }
-          });
-          if (!personnageSurLaPosition) {
-            trouve = true;
-            perso.xcombat = position.startX;
-            perso.ycombat = position.startY;
-            if (perso.statutFamilier == "affiche") {
-              perso.familier.xcombat = position.startX + 20;
-              perso.familier.ycombat = position.startY;
-            }
-          }
-        }
-      });
-      if (!trouve) {
-        perso.xcombat = lieu.position_start[0].startX;
-        perso.ycombat = lieu.position_start[0].startY;
-      }
-    }
-    else {
-      perso.xcombat = 0;
-      perso.ycombat = 0;
-    }
-  }
-
-  sortirPerso(lieu: Lieu, perso: Entite) {
-    this.menuContextuel = undefined;
-    if (this.data.lieuActuel.parent == "") {
-      perso.x = lieu.x;
-      perso.y = lieu.y;
-    }
-    else {
-      perso.xcombat = lieu.x;
-      perso.ycombat = lieu.y;
-    }
-    perso.lieu = lieu.parent;
+    if (lieutmp) { this.data.lieuActuel = lieutmp; }
   }
 
   clicDroitMap(event: MouseEvent) {
-    this.focus = undefined;
-    this.changingTo = undefined;
     this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" };
   }
 
@@ -308,12 +171,7 @@ export class MapComponent implements OnInit {
     this.data.entites.push(addEntite.entite);
   }
 
-  endDragLieu($event: CdkDragEnd, lieu: Lieu) {
-    let tmp = $event.source.getFreeDragPosition();
-    lieu.x = lieu.x + tmp.x;
-    lieu.y = lieu.y + tmp.y;
-    $event.source._dragRef.reset();
-  }
+
 
   getEtat() {
     if (this.data.repos.stop) { return "etat0"; }

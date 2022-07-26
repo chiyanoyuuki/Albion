@@ -15,6 +15,7 @@ import { StatsPersonnageComponent } from './graphiques/stats-personnage/stats-pe
 import { FormulaireComponent } from './graphiques/formulaire/formulaire.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PanneauQuetesComponent } from './graphiques/panneau-quetes/panneau-quetes.component';
+import { LieuxComponent } from './graphiques/lieux/lieux.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PanneauQuetesComponent } from './graphiques/panneau-quetes/panneau-quet
     InfosEntiteComponent,
     StatsPersonnageComponent,
     FormulaireComponent,
-    PanneauQuetesComponent
+    PanneauQuetesComponent,
+    LieuxComponent
   ],
   imports: [
     BrowserModule,

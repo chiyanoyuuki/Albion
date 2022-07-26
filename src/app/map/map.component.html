@@ -1,7 +1,7 @@
 <div [@fadeIn]="getEtat()">
     <img draggable="false" class="retour" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png"
-        (click)="clickRetour()" (mouseover)="focus=undefined" style="z-index:2;" />
-    <img *ngIf="data.repos.animation" draggable="false" class="map eauGif" src="./assets/images/maps/repos.gif" id="map"
+        (click)="clickRetour()" style="z-index:2;" />
+    <img *ngIf="data.repos.animation" draggable="false" class="eauGif" src="./assets/images/maps/repos.gif" id="map"
         style="z-index:10;" />
     <img *ngIf="false&&oiseaux&&data.lieuActuel.oiseaux" draggable="false" class="map haut"
         src="./assets/images/maps/oiseaux.gif" id="map"
@@ -12,65 +12,14 @@
         data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
         <source src="../../assets/images/Cinématique.mp4" type='video/mp4' />
     </video>
-    <img draggable="false" class="map" [style.width]="windowWidth-60+'px'"
+    <img draggable="false" class="map" [style.width]="windowWidth-60+'px'" [style.opacity]="data.repos.animation?0:1"
         src="./assets/images/maps/{{data.lieuActuel.image}}{{(data.lieuActuel.useNbImage?data.lieuActuel.nbImage:'')}}.png"
         (click)="clicMap($event)" (contextmenu)="clicDroitMap($event)" id="map"
         [style.border]="data.admin?'20px ridge #dd2020':'20px ridge #202020'" style="z-index:1;" />
 
     <!-- ========================== LIEUX ========================== -->
 
-    <div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'" [style.top]="lieu.y+'px'"
-        [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="rentrerLieu(lieu)"
-        [cdkDragDisabled]="!data.admin" (cdkDragEnded)="endDragLieu($event,lieu)" cdkDrag style="z-index:2;">
-
-        <!--(cdkDragEnded)="dragEnd($event,lieu)" 
-        cdkDrag>-->
-
-        <p class="nomLieu" (mouseover)="focus=undefined">{{lieu.nom}}</p>
-
-        <div class="personnagesInside">
-            <div *ngFor="let perso of getJoueursDansLieu(lieu)">
-                <app-icone-personnage [perso]="perso" (mouseover)="focus=perso" (click)="sortirPerso(lieu,perso)">
-                </app-icone-personnage>
-            </div>
-        </div>
-
-        <!-- ========================== FENETRE DE CHANGEMENT DE LIEU ========================== -->
-
-        <div class="changeLieu fenetre" *ngIf="changingTo==lieu&&(lieu.canEnter==undefined||lieu.canEnter)">
-            <p class="bigText">Qui rentre dans {{changingTo.nom}} ?</p>
-            <div class="line"></div>
-            <div class="flexCenter">
-                <div>
-                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(0)" [perso]="perso"
-                        (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
-                        (mouseover)="persoHovered[0]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                        (mouseout)="persoHovered[0]=''"></app-icone-personnage>
-                </div>
-            </div>
-            <p class="nomPerso">{{persoHovered[0]}}</p>
-            <div class="flexCenter">
-                <div>
-                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(1)" [perso]="perso"
-                        (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
-                        (mouseover)="persoHovered[1]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                        (mouseout)="persoHovered[1]=''"></app-icone-personnage>
-                </div>
-            </div>
-            <p class="nomPerso">{{persoHovered[1]}}</p>
-            <div class="flexCenter">
-                <div>
-                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(2)" [perso]="perso"
-                        (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
-                        (mouseover)="persoHovered[2]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                        (mouseout)="persoHovered[2]=''"></app-icone-personnage>
-                </div>
-            </div>
-            <p class="nomPerso">{{persoHovered[2]}}</p>
-            <div class="line"></div>
-            <p class="choix" (click)="changeLieu(lieu)">Entrer</p>
-        </div>
-    </div>
+    <app-lieux [data]="data"></app-lieux>
 
     <!-- ========================== PERSONNAGES ========================== -->
 
