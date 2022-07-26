@@ -14,11 +14,8 @@ export class InfosEntiteComponent implements OnInit {
   public formulaire: string;
   public quantite: string;
 
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
+  constructor() {}
+  ngOnInit(): void {}
 
 
   getNom() {
@@ -27,7 +24,7 @@ export class InfosEntiteComponent implements OnInit {
     return nom;
   }
 
-  infoPerso() {
+  ouvrirInventairePerso() {
     if (this.perso.joueur || (this.perso.team > 0 && this.perso.pdv == 0) || this.perso.boutique == this.data.lieuActuel.id || (this.perso.team > 0 && this.data.admin)) {
       this.perso.actif = !this.perso.actif;
     }

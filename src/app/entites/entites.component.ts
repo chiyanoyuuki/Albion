@@ -18,7 +18,7 @@ export class EntitesComponent implements OnInit {
   public lastPersoClicked: Entite | undefined;
   public gain: string;
 
-  constructor(private persoService: PersoService) { }
+  constructor() { }
   ngOnInit(): void { }
 
   public dragEnd($event: CdkDragEnd, perso: Entite) {
@@ -41,26 +41,6 @@ export class EntitesComponent implements OnInit {
       this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "entite" };
     }
     else {
-      this.persoMenuContextuel = undefined;
-      this.menuContextuel = undefined;
-    }
-  }
-
-  clickGain(perso: Entite, clicked: string) {
-    if (this.gain != clicked) {this.gain = clicked;} 
-    else
-    {
-      if (clicked == 'Niveau') {perso.niveau += 1;}
-      perso.stats.forEach(element => {if (element.nom == clicked) {element.qte += 1;}});
-      this.persoService.enleverXObjet(perso, clicked, 1);
-      this.gain = "";
-    }
-  }
-
-  public delete() {
-    let entite = this.persoMenuContextuel;
-    if (entite) {
-      this.data.entites.splice(this.data.entites.indexOf(entite), 1);
       this.persoMenuContextuel = undefined;
       this.menuContextuel = undefined;
     }

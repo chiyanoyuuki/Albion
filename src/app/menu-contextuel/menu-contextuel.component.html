@@ -2,7 +2,7 @@
     <p class="croix clickable" (click)="close()">X</p>
     <div *ngIf="!add&&!addObjet&&!modifMap">
         <p *ngIf="menu.type=='entite'&&data.admin" class="choix" (click)="addObjet=true;">(A) Ajouter un objet</p>
-        <p *ngIf="menu.type=='map'" class="choix" (click)="add=true;">Ajouter une entité</p>
+        <p *ngIf="menu.type=='map'" class="choix" (click)="add=true">Ajouter une entité</p>
         <p *ngIf="menu.type=='map'&&data.admin" class="choix" (click)="clickModifMap()">(A) Modifier map</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="repos()">Repos</p>
