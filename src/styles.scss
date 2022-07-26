@@ -105,6 +105,7 @@ p {
 .m-b-20 {
     margin-bottom: 20px;
 }
+
 .m-t-20 {
     margin-top: 20px;
 }
@@ -160,6 +161,10 @@ app-icone-personnage:hover {
 
 app-level {
     position: absolute;
+    z-index: 2;
+}
+
+app-menu-contextuel {
     z-index: 2;
 }
 
@@ -220,6 +225,6 @@ button:hover {
     color: red;
 }
 
-.space-around{
+.space-around {
     justify-content: space-around;
 }

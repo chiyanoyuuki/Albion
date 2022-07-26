@@ -11,8 +11,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     trigger('fadeIn', [
       state('etat0', style({ opacity: 0 })),
       state('etat1', style({ opacity: 1 })),
-      transition('etat0 => etat1', [ animate('1s') ]),
-      transition('etat1 => etat0', [ animate('1s') ]),
+      transition('etat0 => etat1', [animate('1s')]),
+      transition('etat1 => etat0', [animate('1s')]),
     ]),
   ]
 })
@@ -32,7 +32,7 @@ export class MapComponent implements OnInit {
   // quete
   public queteAccepter: string;
   public focusQuete: Quete | undefined;
-  
+
   public windowWidth: number;
   public windowHeight: number;
   public cataclysme: boolean;
@@ -65,16 +65,17 @@ export class MapComponent implements OnInit {
       this.mapHeight = this.image.height;
     }*/
     this.getAnimation();
+    this.windowHeight = window.innerHeight;
+    this.windowWidth = window.innerWidth;
   }
 
-  getAnimation(){
-    let nbrRandom = Math.ceil(Math.random()*50000);
-    console.log(nbrRandom);
-    
+  getAnimation() {
+    let nbrRandom = Math.ceil(Math.random() * 50000);
+
     this.oiseaux = false
-    setTimeout (() => {
+    setTimeout(() => {
       this.oiseaux = true
-      setTimeout (() => {
+      setTimeout(() => {
         this.oiseaux = false
         this.getAnimation();
       }, 6000);
@@ -317,7 +318,7 @@ export class MapComponent implements OnInit {
     $event.source._dragRef.reset();
   }
 
-  getEtat(){
+  getEtat() {
     if (this.data.repos.stop) { return "etat0"; }
     else if (this.data.repos.animation) { return "etat1"; }
     else if (this.data.repos.lance) { return "etat0"; }
@@ -326,8 +327,8 @@ export class MapComponent implements OnInit {
 
   // tableau quete
 
-  getQuetes(){
-    return this.data.quetes.filter((quete: Quete)=> quete.tableauQuetes && quete.tableauQuetes.affiche);
+  getQuetes() {
+    return this.data.quetes.filter((quete: Quete) => quete.tableauQuetes && quete.tableauQuetes.affiche);
   }
 
   endDragQuete($event: CdkDragEnd, quete: Quete) {
@@ -336,10 +337,10 @@ export class MapComponent implements OnInit {
     quete.tableauQuetes.y = quete.tableauQuetes.y + tmp.y;
     $event.source._dragRef.reset();
   }
-  dragStart(quete: Quete){
+  dragStart(quete: Quete) {
     let quetes = this.getQuetes();
     let taille = quetes.length;
-    quetes.forEach((quete:Quete) => {
+    quetes.forEach((quete: Quete) => {
       quete.tableauQuetes.zIndex = quete.tableauQuetes.zIndex - 1;
       if (quete.tableauQuetes.zIndex < 0) {
         quete.tableauQuetes.zIndex = 0;
@@ -347,24 +348,24 @@ export class MapComponent implements OnInit {
     });
     quete.tableauQuetes.zIndex = taille;
   }
-  voirQuete(quete: Quete){
+  voirQuete(quete: Quete) {
     this.focusQuete = quete;
   }
   close() {
     this.focusQuete = undefined;
   }
-  prendrePapier(){
+  prendrePapier() {
     let entitesJoueur = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.parent);
     let emplacementVide = false;
-    let stop = true;
+    let stop = false;
     entitesJoueur.forEach((entite: Entite) => {
       emplacementVide = entite.inventaire.length < 18;
       if (emplacementVide) {
         if (this.focusQuete) {
-          if (stop) {
+          if (!stop) {
             entite.inventaire.push({ emplacement: "", image: "item_parchemin", nom: this.focusQuete.nom, qte: 1, taux: 0, prix: 1 });
             this.focusQuete.tableauQuetes.affiche = false;
-            stop = false;
+            stop = true;
           }
         }
       }
@@ -373,7 +374,7 @@ export class MapComponent implements OnInit {
   }
   accepQuete() {
     let entitesJoueur = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.parent);
-    if (entitesJoueur.length>0) {
+    if (entitesJoueur.length > 0) {
       if (this.focusQuete) {
         if (this.queteAccepter != this.focusQuete.nom) {
           this.queteAccepter = this.focusQuete.nom;
