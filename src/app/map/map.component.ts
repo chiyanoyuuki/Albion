@@ -30,6 +30,8 @@ export class MapComponent implements OnInit {
   public windowHeight: number;
   public cataclysme: boolean;
 
+  public clickEventsubscription: any;
+
   constructor(private appService: AppService) { }
 
   @HostListener('window:keyup', ['$event'])

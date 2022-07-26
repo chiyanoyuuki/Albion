@@ -35,6 +35,7 @@ export class BackgroundComponent implements OnInit {
   }
 
   clickRetour() {
+    this.appService.clickRetour();
     let lieutmp = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.parent);
     if (lieutmp) { this.data.lieuActuel = lieutmp; }
   }
