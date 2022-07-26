@@ -8,8 +8,8 @@
 
     <!-- ========================== PERSONNAGES ========================== -->
 
-    <app-entites [data]="data" class="entites" (mouseenter)="noClickMap=true" (mouseleave)="noClickMap=false"> </app-entites>
-    <app-panneau-quetes [data]="data" class="panneau_quetes" (mouseenter)="noClickMap=true" (mouseleave)="noClickMap=false">
+    <app-entites        [data]="data" class="entites"           (mouseenter)="noClickMap=true" (mouseleave)="noClickMap=false"> </app-entites>
+    <app-panneau-quetes [data]="data" class="panneau_quetes"    (mouseenter)="noClickMap=true" (mouseleave)="noClickMap=false" *ngIf="data.lieuActuel.nom=='Panneau de Quêtes'">
     </app-panneau-quetes>
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->

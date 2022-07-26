@@ -30,6 +30,8 @@ export class MapComponent implements OnInit {
   public windowHeight: number;
   public cataclysme: boolean;
 
+  public clickEventsubscription: any;
+
   constructor(private appService: AppService) { }
 
   @HostListener('window:keyup', ['$event'])
@@ -125,12 +127,11 @@ export class MapComponent implements OnInit {
     this.data.entites.push(addEntite.entite);
   }
 
-
-
   getEtat() {
     if (this.data.repos.stop) { return "etat0"; }
     else if (this.data.repos.animation) { return "etat1"; }
     else if (this.data.repos.lance) { return "etat0"; }
     return "etat1";
   }
+  
 }

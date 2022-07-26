@@ -1,4 +1,4 @@
-<div *ngIf="data.lieuActuel.nom=='Panneau de Quêtes'" class="tableau_quetes">
+<div class="tableau_quetes">
     <div *ngFor="let quete of getQuetes()" class="quete" [style.left]="quete.tableauQuetes.x + 'px'"
         [style.top]="quete.tableauQuetes.y + 'px'" [style.z-index]="quete.tableauQuetes.zIndex"
         (cdkDragStarted)="dragStart(quete)" (cdkDragEnded)="endDragQuete($event,quete)" cdkDrag>
@@ -6,35 +6,5 @@
         <img class="clou" src="./assets/images/clou_quete.png" />
         <p (click)="voirQuete(quete)" class="nom_quete bigText clickable">{{quete.nom}}</p>
     </div>
-    <div *ngIf="focusQuete!=undefined" class="voir_quete">
-        <p class="croix clickable" (click)="close()">X</p>
-        <img class="image_fond" src="./assets/images/{{focusQuete.tableauQuetes.image}}.png" />
-        <p class="titre_quete bigbigText">{{focusQuete.nom}}</p>
-        <p class="description_quete bigText">{{focusQuete.etapeEnCours.description}}</p>
-        <div *ngIf="focusQuete.recompenses" id="recompensePaiement">
-            <p class="bigText">Récompense</p>
-            <div class="flex wrap gap-1 recompensePaiement">
-                <div class="recompense flex align-center" *ngFor="let recompense of focusQuete.recompenses">
-                    <img *ngIf="recompense.image" src="./assets/images/items/{{ recompense.image }}.png" />
-                    <div class="flex column">
-                        <p>{{recompense.nom}}</p>
-                        <p>Qte: {{recompense.qte}}</p>
-                    </div>
-                </div>
-                <div class="flex recompense golds align-center">
-                    <p>{{focusQuete.paiement}}</p>
-                    <img src="../../assets/images/pieces.png" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="focusQuete!=undefined" class="accept_quete">
-        <p (click)="prendrePapier()" class="bigText clickable">Prendre le papier de quête</p>
-        <p *ngIf="focusQuete.etatQuete == 0" (click)="accepQuete()" class="bigText clickable"
-            (mouseleave)="queteAccepter = ''">
-            {{queteAccepter == focusQuete.nom && queteAccepter != '' ? 'Confirmer vouloir accepter la quête ?' :
-            'Accepter la quête !'}}
-        </p>
-        <p *ngIf="focusQuete.etatQuete == 1" class="bigText">La quête a été acceptée</p>
-    </div>
+    <app-feuille-quete [focusQuete]="focusQuete" [data]="data" *ngIf="focusQuete!=undefined"></app-feuille-quete>
 </div>

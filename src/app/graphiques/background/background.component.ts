@@ -1,5 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Data, Lieu } from 'src/app/model';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-background',
@@ -11,7 +12,7 @@ export class BackgroundComponent implements OnInit {
 
   public cataclysme: boolean;
 
-  constructor() { }
+  constructor(private appService: AppService) {}
 
   ngOnInit(): void {
   }
@@ -35,6 +36,7 @@ export class BackgroundComponent implements OnInit {
   }
 
   clickRetour() {
+    this.appService.triggerFermetureFenetres();
     let lieutmp = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.parent);
     if (lieutmp) { this.data.lieuActuel = lieutmp; }
   }
