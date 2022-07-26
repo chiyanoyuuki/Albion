@@ -9,7 +9,7 @@ import { Data, Entite } from 'src/app/model';
 export class ImageShadowPersoComponent implements OnInit {
 
   @Input() data: Data;
-  @Input() perso:Entite;
+  @Input() perso: Entite;
 
   constructor() { }
 
@@ -19,11 +19,7 @@ export class ImageShadowPersoComponent implements OnInit {
   public getTop(perso: Entite) {
     if (perso.overrideY) { return perso.overrideY + "%"; }
     if (perso.joueur && perso.forme.overrideY) { return perso.forme.overrideY + "%"; }
-    let scale = 1;
-    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
-    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
-    if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
-    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
+    let scale = this.getScale(perso);
     return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
   }
 

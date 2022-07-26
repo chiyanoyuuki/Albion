@@ -41,15 +41,8 @@ export class StatsPersonnageComponent implements OnInit {
     }
   }
 
-  @HostListener('window:keydown', ['$event'])
-  keyDownEvent(event: KeyboardEvent) {
-    if (this.keyPressed != event.key) { this.keyPressed = event.key; }
-  }
-
-  @HostListener('window:keyup', ['$event'])
-  keyUpEvent(event: KeyboardEvent) {
-    if (this.keyPressed != "") { this.keyPressed = ""; }
-  }
+  @HostListener('window:keydown', ['$event'])keyDownEvent(event: KeyboardEvent) {if (this.keyPressed != event.key) { this.keyPressed = event.key; }}
+  @HostListener('window:keyup',   ['$event'])keyUpEvent(event: KeyboardEvent)   {if (this.keyPressed != "") { this.keyPressed = ""; }}
 
   clickGain(perso: Entite, clicked: string) {
     if (this.gain != clicked) {

@@ -27,7 +27,7 @@
 
         <app-menu-contextuel class="menuContextuel"
             *ngIf="menuContextuel&&persoMenuContextuel&&persoMenuContextuel==perso" [menu]="menuContextuel"
-            [perso]="perso" [data]="data" (deleteEntityEvent)="delete()" (closeEvent)="menuContextuel=undefined">
+            [perso]="perso" [data]="data" (closeEvent)="menuContextuel=undefined">
         </app-menu-contextuel>
 
         <!-- STATS PERSO ACTIF ================================================= -->
