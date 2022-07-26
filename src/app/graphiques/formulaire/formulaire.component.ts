@@ -29,29 +29,24 @@ export class FormulaireComponent implements OnInit {
         this.close();
       }
       else {
-        if (!this.quantite.match(/^-?[0-9]+$/g)) {
+        if (!this.quantite.match(/^ *(-|\+)? *[0-9]+ *$/g)) {
           return;
         }
-        let quantiteNbr: number = Number(this.quantite);
+        let qte = this.quantite.replace(/([^0-9-])*/g, "");
+        let quantiteNbr: number = Number(qte);
         if (this.formulaire == 'gold') {
           this.perso.argent += quantiteNbr;
-          if (this.perso.argent < 0) {
-            this.perso.argent = 0;
-          }
-        } else if (this.formulaire == 'pv') {
+          if (this.perso.argent < 0) {this.perso.argent = 0;}
+        } 
+        else if (this.formulaire == 'pv') {
           this.perso.pdv += quantiteNbr;
-          if (this.perso.pdv > this.perso.pdvmax) {
-            this.perso.pdv = this.perso.pdvmax;
-          } else if (this.perso.pdv < 0) {
-            this.perso.pdv = 0;
-          }
-        } else if (this.formulaire == 'mana') {
+          if (this.perso.pdv > this.perso.pdvmax) {this.perso.pdv = this.perso.pdvmax;} 
+          else if (this.perso.pdv < 0) {this.perso.pdv = 0;}
+        } 
+        else if (this.formulaire == 'mana') {
           this.perso.mana += quantiteNbr;
-          if (this.perso.mana > this.perso.manamax) {
-            this.perso.mana = this.perso.manamax;
-          } else if (this.perso.mana < 0) {
-            this.perso.mana = 0;
-          }
+          if (this.perso.mana > this.perso.manamax) {this.perso.mana = this.perso.manamax;} 
+          else if (this.perso.mana < 0) {this.perso.mana = 0;}
         }
         this.close();
       }

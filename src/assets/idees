@@ -3,23 +3,12 @@ Bugs appecus
 
 Idées Charles
 
-- Menu Contextuel, ajouter un combat rapide dans la nature
-- Position d'arrivée sur chaque map
-- Amelioration visuelle du bloc stats (paul)
-- Système d'ajout des entités 
-- Sauvegarde
-- Changer une entité de team
 - Séparer un maximum l'appli en composants pour faciliter les devs et surtout découper le code en microservices
-- Base de données ?
-- listing position de depart pour chaque lieu
-- positionner chaque entité en fonction de position possible du lieu
 - Quêtes avancées en direct
-- Mode admin ajout objets boutiques, ajout loot etc
-- Pv / Mana en fonction des niveaux 
+- Mode admin ajout objets boutiques
+- Pv / Mana en fonction des niveaux
 - Up des pnjs
 - Réputation
-- déverouillage par crochets + agilité
-- scaleFond de chaque map
 
 Idées Paul
 

@@ -1,0 +1,49 @@
+.perso {
+    top: 5px;
+}
+
+.containerPerso {
+    position: absolute;
+    width: fit-content;
+}
+
+.imagefamilier {
+    position: absolute;
+}
+
+.imageperso,
+.imagefamilier {
+    height: 65px;
+    transition: all 0.2s;
+}
+
+.shadow {
+    position: absolute;
+    bottom: -5px;
+    width: 35px;
+    height: 20px;
+    border: 1px solid #00ff0030;
+    border-radius: 100%;
+    background-color: #00000050;
+    transition: all 0.2s;
+}
+
+.perso:hover .imageperso,
+.perso:hover .imagefamilier {
+    cursor: grab;
+    transform: scale(1.2);
+}
+
+.perso:hover .shadow {
+    cursor: grab;
+    bottom: -10px;
+    transform: scale(1.2);
+}
+
+.pnjsNeutres .shadow {
+    border: 1px solid #a08300dd;
+}
+
+.ennemis .shadow {
+    border: 1px solid #8d0000dd;
+}

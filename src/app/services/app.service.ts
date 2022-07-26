@@ -11,10 +11,10 @@ export class AppService {
 
   rootURL = '/api';
 
-  private subject = new Subject<void>();
+  private clickMapSubject = new Subject<void>();
 
-  clickMap() { this.subject.next(); }
-  listenClickMap() { return this.subject.asObservable(); }
+  clickMap() { this.clickMapSubject.next(); }
+  listenClickMap() { return this.clickMapSubject.asObservable(); }
 
   getPersonnages() {
     return this.http.get(this.rootURL + '/personnages');

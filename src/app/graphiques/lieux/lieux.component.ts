@@ -1,6 +1,6 @@
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
+import { AppService } from 'src/app/services/app.service';
 import { Data, Entite, Lieu, MenuContextuel, Position } from 'src/app/model';
 
 @Component({
@@ -77,6 +77,8 @@ export class LieuxComponent implements OnInit {
   }
 
   rentrerLieu(lieu: Lieu) {
+    console.log(this.focus);
+    console.log(this.changingTo);
     let nb = this.getPersosSurMapActuelle().length;
     if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
       this.changeLieu(lieu);
@@ -101,14 +103,8 @@ export class LieuxComponent implements OnInit {
   }
 
   sortirPerso(lieu: Lieu, perso: Entite) {
-    if (this.data.lieuActuel.parent == "") {
-      perso.x = lieu.x;
-      perso.y = lieu.y;
-    }
-    else {
-      perso.xcombat = lieu.x;
-      perso.ycombat = lieu.y;
-    }
+    perso.x = lieu.x;
+    perso.y = lieu.y;
     perso.lieu = lieu.parent;
   }
 
@@ -120,29 +116,29 @@ export class LieuxComponent implements OnInit {
         if (!trouve) {
           let personnageSurLaPosition: Entite | undefined = undefined;
           persosACheck.forEach((persoDansLieu: Entite) => {
-            if (persoDansLieu.xcombat == position.startX && persoDansLieu.ycombat == position.startY) {
+            if (persoDansLieu.x == position.startX && persoDansLieu.y == position.startY) {
               personnageSurLaPosition = persoDansLieu;
             }
           });
           if (!personnageSurLaPosition) {
             trouve = true;
-            perso.xcombat = position.startX;
-            perso.ycombat = position.startY;
+            perso.x = position.startX;
+            perso.y = position.startY;
             if (perso.statutFamilier == "affiche") {
-              perso.familier.xcombat = position.startX + 20;
-              perso.familier.ycombat = position.startY;
+              perso.familier.x = position.startX + 20;
+              perso.familier.y = position.startY;
             }
           }
         }
       });
       if (!trouve) {
-        perso.xcombat = lieu.position_start[0].startX;
-        perso.ycombat = lieu.position_start[0].startY;
+        perso.x = lieu.position_start[0].startX;
+        perso.y = lieu.position_start[0].startY;
       }
     }
     else {
-      perso.xcombat = 0;
-      perso.ycombat = 0;
+      perso.x = 0;
+      perso.y = 0;
     }
   }
 
