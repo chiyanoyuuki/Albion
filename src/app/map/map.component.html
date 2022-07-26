@@ -1,8 +1,13 @@
 <div>
-
+    <video class="video" *ngIf="cataclysme" id="my_video_1" class="video-js vjs-default-skin" controls preload="none"
+        style="position: absolute;z-index: 10;background-color: black;width: 1902px;height: fit-content;"
+        data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+        <source src="../../assets/images/Cinématique.mp4" type='video/mp4' />
+    </video>
     <img draggable="false" class="retour" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png"
         (click)="clickRetour()" (mouseover)="focus=undefined" />
-    <img draggable="false" class="map" src="./assets/images/maps/{{data.lieuActuel.image}}.png"
+    <img draggable="false" class="map" [style.width]="windowWidth-60+'px'"
+        src="./assets/images/maps/{{data.lieuActuel.image}}{{(data.lieuActuel.useNbImage?data.lieuActuel.nbImage:'')}}.png"
         (click)="clicMap($event)" (contextmenu)="clicDroitMap($event)" id="map"
         [style.border]="data.admin?'20px ridge #dd2020':'20px ridge #202020'" />
 
@@ -67,8 +72,8 @@
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 
-    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data" (closeEvent)="menuContextuel=undefined"
-        (addEntityEvent)="addEntity($event)">
+    <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data"
+        (closeEvent)="menuContextuel=undefined" (addEntityEvent)="addEntity($event)">
     </app-menu-contextuel>
 
 </div>

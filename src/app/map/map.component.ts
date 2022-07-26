@@ -18,12 +18,29 @@ export class MapComponent implements OnInit {
   public audio: HTMLAudioElement;
   public mapHeight: number;
   public image: HTMLImageElement;
+  public windowWidth: number;
+  public windowHeight: number;
+  public cataclysme: boolean;
 
   constructor() { }
 
   @HostListener('window:keyup', ['$event'])
   keyDownEvent(event: KeyboardEvent) {
     if (event.key == "F1") { this.data.admin = !this.data.admin; }
+    if (event.key == "F8") {
+      this.cataclysme = !this.cataclysme;
+      let map = this.data.lieux.find((lieu: Lieu) => lieu.id == "map");
+      if (map) {
+        map.image = "map2";
+        if (this.data.lieuActuel.id == "map") {
+          this.data.lieuActuel.image = "map2";
+        }
+      }
+      let campdesaventuriers = this.data.lieux.find((lieu: Lieu) => lieu.id == "campdesaventuriers");
+      if (campdesaventuriers) {
+        campdesaventuriers.parent = "map";
+      }
+    }
   }
 
 
@@ -32,10 +49,13 @@ export class MapComponent implements OnInit {
     this.image.onload = function() {
       this.mapHeight = this.image.height;
     }*/
+    this.windowWidth = window.innerWidth;
+    this.windowHeight = window.innerHeight;
   }
 
   musique(lieu: Lieu) {
-
+    console.log(lieu);
+    console.log(lieu.nbImage);
     if (lieu.musique) {
       if (!this.audio || (this.audio && !this.audio.src.endsWith(lieu.musique + ".mp3"))) {
         if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; }

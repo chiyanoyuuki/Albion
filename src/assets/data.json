@@ -1148,17 +1148,17 @@
         }
     ],
     "lieuActuel": {
-        "id": "boutiquearlequin",
-        "nom": "Boutique Arlequin",
-        "image": "ShopAll",
-        "x": 1434,
-        "y": 216,
-        "finx": 50,
-        "finy": 50,
+        "id": "map",
+        "nom": "map",
+        "image": "map",
+        "x": 0,
+        "y": 0,
+        "finx": 0,
+        "finy": 0,
         "desac": true,
-        "parent": "map",
-        "scale": 4,
-        "musique": "boutique"
+        "parent": "",
+        "scale": 0.5,
+        "musique": "map"
     },
     "boutiques": [
         {
@@ -1242,6 +1242,21 @@
             "finy": 0,
             "desac": true,
             "parent": "prisonfjorh"
+        },
+        {
+            "id": "campdesaventuriers",
+            "nom": "Camp des Aventuriers",
+            "image": "camp_aventuriers_",
+            "canEnter": true,
+            "x": 1400,
+            "y": 775,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "",
+            "scale": 1,
+            "nbImage": 0,
+            "useNbImage":true
         },
         {
             "id": "iledragon",

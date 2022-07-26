@@ -135,6 +135,8 @@ export class Lieu {
 	public bords: boolean;
 	public finFond: number;
 	public musique: string;
+	public nbImage: number;
+	public useNbImage: boolean;
 }
 
 export class Combat {
