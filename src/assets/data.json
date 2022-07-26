@@ -3479,6 +3479,7 @@
     ],
     "quetes": [
         {
+            "accepte": true,
             "nom": "Un oeuf de dragon ?",
             "perso": "Toute l'équipe",
             "type": "principale",
@@ -3499,9 +3500,16 @@
                     "nom": "Le dragon métamorphe",
                     "description": "Vous vous demandez si l'oeuf que vous avez trouvé peut avoir un lien avec le dragon qui sévit sur Albion."
                 }
-            ]
+            ],
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": false,
+                "image": "fond_quete1"
+            }
         },
         {
+            "accepte": true,
             "nom": "Une mère disparue",
             "perso": "Luna Stormwood",
             "type": "principale",
@@ -3522,9 +3530,16 @@
                     "nom": "Enfin réunis",
                     "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
                 }
-            ]
+            ],
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": false,
+                "image": "fond_quete1"
+            }
         },
         {
+            "accepte": true,
             "nom": "Frère en cavale",
             "perso": "Gandalf le Roux",
             "type": "principale",
@@ -3533,9 +3548,16 @@
                 "id": 3,
                 "nom": "Boromir s'est présenté lors du raid",
                 "description": "Le frère jumeau de Gandalf est un dangeureux criminel recherché. Notre mercenaire aimerait le retrouver pour peut-être le remettre dans le droit chemin. Mais où peut-il bien être ?"
+            },
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": false,
+                "image": "fond_quete1"
             }
         },
         {
+            "accepte": true,
             "nom": "Un remède à tous les maux",
             "perso": "Sienna Hurlevent",
             "type": "principale",
@@ -3544,9 +3566,16 @@
                 "id": 3,
                 "nom": "Partir pour Haul pour enquêter sur la faune étrange des îles.",
                 "description": "La famille de Sienna est touchée par une étrange maladie qui semble incurable. La druidesse est partie depuis déjà fort longtemps à la recherche d'une solution pour sauver ses proches mais encore sans succès hélas. Une dépêche à la bibliothèque de Fjorh nous à indiqué que la faune des îles aux abords de Haul serait particulièrement étrange, peut-être une piste d'un éventuel remède ?"
+            },
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": false,
+                "image": "fond_quete1"
             }
         },
         {
+            "accepte": true,
             "nom": "Un juste retour des choses",
             "perso": "Arlequin",
             "type": "principale",
@@ -3555,9 +3584,16 @@
                 "id": 2,
                 "nom": "Retrouver Eziron Proval",
                 "description": "Après s'être fait trahir par ses compagnons de voyage, Arlequin souhaiterait les retrouver pour connaître la raison de leur décision."
+            },
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": false,
+                "image": "fond_quete1"
             }
         },
         {
+            "accepte": true,
             "nom": "Protection d'une espèce rare",
             "perso": "Bjorn Côtes de Fer",
             "type": "principale",
@@ -3566,20 +3602,16 @@
                 "id": 1,
                 "nom": "Protéger l'oeuf de dragon jusqu'à son éclosion",
                 "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie."
+            },
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": false,
+                "image": "fond_quete1"
             }
         },
         {
-            "nom": "Protection d'une espèce rare",
-            "perso": "Bjorn Côtes de Fer",
-            "type": "principale",
-            "etape": 1,
-            "etapeEnCours": {
-                "id": 1,
-                "nom": "Protéger l'oeuf de dragon jusqu'à son éclosion",
-                "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie."
-            }
-        },
-        {
+            "accepte": true,
             "nom": "Le gardien des secrets",
             "type": "secondaire",
             "etape": 2,
@@ -3587,9 +3619,16 @@
                 "id": 2,
                 "nom": "Venir à bout du Troll Adulte",
                 "description": "Un homme nous a parlé d'un monstre qui garderait les plus grands mystères des catacombes de Fjorh"
+            },
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": false,
+                "image": "fond_quete1"
             }
         },
         {
+            "accepte": true,
             "nom": "Un historien dans le besoin",
             "type": "secondaire",
             "etape": 1,
@@ -3597,21 +3636,229 @@
                 "id": 1,
                 "nom": "Trouver ou dessiner une carte de l'île du dragon",
                 "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+            },
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": false,
+                "image": "fond_quete1"
+            }
+        },
+        {
+            "accepte": false,
+            "nom": "test",
+            "type": "secondaire",
+            "etape": 1,
+            "etatQuete": 0,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                },
+                {
+                    "id": 2,
+                    "nom": "Enfin réunis",
+                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+                }
+            ],
+            "tableauQuetes": {
+                "x": 100,
+                "y": 100,
+                "affiche": true,
+                "image": "fond_quete1"
+            },
+            "recompenses": [
+                {
+                    "emplacement": "Arme",
+                    "nom": "Dague en Acier",
+                    "qte": 1,
+                    "image": "dague_en_acier"
+                },
+                {
+                    "emplacement": "Arme",
+                    "nom": "Dague de magicien",
+                    "qte": 2,
+                    "image": "dague_magicien"
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "nom": "Flèches de métal",
+                    "qte": 20,
+                    "image": "fleches_de_metal"
+                },
+                {
+                    "emplacement": "Jambes",
+                    "nom": "Pantalon de prison",
+                    "qte": 1,
+                    "image": "pantalon_prison"
+                },
+                {
+                    "emplacement": "Torse",
+                    "nom": "Tunique de prison",
+                    "qte": 1,
+                    "image": "tunique_prison"
+                }
+            ],
+            "paiement": 20
+        },
+        {
+            "accepte": false,
+            "nom": "Un historien dans le besoin de dede",
+            "type": "secondaire",
+            "etape": 1,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                },
+                {
+                    "id": 2,
+                    "nom": "Enfin réunis",
+                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+                }
+            ],
+            "tableauQuetes": {
+                "x": 200,
+                "y": 100,
+                "affiche": true,
+                "image": "fond_quete2"
+            }
+        },
+        {
+            "accepte": false,
+            "nom": "Un historien dans le besoin de dede",
+            "type": "secondaire",
+            "etape": 1,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                },
+                {
+                    "id": 2,
+                    "nom": "Enfin réunis",
+                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+                }
+            ],
+            "tableauQuetes": {
+                "x": 200,
+                "y": 100,
+                "affiche": true,
+                "image": "fond_quete3"
+            }
+        },
+        {
+            "accepte": false,
+            "nom": "Un historien dans le besoin de dede",
+            "type": "secondaire",
+            "etape": 1,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                },
+                {
+                    "id": 2,
+                    "nom": "Enfin réunis",
+                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+                }
+            ],
+            "tableauQuetes": {
+                "x": 200,
+                "y": 100,
+                "affiche": true,
+                "image": "fond_quete4"
+            }
+        },
+        {
+            "accepte": false,
+            "nom": "Un historien dans le besoin de dede",
+            "type": "secondaire",
+            "etape": 1,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                },
+                {
+                    "id": 2,
+                    "nom": "Enfin réunis",
+                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+                }
+            ],
+            "tableauQuetes": {
+                "x": 200,
+                "y": 100,
+                "affiche": true,
+                "image": "fond_quete5"
             }
         }
     ],
     "lieuActuel": {
-        "id": "map",
-        "nom": "map",
-        "image": "map",
-        "x": 0,
-        "y": 0,
-        "finx": 0,
-        "finy": 0,
-        "desac": true,
-        "parent": "",
-        "scale": 0.5,
-        "musique": "map"
+        "id": "fjorh",
+        "nom": "Fjorh",
+        "image": "Fjorh-test",
+        "parent": "map",
+        "musique": "fjorh",
+        "x": 918,
+        "y": 377,
+        "position_start": [
+            {
+                "startX": 570,
+                "startY": 835
+            },
+            {
+                "startX": 585,
+                "startY": 835
+            },
+            {
+                "startX": 570,
+                "startY": 820
+            },
+            {
+                "startX": 570,
+                "startY": 850
+            },
+            {
+                "startX": 555,
+                "startY": 835
+            }
+        ],
+        "finx": 265,
+        "finy": 229,
+        "desac": false,
+        "oiseaux": true,
+        "scale": 0.6
     },
     "boutiques": [
         {
@@ -3710,6 +3957,7 @@
             "scale": 4,
             "scaleFond": 0.2,
             "finFond": 650,
+            "oiseaux": true,
             "position_start": [
                 {
                     "startX": 100,
@@ -3824,6 +4072,7 @@
             "scale": 15,
             "scaleFond": 0.5,
             "finFond": 450,
+            "oiseaux": true,
             "position_start": [
                 {
                     "startX": 340,
@@ -3982,6 +4231,7 @@
             "finy": 70,
             "desac": false,
             "parent": "map",
+            "oiseaux": true,
             "scale": 1.5
         },
         {
@@ -4039,6 +4289,7 @@
             "finx": 150,
             "musique": "arene",
             "finy": 140,
+            "oiseaux": true,
             "desac": false
         },
         {
@@ -4127,6 +4378,7 @@
             "finx": 168,
             "finy": 135,
             "parent": "map",
+            "oiseaux": true,
             "desac": false
         },
         {
@@ -4352,9 +4604,21 @@
             "desac": false
         },
         {
+            "parent": "fjorh",
+            "id": "panneau_de_quetes",
+            "nom": "Panneau de Quêtes",
+            "image": "panneau_de_quetes",
+            "musique": "fjorh",
+            "x": 800,
+            "y": 510,
+            "finx": 212,
+            "finy": 116,
+            "desac": false
+        },
+        {
             "id": "fjorh",
             "nom": "Fjorh",
-            "image": "Fjorh",
+            "image": "Fjorh-test",
             "parent": "map",
             "musique": "fjorh",
             "x": 918,
@@ -4384,6 +4648,7 @@
             "finx": 265,
             "finy": 229,
             "desac": false,
+            "oiseaux": true,
             "scale": 0.6
         },
         {
@@ -4517,6 +4782,7 @@
             "finx": 139,
             "finy": 135,
             "parent": "map",
+            "oiseaux": true,
             "desac": false
         },
         {
@@ -4552,6 +4818,7 @@
             "finy": 129,
             "parent": "map",
             "desac": false,
+            "oiseaux": true,
             "scale": 0.7
         },
         {
@@ -4587,6 +4854,7 @@
             "finy": 100,
             "parent": "map",
             "desac": false,
+            "oiseaux": true,
             "scale": 3
         },
         {
@@ -4623,6 +4891,7 @@
             "desac": false,
             "scale": 8,
             "scaleFond": 1,
+            "oiseaux": true,
             "finFond": 750
         }
     ],
@@ -6277,5 +6546,10 @@
             "y": 265
         }
     ],
-    "admin": true
+    "admin": false,
+    "repos": {
+        "animation": false,
+        "lance": false,
+        "stop": false
+    }
 }

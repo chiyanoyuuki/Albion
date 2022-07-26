@@ -7,6 +7,7 @@ import { of } from 'rxjs';
   templateUrl: './menu-contextuel.component.html',
   styleUrls: ['./menu-contextuel.component.scss']
 })
+
 export class MenuContextuelComponent implements OnInit {
 
   @Input() data: Data;
@@ -335,6 +336,26 @@ export class MenuContextuelComponent implements OnInit {
         }
       }
     }
+  }
+
+  repos(){
+    let persosTeam = this.data.entites.filter((entite: Entite) => entite.joueur);
+    persosTeam.forEach((perso: Entite) => {
+      perso.pdv = perso.pdvmax;
+      perso.mana = perso.manamax
+    });
+    this.data.repos.lance = true;
+    setTimeout (() => {
+      this.data.repos.animation = true;
+      setTimeout (() => {
+        this.data.repos.stop = true;
+        setTimeout (() => {
+          this.data.repos.stop = false;
+          this.data.repos.animation = false;
+          this.data.repos.lance = false;
+        }, 1000);
+      }, 4000);
+    }, 1000);
   }
 
   //SAUVEGARDE

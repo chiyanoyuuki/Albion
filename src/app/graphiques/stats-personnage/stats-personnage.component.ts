@@ -151,13 +151,13 @@ export class StatsPersonnageComponent implements OnInit {
 
   getQuetesPrincipales() {
     return this.data.quetes.filter((quete: Quete) =>
-      quete.type == 'principale' && this.perso.nom == quete.perso || quete.perso == "Toute l'équipe"
+      quete.type == 'principale' && this.perso.nom == quete.perso || quete.perso == "Toute l'équipe" && quete.accepte == true
     );
   }
 
   getQuetesSecondaires() {
     return this.data.quetes.filter((quete: Quete) =>
-      quete.type == 'secondaire'
+      quete.type == 'secondaire' && quete.accepte == true
     );
   }
 

@@ -10,6 +10,7 @@ export class Data {
 	public itemDragged: { perso: Entite, item: ObjetInventaire } | undefined;
 	public admin: boolean;
 	public pnjs: Entite[];
+	public repos: Animation;
 }
 
 export class Entite {
@@ -58,6 +59,12 @@ export class Entite {
 	public holo: boolean;
 }
 
+export class Animation{
+	public animation: boolean;
+	public lance: boolean;
+	public stop: boolean;
+}
+
 export class Sort {
 	public nom: string;
 	public image: string;
@@ -100,6 +107,16 @@ export class Quete {
 	public recompenses: ObjetInventaire[];
 	public paiement: number;
 	public perso: string;
+	public tableauQuetes: TableauQuetes;
+	public accepte: boolean;
+}
+
+export class TableauQuetes {
+	public x: number;
+	public y: number;
+	public affiche: boolean;
+	public zIndex: number;
+	public image: string;
 }
 
 export class Etape {
@@ -135,6 +152,7 @@ export class Lieu {
 	public bords: boolean;
 	public finFond: number;
 	public musique: string;
+	public oiseaux: boolean;
 }
 
 export class Combat {

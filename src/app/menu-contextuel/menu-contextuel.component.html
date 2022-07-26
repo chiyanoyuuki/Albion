@@ -3,6 +3,7 @@
         <p *ngIf="menu.type=='entite'&&data.admin" class="choix" (click)="addObjet=true;">(A) Ajouter un objet</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="add=true;">Ajouter une entité</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
+        <p *ngIf="menu.type=='map'" class="choix" (click)="repos()">Repos</p>
         <p *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix" (click)="quete=true;">Quetes ({{nbrQuetes}})
         </p>
         <p *ngIf="menu.type=='entite'&&perso.team!=0" class="choix" (click)="deletion()">{{delete}}</p>

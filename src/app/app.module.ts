@@ -13,6 +13,7 @@ import { InfosEntiteComponent } from './graphiques/infos-entite/infos-entite.com
 import { FormsModule } from '@angular/forms';
 import { StatsPersonnageComponent } from './graphiques/stats-personnage/stats-personnage.component';
 import { FormulaireComponent } from './graphiques/formulaire/formulaire.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FormulaireComponent } from './graphiques/formulaire/formulaire.componen
     HttpClientModule,
     AppRoutingModule,
     DragDropModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
