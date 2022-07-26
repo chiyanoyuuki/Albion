@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
 
     console.log(this.data);
     console.log("Verifications");
+    let nbObjets = this.data.objets.length;
+    console.log("Il y a " + nbObjets + " objets définis dans le jeu");
     console.log("Des objets ne sont pas définis dans le tableau global");
     console.log("   Check inventaires et stuff entites");
     this.data.entites.forEach((entite: Entite) => {

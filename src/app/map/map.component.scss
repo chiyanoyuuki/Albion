@@ -1,11 +1,15 @@
-.map {
-    width: 1850px;
-}
-
 .entites {
     position: absolute;
     left: 0;
     top: 0;
+}
+
+.video source {
+    position: absolute;
+    z-index: 10;
+    background-color: black;
+    width: 1902px;
+    height: fit-content;
 }
 
 .lieux {

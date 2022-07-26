@@ -1,4 +1,4 @@
-import { Entite, Data, MenuContextuel, Lieu, ObjetInventaire } from '../model';
+import { Entite, Data, MenuContextuel, Lieu, ObjetInventaire, Position } from '../model';
 import { Component, DoCheck, HostListener, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { of } from 'rxjs';
@@ -148,14 +148,7 @@ export class EntitesComponent implements OnInit {
     this.menuContextuel = undefined;
   }
 
-  public getScale(perso: Entite) {
-    let scale = 1;
-    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
-    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
-    if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
-    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
-    return scale;
-  }
+
 
   public getTop(perso: Entite) {
     if (perso.overrideY) { return perso.overrideY + "%"; }
@@ -174,13 +167,21 @@ export class EntitesComponent implements OnInit {
     return '40%';
   }
 
+  public getScale(perso: Entite) {
+    let scale = 1;
+    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
+    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
+    if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
+    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
+    return scale;
+  }
+
   public getNewScale(perso: Entite) {
     let scale = this.data.lieuActuel.scale - this.data.lieuActuel.scaleFond;
     let map = document.getElementById("map");
     if (map) {
       let finFond = 0;
       let height = map.offsetHeight;
-      console.log(height);
       if (this.data.lieuActuel.finFond) {
         finFond = this.data.lieuActuel.finFond;
       }

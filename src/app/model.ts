@@ -153,6 +153,8 @@ export class Lieu {
 	public finFond: number;
 	public musique: string;
 	public oiseaux: boolean;
+	public nbImage: number;
+	public useNbImage: boolean;
 }
 
 export class Combat {
