@@ -16,7 +16,6 @@ export class MenuContextuelComponent implements OnInit {
   @Input() perso: Entite;
 
   @Output() addEntityEvent = new EventEmitter<addEntity>();
-  @Output() deleteEntityEvent = new EventEmitter<string>();
   @Output() closeEvent = new EventEmitter<null>();
 
 
@@ -189,12 +188,11 @@ export class MenuContextuelComponent implements OnInit {
 
   deletion() {
     if (this.delete == "Supprimer") { this.delete = "Confirmer suppression"; }
-    else {
-      this.deleteEntityEvent.emit();
-    }
+    else { this.data.entites.splice(this.data.entites.indexOf(this.perso), 1); }
   }
 
   close() {
+    console.log("close menu contextuel");
     this.closeEvent.emit();
   }
 
@@ -346,18 +344,18 @@ export class MenuContextuelComponent implements OnInit {
     }
   }
 
-  repos(){
+  repos() {
     let persosTeam = this.data.entites.filter((entite: Entite) => entite.joueur);
     persosTeam.forEach((perso: Entite) => {
       perso.pdv = perso.pdvmax;
       perso.mana = perso.manamax
     });
     this.data.repos.lance = true;
-    setTimeout (() => {
+    setTimeout(() => {
       this.data.repos.animation = true;
-      setTimeout (() => {
+      setTimeout(() => {
         this.data.repos.stop = true;
-        setTimeout (() => {
+        setTimeout(() => {
           this.data.repos.stop = false;
           this.data.repos.animation = false;
           this.data.repos.lance = false;

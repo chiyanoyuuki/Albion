@@ -16,17 +16,16 @@ export class LieuxComponent implements OnInit {
   public focus: any;
   public changingTo: Lieu | undefined;
   public audio: HTMLAudioElement;
-  public clickEventsubscription: any;
+  public listenTriggerFermetureFenetres: any;
+  public boucle = [0,1,2];
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    this.clickEventsubscription = this.appService.listenTriggerFermetureFenetres().subscribe(() => {
+    this.listenTriggerFermetureFenetres = this.appService.listenTriggerFermetureFenetres().subscribe(() => {
       this.changingTo = undefined;
     })
   }
-
-
 
   getLieux(): Lieu[] {
     return this.data.lieux.filter(lieu => lieu.parent == this.data.lieuActuel.id);
@@ -49,8 +48,6 @@ export class LieuxComponent implements OnInit {
   }
 
   changementDeMap(lieu: Lieu) {
-    console.log(lieu);
-    console.log(lieu.nbImage);
     if (lieu.musique) {
       if (!this.audio || (this.audio && !this.audio.src.endsWith(lieu.musique + ".mp3"))) {
         if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; }
@@ -77,10 +74,7 @@ export class LieuxComponent implements OnInit {
   }
 
   rentrerLieu(lieu: Lieu) {
-    console.log(this.focus);
-    console.log(this.changingTo);
     let nb = this.getPersosSurMapActuelle().length;
-    console.log(nb);
     if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
       this.changeLieu(lieu);
     }

@@ -20,33 +20,17 @@
     <div class="changeLieu fenetre" *ngIf="changingTo&&changingTo==lieu&&(lieu.canEnter==undefined||lieu.canEnter)">
         <p class="bigText">Qui rentre dans {{changingTo.nom}} ?</p>
         <div class="line"></div>
-        <div class="flexCenter nowrap">
-            <div>
-                <app-icone-personnage *ngFor="let perso of getEntitesPresentes(0)" [perso]="perso"
-                    (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
-                    (mouseover)="persoHovered[0]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                    (mouseout)="persoHovered[0]=''"></app-icone-personnage>
+        <div *ngFor="let i of boucle">
+            <div class="flexCenter nowrap">
+                <div>
+                    <app-icone-personnage *ngFor="let perso of getEntitesPresentes(i)" [perso]="perso"
+                        (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
+                        (mouseover)="persoHovered[i]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                        (mouseout)="persoHovered[i]=''"></app-icone-personnage>
+                </div>
             </div>
+            <p class="nomPerso">{{persoHovered[i]}}</p>
         </div>
-        <p class="nomPerso">{{persoHovered[0]}}</p>
-        <div class="flexCenter nowrap">
-            <div>
-                <app-icone-personnage *ngFor="let perso of getEntitesPresentes(1)" [perso]="perso"
-                    (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
-                    (mouseover)="persoHovered[1]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                    (mouseout)="persoHovered[1]=''"></app-icone-personnage>
-            </div>
-        </div>
-        <p class="nomPerso">{{persoHovered[1]}}</p>
-        <div class="flexCenter nowrap">
-            <div>
-                <app-icone-personnage *ngFor="let perso of getEntitesPresentes(2)" [perso]="perso"
-                    (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
-                    (mouseover)="persoHovered[2]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                    (mouseout)="persoHovered[2]=''"></app-icone-personnage>
-            </div>
-        </div>
-        <p class="nomPerso">{{persoHovered[2]}}</p>
         <div class="line"></div>
         <p class="choix" (click)="changeLieu(lieu)">Entrer</p>
     </div>

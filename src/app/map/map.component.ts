@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
   public mapHeight: number;
   public image: HTMLImageElement;
   public menuContextuel: MenuContextuel | undefined;
-  public focus: any;
+  public noClickMap: any;
 
   public windowWidth: number = 1920;
   public windowHeight: number;
@@ -48,16 +48,13 @@ export class MapComponent implements OnInit {
   }
 
   clicMap(event: MouseEvent) {
-    if (!this.focus) { this.appService.triggerFermetureFenetres(); }
-    this.menuContextuel = undefined;
+    if (!this.noClickMap) { this.appService.triggerFermetureFenetres(); this.menuContextuel = undefined; }
     if (this.data.admin) { console.log("MouseX : " + event.offsetX); }
     if (this.data.admin) { console.log("MouseY : " + event.offsetY); }
   }
 
-
-
   clicDroitMap(event: MouseEvent) {
-    this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" };
+    if (!this.noClickMap) { this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" }; }
   }
 
   //AUTRE=========================================================================
@@ -130,12 +127,11 @@ export class MapComponent implements OnInit {
     this.data.entites.push(addEntite.entite);
   }
 
-
-
   getEtat() {
     if (this.data.repos.stop) { return "etat0"; }
     else if (this.data.repos.animation) { return "etat1"; }
     else if (this.data.repos.lance) { return "etat0"; }
     return "etat1";
   }
+  
 }
