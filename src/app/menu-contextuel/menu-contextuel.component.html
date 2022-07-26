@@ -1,11 +1,13 @@
 <div class="fenetre" [style.left]="menu.x+'px'" [style.top]="menu.y+'px'" cdkDrag>
-    <div *ngIf="add==false&&addObjet==false">
+    <p class="croix clickable" (click)="close()">X</p>
+    <div *ngIf="!add&&!addObjet&&!modifMap">
         <p *ngIf="menu.type=='entite'&&data.admin" class="choix" (click)="addObjet=true;">(A) Ajouter un objet</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="add=true;">Ajouter une entité</p>
+        <p *ngIf="menu.type=='map'" class="choix" (click)="clickModifMap()">(A) Modifier map</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
         <p *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix" (click)="quete=true;">Quetes ({{nbrQuetes}})
         </p>
-        <p *ngIf="menu.type=='entite'&&perso.team!=0" class="choix" (click)="deletion()">{{delete}}</p>
+        <p *ngIf="menu.type=='entite'&&!perso.joueur" class="choix" (click)="deletion()">{{delete}}</p>
         <p *ngIf="menu.type=='entite'&&perso.familier" class="choix" (click)="clickLierFamilier()">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
         <p *ngIf="menu.type=='entite'&&perso.familier" class="choix" (click)="clickAfficherFamilier()">
@@ -73,8 +75,9 @@
     </div>
 
     <div *ngIf="addObjet==true">
-        <p class="croix clickable" (click)="close()">X</p>
-        <p>Ajouter un objet</p>
+        <p class="clickable"
+            (click)="choixTypeObjet=='Ajouter un objet'?choixTypeObjet='Ajouter un loot':choixTypeObjet='Ajouter un objet'">
+            {{choixTypeObjet}}</p>
         <div class="line"></div>
         <div class="flex levels">
             <p *ngFor="let letter of alphabet" class="choix"
@@ -88,13 +91,33 @@
                 [style.color]="emplacementSelected==emplacement?'red':'white'">{{emplacement}}</p>
         </div>
 
+        <div *ngIf="choixTypeObjet=='Ajouter un loot'">
+            <div class="line"></div>
+
+            <div class="persos objets flex wrap">
+                <div *ngFor="let objet of getLoot()" (mouseover)="objetFocus=objet" (click)="clickLoot(objet)">
+                    <div class="objet">
+                        <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
+                        <p>{{objet.taux}}%</p>
+                        <p>{{objet.qte}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="clickable" (click)="deleteLoot()">Supprimer</p>
+        </div>
+
+
+        <div class="line"></div>
+
         <div class="apercu flexCenter" *ngIf="objetSelected">
             <div class="objet">
                 <img *ngIf="objetSelected.image" src="./assets/images/items/{{ objetSelected.image }}.png" />
             </div>
             <p class="nomItemApercu">{{objetSelected.nom}}</p>
             <div class="formulaire">
-                <input type="text" [(ngModel)]="quantite">
+                <p>Taux : </p><input type="text" [(ngModel)]="input2">
+                <p>Quantite : </p><input type="text" [(ngModel)]="input1">
             </div>
         </div>
         <p>{{objetFocus?objetFocus.nom:'-'}}</p>
@@ -108,41 +131,73 @@
         </div>
         <p class="choix" *ngIf="objetSelected!=undefined" (click)="addItem()">Valider</p>
     </div>
-</div>
 
-
-<div *ngIf="quete==true" class="containerQuete" cdkDrag>
-    <p class="croix clickable" (click)="close()">X</p>
-    <div class="quetes">
-        <div class="flex column gap-1">
-            <div *ngFor="let quete of getQuetes()" class="nomQuetes">
-                <p class="clickable bigText" (click)="focusQuete = quete">{{ quete.etapeEnCours.nom }} <span
-                        style="color:red;">{{quete.etatQuete > 0 && quete.etapeEnCours.pnj == perso.nom ? '?' :
-                        '!'}}</span></p>
+    <div *ngIf="quete==true" class="containerQuete" cdkDrag>
+        <div class="quetes">
+            <div class="flex column gap-1">
+                <div *ngFor="let quete of getQuetes()" class="nomQuetes">
+                    <p class="clickable bigText" (click)="focusQuete = quete">{{ quete.etapeEnCours.nom }} <span
+                            style="color:red;">{{quete.etatQuete > 0 && quete.etapeEnCours.pnj == perso.nom ? '?' :
+                            '!'}}</span></p>
+                </div>
             </div>
-        </div>
-        <div class="descriptionQuetes flex column" *ngIf="focusQuete">
-            <p *ngIf="focusQuete.etatQuete == 0" (click)="accepQuete()" class="bigText clickable"
-                (mouseleave)="queteAccepter = ''">
-                {{queteAccepter == focusQuete.nom && queteAccepter != '' ? 'Confirmer vouloir accepter la quête ?' :
-                'Accepter la quête !'}}
-            </p>
-            <p *ngIf="focusQuete.etatQuete == 1" class="bigText">{{focusQuete.etapeEnCours.nom}}</p>
-            <p>{{focusQuete.etapeEnCours.description}}</p>
-            <div class="flex wrap gap-1 recompensePaiement">
-                <div class="recompense flex align-center" *ngFor="let recompense of focusQuete.recompenses">
-                    <img *ngIf="recompense.image" src="./assets/images/items/{{ recompense.image }}.png" />
-                    <div class="flex column">
-                        <p>{{recompense.nom}}</p>
-                        <p>Qte: {{recompense.qte}}</p>
+            <div class="descriptionQuetes flex column" *ngIf="focusQuete">
+                <p *ngIf="focusQuete.etatQuete == 0" (click)="accepQuete()" class="bigText clickable"
+                    (mouseleave)="queteAccepter = ''">
+                    {{queteAccepter == focusQuete.nom && queteAccepter != '' ? 'Confirmer vouloir accepter la quête ?' :
+                    'Accepter la quête !'}}
+                </p>
+                <p *ngIf="focusQuete.etatQuete == 1" class="bigText">{{focusQuete.etapeEnCours.nom}}</p>
+                <p>{{focusQuete.etapeEnCours.description}}</p>
+                <div class="flex wrap gap-1 recompensePaiement">
+                    <div class="recompense flex align-center" *ngFor="let recompense of focusQuete.recompenses">
+                        <img *ngIf="recompense.image" src="./assets/images/items/{{ recompense.image }}.png" />
+                        <div class="flex column">
+                            <p>{{recompense.nom}}</p>
+                            <p>Qte: {{recompense.qte}}</p>
+                        </div>
+                    </div>
+                    <div class="flex recompense golds align-center">
+                        <p>{{focusQuete.paiement}}</p>
+                        <img src="../../assets/images/pieces.png" />
                     </div>
                 </div>
-                <div class="flex recompense golds align-center">
-                    <p>{{focusQuete.paiement}}</p>
-                    <img src="../../assets/images/pieces.png" />
-                </div>
+                <p *ngIf="focusQuete.etatQuete == 1" class="bigText clickable" (click)="etapeSuivante()">Etape suivante
+                </p>
             </div>
-            <p *ngIf="focusQuete.etatQuete == 1" class="bigText clickable" (click)="etapeSuivante()">Etape suivante</p>
         </div>
+    </div>
+
+    <div *ngIf="modifMap">
+        <div class="formulaire">
+            <p>Scale</p><input type="text" [(ngModel)]="input1">
+            <p>ScaleFond</p><input type="text" [(ngModel)]="input2">
+            <p>FinFond</p><input type="text" [(ngModel)]="input3">
+        </div>
+
+        <div class="flex space-around">
+            <p class="choix" (click)="ajouterPosition(1)">Ajouter Position</p>
+            <p class="choix" (click)="ajouterPosition(-1)">Supprimer Position</p>
+        </div>
+        <p class="choix" (click)="modifierMap()">Valider</p>
+    </div>
+</div>
+
+<div *ngIf="modifMap" class="positionDepart">
+    <div class="positionStats" *ngFor="let position of data.lieuActuel.position_start"
+        [style.top]="position.startY+'px'" [style.left]="position.startX+'px'"
+        (cdkDragEnded)="positionDragEnd($event,position)" cdkDrag>
+        <img class="positionPersoStats" src="../../assets/images/Spawn.png" />
+        <img class="positionPerso" [style.scale]="getScale(position)" [style.top]="getTop(position)"
+            src="../../assets/images/entites/Spawn.png" />
+    </div>
+</div>
+
+<div *ngIf="modifMap" class="positionDepart">
+    <div class="positionStats dummy" [style.top]="dummy.startY+'px'" [style.left]="dummy.startX+'px'"
+        (cdkDragEnded)="positionDragEnd($event,dummy)" cdkDrag>
+        <img class="positionPersoStats" src="../../assets/images/Dummy.png" />
+        <img class="positionPerso" [style.scale]="getScale(dummy)" [style.top]="getTop(dummy)"
+            src="../../assets/images/entites/Dummy.png" />
     </div>
 </div>

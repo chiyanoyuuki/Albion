@@ -2,11 +2,11 @@
     "entites": [
         {
             "id": "lunastormwood",
-            "x": 366,
-            "y": 343,
-            "lieu": "prisonfjorh",
-            "xcombat": 1713,
-            "ycombat": 658,
+            "x": 1352,
+            "y": 548,
+            "lieu": "map",
+            "xcombat": 696,
+            "ycombat": 710,
             "joueur": true,
             "nom": "Luna Stormwood",
             "histoire": "Origaire d'une grande famille d'alchimiste de la forêt d'aubelune au sud-est D'Albion dont le père est décédé et la mère à soudainement disparu il y plusieurs semaines. Luna se met donc en quête de retrouver sa mère, elle apprend que sa mère est parti vers le nord dans les montage pour étudier des phonèmes climatique étrange. Elle se met donc en route pour les montagnes, arrivée à l'endroit où la végétation a subis des changements inexplicable, Luna commence à s'interroger, après plusieurs jours de recherche, elle surprend une conversation avec un mercenaire et un homme qui vie dans les montagnes, ces deux personnes parlent d'une grosse pierre précieuse que le roi Herald recherche, après quelques instants, grâce aux recherches qu'elles a effectués ces jours précédents, elle commence à comprendre de quoi il s'agit et décide d'aller à la rencontre de ces deux hommes..",
@@ -61,6 +61,10 @@
                 {
                     "nom": "Boost de concentration",
                     "image": "sort_boost_concentration"
+                },
+                {
+                    "nom": "Soin Léger",
+                    "image": "sort_soin"
                 }
             ],
             "stuff": [
@@ -154,8 +158,8 @@
             "familier": {
                 "x": 876,
                 "y": 740,
-                "xcombat": -107,
-                "ycombat": 585,
+                "xcombat": 1269,
+                "ycombat": 820,
                 "nom": "Brindhibou",
                 "image": "Brindhibou",
                 "forceDivScale": 4,
@@ -183,15 +187,28 @@
                 "posLinkedY": 35
             },
             "argent": 0,
-            "inventaire": []
+            "inventaire": [
+                {
+                    "image": "petit_cristaux",
+                    "nom": "Petits Cristaux",
+                    "qte": 7,
+                    "taux": 0
+                },
+                {
+                    "image": "gros_cristaux",
+                    "nom": "Gros Cristaux",
+                    "qte": 1,
+                    "taux": 0
+                }
+            ]
         },
         {
             "id": "bjorncotesdefer",
-            "x": 487,
-            "y": 464,
-            "lieu": "prisonfjorh",
-            "xcombat": 431,
-            "ycombat": 668,
+            "x": 1298,
+            "y": 555,
+            "lieu": "map",
+            "xcombat": 1080,
+            "ycombat": 799,
             "nom": "Bjorn Côtes de Fer",
             "histoire": "Trapeur origaire des montagnes enneigées du nord D'Albion, Bjorn a vécu toute sa vie dans les montagnes, il vie de la chasse, de la pêche et de la vente de fourrure, il est accompagné depuis de nombreuses années par un loup blanc qu'il a recueilli bébé après qu'il ait malheureusement du tuer se mère pour survivre. Un jour où il était à la chasse, une tempête de neige se leva et forca Bjorn à se réfugier dans une grotte non loin de là. Cros blanc, le loup de Bjorn commenca à s'agiter après quelques instants, puis se mit à courir vers le fond de la grotte, Bjorn le suivi, les parois de la grotte commençaient à changer, les parois étaient devenues comme du cristal, Bjorn vi Croc blanc auprès d'une étrange grosse pierre bleu. Bjorn décida de la ramèner chez lui et de la cacher en pensant que cette pierre pourrait être précieuse. Après quelques temps, Bjorn remarqua des changements troublants sur la flore autour de chez lui et commenca à s'interroger, le lendemain il reçu la visite d'un mercenaire de renom à la recherche d'une pierre précieuse pour le Roi Herarld..",
             "classe": "trappeur",
@@ -292,22 +309,32 @@
                 {
                     "emplacement": "Arme1",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Arme",
+                        "image": "dague_usee",
+                        "nom": "Dague Usée",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
                     "emplacement": "Arme2",
                     "objet": {
+                        "emplacement": "",
                         "nom": "",
-                        "image": ""
+                        "image": "",
+                        "qte": 0,
+                        "taux": 0,
+                        "prix": 0
                     }
                 },
                 {
                     "emplacement": "Utilitaire",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Utilitaire",
+                        "image": "carquois_cuir",
+                        "nom": "Carquois en cuir (20)",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
@@ -343,8 +370,8 @@
             "familier": {
                 "x": 1316,
                 "y": 977,
-                "xcombat": -107,
-                "ycombat": 705,
+                "xcombat": 770,
+                "ycombat": 867,
                 "nom": "Croc Blanc",
                 "image": "Croc Blanc",
                 "team": 0,
@@ -369,17 +396,30 @@
                 "actif": false,
                 "type": "familier"
             },
-            "argent": 0,
-            "inventaire": []
+            "argent": 12,
+            "inventaire": [
+                {
+                    "image": "crochets",
+                    "nom": "Crochets",
+                    "qte": 6,
+                    "taux": 0
+                },
+                {
+                    "image": "fleches",
+                    "nom": "Flèches",
+                    "qte": 30,
+                    "taux": 0
+                }
+            ]
         },
         {
             "id": "gandalfleroux",
-            "x": 665,
-            "y": 362,
-            "xcombat": 761,
+            "x": 1320,
+            "y": 566,
+            "xcombat": 856,
             "joueur": true,
-            "lieu": "prisonfjorh",
-            "ycombat": 563,
+            "lieu": "map",
+            "ycombat": 836,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
             "classe": "mercenaire",
@@ -388,7 +428,7 @@
             "team": 0,
             "niveau": 3,
             "pdvmax": 38,
-            "pdv": 38,
+            "pdv": 24,
             "manamax": 12,
             "mana": 12,
             "etat": "Bonne Santé",
@@ -476,22 +516,31 @@
                 {
                     "emplacement": "Arme1",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Arme",
+                        "image": "epee_rouillee",
+                        "nom": "Epée Rouillée",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
                     "emplacement": "Arme2",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Arme",
+                        "image": "arc",
+                        "nom": "Arc",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
                     "emplacement": "Utilitaire",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Utilitaire",
+                        "image": "carquois_cuir",
+                        "nom": "Carquois en cuir (20)",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
@@ -551,17 +600,24 @@
                 "actif": false,
                 "overrideX": 34
             },
-            "argent": 0,
-            "inventaire": []
+            "argent": 3,
+            "inventaire": [
+                {
+                    "image": "fleches",
+                    "nom": "Flèches",
+                    "qte": 13,
+                    "taux": 0
+                }
+            ]
         },
         {
             "id": "arlequin",
             "x": 555,
             "joueur": true,
             "y": 118,
-            "xcombat": 1294,
+            "xcombat": 2029,
             "lieu": "prisonfjorh",
-            "ycombat": 566,
+            "ycombat": 614,
             "nom": "Arlequin",
             "histoire": "Arlequin vient de l'île de Sagüt au Sud-Ouest de Albion. Son île fut complètement détruite en quelques instants lorsqu'il n'avait que 10 ans. Il vagabonda ensuite en volant des provisions aux quatres coins du monde pour survivre. Il fît la connaissance d'un mâitre sabreur avec qui il apprit le maniement des lames pendant quelques années. Il obtint le magnifique Katana de son maître lorsqu'il décéda de vieillesse. Après cela, il rencontra un groupe d'aventuriers avec qui il passa quelques années. Un beau jour, ils se retrouvérent dans une embuscade et sans explication, Arlequin fût vendu aux assassins en échange de la vie du reste du groupe. Arlequin dût assassiner des centaines de personnes sur les ordres des assassins les années qui suivèrent. Il réussit à se débarasser de la totalité de ses ravisseurs avant de retourner vagabonder seul, désormais plus renfermé que jamais et ayant plus de difficulté à participer à des combats qu'il jugerait inutiles.",
             "classe": "assassin",
@@ -732,12 +788,12 @@
         },
         {
             "id": "siennahurlevent",
-            "x": 782,
+            "x": 1371,
             "joueur": true,
-            "y": 738,
-            "lieu": "prisonfjorh",
-            "xcombat": 1066,
-            "ycombat": 660,
+            "y": 535,
+            "lieu": "map",
+            "xcombat": 691,
+            "ycombat": 603,
             "nom": "Sienna Hurlevent",
             "histoire": "Depuis son plus jeune age, Sienna a parcouru la forêt de XXX jusqu'à en reconnaitre les moindres changement dans la faune et la flore. Jeune druidesse elfe de 107 ans, elle a été formée aux arcanes de la magie de métamorphose par l'archimage Louge dans la plus grande discression. Les autres races ignores beaucoup de chose sur la vie des elfes après tout. Sienna s'est mis en tete de parcourir le monde au coté de son fidèle compagnon, Pipou l'écureuil. Elle a un but précis : trouver un remède pour guérir sa famille rongé par un maux qu'aucun elfe n'a encore vu auparavant.",
             "classe": "druide",
@@ -757,7 +813,10 @@
                 },
                 {
                     "nom": "Aigle",
-                    "image": "Aigle"
+                    "image": "Aigle",
+                    "overrideX": 7,
+                    "overrideY": 120,
+                    "forceDivScale": 1.5
                 },
                 {
                     "nom": "Ours",
@@ -795,6 +854,14 @@
                 {
                     "nom": "Bourrasque",
                     "image": "sort_bourrasque"
+                },
+                {
+                    "nom": "Soin Moyen",
+                    "image": "sort_soin"
+                },
+                {
+                    "nom": "Antidote léger",
+                    "image": "sort_antidote"
                 }
             ],
             "stuff": [
@@ -852,8 +919,11 @@
                 {
                     "emplacement": "Utilitaire",
                     "objet": {
-                        "nom": "",
-                        "image": ""
+                        "emplacement": "Utilitaire",
+                        "image": "objets_de_jet",
+                        "nom": "Objets de jet",
+                        "qte": 1,
+                        "taux": 0
                     }
                 },
                 {
@@ -888,8 +958,8 @@
             "familier": {
                 "x": 847,
                 "y": 817,
-                "xcombat": -107,
-                "ycombat": 1065,
+                "xcombat": 1009,
+                "ycombat": 597,
                 "nom": "Pipou",
                 "image": "Pipou",
                 "team": 0,
@@ -918,2047 +988,20 @@
                 "forceDivScale": 4
             },
             "argent": 0,
-            "inventaire": []
-        },
-        {
-            "nom": "Coffre 01",
-            "image": "coffre",
-            "solo": false,
-            "niveau": 0,
-            "pdvmax": 0,
-            "pdv": 0,
-            "manamax": 0,
-            "mana": 0,
-            "id": "coffre",
-            "overrideX": 21,
-            "xcombat": 1062,
-            "forceDivScale": 2,
-            "ycombat": 531,
-            "lieu": "portePrison",
-            "team": 2,
-            "etat": "Vérouillé",
-            "actif": false,
             "inventaire": [
                 {
-                    "nom": "Arc",
-                    "image": "arc",
-                    "emplacement": "Arme",
-                    "qte": 2
-                },
-                {
-                    "nom": "Flèches",
-                    "image": "fleches",
-                    "qte": 50
-                },
-                {
                     "emplacement": "Utilitaire",
-                    "nom": "Objets de jet",
                     "image": "objets_de_jet",
-                    "qte": 16
+                    "nom": "Objets de jet",
+                    "qte": 21,
+                    "taux": 0
                 },
                 {
-                    "emplacement": "Utilitaire",
-                    "nom": "Carquois en cuir (20)",
-                    "image": "carquois_cuir",
-                    "qte": 2
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 36
-                }
-            ],
-            "peutBouger": false
-        },
-        {
-            "nom": "Coffre 02",
-            "image": "coffre",
-            "solo": false,
-            "niveau": 0,
-            "pdvmax": 0,
-            "pdv": 0,
-            "manamax": 0,
-            "forceDivScale": 2,
-            "mana": 0,
-            "id": "coffre",
-            "overrideX": 21,
-            "xcombat": 141,
-            "ycombat": 875,
-            "lieu": "portePrison",
-            "team": 2,
-            "etat": "Ouvert",
-            "inventaire": [
-                {
-                    "nom": "Crochets",
-                    "image": "crochets",
-                    "qte": 6
-                },
-                {
-                    "nom": "Petits Cristaux",
-                    "image": "petit_cristaux",
-                    "qte": 7
-                },
-                {
-                    "nom": "Gros Cristaux",
-                    "image": "gros_cristaux",
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 22
-                }
-            ],
-            "peutBouger": false,
-            "actif": false
-        },
-        {
-            "nom": "Cadavre 01",
-            "image": "Cadavre",
-            "solo": false,
-            "niveau": 0,
-            "pdvmax": 0,
-            "pdv": 0,
-            "manamax": 0,
-            "mana": 0,
-            "id": "cadavre",
-            "overrideX": 20,
-            "overrideY": 113,
-            "xcombat": 519,
-            "ycombat": 624,
-            "lieu": "portePrison",
-            "team": 2,
-            "inventaire": [
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 12
-                },
-                {
-                    "emplacement": "Arme",
-                    "nom": "Dague Usée",
-                    "image": "dague_usee",
-                    "qte": 1
-                }
-            ],
-            "peutBouger": false,
-            "actif": false
-        },
-        {
-            "nom": "Cadavre 02",
-            "image": "Cadavre",
-            "solo": false,
-            "niveau": 0,
-            "pdvmax": 0,
-            "pdv": 0,
-            "manamax": 0,
-            "mana": 0,
-            "id": "cadavre",
-            "overrideX": 20,
-            "overrideY": 113,
-            "xcombat": 1090,
-            "ycombat": 792,
-            "lieu": "portePrison",
-            "team": 2,
-            "inventaire": [
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 5
-                },
-                {
-                    "emplacement": "Arme",
-                    "nom": "Epée Rouillée",
-                    "image": "epee_rouillee",
-                    "qte": 1
-                },
-                {
-                    "nom": "Clé",
-                    "image": "cle",
-                    "qte": 1
-                }
-            ],
-            "peutBouger": false,
-            "actif": false
-        },
-        {
-            "nom": "Chef 01",
-            "image": "Chef",
-            "solo": false,
-            "niveau": 4,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 20,
-            "mana": 20,
-            "id": "chef",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
+                    "image": "potion",
+                    "nom": "Potions",
                     "qte": 3
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 2
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 2
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 20
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 5,
-                    "qte": 1
                 }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 14,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 26,
-                    "manamax": 16
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 32,
-                    "manamax": 20
-                }
-            ],
-            "team": 2,
-            "xcombat": 817,
-            "ycombat": 262,
-            "lieu": "passageprison",
-            "inventaire": [
-                {
-                    "image": "bandages",
-                    "nom": "Bandages",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "image": "crochets",
-                    "nom": "Crochets",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 14,
-                    "emplacement": "",
-                    "taux": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Archer 01",
-            "image": "Archer",
-            "solo": false,
-            "niveau": 3,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 12,
-            "mana": 12,
-            "id": "archer",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Arc",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Flèches",
-                    "taux": 20,
-                    "qte": 10
-                },
-                {
-                    "nom": "Pieges",
-                    "taux": 10,
-                    "qte": 2
-                },
-                {
-                    "nom": "Carquois en cuir (20)",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 6,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 12,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 16,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 20,
-                    "manamax": 12
-                }
-            ],
-            "xcombat": 179,
-            "ycombat": 358,
-            "lieu": "passageprison",
-            "team": 2,
-            "inventaire": [
-                {
-                    "image": "bandages",
-                    "nom": "Bandages",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "image": "fleches",
-                    "nom": "Flèches",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 2,
-                    "emplacement": "",
-                    "taux": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Soldat 01",
-            "image": "Soldat",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 10,
-            "pdv": 10,
-            "manamax": 8,
-            "mana": 8,
-            "id": "soldat",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 3,
-                    "qte": 1
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "xcombat": 898,
-            "ycombat": 435,
-            "lieu": "passageprison",
-            "team": 2,
-            "inventaire": [
-                {
-                    "image": "bandages",
-                    "nom": "Bandages",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 7,
-                    "emplacement": "",
-                    "taux": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "x": 800,
-            "y": 1,
-            "xcombat": 1465,
-            "ycombat": 417,
-            "nom": "Goliath de Percerelle",
-            "image": "Goliath de Percerelle",
-            "solo": true,
-            "etat": "",
-            "niveau": 4,
-            "pdvmax": 55,
-            "pdv": 55,
-            "manamax": 18,
-            "mana": 18,
-            "tournoi": false,
-            "id": "goliathdepercerelle",
-            "lieu": "armurierfjorh",
-            "team": 1,
-            "boutique": "armurierfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Soldat 02",
-            "image": "Soldat",
-            "solo": false,
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 10,
-            "mana": 10,
-            "id": "soldat",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 3,
-                    "qte": 1
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "team": 1,
-            "xcombat": 1357,
-            "ycombat": 598,
-            "lieu": "fortfjorh",
-            "inventaire": [
-                {
-                    "image": "bandages",
-                    "nom": "Bandages",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 5,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                },
-                {
-                    "image": "jambieres_chevalier",
-                    "nom": "Jambières de Chevalier",
-                    "qte": 1,
-                    "taux": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Soldat 03",
-            "image": "Soldat",
-            "solo": false,
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 10,
-            "mana": 10,
-            "id": "soldat",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 3,
-                    "qte": 1
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "xcombat": 1552,
-            "ycombat": 789,
-            "lieu": "fortfjorh",
-            "team": 1,
-            "inventaire": [
-                {
-                    "image": "crochets",
-                    "nom": "Crochets",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 5,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Chef 02",
-            "image": "Chef",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 14,
-            "pdv": 14,
-            "manamax": 8,
-            "mana": 8,
-            "id": "chef",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 3
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 2
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 2
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 20
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 5,
-                    "qte": 1
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 14,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 26,
-                    "manamax": 16
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 32,
-                    "manamax": 20
-                }
-            ],
-            "team": 1,
-            "xcombat": 1519,
-            "ycombat": 102,
-            "lieu": "fortfjorh",
-            "inventaire": [
-                {
-                    "image": "bandages",
-                    "nom": "Bandages",
-                    "qte": 2,
-                    "taux": 0
-                },
-                {
-                    "image": "potions",
-                    "nom": "Potions",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 13,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Cadavre 03",
-            "image": "Cadavre",
-            "solo": false,
-            "niveau": 0,
-            "pdvmax": 0,
-            "pdv": 0,
-            "manamax": 0,
-            "mana": 0,
-            "id": "cadavre",
-            "overrideX": 20,
-            "overrideY": 113,
-            "peutBouger": false,
-            "xcombat": 1334,
-            "ycombat": 268,
-            "lieu": "fortfjorh",
-            "team": 1,
-            "actif": false
-        },
-        {
-            "nom": "Archer 02",
-            "image": "Archer",
-            "solo": false,
-            "niveau": 2,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 10,
-            "mana": 10,
-            "id": "archer",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Arc",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Flèches",
-                    "taux": 20,
-                    "qte": 10
-                },
-                {
-                    "nom": "Pieges",
-                    "taux": 10,
-                    "qte": 2
-                },
-                {
-                    "nom": "Carquois en cuir (20)",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 6,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 12,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 16,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 20,
-                    "manamax": 12
-                }
-            ],
-            "xcombat": 858,
-            "ycombat": 232,
-            "team": 1,
-            "lieu": "fortfjorh",
-            "inventaire": [
-                {
-                    "image": "bandages",
-                    "nom": "Bandages",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "image": "fleches",
-                    "nom": "Flèches",
-                    "qte": 2,
-                    "taux": 0
-                },
-                {
-                    "image": "pieges",
-                    "nom": "Pieges",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 4,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Soldat 04",
-            "image": "Soldat",
-            "solo": false,
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "team": 1,
-            "manamax": 10,
-            "mana": 10,
-            "id": "soldat",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 3,
-                    "qte": 1
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "xcombat": 1430,
-            "ycombat": 271,
-            "lieu": "fortfjorh",
-            "inventaire": [
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 6,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Assassin 01",
-            "image": "assassins",
-            "solo": false,
-            "niveau": 2,
-            "pdvmax": 16,
-            "team": 1,
-            "pdv": 16,
-            "manamax": 8,
-            "mana": 8,
-            "id": "assassin",
-            "actif": false,
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 6
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "xcombat": 1395,
-            "ycombat": 104,
-            "lieu": "fortfjorh"
-        },
-        {
-            "nom": "Stigius",
-            "image": "Stigius",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 14,
-            "pdv": 14,
-            "manamax": 8,
-            "mana": 8,
-            "id": "stigius",
-            "desc": "Apprenti prêtre de Fjorh, maître soigneur de Sienna",
-            "team": 0,
-            "xcombat": 1141,
-            "ycombat": 553,
-            "lieu": "fjorh",
-            "actif": false
-        },
-        {
-            "nom": "Archer 03",
-            "image": "Archer",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 6,
-            "pdv": 6,
-            "manamax": 8,
-            "mana": 8,
-            "id": "archer",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Arc",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Flèches",
-                    "taux": 20,
-                    "qte": 10
-                },
-                {
-                    "nom": "Pieges",
-                    "taux": 10,
-                    "qte": 2
-                },
-                {
-                    "nom": "Carquois en cuir (20)",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 6,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 12,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 16,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 20,
-                    "manamax": 12
-                }
-            ],
-            "team": 1,
-            "xcombat": 263,
-            "ycombat": 501,
-            "lieu": "fjorh",
-            "inventaire": [
-                {
-                    "image": "bandages",
-                    "nom": "Bandages",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "image": "fleches",
-                    "nom": "Flèches",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 6,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Soldat 05",
-            "image": "Soldat",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 10,
-            "pdv": 10,
-            "manamax": 8,
-            "mana": 8,
-            "id": "soldat",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 3,
-                    "qte": 1
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "team": 1,
-            "xcombat": 655,
-            "ycombat": 809,
-            "lieu": "fjorh",
-            "inventaire": [
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 8,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Arthemis Kemp",
-            "image": "Arthemis Kemp",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 16,
-            "mana": 16,
-            "id": "arthemiskemp",
-            "desc": "Une des participantes du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 735,
-            "ycombat": 443,
-            "lieu": "fjorh",
-            "actif": false
-        },
-        {
-            "nom": "Don Albert",
-            "image": "Don Albert",
-            "solo": true,
-            "niveau": 4,
-            "pdvmax": 25,
-            "pdv": 25,
-            "manamax": 20,
-            "mana": 20,
-            "id": "donalbert",
-            "desc": "Barman de la ville de Fjorh, chaleureux.",
-            "team": 1,
-            "xcombat": 854,
-            "ycombat": 334,
-            "lieu": "tavernefjorh",
-            "actif": false
-        },
-        {
-            "nom": "Kayn Proks",
-            "image": "Kayn Proks",
-            "solo": true,
-            "niveau": 8,
-            "pdvmax": 64,
-            "pdv": 64,
-            "manamax": 42,
-            "mana": 42,
-            "id": "kaynproks",
-            "type": "boss",
-            "desc": "Un des 4 bras droits armés du roi de Fjorh",
-            "overrideX": 27,
-            "team": 1,
-            "xcombat": 1573,
-            "ycombat": 588,
-            "lieu": "tavernefjorh",
-            "actif": false
-        },
-        {
-            "nom": "Soldat 06",
-            "image": "Soldat",
-            "solo": false,
-            "niveau": 3,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 10,
-            "mana": 10,
-            "id": "soldat",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 3,
-                    "qte": 1
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "team": 1,
-            "xcombat": 63,
-            "ycombat": 375,
-            "lieu": "tavernefjorh",
-            "inventaire": [
-                {
-                    "image": "potions",
-                    "nom": "Potions",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 10,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Albus Demitrescu",
-            "image": "Albus Demitrescu",
-            "solo": true,
-            "niveau": 8,
-            "pdvmax": 34,
-            "pdv": 34,
-            "manamax": 162,
-            "mana": 162,
-            "id": "albusdemitrescu",
-            "type": "boss",
-            "desc": "Très grand magicien",
-            "team": 1,
-            "xcombat": 1004,
-            "ycombat": 448,
-            "lieu": "boutiquearlequin",
-            "actif": false
-        },
-        {
-            "nom": "Araignée Matriarche",
-            "image": "araigneeboss",
-            "solo": true,
-            "niveau": 7,
-            "pdvmax": 64,
-            "pdv": 64,
-            "manamax": 26,
-            "mana": 26,
-            "id": "araigneeboss",
-            "type": "boss",
-            "overrideX": 25,
-            "team": 2,
-            "xcombat": 1057,
-            "ycombat": 577,
-            "lieu": "grottenord",
-            "actif": false
-        },
-        {
-            "nom": "Araignée Géante 01",
-            "image": "araignee",
-            "solo": false,
-            "niveau": 3,
-            "pdvmax": 34,
-            "pdv": 34,
-            "manamax": 16,
-            "mana": 16,
-            "id": "araignee_geante",
-            "overrideX": 20,
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 20,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 34,
-                    "manamax": 16
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 40,
-                    "manamax": 18
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 50,
-                    "manamax": 20
-                }
-            ],
-            "team": 2,
-            "xcombat": 1255,
-            "ycombat": 594,
-            "lieu": "grottenord",
-            "actif": false
-        },
-        {
-            "nom": "Araignée Géante 02",
-            "image": "araignee",
-            "solo": false,
-            "niveau": 2,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 12,
-            "mana": 12,
-            "id": "araignee_geante",
-            "overrideX": 20,
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 20,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 34,
-                    "manamax": 16
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 40,
-                    "manamax": 18
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 50,
-                    "manamax": 20
-                }
-            ],
-            "team": 2,
-            "xcombat": 1071,
-            "ycombat": 743,
-            "lieu": "grottenord",
-            "actif": false
-        },
-        {
-            "nom": "Bedine Kaki",
-            "image": "Bedine Kaki",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 17,
-            "mana": 17,
-            "id": "bedinekaki",
-            "desc": "Un assassin présent lors du raid du repaire à Fjorh",
-            "team": 1,
-            "xcombat": 766,
-            "ycombat": 507,
-            "lieu": "entreegrottenord",
-            "actif": false
-        },
-        {
-            "nom": "Loup Sauvage 01",
-            "image": "loupsauvage",
-            "solo": false,
-            "niveau": 3,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 10,
-            "mana": 10,
-            "id": "loup",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 12,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 36,
-                    "manamax": 16
-                }
-            ],
-            "team": 2,
-            "xcombat": 1125,
-            "ycombat": 353,
-            "lieu": "foretnordouest",
-            "actif": false
-        },
-        {
-            "nom": "Loup Sauvage 02",
-            "image": "loupsauvage",
-            "solo": false,
-            "niveau": 3,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 10,
-            "mana": 10,
-            "id": "loup",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 12,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 36,
-                    "manamax": 16
-                }
-            ],
-            "team": 2,
-            "xcombat": 556,
-            "ycombat": 554,
-            "lieu": "foretnordouest",
-            "actif": false
-        },
-        {
-            "nom": "Erika Monark",
-            "image": "Erika Monark",
-            "solo": true,
-            "niveau": 4,
-            "pdvmax": 34,
-            "pdv": 34,
-            "manamax": 26,
-            "mana": 26,
-            "id": "erikamonark",
-            "team": 2,
-            "xcombat": 764,
-            "ycombat": 363,
-            "lieu": "foretnordouest",
-            "actif": false
-        },
-        {
-            "nom": "Soldat 07",
-            "image": "Soldat",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 10,
-            "pdv": 10,
-            "manamax": 8,
-            "mana": 8,
-            "id": "soldat",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                },
-                {
-                    "nom": "Armure de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Jambières de Chevalier",
-                    "taux": 3,
-                    "qte": 1
-                },
-                {
-                    "nom": "Epée d'argent",
-                    "taux": 3,
-                    "qte": 1
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "team": 1,
-            "xcombat": 538,
-            "ycombat": 482,
-            "lieu": "haul",
-            "inventaire": [
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 10,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Eziron Proval",
-            "image": "Eziron Proval",
-            "solo": true,
-            "niveau": 6,
-            "pdvmax": 52,
-            "pdv": 52,
-            "manamax": 31,
-            "mana": 31,
-            "id": "ezironproval",
-            "team": 1,
-            "xcombat": 921,
-            "ycombat": 375,
-            "lieu": "haul",
-            "actif": false
-        },
-        {
-            "nom": "Gontrand",
-            "image": "Gontrand",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 18,
-            "mana": 18,
-            "id": "gontrand",
-            "desc": "Mercenaire originaire de Ghrain",
-            "team": 1,
-            "xcombat": 1309,
-            "ycombat": 625,
-            "lieu": "haul",
-            "actif": false
-        },
-        {
-            "nom": "Norbert Sonn",
-            "image": "Norbert Sonn",
-            "solo": true,
-            "niveau": 5,
-            "pdvmax": 80,
-            "pdv": 80,
-            "manamax": 0,
-            "mana": 0,
-            "id": "norbertsonn",
-            "desc": "Le gagnant du tournoi de Dusk, ainsi que le 'Bro' de Gandalf",
-            "team": 1,
-            "xcombat": 468,
-            "ycombat": 516,
-            "lieu": "plage",
-            "actif": false
-        },
-        {
-            "nom": "Gonzag Pierdu",
-            "image": "Gonzag Pierdu",
-            "solo": true,
-            "niveau": 4,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 24,
-            "mana": 24,
-            "id": "gonzagpierdu",
-            "desc": "Un des participants du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 853,
-            "ycombat": 506,
-            "lieu": "plage",
-            "actif": false
-        },
-        {
-            "nom": "Roturi Darpez",
-            "image": "Roturi Darpez",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 24,
-            "pdv": 9,
-            "manamax": 17,
-            "mana": 9,
-            "id": "roturidarpez",
-            "team": 1,
-            "xcombat": 487,
-            "ycombat": 421,
-            "lieu": "haulisland",
-            "actif": false
-        },
-        {
-            "nom": "Assassin 02",
-            "image": "assassins",
-            "solo": false,
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 8,
-            "mana": 8,
-            "id": "assassin",
-            "actif": false,
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 6
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "team": 2,
-            "xcombat": 654,
-            "ycombat": 394,
-            "lieu": "haulisland"
-        },
-        {
-            "nom": "Assassin 03",
-            "image": "assassins",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 10,
-            "pdv": 10,
-            "manamax": 6,
-            "mana": 6,
-            "id": "assassin",
-            "actif": false,
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 10,
-                    "manamax": 6
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 16,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 20,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 24,
-                    "manamax": 12
-                }
-            ],
-            "team": 2,
-            "xcombat": 264,
-            "ycombat": 404,
-            "lieu": "haulisland"
-        },
-        {
-            "nom": "Boregon Alv",
-            "image": "Boregon Alv",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 25,
-            "pdv": 25,
-            "manamax": 12,
-            "mana": 12,
-            "id": "boregonalv",
-            "team": 1,
-            "xcombat": 1015,
-            "ycombat": 345,
-            "lieu": "taverneghrain",
-            "actif": false
-        },
-        {
-            "nom": "Geron Granduc",
-            "image": "Geron Granduc",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 30,
-            "pdv": 30,
-            "manamax": 14,
-            "mana": 14,
-            "id": "gerongranduc",
-            "desc": "Un des participants du tournoi de Dusk, timide",
-            "team": 1,
-            "xcombat": 1516,
-            "ycombat": 489,
-            "lieu": "taverneghrain",
-            "actif": false
-        },
-        {
-            "nom": "Erigo Leanfl",
-            "image": "Erigo Leanfl",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 30,
-            "pdv": 30,
-            "manamax": 10,
-            "mana": 10,
-            "id": "erigoleanfl",
-            "desc": "Historien",
-            "team": 1,
-            "xcombat": 1150,
-            "ycombat": 709,
-            "lieu": "ghrain",
-            "actif": false
-        },
-        {
-            "nom": "Perus Von Dirul",
-            "image": "Perus Von Dirul",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 16,
-            "pdv": 16,
-            "manamax": 8,
-            "mana": 8,
-            "id": "perusvondirul",
-            "desc": "Une des participantes du tournoi de Dusk, ainsi qu'une assassin qui nous a trahi devant Sam Bells",
-            "team": 1,
-            "xcombat": 698,
-            "ycombat": 606,
-            "lieu": "ghrain",
-            "actif": false
-        },
-        {
-            "nom": "Loup Sauvage 03",
-            "image": "loupsauvage",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 8,
-            "mana": 8,
-            "id": "loup",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 12,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 36,
-                    "manamax": 16
-                }
-            ],
-            "team": 2,
-            "xcombat": 1230,
-            "ycombat": 765,
-            "lieu": "foretestfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Loup Sauvage 04",
-            "image": "loupsauvage",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 8,
-            "mana": 8,
-            "id": "loup",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 12,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 36,
-                    "manamax": 16
-                }
-            ],
-            "team": 2,
-            "xcombat": 1042,
-            "ycombat": 806,
-            "lieu": "foretestfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Loup Sauvage 05",
-            "image": "loupsauvage",
-            "solo": false,
-            "niveau": 5,
-            "pdvmax": 36,
-            "pdv": 36,
-            "manamax": 16,
-            "mana": 16,
-            "id": "loup",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 12,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 18,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 24,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 28,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 5,
-                    "pdvmax": 36,
-                    "manamax": 16
-                }
-            ],
-            "team": 2,
-            "xcombat": 1156,
-            "ycombat": 843,
-            "lieu": "foretestfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Boris Gosom",
-            "image": "Boris Gosom",
-            "solo": true,
-            "niveau": 4,
-            "pdvmax": 42,
-            "pdv": 42,
-            "manamax": 18,
-            "mana": 18,
-            "id": "borisgosom",
-            "desc": "Barman de la ville de Dusk",
-            "team": 1,
-            "xcombat": 1233,
-            "ycombat": 596,
-            "lieu": "tavernedusk",
-            "actif": false
+            ]
         },
         {
             "nom": "Akshan Lee",
@@ -2972,690 +1015,13 @@
             "id": "akshanlee",
             "type": "boss",
             "desc": "",
-            "xcombat": 126,
-            "ycombat": 619,
-            "lieu": "tavernedusk",
-            "team": 1,
-            "actif": false
-        },
-        {
-            "nom": "Hector Novus",
-            "image": "Hector Novus",
-            "solo": true,
-            "niveau": 8,
-            "pdvmax": 102,
-            "pdv": 102,
-            "manamax": 0,
-            "mana": 0,
-            "id": "hectornovus",
-            "type": "boss",
-            "desc": "Un des 4 bras droits armés du roi de Fjorh",
-            "team": 1,
-            "xcombat": 309,
-            "ycombat": 604,
-            "lieu": "tavernedusk",
-            "actif": false
-        },
-        {
-            "nom": "Ergon Proller",
-            "image": "Ergon Proller",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 12,
-            "mana": 12,
-            "id": "ergonproller",
-            "team": 1,
-            "xcombat": 1121,
-            "ycombat": 892,
-            "lieu": "dusk",
-            "actif": false
-        },
-        {
-            "nom": "Viega Koriss",
-            "image": "Viega Koriss",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 12,
-            "mana": 12,
-            "id": "viegakoriss",
-            "desc": "La forgeronne de la ville de Dusk, et petite amie de Norbert Sonn",
-            "team": 1,
-            "xcombat": 1138,
-            "ycombat": 569,
-            "lieu": "forgerondusk",
-            "actif": false
-        },
-        {
-            "nom": "Sophia Berande",
-            "image": "Sophia Berande",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 6,
-            "mana": 6,
-            "id": "sophiaberande",
-            "desc": "Une des participantes du tournoi de Dusk, amicale",
-            "team": 1,
-            "xcombat": 783,
-            "ycombat": 739,
-            "lieu": "dusk",
-            "actif": false
-        },
-        {
-            "nom": "Hank Pok",
-            "image": "Hank Pok",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 20,
-            "pdv": 14,
-            "manamax": 2,
-            "mana": 2,
-            "id": "hankpok",
-            "desc": "Un des nains du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 731,
-            "ycombat": 417,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Klask Drurf",
-            "image": "Klask Drurf",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 22,
-            "manamax": 7,
-            "mana": 7,
-            "id": "klaskdrurf",
-            "desc": "Un des nains du tournoi de Dusk",
-            "overrideX": 25,
-            "team": 1,
-            "xcombat": 868,
-            "ycombat": 417,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Voleur 01",
-            "image": "Voleur",
-            "solo": false,
-            "niveau": 1,
-            "pdvmax": 8,
-            "pdv": 8,
-            "manamax": 12,
-            "mana": 12,
-            "id": "voleur",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 8,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 12,
-                    "manamax": 16
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 14,
-                    "manamax": 20
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 18,
-                    "manamax": 26
-                }
-            ],
+            "xcombat": 801,
+            "ycombat": 509,
+            "lieu": "boutiquearlequin",
             "team": 2,
-            "xcombat": 438,
-            "ycombat": 648,
-            "lieu": "foretsudfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Voleur 02",
-            "image": "Voleur",
-            "solo": false,
-            "niveau": 3,
-            "pdvmax": 14,
-            "pdv": 14,
-            "manamax": 20,
-            "mana": 20,
-            "id": "voleur",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 8,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 12,
-                    "manamax": 16
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 14,
-                    "manamax": 20
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 18,
-                    "manamax": 26
-                }
-            ],
-            "team": 2,
-            "xcombat": 1605,
-            "ycombat": 724,
-            "lieu": "foretsudfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Voleur 03",
-            "image": "Voleur",
-            "solo": false,
-            "niveau": 4,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 26,
-            "mana": 26,
-            "id": "voleur",
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 8,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 12,
-                    "manamax": 16
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 14,
-                    "manamax": 20
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 18,
-                    "manamax": 26
-                }
-            ],
-            "team": 2,
-            "xcombat": 867,
-            "ycombat": 592,
-            "lieu": "foretsudfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Arthur Jenon",
-            "image": "Arthur Jenon",
-            "solo": true,
-            "niveau": 5,
-            "pdvmax": 50,
-            "pdv": 50,
-            "manamax": 22,
-            "mana": 22,
-            "id": "arthurjenon",
-            "desc": "Un des 4 bras droits armés du roi de Fjorh",
-            "team": 1,
-            "x": 1361,
-            "y": 670,
-            "lieu": "map",
-            "actif": false
-        },
-        {
-            "nom": "Archer 04",
-            "image": "Archer",
-            "solo": false,
-            "niveau": 4,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 12,
-            "mana": 12,
-            "id": "archer",
-            "loot": [
-                {
-                    "nom": "Bandages",
-                    "taux": 30,
-                    "qte": 1
-                },
-                {
-                    "nom": "Arc",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Flèches",
-                    "taux": 20,
-                    "qte": 10
-                },
-                {
-                    "nom": "Pieges",
-                    "taux": 10,
-                    "qte": 2
-                },
-                {
-                    "nom": "Carquois en cuir (20)",
-                    "taux": 5,
-                    "qte": 1
-                },
-                {
-                    "nom": "Crochets",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Potions",
-                    "taux": 20,
-                    "qte": 1
-                },
-                {
-                    "nom": "Argent",
-                    "qte": 10
-                }
-            ],
-            "levels": [
-                {
-                    "niveau": 1,
-                    "pdvmax": 6,
-                    "manamax": 8
-                },
-                {
-                    "niveau": 2,
-                    "pdvmax": 12,
-                    "manamax": 10
-                },
-                {
-                    "niveau": 3,
-                    "pdvmax": 16,
-                    "manamax": 12
-                },
-                {
-                    "niveau": 4,
-                    "pdvmax": 20,
-                    "manamax": 12
-                }
-            ],
-            "team": 1,
-            "x": 1309,
-            "y": 656,
-            "lieu": "map",
-            "inventaire": [
-                {
-                    "emplacement": "Arme",
-                    "image": "arc",
-                    "nom": "Arc",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "image": "fleches",
-                    "nom": "Flèches",
-                    "qte": 4,
-                    "taux": 0
-                },
-                {
-                    "image": "potions",
-                    "nom": "Potions",
-                    "qte": 1,
-                    "taux": 0
-                },
-                {
-                    "nom": "Argent",
-                    "image": "argent",
-                    "qte": 7,
-                    "emplacement": "",
-                    "taux": 0,
-                    "prix": 0
-                }
-            ],
-            "actif": false
-        },
-        {
-            "nom": "Victor Selvus",
-            "image": "Victor Selvus",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 12,
-            "mana": 12,
-            "id": "victorselvus",
-            "team": 1,
-            "x": 859,
-            "y": 119,
-            "lieu": "map",
-            "actif": false
-        },
-        {
-            "nom": "Vlad Sams",
-            "image": "Vlad Sams",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 12,
-            "mana": 12,
-            "id": "vladsams",
-            "desc": "Un assassin présent lors du raid du repaire à Fjorh",
-            "overrideX": 29,
-            "team": 1,
-            "x": 930,
-            "y": 127,
-            "lieu": "map",
-            "actif": false
-        },
-        {
-            "nom": "Zoro Fargo",
-            "image": "Zoro Fargo",
-            "solo": true,
-            "niveau": 6,
-            "pdvmax": 75,
-            "pdv": 75,
-            "manamax": 12,
-            "mana": 12,
-            "id": "zorofargo",
-            "desc": "Un des 4 bras droits armés du roi de Fjorh",
-            "team": 1,
-            "x": 932,
-            "y": 1159,
-            "lieu": "map",
-            "actif": false
-        },
-        {
-            "nom": "Benoit Fort",
-            "image": "Benoit Fort",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 28,
-            "mana": 28,
-            "id": "benoitfort",
-            "desc": "Un assassin présent lors du raid du repaire à Fjorh",
-            "team": 1,
-            "xcombat": 698,
-            "ycombat": 639,
-            "lieu": "labyrinthesouterrainfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Angus Alfronde",
-            "image": "Angus Alfronde",
-            "solo": true,
-            "niveau": 7,
-            "pdvmax": 55,
-            "pdv": 55,
-            "manamax": 26,
-            "mana": 26,
-            "id": "angusalfronde",
-            "desc": "Un des bras droits des assassins",
-            "team": 1,
-            "xcombat": 1169,
-            "ycombat": 556,
-            "lieu": "labyrinthesouterrainfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Ezio Gariga",
-            "image": "Ezio Gariga",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 25,
-            "pdv": 25,
-            "manamax": 12,
-            "mana": 12,
-            "id": "eziogariga",
-            "desc": "Un des participants du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 581,
-            "ycombat": 665,
-            "lieu": "labyrinthesouterrainfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Jamel Kerrus En",
-            "image": "Jamel Kerrus En",
-            "solo": true,
-            "niveau": 6,
-            "pdvmax": 50,
-            "pdv": 50,
-            "manamax": 22,
-            "mana": 22,
-            "id": "jamelkerrusen",
-            "team": 1,
-            "xcombat": 1416,
-            "ycombat": 785,
-            "lieu": "labyrinthesouterrainfjorh",
-            "actif": false
-        },
-        {
-            "nom": "Sonia Stormwood",
-            "image": "Sonia Stormwood",
-            "solo": true,
-            "etat": "Bonne santé",
-            "niveau": 4,
-            "pdvmax": 26,
-            "pdv": 26,
-            "manamax": 72,
-            "mana": 72,
-            "id": "soniastormwood",
-            "team": 0,
-            "xcombat": 1220,
-            "ycombat": 610,
-            "lieu": "fjorh",
-            "actif": false
-        },
-        {
-            "nom": "Urf Brant",
-            "image": "Urf Brant",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 28,
-            "pdv": 28,
-            "manamax": 6,
-            "mana": 6,
-            "id": "urfbrant",
-            "desc": "Un des nains du tournoi de Dusk, on raconte que celui-ci traine dans des affaires louches",
-            "team": 1,
-            "x": 806,
-            "y": 751,
-            "lieu": "map",
-            "actif": false
-        },
-        {
-            "nom": "Sivius Bregon",
-            "image": "Sivius Bregon",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 12,
-            "pdv": 12,
-            "manamax": 30,
-            "mana": 30,
-            "id": "siviusbregon",
-            "desc": "Un mage qui possède l'arène de Dusk",
-            "team": 1,
-            "xcombat": 793,
-            "ycombat": 246,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Silvia Peronus",
-            "image": "Silvia Peronus",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 18,
-            "pdv": 18,
-            "manamax": 14,
-            "mana": 14,
-            "id": "silviaperonus",
-            "desc": "Une des participantes du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 189,
-            "ycombat": 156,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Pravus Goridon",
-            "image": "Pravus Goridon",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 30,
-            "pdv": 30,
-            "manamax": 0,
-            "mana": 0,
-            "id": "pravusgoridon",
-            "team": 1,
-            "xcombat": 48,
-            "ycombat": 577,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Olga Durst",
-            "image": "Olga Durst",
-            "solo": true,
-            "niveau": 2,
-            "pdvmax": 20,
-            "pdv": 20,
-            "manamax": 15,
-            "mana": 15,
-            "id": "olgadurst",
-            "desc": "Une des participantes du tournoi de Dusk",
-            "overrideX": 32,
-            "team": 1,
-            "xcombat": 368,
-            "ycombat": 0,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Noel Kadim",
-            "image": "Noel Kadim",
-            "solo": true,
-            "niveau": 6,
-            "pdvmax": 42,
-            "pdv": 42,
-            "manamax": 186,
-            "mana": 186,
-            "id": "noelkadim",
-            "type": "boss",
-            "team": 1,
-            "xcombat": 1594,
-            "ycombat": 657,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Igor Rotru",
-            "image": "Igor Rotru",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 30,
-            "pdv": 30,
-            "manamax": 15,
-            "mana": 15,
-            "id": "igorrotru",
-            "team": 1,
-            "xcombat": 52,
-            "ycombat": 683,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Frederic Pulse",
-            "image": "Frederic Pulse",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 16,
-            "mana": 16,
-            "id": "fredericpulse",
-            "desc": "Un des participants du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 7,
-            "ycombat": 823,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Isaac Acari",
-            "image": "Isaac Acari",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 16,
-            "mana": 16,
-            "id": "isaacacari",
-            "team": 1,
-            "xcombat": 173,
-            "ycombat": 831,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Joshua Tronc",
-            "image": "Joshua Tronc",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 32,
-            "pdv": 32,
-            "manamax": 17,
-            "mana": 17,
-            "id": "joshuatronc",
-            "overrideX": 33,
-            "team": 1,
-            "xcombat": 299,
-            "ycombat": 883,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Kyen Olympus",
-            "image": "Kyen Olympus",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 22,
-            "pdv": 22,
-            "manamax": 12,
-            "mana": 12,
-            "id": "kyenolympus",
-            "desc": "Une des participantes du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 128,
-            "ycombat": 288,
-            "lieu": "arenedusk",
-            "actif": false
-        },
-        {
-            "nom": "Lucia Bellongi",
-            "image": "Lucia Bellongi",
-            "solo": true,
-            "niveau": 3,
-            "pdvmax": 24,
-            "pdv": 24,
-            "manamax": 16,
-            "mana": 16,
-            "id": "luciabellongi",
-            "desc": "Une des participantes du tournoi de Dusk",
-            "team": 1,
-            "xcombat": 36,
-            "ycombat": 121,
-            "lieu": "arenedusk",
-            "actif": false
+            "actif": false,
+            "x": 342,
+            "y": 538
         }
     ],
     "quetes": [
@@ -3663,23 +1029,47 @@
             "nom": "Un oeuf de dragon ?",
             "perso": "Toute l'équipe",
             "type": "principale",
-            "etape": 1,
+            "etape": 2,
             "etapeEnCours": {
-                "id": 1,
-                "nom": "L'oeuf est caché proche de la maison de Bjorn",
-                "description": "Une mysterieuse pierre s'est averée être en réalité un oeuf de dragon. Sûrement le dernier sur terre. Bjorn l'a trouvé lors d'une tempête et l'a protégé à l'interieur d'un piège extrêmement élaboré que personne ne pourra trouver. Vous ne savez pas encore quoi faire de cet oeuf"
-            }
+                "id": 2,
+                "nom": "Le dragon métamorphe",
+                "description": "Vous vous demandez si l'oeuf que vous avez trouvé peut avoir un lien avec le dragon qui sévit sur Albion."
+            },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "L'oeuf est caché proche de la maison de Bjorn",
+                    "description": "Une mysterieuse pierre s'est averée être en réalité un oeuf de dragon. Sûrement le dernier sur terre. Bjorn l'a trouvé lors d'une tempête et l'a protégé à l'interieur d'un piège extrêmement élaboré que personne ne pourra trouver. Vous ne savez pas encore quoi faire de cet oeuf"
+                },
+                {
+                    "id": 2,
+                    "nom": "Le dragon métamorphe",
+                    "description": "Vous vous demandez si l'oeuf que vous avez trouvé peut avoir un lien avec le dragon qui sévit sur Albion."
+                }
+            ]
         },
         {
             "nom": "Une mère disparue",
             "perso": "Luna Stormwood",
             "type": "principale",
-            "etape": 5,
+            "etape": 6,
             "etapeEnCours": {
-                "id": 5,
-                "nom": "Cherche la mère dans la montagne au Nord",
-                "description": "La mère de Luna Stormwood à disparu de son domicile en laissant sa fille derrière elle. Notre équipe à essayé de la trouver dans un camp de mercenaires sur la montagne du nord sans succès. La seule piste trouvée était une adresse à Fjorh mais cela nous a menés dans un guet-apans. Sam Bells l'assassin nous a obligé à effectuer une mission de traque vers la ville de Dusk. Nous avons décidé de suivre Kayn Proks qui nous a proposé de rouler Sam en élaborant un nouveau plan. Nous avons paricipé au tounroi mais ne savons toujours pas qui est la cible."
-            }
+                "id": 6,
+                "nom": "Enfin réunis",
+                "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+            },
+            "etapes": [
+                {
+                    "id": 5,
+                    "nom": "Cherche la mère dans la montagne au Nord",
+                    "description": "La mère de Luna Stormwood à disparu de son domicile en laissant sa fille derrière elle. Notre équipe à essayé de la trouver dans un camp de mercenaires sur la montagne du nord sans succès. La seule piste trouvée était une adresse à Fjorh mais cela nous a menés dans un guet-apans. Sam Bells l'assassin nous a obligé à effectuer une mission de traque vers la ville de Dusk. Nous avons décidé de suivre Kayn Proks qui nous a proposé de rouler Sam en élaborant un nouveau plan. Nous avons paricipé au tounroi mais ne savons toujours pas qui est la cible."
+                },
+                {
+                    "id": 6,
+                    "nom": "Enfin réunis",
+                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+                }
+            ]
         },
         {
             "nom": "Frère en cavale",
@@ -3696,7 +1086,7 @@
             "nom": "Un remède à tous les maux",
             "perso": "Sienna Hurlevent",
             "type": "principale",
-            "etape": 2,
+            "etape": 3,
             "etapeEnCours": {
                 "id": 3,
                 "nom": "Partir pour Haul pour enquêter sur la faune étrange des îles.",
@@ -3724,19 +1114,51 @@
                 "nom": "Protéger l'oeuf de dragon jusqu'à son éclosion",
                 "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie."
             }
+        },
+        {
+            "nom": "Protection d'une espèce rare",
+            "perso": "Bjorn Côtes de Fer",
+            "type": "principale",
+            "etape": 1,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Protéger l'oeuf de dragon jusqu'à son éclosion",
+                "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie."
+            }
+        },
+        {
+            "nom": "Le gardien des secrets",
+            "type": "secondaire",
+            "etape": 2,
+            "etapeEnCours": {
+                "id": 2,
+                "nom": "Venir à bout du Troll Adulte",
+                "description": "Un homme nous a parlé d'un monstre qui garderait les plus grands mystères des catacombes de Fjorh"
+            }
+        },
+        {
+            "nom": "Un historien dans le besoin",
+            "type": "secondaire",
+            "etape": 1,
+            "etapeEnCours": {
+                "id": 1,
+                "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+            }
         }
     ],
     "lieuActuel": {
-        "parent": "fjorh",
-        "id": "prisonfjorh",
-        "nom": "Prison de Fjorh",
-        "image": "prisonFjorh",
-        "x": 440,
-        "y": 230,
-        "finx": 165,
+        "id": "map",
+        "nom": "map",
+        "image": "map",
+        "x": 0,
+        "y": 0,
+        "finx": 0,
         "finy": 0,
-        "desac": false,
-        "scale": 4
+        "desac": true,
+        "parent": "",
+        "scale": 0.5,
+        "musique": "map"
     },
     "boutiques": [
         {
@@ -3806,9 +1228,8 @@
             "finy": 0,
             "desac": true,
             "parent": "",
-            "entreex": 0,
-            "entreey": 0,
-            "scale": 0.5
+            "scale": 0.5,
+            "musique": "map"
         },
         {
             "id": "fenetreprison",
@@ -3820,9 +1241,98 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "parent": "prisonfjorh",
-            "entreex": 0,
-            "entreey": 0
+            "parent": "prisonfjorh"
+        },
+        {
+            "id": "campdesaventuriers",
+            "nom": "Camp des Aventuriers",
+            "image": "camp_aventuriers_",
+            "canEnter": true,
+            "x": 1400,
+            "y": 775,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "",
+            "scale": 1,
+            "nbImage": 0,
+            "useNbImage":true
+        },
+        {
+            "id": "iledragon",
+            "nom": "Île du dragon",
+            "image": "ile_dragon",
+            "canEnter": true,
+            "x": 365,
+            "y": 715,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "map",
+            "scale": 4,
+            "scaleFond": 0.2,
+            "musique": "ile_dragon",
+            "finFond": 650,
+            "position_start": [
+                {
+                    "startX": 100,
+                    "startY": 730
+                },
+                {
+                    "startX": 200,
+                    "startY": 730
+                },
+                {
+                    "startX": 300,
+                    "startY": 730
+                },
+                {
+                    "startX": 400,
+                    "startY": 730
+                },
+                {
+                    "startX": 500,
+                    "startY": 730
+                }
+            ]
+        },
+        {
+            "id": "forteresse",
+            "nom": "Forteresse en ruines",
+            "image": "forteresse",
+            "canEnter": true,
+            "x": 1570,
+            "y": 460,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "iledragon",
+            "scale": 2.5,
+            "scaleFond": 1,
+            "finFond": 850,
+            "position_start": [
+                {
+                    "startX": 800,
+                    "startY": 910
+                },
+                {
+                    "startX": 900,
+                    "startY": 910
+                },
+                {
+                    "startX": 1000,
+                    "startY": 910
+                },
+                {
+                    "startX": 1100,
+                    "startY": 910
+                },
+                {
+                    "startX": 1200,
+                    "startY": 910
+                }
+            ],
+            "musique": "forteresse"
         },
         {
             "id": "portePrison",
@@ -3835,8 +1345,6 @@
             "desac": true,
             "parent": "prisonfjorh",
             "canSeeInside": false,
-            "entreex": 0,
-            "entreey": 0,
             "scale": 2,
             "position_start": [
                 {
@@ -3862,6 +1370,85 @@
             ]
         },
         {
+            "id": "maisonBjorn",
+            "nom": "Maison de Bjorn",
+            "image": "maison_de_bjorn",
+            "musique": "maison_bjorn",
+            "x": 985,
+            "y": 40,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "map",
+            "canSeeInside": false,
+            "entreex": 0,
+            "entreey": 0,
+            "scale": 15,
+            "scaleFond": 0.5,
+            "finFond": 500,
+            "position_start": [
+                {
+                    "startX": 307,
+                    "startY": 537
+                },
+                {
+                    "startX": 530,
+                    "startY": 543
+                },
+                {
+                    "startX": 1000,
+                    "startY": 539
+                },
+                {
+                    "startX": 1279,
+                    "startY": 533
+                },
+                {
+                    "startX": 750,
+                    "startY": 536
+                }
+            ]
+        },
+        {
+            "id": "grotte_oeuf_dragon",
+            "nom": "Grotte de l'oeuf",
+            "image": "grotte_oeuf_dragon",
+            "x": 485,
+            "y": 340,
+            "finx": 0,
+            "finy": 0,
+            "desac": true,
+            "parent": "maisonBjorn",
+            "canSeeInside": false,
+            "entreex": 0,
+            "entreey": 0,
+            "scale": 4,
+            "scaleFond": 2,
+            "finFond": 500,
+            "position_start": [
+                {
+                    "startX": 1395,
+                    "startY": 615
+                },
+                {
+                    "startX": 1475,
+                    "startY": 635
+                },
+                {
+                    "startX": 1555,
+                    "startY": 635
+                },
+                {
+                    "startX": 1645,
+                    "startY": 660
+                },
+                {
+                    "startX": 1740,
+                    "startY": 675
+                }
+            ]
+        },
+        {
             "id": "passageprison",
             "nom": "Passage dans le mur",
             "image": "prison3",
@@ -3872,8 +1459,6 @@
             "desac": true,
             "parent": "portePrison",
             "canSeeInside": false,
-            "entreex": 0,
-            "entreey": 0,
             "scale": 8,
             "scaleFond": 2.5,
             "finFond": 460,
@@ -3924,7 +1509,27 @@
             "finy": 50,
             "desac": true,
             "parent": "map",
-            "scale": 4
+            "scale": 9,
+            "musique": "boutique",
+            "position_start": [
+                {
+                    "id": 0,
+                    "startX": 565,
+                    "startY": 596
+                },
+                {
+                    "id": 1,
+                    "startX": 693,
+                    "startY": 595
+                },
+                {
+                    "id": 2,
+                    "startX": 807,
+                    "startY": 593
+                }
+            ],
+            "scaleFond": 3,
+            "finFond": 740
         },
         {
             "id": "campdebandits",
@@ -4013,6 +1618,7 @@
             "x": 1000,
             "y": 675,
             "finx": 150,
+            "musique": "arene",
             "finy": 140,
             "desac": false
         },
@@ -4021,6 +1627,7 @@
             "id": "tavernedusk",
             "nom": "Taverne",
             "image": "Taverne3",
+            "musique": "taverne",
             "x": 520,
             "y": 965,
             "position_start": [
@@ -4043,6 +1650,7 @@
             "id": "forgerondusk",
             "nom": "Forgeron",
             "image": "ShopArmor2",
+            "musique": "boutique",
             "x": 1480,
             "y": 810,
             "position_start": [
@@ -4072,6 +1680,7 @@
             "id": "dusk",
             "nom": "Dusk",
             "image": "Dusk",
+            "musique": "dusk",
             "x": 869,
             "y": 771,
             "position_start": [
@@ -4117,36 +1726,39 @@
             "nom": "Entrée Grotte",
             "image": "entreeGrotte",
             "parent": "map",
+            "musique": "grotte_nord",
             "x": 421,
             "y": 51,
             "position_start": [
                 {
-                    "startX": 1635,
-                    "startY": 735
+                    "startX": 1689,
+                    "startY": 675
                 },
                 {
-                    "startX": 1550,
-                    "startY": 800
+                    "startX": 1532,
+                    "startY": 622
                 },
                 {
-                    "startX": 1500,
-                    "startY": 710
+                    "startX": 1407,
+                    "startY": 680
                 },
                 {
-                    "startX": 1350,
-                    "startY": 720
+                    "startX": 1293,
+                    "startY": 625
                 },
                 {
-                    "startX": 1170,
-                    "startY": 700
+                    "startX": 1111,
+                    "startY": 678
                 }
             ],
             "finx": 70,
             "finy": 70,
             "desac": false,
-            "scale": 2,
+            "scale": 8,
             "enterx": 976,
-            "entery": 751
+            "entery": 751,
+            "scaleFond": 2,
+            "finFond": 750
         },
         {
             "parent": "entreegrottenord",
@@ -4157,29 +1769,32 @@
             "y": 515,
             "position_start": [
                 {
-                    "startX": 1675,
-                    "startY": 955
+                    "startX": 1736,
+                    "startY": 986
                 },
                 {
-                    "startX": 1615,
-                    "startY": 900
-                },
-                {
-                    "startX": 1545,
-                    "startY": 985
-                },
-                {
-                    "startX": 1445,
+                    "startX": 1691,
                     "startY": 915
                 },
                 {
-                    "startX": 1465,
-                    "startY": 820
+                    "startX": 1628,
+                    "startY": 1007
+                },
+                {
+                    "startX": 1488,
+                    "startY": 1008
+                },
+                {
+                    "startX": 1566,
+                    "startY": 938
                 }
             ],
             "finx": 160,
             "finy": 200,
-            "desac": false
+            "desac": false,
+            "scale": 1,
+            "scaleFond": 0,
+            "finFond": 0
         },
         {
             "parent": "fjorh",
@@ -4220,6 +1835,7 @@
             "id": "tavernefjorh",
             "nom": "Taverne",
             "image": "Taverne",
+            "musique": "taverne",
             "x": 570,
             "y": 500,
             "position_start": [
@@ -4256,6 +1872,7 @@
             "parent": "fjorh",
             "id": "armurierfjorh",
             "nom": "Boutique d'armurier",
+            "musique": "boutique",
             "image": "ShopArmor",
             "x": 700,
             "y": 250,
@@ -4291,6 +1908,7 @@
             "id": "fortfjorh",
             "nom": "Fort",
             "image": "Fort",
+            "musique": "fort",
             "x": 120,
             "y": 250,
             "position_start": [
@@ -4324,6 +1942,7 @@
             "nom": "Fjorh",
             "image": "Fjorh",
             "parent": "map",
+            "musique": "fjorh",
             "x": 918,
             "y": 377,
             "position_start": [
@@ -4363,7 +1982,8 @@
             "parent": "map",
             "finy": 69,
             "desac": false,
-            "scale": 2
+            "scale": 2,
+            "musique": "foret_sud"
         },
         {
             "id": "foretnordouest",
@@ -4371,33 +1991,36 @@
             "image": "foret2",
             "x": 593,
             "y": 140,
+            "musique": "foret_nord",
             "position_start": [
                 {
-                    "startX": 1610,
-                    "startY": 800
+                    "startX": 357,
+                    "startY": 747
                 },
                 {
-                    "startX": 1510,
-                    "startY": 810
+                    "startX": 296,
+                    "startY": 663
                 },
                 {
-                    "startX": 1390,
-                    "startY": 805
+                    "startX": 118,
+                    "startY": 643
                 },
                 {
-                    "startX": 1375,
-                    "startY": 745
+                    "startX": 31,
+                    "startY": 738
                 },
                 {
-                    "startX": 1475,
-                    "startY": 720
+                    "startX": 192,
+                    "startY": 749
                 }
             ],
             "parent": "map",
             "finx": 292,
             "finy": 140,
             "desac": false,
-            "scale": 2
+            "scale": 4.5,
+            "scaleFond": 1,
+            "finFond": 600
         },
         {
             "id": "foretestfjorh",
@@ -4416,6 +2039,7 @@
         {
             "parent": "ghrain",
             "id": "taverneghrain",
+            "musique": "taverne",
             "nom": "Taverne",
             "image": "taverneghrain",
             "x": 1000,
@@ -4451,6 +2075,7 @@
             "id": "ghrain",
             "nom": "Ghrain",
             "image": "Ghrain",
+            "musique": "ghrain",
             "x": 1713,
             "y": 215,
             "position_start": [
@@ -4484,6 +2109,7 @@
             "id": "haul",
             "nom": "Haul",
             "image": "haul",
+            "musique": "haul",
             "x": 552,
             "y": 297,
             "position_start": [
@@ -4520,33 +2146,36 @@
             "image": "haulisland",
             "x": 250,
             "y": 291,
+            "musique": "ile_haul",
             "position_start": [
                 {
-                    "startX": 35,
-                    "startY": 415
+                    "startX": 872,
+                    "startY": 754
                 },
                 {
-                    "startX": 110,
-                    "startY": 400
+                    "startX": 668,
+                    "startY": 747
                 },
                 {
-                    "startX": 15,
-                    "startY": 505
+                    "startX": 354,
+                    "startY": 748
                 },
                 {
-                    "startX": 205,
-                    "startY": 420
+                    "startX": 528,
+                    "startY": 756
                 },
                 {
-                    "startX": 200,
-                    "startY": 525
+                    "startX": 167,
+                    "startY": 755
                 }
             ],
             "finx": 100,
             "finy": 100,
             "parent": "map",
             "desac": false,
-            "scale": 3
+            "scale": 4,
+            "scaleFond": 0.5,
+            "finFond": 700
         },
         {
             "id": "plage",
@@ -4582,7 +2211,7 @@
             "desac": false,
             "scale": 8,
             "scaleFond": 1,
-            "finFond": 640
+            "finFond": 750
         }
     ],
     "catabombes": [
@@ -5039,7 +2668,8 @@
             "mana": 162,
             "id": "albusdemitrescu",
             "type": "boss",
-            "desc": "Très grand magicien"
+            "desc": "Très grand magicien",
+            "team": 2
         },
         {
             "nom": "Ergon Proller",
@@ -5326,7 +2956,8 @@
             "manamax": 0,
             "mana": 0,
             "id": "norbertsonn",
-            "desc": "Le gagnant du tournoi de Dusk, ainsi que le 'Bro' de Gandalf"
+            "desc": "Le gagnant du tournoi de Dusk, ainsi que le 'Bro' de Gandalf",
+            "forceDivScale": 0.6
         },
         {
             "nom": "Viega Koriss",
@@ -5802,11 +3433,107 @@
             "id": "akshanlee",
             "type": "boss",
             "desc": "",
-            "xcombat": 126,
-            "ycombat": 619,
-            "lieu": "tavernedusk",
-            "team": 1,
-            "actif": false
+            "xcombat": 801,
+            "ycombat": 509,
+            "lieu": "boutiquearlequin",
+            "team": 2,
+            "actif": false,
+            "x": 342,
+            "y": 538,
+            "loot": [
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 80,
+                    "taux": 1
+                },
+                {
+                    "emplacement": "Torse",
+                    "image": "armure_doree",
+                    "nom": "Armure dorée",
+                    "prix": 120,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Bottes",
+                    "image": "bottes_dorees",
+                    "nom": "Bottes dorées",
+                    "prix": 60,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Tête",
+                    "image": "casque_tissu",
+                    "nom": "Casque en tissu",
+                    "prix": 30,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "image": "ceinture_cuir",
+                    "nom": "Ceinture de cuir",
+                    "prix": 30,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "image": "epaulieres_dorees",
+                    "nom": "Epaulières dorées",
+                    "prix": 90,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Gants",
+                    "image": "gants_dores",
+                    "nom": "Gants dorés",
+                    "prix": 50,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Jambes",
+                    "image": "jambieres_dorees",
+                    "nom": "Jambières dorées",
+                    "prix": 110,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "image": "ingredient",
+                    "nom": "Matériaux",
+                    "prix": 7,
+                    "qte": 4,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "image": "objets_de_jet",
+                    "nom": "Objets de jet",
+                    "prix": 9,
+                    "qte": 8,
+                    "taux": 80
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "prix": 8,
+                    "qte": 3,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "sabre",
+                    "nom": "Sabre",
+                    "prix": 70,
+                    "qte": 2,
+                    "taux": 80
+                }
+            ]
         },
         {
             "nom": "Loup Sauvage",
@@ -5847,6 +3574,61 @@
             ]
         },
         {
+            "nom": "Sanglier Sauvage",
+            "image": "sanglier",
+            "solo": false,
+            "niveau": 1,
+            "pdvmax": 16,
+            "pdv": 16,
+            "manamax": 8,
+            "mana": 10,
+            "id": "sanglier",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 16,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 20,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 26,
+                    "manamax": 14
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 32,
+                    "manamax": 14
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 40,
+                    "manamax": 20
+                }
+            ],
+            "loot": [
+                {
+                    "nom": "Peau de sanglier",
+                    "taux": 30,
+                    "qte": 3
+                },
+                {
+                    "nom": "Défense de sanglier",
+                    "taux": 20,
+                    "qte": 2
+                },
+                {
+                    "nom": "Viande de sanglier",
+                    "taux": 60,
+                    "qte": 2
+                }
+            ]
+        },
+        {
             "nom": "Sonia Stormwood",
             "image": "Sonia Stormwood",
             "solo": true,
@@ -5873,184 +3655,308 @@
     ],
     "objets": [
         {
-            "nom": "Pieges",
-            "image": "item_pieges"
-        },
-        {
-            "nom": "Flèches",
-            "image": "fleches"
-        },
-        {
-            "nom": "Flèches de métal",
-            "image": "fleches_de_metal"
-        },
-        {
-            "emplacement": "Utilitaire",
-            "nom": "Objets de jet",
-            "image": "objets_de_jet"
-        },
-        {
-            "nom": "Queue de Rat Géant",
-            "image": "queue_rat_geant"
-        },
-        {
-            "nom": "Patte de Rat Géant",
-            "image": "patte_rat_geant"
-        },
-        {
-            "nom": "Parchemin non traduit",
-            "image": "item_parchemin"
-        },
-        {
-            "emplacement": "Arme",
-            "nom": "Dague en Acier",
-            "image": "dague_en_acier"
-        },
-        {
-            "emplacement": "Arme",
-            "nom": "Dague de magicien",
-            "image": "dague_magicien"
-        },
-        {
-            "emplacement": "Utilitaire",
-            "nom": "Carquois renforcé (50)",
-            "image": "carquoi_renforce"
-        },
-        {
-            "nom": "Bandages",
-            "image": "bandages"
+            "nom": "Antidote",
+            "image": "antidote",
+            "prix": 10
         },
         {
             "emplacement": "Arme",
             "nom": "Arc",
-            "image": "arc"
+            "image": "arc",
+            "prix": 25
         },
         {
             "emplacement": "Arme",
             "nom": "Arc de grande qualité",
-            "image": "arc_de_qualite"
-        },
-        {
-            "nom": "Patte de Rat Patriarche",
-            "image": "patte_rat_patriarche"
-        },
-        {
-            "nom": "Queue de Rat Patriarche",
-            "image": "queue_rat_patriarche"
-        },
-        {
-            "nom": "Herbes",
-            "image": "herbe"
-        },
-        {
-            "nom": "Potions",
-            "image": "potion"
-        },
-        {
-            "nom": "Petits Cristaux",
-            "image": "petit_cristaux"
-        },
-        {
-            "nom": "Gros Cristaux",
-            "image": "gros_cristaux"
-        },
-        {
-            "nom": "Matériaux",
-            "image": "ingredient"
-        },
-        {
-            "nom": "Antidote",
-            "image": "antidote"
-        },
-        {
-            "nom": "Saphir étrange",
-            "image": "saphir"
-        },
-        {
-            "nom": "Manuel de Survie",
-            "image": "livre"
-        },
-        {
-            "nom": "Coupon participation tournoi",
-            "image": "coupon"
-        },
-        {
-            "nom": "Contrat traque assassins",
-            "image": "contrat"
-        },
-        {
-            "nom": "Cristal de forge",
-            "image": "cristal"
-        },
-        {
-            "nom": "Peaux de loup",
-            "image": "peau_de_loup"
-        },
-        {
-            "emplacement": "Arme",
-            "nom": "Epée d'argent",
-            "image": "epee_argent"
-        },
-        {
-            "emplacement": "Torse",
-            "nom": "Armure renforcée en cuir (Usée)",
-            "image": "armure_renforcee_en_cuir"
-        },
-        {
-            "emplacement": "Arme",
-            "nom": "Sanada Yukimura",
-            "image": "sabre_grande_qualite"
-        },
-        {
-            "emplacement": "Torse",
-            "nom": "Tunique de prison",
-            "image": "tunique_prison"
-        },
-        {
-            "emplacement": "Jambes",
-            "nom": "Pantalon de prison",
-            "image": "pantalon_prison"
-        },
-        {
-            "nom": "Clef de la prison",
-            "image": "clef_prison"
-        },
-        {
-            "nom": "Carquois en cuir (20)",
-            "image": "carquois_cuir",
-            "emplacement": "Utilitaire"
+            "image": "arc_de_qualite",
+            "prix": 60
         },
         {
             "nom": "Argent",
             "image": "argent"
         },
         {
+            "emplacement": "Torse",
+            "nom": "Armure de Chevalier",
+            "image": "armure_chevalier",
+            "prix": 90
+        },
+        {
+            "emplacement": "Torse",
+            "nom": "Armure renforcée en cuir (Usée)",
+            "image": "armure_renforcee_en_cuir",
+            "prix": 45
+        },
+        {
+            "nom": "Bandages",
+            "image": "bandages",
+            "prix": 10
+        },
+        {
+            "nom": "Carquois en cuir (20)",
+            "image": "carquois_cuir",
+            "emplacement": "Utilitaire",
+            "prix": 20
+        },
+        {
+            "emplacement": "Utilitaire",
+            "nom": "Carquois renforcé (50)",
+            "image": "carquoi_renforce",
+            "prix": 45
+        },
+        {
+            "nom": "Clef de la prison",
+            "image": "clef_prison",
+            "prix": 1
+        },
+        {
+            "nom": "Clé",
+            "image": "cle",
+            "prix": 1
+        },
+        {
+            "nom": "Contrat traque assassins",
+            "image": "contrat",
+            "prix": 1
+        },
+        {
+            "nom": "Coupon participation tournoi",
+            "image": "coupon",
+            "prix": 1
+        },
+        {
+            "nom": "Cristal de forge",
+            "image": "cristal",
+            "prix": 50
+        },
+        {
+            "nom": "Croc de loup",
+            "image": "croc_loup",
+            "prix": 8
+        },
+        {
             "nom": "Crochets",
-            "image": "crochets"
+            "image": "crochets",
+            "prix": 5
         },
         {
             "emplacement": "Arme",
             "nom": "Dague Usée",
-            "image": "dague_usee"
+            "image": "dague_usee",
+            "prix": 10
+        },
+        {
+            "emplacement": "Arme",
+            "nom": "Dague de magicien",
+            "image": "dague_magicien",
+            "prix": 40
+        },
+        {
+            "emplacement": "Arme",
+            "nom": "Dague en Acier",
+            "image": "dague_en_acier",
+            "prix": 40
+        },
+        {
+            "nom": "Défense de sanglier",
+            "image": "defense_sanglier",
+            "prix": 8
         },
         {
             "emplacement": "Arme",
             "nom": "Epée Rouillée",
-            "image": "epee_rouillee"
+            "image": "epee_rouillee",
+            "prix": 25
         },
         {
-            "nom": "Clé",
-            "image": "cle"
+            "emplacement": "Arme",
+            "nom": "Epée d'argent",
+            "image": "epee_argent",
+            "prix": 70
+        },
+        {
+            "nom": "Flèches",
+            "image": "fleches",
+            "prix": 2
+        },
+        {
+            "nom": "Flèches de métal",
+            "image": "fleches_de_metal",
+            "prix": 6
+        },
+        {
+            "nom": "Gros Cristaux",
+            "image": "gros_cristaux",
+            "prix": 15
+        },
+        {
+            "nom": "Herbes",
+            "image": "herbe",
+            "prix": 7
+        },
+        {
+            "emplacement": "Jambes",
+            "nom": "Jambières de Chevalier",
+            "image": "jambieres_chevalier",
+            "prix": 70
+        },
+        {
+            "nom": "Manuel de Survie",
+            "image": "livre",
+            "prix": 5
+        },
+        {
+            "nom": "Matériaux",
+            "image": "ingredient",
+            "prix": 7
+        },
+        {
+            "emplacement": "Utilitaire",
+            "nom": "Objets de jet",
+            "image": "objets_de_jet",
+            "prix": 9
+        },
+        {
+            "emplacement": "Jambes",
+            "nom": "Pantalon de prison",
+            "image": "pantalon_prison",
+            "prix": 1
+        },
+        {
+            "nom": "Parchemin non traduit",
+            "image": "item_parchemin",
+            "prix": 1
+        },
+        {
+            "nom": "Patte de Rat Géant",
+            "image": "patte_rat_geant",
+            "prix": 6
+        },
+        {
+            "nom": "Patte de Rat Patriarche",
+            "image": "patte_rat_patriarche",
+            "prix": 18
+        },
+        {
+            "nom": "Peau de sanglier",
+            "image": "peau_sanglier",
+            "prix": 9
+        },
+        {
+            "nom": "Peaux de loup",
+            "image": "peau_loup",
+            "prix": 7
+        },
+        {
+            "nom": "Petits Cristaux",
+            "image": "petit_cristaux",
+            "prix": 8
+        },
+        {
+            "nom": "Pieges",
+            "image": "item_pieges",
+            "prix": 12
+        },
+        {
+            "nom": "Potions",
+            "image": "potion",
+            "prix": 8
+        },
+        {
+            "nom": "Queue de Rat Géant",
+            "image": "queue_rat_geant",
+            "prix": 9
+        },
+        {
+            "nom": "Queue de Rat Patriarche",
+            "image": "queue_rat_patriarche",
+            "prix": 18
+        },
+        {
+            "emplacement": "Arme",
+            "nom": "Sanada Yukimura",
+            "image": "sabre_grande_qualite",
+            "prix": 250
+        },
+        {
+            "nom": "Saphir étrange",
+            "image": "saphir",
+            "prix": 150
         },
         {
             "emplacement": "Torse",
-            "nom": "Armure de Chevalier",
-            "image": "armure_chevalier"
+            "nom": "Tunique de prison",
+            "image": "tunique_prison",
+            "prix": 1
         },
         {
-            "emplacement" : "Jambes",
-            "nom": "Jambières de Chevalier",
-            "image": "jambieres_chevalier"
+            "nom": "Viande de loup",
+            "image": "viande_loup",
+            "prix": 4
+        },
+        {
+            "nom": "Viande de sanglier",
+            "image": "viande_sanglier",
+            "prix": 5
+        },
+        {
+            "emplacement": "Tête",
+            "nom": "Casque en tissu",
+            "image": "casque_tissu",
+            "prix": 30
+        },
+        {
+            "emplacement": "Torse",
+            "nom": "Armure dorée",
+            "image": "armure_doree",
+            "prix": 120
+        },
+        {
+            "emplacement": "Arme",
+            "nom": "Sabre",
+            "image": "sabre",
+            "prix": 70
+        },
+        {
+            "emplacement": "Gants",
+            "nom": "Gants dorés",
+            "image": "gants_dores",
+            "prix": 50
+        },
+        {
+            "emplacement": "Ceinture",
+            "nom": "Ceinture de cuir",
+            "image": "ceinture_cuir",
+            "prix": 30
+        },
+        {
+            "emplacement": "Bottes",
+            "nom": "Bottes dorées",
+            "image": "bottes_dorees",
+            "prix": 60
+        },
+        {
+            "emplacement": "Jambes",
+            "nom": "Jambières dorées",
+            "image": "jambieres_dorees",
+            "prix": 110
+        },
+        {
+            "emplacement": "Epaulieres",
+            "nom": "Epaulières dorées",
+            "image": "epaulieres_dorees",
+            "prix": 90
+        },
+        {
+            "emplacement": "Torse",
+            "nom": "Tunique de cuir renforcée",
+            "image": "tunique_cuir_renforcee",
+            "prix": 70
+        },
+        {
+            "nom": "Patte d'araignée géante",
+            "image": "patte_araignee",
+            "prix": 7
         }
     ],
     "positionsStuff": [
@@ -6115,6 +4021,5 @@
             "y": 265
         }
     ],
-    "itemDragged": {},
-    "admin": false
+    "admin": true
 }

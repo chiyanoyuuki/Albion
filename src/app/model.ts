@@ -55,6 +55,7 @@ export class Entite {
 	public quetes: Quete[];
 	public loot: ObjetInventaire[];
 	public peutBouger: boolean;
+	public holo: boolean;
 }
 
 export class Sort {
@@ -70,6 +71,9 @@ export class Equipement {
 export class Forme {
 	public nom: string;
 	public image: string;
+	public forceDivScale: number;
+	public overrideX: number;
+	public overrideY: number;
 }
 
 export class Boutique {
@@ -125,13 +129,14 @@ export class Lieu {
 	public parent: string;
 	public scale: number;
 	public scaleFond: number;
-	public entreex: number;
-	public entreey: number;
 	public canEnter: boolean;
 	public canSeeInside: boolean;
 	public to: string;
 	public bords: boolean;
 	public finFond: number;
+	public musique: string;
+	public nbImage: number;
+	public useNbImage: boolean;
 }
 
 export class Combat {

@@ -36,6 +36,11 @@ p {
     padding-right: 12px;
 }
 
+.objets {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .pv {
     color: green;
 }
@@ -138,7 +143,41 @@ p {
     position: relative;
 }
 
+.formulaire p {
+    white-space: nowrap;
+    padding: 10px;
+}
+
 .nomItemApercu {
     white-space: nowrap;
     padding: 10px;
+}
+
+.positionDepart {
+    position: absolute;
+}
+
+.positionStats {
+    height: 78px;
+    position: absolute;
+    width: 138px;
+}
+
+.positionPersoStats {
+    position: absolute;
+    top: 0px;
+    left: -11px;
+}
+
+.positionStats {
+    cursor: move;
+}
+
+.positionPerso {
+    height: 65px;
+    left: 40%;
+}
+
+.dummy .positionPerso {
+    border: unset;
 }

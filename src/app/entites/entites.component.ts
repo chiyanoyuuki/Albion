@@ -1,4 +1,4 @@
-import { Entite, Data, MenuContextuel, Lieu, ObjetInventaire } from '../model';
+import { Entite, Data, MenuContextuel, Lieu, ObjetInventaire, Position } from '../model';
 import { Component, DoCheck, HostListener, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { of } from 'rxjs';
@@ -11,6 +11,7 @@ import { of } from 'rxjs';
 export class EntitesComponent implements OnInit {
 
   @Input() data: Data;
+  @Input() mapHeight: number;
 
   public quetePrincipale: any;
   public queteSecondaire: any;
@@ -26,7 +27,7 @@ export class EntitesComponent implements OnInit {
   public persoActuel: string;
   public nomPersoActuel: string;
   public lastPersoClicked: Entite | undefined;
-  public mapHeight: number;
+  public isToBeDisabled: boolean;
 
   constructor() { }
 
@@ -147,32 +148,40 @@ export class EntitesComponent implements OnInit {
     this.menuContextuel = undefined;
   }
 
+
+
+  public getTop(perso: Entite) {
+    if (perso.overrideY) { return perso.overrideY + "%"; }
+    if (perso.joueur && perso.forme.overrideY) { return perso.forme.overrideY + "%"; }
+    let scale = 1;
+    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
+    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
+    if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
+    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
+    return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
+  }
+
+  public getLeft(perso: Entite) {
+    if (perso.overrideX) { return perso.overrideX + '%'; }
+    if (perso.joueur && perso.forme.overrideX) { return perso.forme.overrideX + "%"; }
+    return '40%';
+  }
+
   public getScale(perso: Entite) {
     let scale = 1;
     if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
     if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
     if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
-    return 'scale(' + scale + ')';
-  }
-
-  public getTop(perso: Entite) {
-    if (perso.overrideY) { return perso.overrideY + "%"; }
-    let scale = 1;
-    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
-    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(perso); }
-    if (perso.forceDivScale) { scale = scale / perso.forceDivScale; }
-    return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
+    if (perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
+    return scale;
   }
 
   public getNewScale(perso: Entite) {
     let scale = this.data.lieuActuel.scale - this.data.lieuActuel.scaleFond;
-    const map = document.getElementById("map");
+    let map = document.getElementById("map");
     if (map) {
-      if (this.mapHeight != map.offsetHeight) {
-        this.mapHeight = map.offsetHeight;
-      }
       let finFond = 0;
-      let height = this.mapHeight;
+      let height = map.offsetHeight;
       if (this.data.lieuActuel.finFond) {
         finFond = this.data.lieuActuel.finFond;
       }
@@ -188,5 +197,9 @@ export class EntitesComponent implements OnInit {
       }
     }
     return scale;
+  }
+
+  public checkIfDisable() {
+    this.lastPersoClicked = undefined;
   }
 }

@@ -15,16 +15,57 @@ export class MapComponent implements OnInit {
   public changingTo: Lieu | undefined;
   public persoHovered: string[] = [];
   public menuContextuel: MenuContextuel | undefined;
+  public audio: HTMLAudioElement;
+  public mapHeight: number;
+  public image: HTMLImageElement;
+  public windowWidth: number;
+  public windowHeight: number;
+  public cataclysme: boolean;
 
   constructor() { }
 
   @HostListener('window:keyup', ['$event'])
   keyDownEvent(event: KeyboardEvent) {
     if (event.key == "F1") { this.data.admin = !this.data.admin; }
+    if (event.key == "F8") {
+      this.cataclysme = !this.cataclysme;
+      let map = this.data.lieux.find((lieu: Lieu) => lieu.id == "map");
+      if (map) {
+        map.image = "map2";
+        if (this.data.lieuActuel.id == "map") {
+          this.data.lieuActuel.image = "map2";
+        }
+      }
+      let campdesaventuriers = this.data.lieux.find((lieu: Lieu) => lieu.id == "campdesaventuriers");
+      if (campdesaventuriers) {
+        campdesaventuriers.parent = "map";
+      }
+    }
   }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    /*this.image = document.getElementById("map") as HTMLImageElement;
+    this.image.onload = function() {
+      this.mapHeight = this.image.height;
+    }*/
+    this.windowWidth = window.innerWidth;
+    this.windowHeight = window.innerHeight;
+  }
+
+  musique(lieu: Lieu) {
+    console.log(lieu);
+    console.log(lieu.nbImage);
+    if (lieu.musique) {
+      if (!this.audio || (this.audio && !this.audio.src.endsWith(lieu.musique + ".mp3"))) {
+        if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; }
+        this.audio = new Audio;
+        this.audio.src = "../assets/musiques/" + lieu.musique + ".mp3";
+        this.audio.load();
+        this.audio.play();
+        this.audio.loop = true;
+      }
+    }
   }
 
   //GET=================================================================
@@ -57,12 +98,13 @@ export class MapComponent implements OnInit {
     this.focus = undefined;
     if (this.data.admin) { console.log("MouseX : " + event.offsetX); }
     if (this.data.admin) { console.log("MouseY : " + event.offsetY); }
+    if (!this.audio) { this.musique(this.data.lieuActuel); }
   }
 
   clickRetour() {
     this.menuContextuel = undefined;
     let lieutmp = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.parent);
-    if (lieutmp) { this.data.lieuActuel = lieutmp; }
+    if (lieutmp) { this.data.lieuActuel = lieutmp; this.musique(lieutmp); }
   }
 
   changeLieu(lieu: Lieu) {
@@ -76,6 +118,7 @@ export class MapComponent implements OnInit {
         this.data.lieuActuel = tmp;
       }
     }
+    this.musique(lieu);
   }
 
   rentrerLieu(lieu: Lieu) {
@@ -103,7 +146,7 @@ export class MapComponent implements OnInit {
   verifPositionDeDepart(lieu: Lieu, perso: Entite) {
     this.persoHovered = [];
     this.menuContextuel = undefined;
-    if (lieu.position_start) {
+    if (lieu.position_start && lieu.position_start.length > 0) {
       let persosACheck = this.getPersonnagesDansLieu(lieu);
       let trouve = false;
       lieu.position_start.forEach((position: Position) => {
@@ -130,6 +173,10 @@ export class MapComponent implements OnInit {
         perso.ycombat = lieu.position_start[0].startY;
       }
     }
+    else {
+      perso.xcombat = 0;
+      perso.ycombat = 0;
+    }
   }
 
   sortirPerso(lieu: Lieu, perso: Entite) {
@@ -154,6 +201,7 @@ export class MapComponent implements OnInit {
   //AUTRE=========================================================================
 
   public dragEnd($event: CdkDragEnd, lieu: Lieu) {
+    console.log("dragEnd Map");
     let tmp = $event.source.getFreeDragPosition();
     if (this.data.lieuActuel.parent == '') {
       lieu.x = lieu.x + tmp.x;
@@ -165,6 +213,7 @@ export class MapComponent implements OnInit {
   public addEntity(addEntite: addEntity) {
     let test = false;
     this.menuContextuel = undefined;
+    addEntite.entite.inventaire = [];
     if (this.data.lieuActuel.id == 'map') {
       addEntite.entite.x = addEntite.menuContextuel.x;
       addEntite.entite.y = addEntite.menuContextuel.y;
@@ -223,5 +272,12 @@ export class MapComponent implements OnInit {
 
     if (test) console.log(addEntite.entite);
     this.data.entites.push(addEntite.entite);
+  }
+
+  endDragLieu($event: CdkDragEnd, lieu: Lieu) {
+    let tmp = $event.source.getFreeDragPosition();
+    lieu.x = lieu.x + tmp.x;
+    lieu.y = lieu.y + tmp.y;
+    $event.source._dragRef.reset();
   }
 }

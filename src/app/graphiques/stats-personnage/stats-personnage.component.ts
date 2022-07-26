@@ -1,6 +1,6 @@
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { Boutique, Data, Entite, Equipement, ObjetInventaire, Quete, Sort } from 'src/app/model';
+import { Boutique, Data, Entite, Equipement, Forme, ObjetInventaire, Quete, Sort } from 'src/app/model';
 
 @Component({
   selector: 'app-stats-personnage',
@@ -374,5 +374,15 @@ export class StatsPersonnageComponent implements OnInit {
       retour += 170 - x;
     }
     return retour + "px";
+  }
+
+  public changeForme() {
+    let formeActuelle = this.perso.formes.find((forme: Forme) => forme.nom == this.perso.forme.nom);
+    if (formeActuelle) {
+      let index = this.perso.formes.indexOf(formeActuelle);
+      if (index < this.perso.formes.length - 1) { this.perso.forme = this.perso.formes[index + 1]; }
+      else if (index != 0) { this.perso.forme = this.perso.formes[0]; }
+    }
+
   }
 }
