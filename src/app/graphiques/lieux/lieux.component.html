@@ -1,0 +1,53 @@
+<div *ngFor="let lieu of getLieux()" class="lieux" [style.left]="lieu.x+'px'" [style.top]="lieu.y+'px'"
+    [style.width]="lieu.finx+'px'" [style.height]="lieu.finy+'px'" (click)="rentrerLieu(lieu)"
+    [cdkDragDisabled]="!data.admin" (cdkDragEnded)="endDragLieu($event,lieu)"
+    [style.z-index]="changingTo&&changingTo==lieu?5:2" cdkDrag>
+
+    <!--(cdkDragEnded)="dragEnd($event,lieu)" 
+        cdkDrag>-->
+
+    <p class="nomLieu" (mouseover)="focus=undefined">{{lieu.nom}}</p>
+
+    <div class="personnagesInside">
+        <div *ngFor="let perso of getJoueursDansLieu(lieu)">
+            <app-icone-personnage [perso]="perso" (mouseover)="focus=perso" (click)="sortirPerso(lieu,perso)">
+            </app-icone-personnage>
+        </div>
+    </div>
+
+    <!-- ========================== FENETRE DE CHANGEMENT DE LIEU ========================== -->
+
+    <div class="changeLieu fenetre" *ngIf="changingTo&&changingTo==lieu&&(lieu.canEnter==undefined||lieu.canEnter)">
+        <p class="bigText">Qui rentre dans {{changingTo.nom}} ?</p>
+        <div class="line"></div>
+        <div class="flexCenter">
+            <div>
+                <app-icone-personnage *ngFor="let perso of getEntitesPresentes(0)" [perso]="perso"
+                    (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
+                    (mouseover)="persoHovered[0]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                    (mouseout)="persoHovered[0]=''"></app-icone-personnage>
+            </div>
+        </div>
+        <p class="nomPerso">{{persoHovered[0]}}</p>
+        <div class="flexCenter">
+            <div>
+                <app-icone-personnage *ngFor="let perso of getEntitesPresentes(1)" [perso]="perso"
+                    (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
+                    (mouseover)="persoHovered[1]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                    (mouseout)="persoHovered[1]=''"></app-icone-personnage>
+            </div>
+        </div>
+        <p class="nomPerso">{{persoHovered[1]}}</p>
+        <div class="flexCenter">
+            <div>
+                <app-icone-personnage *ngFor="let perso of getEntitesPresentes(2)" [perso]="perso"
+                    (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
+                    (mouseover)="persoHovered[2]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
+                    (mouseout)="persoHovered[2]=''"></app-icone-personnage>
+            </div>
+        </div>
+        <p class="nomPerso">{{persoHovered[2]}}</p>
+        <div class="line"></div>
+        <p class="choix" (click)="changeLieu(lieu)">Entrer</p>
+    </div>
+</div>
