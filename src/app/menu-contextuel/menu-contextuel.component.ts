@@ -253,6 +253,7 @@ export class MenuContextuelComponent implements OnInit {
         this.data.quetes.push(this.focusQuete);
         this.queteAccepter = '';
         this.focusQuete.etatQuete = 1;
+        this.focusQuete.accepte = true;
         let queteFocus = this.focusQuete;
         let nouvelleEtape = this.focusQuete.etapes.find((etape: Etape) => etape.id == queteFocus.etapeEnCours.id + 1);
         if (nouvelleEtape) {

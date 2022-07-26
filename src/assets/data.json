@@ -1010,6 +1010,7 @@
             "nom": "Un oeuf de dragon ?",
             "perso": "Toute l'équipe",
             "type": "principale",
+            "etatQuete": 1,
             "etape": 2,
             "etapeEnCours": {
                 "id": 2,
@@ -1040,6 +1041,7 @@
             "nom": "Une mère disparue",
             "perso": "Luna Stormwood",
             "type": "principale",
+            "etatQuete": 1,
             "etape": 6,
             "etapeEnCours": {
                 "id": 6,
@@ -1070,12 +1072,20 @@
             "nom": "Frère en cavale",
             "perso": "Gandalf le Roux",
             "type": "principale",
+            "etatQuete": 1,
             "etape": 3,
             "etapeEnCours": {
                 "id": 3,
                 "nom": "Boromir s'est présenté lors du raid",
                 "description": "Le frère jumeau de Gandalf est un dangeureux criminel recherché. Notre mercenaire aimerait le retrouver pour peut-être le remettre dans le droit chemin. Mais où peut-il bien être ?"
             },
+            "etapes": [
+                {
+                    "id": 3,
+                    "nom": "Boromir s'est présenté lors du raid",
+                    "description": "Le frère jumeau de Gandalf est un dangeureux criminel recherché. Notre mercenaire aimerait le retrouver pour peut-être le remettre dans le droit chemin. Mais où peut-il bien être ?"
+                }
+            ],
             "tableauQuetes": {
                 "x": 100,
                 "y": 100,
@@ -1088,12 +1098,20 @@
             "nom": "Un remède à tous les maux",
             "perso": "Sienna Hurlevent",
             "type": "principale",
+            "etatQuete": 1,
             "etape": 3,
             "etapeEnCours": {
                 "id": 3,
                 "nom": "Partir pour Haul pour enquêter sur la faune étrange des îles.",
                 "description": "La famille de Sienna est touchée par une étrange maladie qui semble incurable. La druidesse est partie depuis déjà fort longtemps à la recherche d'une solution pour sauver ses proches mais encore sans succès hélas. Une dépêche à la bibliothèque de Fjorh nous à indiqué que la faune des îles aux abords de Haul serait particulièrement étrange, peut-être une piste d'un éventuel remède ?"
             },
+            "etapes": [
+                {
+                    "id": 3,
+                    "nom": "Partir pour Haul pour enquêter sur la faune étrange des îles.",
+                    "description": "La famille de Sienna est touchée par une étrange maladie qui semble incurable. La druidesse est partie depuis déjà fort longtemps à la recherche d'une solution pour sauver ses proches mais encore sans succès hélas. Une dépêche à la bibliothèque de Fjorh nous à indiqué que la faune des îles aux abords de Haul serait particulièrement étrange, peut-être une piste d'un éventuel remède ?"
+                }
+            ],
             "tableauQuetes": {
                 "x": 100,
                 "y": 100,
@@ -1106,12 +1124,20 @@
             "nom": "Un juste retour des choses",
             "perso": "Arlequin",
             "type": "principale",
+            "etatQuete": 1,
             "etape": 2,
             "etapeEnCours": {
                 "id": 2,
                 "nom": "Retrouver Eziron Proval",
                 "description": "Après s'être fait trahir par ses compagnons de voyage, Arlequin souhaiterait les retrouver pour connaître la raison de leur décision."
             },
+            "etapes": [
+                {
+                    "id": 2,
+                    "nom": "Retrouver Eziron Proval",
+                    "description": "Après s'être fait trahir par ses compagnons de voyage, Arlequin souhaiterait les retrouver pour connaître la raison de leur décision."
+                }
+            ],
             "tableauQuetes": {
                 "x": 100,
                 "y": 100,
@@ -1124,12 +1150,20 @@
             "nom": "Protection d'une espèce rare",
             "perso": "Bjorn Côtes de Fer",
             "type": "principale",
+            "etatQuete": 1,
             "etape": 1,
             "etapeEnCours": {
                 "id": 1,
                 "nom": "Protéger l'oeuf de dragon jusqu'à son éclosion",
                 "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie."
             },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "Protéger l'oeuf de dragon jusqu'à son éclosion",
+                    "description": "Bjorn à passé sa vie à prendre soin des animaux de sa montagne. Désormais, avec une espèce aussi rare qu'est le dragon dans l'oeuf sous sa maison, il n'a plus qu'un but. Protéger cet oeuf puis ce qu'il contient, au péril de sa vie."
+                }
+            ],
             "tableauQuetes": {
                 "x": 100,
                 "y": 100,
@@ -1141,12 +1175,20 @@
             "accepte": true,
             "nom": "Le gardien des secrets",
             "type": "secondaire",
+            "etatQuete": 1,
             "etape": 2,
             "etapeEnCours": {
                 "id": 2,
                 "nom": "Venir à bout du Troll Adulte",
                 "description": "Un homme nous a parlé d'un monstre qui garderait les plus grands mystères des catacombes de Fjorh"
             },
+            "etapes": [
+                {
+                    "id": 2,
+                    "nom": "Venir à bout du Troll Adulte",
+                    "description": "Un homme nous a parlé d'un monstre qui garderait les plus grands mystères des catacombes de Fjorh"
+                }
+            ],
             "tableauQuetes": {
                 "x": 100,
                 "y": 100,
@@ -1158,12 +1200,20 @@
             "accepte": true,
             "nom": "Un historien dans le besoin",
             "type": "secondaire",
+            "etatQuete": 0,
             "etape": 1,
             "etapeEnCours": {
                 "id": 1,
                 "nom": "Trouver ou dessiner une carte de l'île du dragon",
                 "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
             },
+            "etapes": [
+                {
+                    "id": 1,
+                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
+                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                }
+            ],
             "tableauQuetes": {
                 "x": 100,
                 "y": 100,
@@ -1238,6 +1288,7 @@
             "accepte": false,
             "nom": "Un historien dans le besoin de dede",
             "type": "secondaire",
+            "etatQuete": 0,
             "etape": 1,
             "etapeEnCours": {
                 "id": 1,
@@ -1267,6 +1318,7 @@
             "accepte": false,
             "nom": "Un historien dans le besoin de dede",
             "type": "secondaire",
+            "etatQuete": 0,
             "etape": 1,
             "etapeEnCours": {
                 "id": 1,
@@ -1296,6 +1348,7 @@
             "accepte": false,
             "nom": "Un historien dans le besoin de dede",
             "type": "secondaire",
+            "etatQuete": 0,
             "etape": 1,
             "etapeEnCours": {
                 "id": 1,
@@ -1325,6 +1378,7 @@
             "accepte": false,
             "nom": "Un historien dans le besoin de dede",
             "type": "secondaire",
+            "etatQuete": 0,
             "etape": 1,
             "etapeEnCours": {
                 "id": 1,
