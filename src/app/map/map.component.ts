@@ -23,8 +23,8 @@ export class MapComponent implements OnInit {
 
   public mapHeight: number;
   public image: HTMLImageElement;
-  public oiseaux: boolean;
   public menuContextuel: MenuContextuel | undefined;
+  public focus: any;
 
   public windowWidth: number = 1920;
   public windowHeight: number;
@@ -43,24 +43,10 @@ export class MapComponent implements OnInit {
     this.image.onload = function() {
       this.mapHeight = this.image.height;
     }*/
-    //this.getAnimation();
-  }
-
-  getAnimation() {
-    let nbrRandom = Math.ceil(Math.random() * 50000);
-
-    this.oiseaux = false
-    setTimeout(() => {
-      this.oiseaux = true
-      setTimeout(() => {
-        this.oiseaux = false
-        this.getAnimation();
-      }, 6000);
-    }, nbrRandom);
   }
 
   clicMap(event: MouseEvent) {
-    this.appService.clickMap();
+    if (!this.focus) { this.appService.triggerFermetureFenetres(); }
     this.menuContextuel = undefined;
     if (this.data.admin) { console.log("MouseX : " + event.offsetX); }
     if (this.data.admin) { console.log("MouseY : " + event.offsetY); }

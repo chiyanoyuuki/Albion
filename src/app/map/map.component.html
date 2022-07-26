@@ -4,17 +4,19 @@
 
     <!-- ========================== LIEUX ========================== -->
 
-    <app-lieux [data]="data"></app-lieux>
+    <app-lieux [data]="data" (mouseenter)="focus=true" (mouseleave)="focus=false"></app-lieux>
 
     <!-- ========================== PERSONNAGES ========================== -->
 
-    <app-entites        [data]="data" class="entites">          </app-entites>
-    <app-panneau-quetes [data]="data" class="panneau_quetes">   </app-panneau-quetes>
+    <app-entites [data]="data" class="entites" (mouseenter)="focus=true" (mouseleave)="focus=false"> </app-entites>
+    <app-panneau-quetes [data]="data" class="panneau_quetes" (mouseenter)="focus=true" (mouseleave)="focus=false">
+    </app-panneau-quetes>
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 
     <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data"
-        (closeEvent)="menuContextuel=undefined" (addEntityEvent)="addEntity($event)">
+        (closeEvent)="menuContextuel=undefined" (addEntityEvent)="addEntity($event)" (mouseenter)="focus=true"
+        (mouseleave)="focus=false">
     </app-menu-contextuel>
 
 </div>

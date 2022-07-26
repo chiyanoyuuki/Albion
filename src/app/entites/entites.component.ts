@@ -2,6 +2,7 @@ import { Entite, Data, MenuContextuel, Lieu, ObjetInventaire, Position } from '.
 import { Component, DoCheck, HostListener, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { of } from 'rxjs';
+import { PersoService } from '../services/perso.service';
 
 @Component({
   selector: 'app-entites',
@@ -17,7 +18,7 @@ export class EntitesComponent implements OnInit {
   public lastPersoClicked: Entite | undefined;
   public gain: string;
 
-  constructor() { }
+  constructor(private persoService: PersoService) { }
   ngOnInit(): void { }
 
   public dragEnd($event: CdkDragEnd, perso: Entite) {
@@ -26,8 +27,6 @@ export class EntitesComponent implements OnInit {
     perso.y = perso.y + tmp.y;
     $event.source._dragRef.reset();
   }
-
-
 
   public getEntitesPresentes() {
     let retour: Entite[] = this.data.entites.filter((entite: Entite) => entite.lieu == this.data.lieuActuel.id);
@@ -48,44 +47,22 @@ export class EntitesComponent implements OnInit {
   }
 
   clickGain(perso: Entite, clicked: string) {
-    if (this.gain != clicked) {
-      this.gain = clicked;
-    } else if (this.gain == clicked) {
-      if (clicked == 'Niveau') {
-        perso.niveau += 1;
-      }
-      perso.stats.forEach(element => {
-        if (element.nom == clicked) {
-          element.qte += 1;
-        }
-      });
-      perso.inventaire.forEach(element => {
-        if (element.nom == clicked) {
-          element.qte -= 1;
-          let item = perso.inventaire.find(objet => objet.nom == clicked);
-          if (element.qte == 0) {
-            if (item) {
-              item.nom = "";
-              item.image = "";
-            }
-          } else if (item && element.qte < 0) {
-            item.qte = 0;
-          }
-        }
-      });
+    if (this.gain != clicked) {this.gain = clicked;} 
+    else
+    {
+      if (clicked == 'Niveau') {perso.niveau += 1;}
+      perso.stats.forEach(element => {if (element.nom == clicked) {element.qte += 1;}});
+      this.persoService.enleverXObjet(perso, clicked, 1);
       this.gain = "";
     }
   }
 
   public delete() {
     let entite = this.persoMenuContextuel;
-    if (!entite) { return }
-    this.data.entites.splice(this.data.entites.indexOf(entite), 1);
-    this.persoMenuContextuel = undefined;
-    this.menuContextuel = undefined;
-  }
-
-  public checkIfDisable() {
-    this.lastPersoClicked = undefined;
+    if (entite) {
+      this.data.entites.splice(this.data.entites.indexOf(entite), 1);
+      this.persoMenuContextuel = undefined;
+      this.menuContextuel = undefined;
+    }
   }
 }

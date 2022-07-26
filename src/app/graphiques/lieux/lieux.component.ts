@@ -21,7 +21,7 @@ export class LieuxComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    this.clickEventsubscription = this.appService.listenClickMap().subscribe(() => {
+    this.clickEventsubscription = this.appService.listenTriggerFermetureFenetres().subscribe(() => {
       this.changingTo = undefined;
     })
   }
@@ -80,11 +80,13 @@ export class LieuxComponent implements OnInit {
     console.log(this.focus);
     console.log(this.changingTo);
     let nb = this.getPersosSurMapActuelle().length;
+    console.log(nb);
     if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
       this.changeLieu(lieu);
     }
     else {
       this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
+      console.log(this.changingTo && this.changingTo == lieu && (lieu.canEnter == undefined || lieu.canEnter));
     }
     if (lieu.nom == 'Panneau de Quêtes') {
       this.data.lieuActuel = lieu;

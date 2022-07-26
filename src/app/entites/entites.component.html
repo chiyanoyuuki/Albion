@@ -7,7 +7,8 @@
 
         <!-- PARTIE INFOS =================================================== -->
 
-        <div class="entite" (mouseleave)="checkIfDisable()" [style.opacity]="lastPersoClicked==perso?'1':'0'"
+        <div class="entite" (mouseleave)="this.lastPersoClicked=undefined;"
+            [style.opacity]="lastPersoClicked==perso?'1':'0'"
             [style.pointer-events]="lastPersoClicked==perso?'unset':'none'">
             <app-infos-entite [perso]="perso" [data]="data"></app-infos-entite>
         </div>
