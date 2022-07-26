@@ -167,9 +167,9 @@
                 <p *ngIf="focusQuete.etatQuete == 1" class="bigText clickable" (click)="etapeSuivante()">Etape suivante
                 </p>
             </div>
-            <p *ngIf="focusQuete.etapeEnCours.id < focusQuete.etapes.length&&focusQuete.etatQuete==1"
+            <p *ngIf="focusQuete&&focusQuete.etapeEnCours.id < focusQuete.etapes.length&&focusQuete.etatQuete==1"
                 class="bigText clickable" (click)="etapeSuivante()">Etape suivante</p>
-            <p *ngIf="focusQuete.etapeEnCours.id == focusQuete.etapes.length" class="bigText clickable"
+            <p *ngIf="focusQuete&&focusQuete.etapeEnCours.id == focusQuete.etapes.length" class="bigText clickable"
                 (click)="etapeSuivante()">Terminer la quête</p>
         </div>
     </div>
