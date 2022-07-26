@@ -171,7 +171,7 @@
 
 <!-- BOUTIQUE -->
 
-<div *ngIf="perso.boutique == data.lieuActuel.id" class="containerVendeur" cdkDrag>
+<div *ngIf="boutiquePerso()" class="containerVendeur" cdkDrag>
     <p class="croix clickable" (click)="close()">X</p>
     <p class="bigText">{{data.lieuActuel.nom}}</p>
     <div class="containerBoutique m-t-20">
@@ -196,9 +196,8 @@
                     </div>
                 </div>
                 <div class="flex wrap">
-                    <div class="objet" id="{{objet.nom}}" *ngFor="let objet of focusPersoBoutique.inventaire"
-                        (mouseover)="objetActifInventaire = objet"
-                        (mouseleave)="objetActifInventaire = undefined;vente = ''"
+                    <div class="objet" id="{{objet.nom}}" *ngFor="let objet of getInventairePersoBoutique(focusPersoBoutique)"
+                        (mouseover)="objetActifInventaire = objet" (mouseleave)="objetActifInventaire = undefined;vente = ''"
                         (click)="clickVendre(focusPersoBoutique, objet)">
                         <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png"
                             (cdkDragEnded)="dragEnd($event,objet)" (cdkDragStarted)="dragStart(objet)" cdkDrag />

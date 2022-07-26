@@ -104,3 +104,135 @@
     top: 0px;
     left: 0px;
 }
+
+.fond_eau{
+    border: 20px ridge #202020;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-image: url("../../assets/images/maps/eau.gif");
+    background-size: 1000px 1000px;
+    background-repeat: repeat;
+}
+
+/* panneau de quete */
+
+.bigText {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+.bigbigText {
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: center;
+}
+.tableau_quetes{
+    position:absolute;
+    top:7%;
+    left:6%;
+    right: 6%;
+    bottom: 7%;
+    z-index:5;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    padding: 5rem;
+}
+.quete{
+    position: absolute;
+    cursor: move;
+}
+.nom_quete{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.clou{
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
+    width: 30px;
+}
+.voir_quete{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+    width: 800px;
+    height: 1150px;
+}
+.croix {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    border: 2px solid black;
+    background-color: #404040;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.voir_quete .image_fond{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.titre_quete{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.description_quete{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+}
+#recompensePaiement{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.recompensePaiement {
+    height: 170px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.recompense {
+    background-color: #40404050;
+    padding: 5px;
+    border: 1px solid black;
+    gap: 0.5rem;
+    width: 44%;
+    height: 50px;
+}
+.golds img {
+    width: 30px;
+    height: 20px;
+}
+.accept_quete{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 5;
+}

@@ -5,6 +5,7 @@
         <p *ngIf="menu.type=='map'" class="choix" (click)="add=true;">Ajouter une entité</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="clickModifMap()">(A) Modifier map</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
+        <p *ngIf="menu.type=='map'" class="choix" (click)="repos()">Repos</p>
         <p *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix" (click)="quete=true;">Quetes ({{nbrQuetes}})
         </p>
         <p *ngIf="menu.type=='entite'&&!perso.joueur" class="choix" (click)="deletion()">{{delete}}</p>
@@ -132,14 +133,15 @@
         <p class="choix" *ngIf="objetSelected!=undefined" (click)="addItem()">Valider</p>
     </div>
 
-    <div *ngIf="quete==true" class="containerQuete" cdkDrag>
-        <div class="quetes">
-            <div class="flex column gap-1">
-                <div *ngFor="let quete of getQuetes()" class="nomQuetes">
-                    <p class="clickable bigText" (click)="focusQuete = quete">{{ quete.etapeEnCours.nom }} <span
-                            style="color:red;">{{quete.etatQuete > 0 && quete.etapeEnCours.pnj == perso.nom ? '?' :
-                            '!'}}</span></p>
-                </div>
+
+<div *ngIf="quete==true&&getQuetes()" class="containerQuete" cdkDrag>
+    <p class="croix clickable" (click)="close()">X</p>
+    <div class="quetes">
+        <div class="flex column gap-1">
+            <div *ngFor="let quete of getQuetes()" class="nomQuetes">
+                <p class="clickable bigText" (click)="focusQuete = quete">{{ quete.etapeEnCours.nom }} <span
+                        style="color:red;">{{quete.etatQuete > 0 && quete.etapeEnCours.pnj == perso.nom ? '?' :
+                        '!'}}</span></p>
             </div>
             <div class="descriptionQuetes flex column" *ngIf="focusQuete">
                 <p *ngIf="focusQuete.etatQuete == 0" (click)="accepQuete()" class="bigText clickable"
@@ -165,6 +167,10 @@
                 <p *ngIf="focusQuete.etatQuete == 1" class="bigText clickable" (click)="etapeSuivante()">Etape suivante
                 </p>
             </div>
+            <p *ngIf="focusQuete.etapeEnCours.id < focusQuete.etapes.length&&focusQuete.etatQuete==1"
+                class="bigText clickable" (click)="etapeSuivante()">Etape suivante</p>
+            <p *ngIf="focusQuete.etapeEnCours.id == focusQuete.etapes.length" class="bigText clickable"
+                (click)="etapeSuivante()">Terminer la quête</p>
         </div>
     </div>
 

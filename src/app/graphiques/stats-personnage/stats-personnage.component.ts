@@ -122,12 +122,12 @@ export class StatsPersonnageComponent implements OnInit {
       this.vente = "";
     }
   }
-  clickAcheter(perso: Entite, clicked: ObjetInventaire) {
+  clickAcheter(focusPersoBoutique: Entite, clicked: ObjetInventaire) {
     if (this.achat != clicked.nom) {
       this.achat = clicked.nom;
     } else if (this.achat == clicked.nom) {
       if (this.achat == "") { return }
-      if (perso.argent < clicked.prix) { return }
+      if (focusPersoBoutique.argent < clicked.prix) { return }
       let objetPresentBoutique = this.boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
       if (objetPresentBoutique) {
         objetPresentBoutique.qte -= 1;
@@ -135,20 +135,29 @@ export class StatsPersonnageComponent implements OnInit {
           this.boutique.objets.splice(this.boutique.objets.indexOf(objetPresentBoutique), 1);
         }
       }
-      perso.argent -= clicked.prix;
+      
+      let objetPresentInventairePerso = focusPersoBoutique.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
+      if(objetPresentInventairePerso){
+        objetPresentInventairePerso.qte += 1;
+      }else if(focusPersoBoutique.inventaire.length == 18){
+        return;
+      }else{
+        focusPersoBoutique.inventaire.push({ "emplacement": clicked.emplacement, "nom": clicked.nom, "image": clicked.image, qte: 1, prix: clicked.prix, taux:0 })
+      }
+      focusPersoBoutique.argent -= clicked.prix;
       this.achat = "";
     }
   }
 
   getQuetesPrincipales() {
     return this.data.quetes.filter((quete: Quete) =>
-      quete.type == 'principale' && this.perso.nom == quete.perso || quete.perso == "Toute l'équipe"
+      quete.type == 'principale' && this.perso.nom == quete.perso || quete.perso == "Toute l'équipe" && quete.accepte == true
     );
   }
 
   getQuetesSecondaires() {
     return this.data.quetes.filter((quete: Quete) =>
-      quete.type == 'secondaire'
+      quete.type == 'secondaire' && quete.accepte == true
     );
   }
 
@@ -334,12 +343,33 @@ export class StatsPersonnageComponent implements OnInit {
 
 
   // Pour la boutique
+
+  boutiquePerso(){
+    if (this.perso.boutique == this.data.lieuActuel.id) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
   persoPresentInLieu() {
     let persos = this.data.entites.filter((perso: Entite) => perso.team == 0 && perso.lieu == this.data.lieuActuel.id);
     if (persos.length > 0 && !this.focusPersoBoutique) {
       this.focusPersoBoutique = persos[0];
     }
     return persos;
+  }
+
+  public getInventairePersoBoutique(focusPersoBoutique: Entite){
+    let retour: ObjetInventaire[] = [];
+    let tailleInv = 0;
+    if (focusPersoBoutique.inventaire) {
+      focusPersoBoutique.inventaire.forEach((objet: ObjetInventaire) => retour.push(objet));
+      tailleInv = focusPersoBoutique.inventaire.length;
+      console.log(tailleInv);
+    }
+    for (let i = tailleInv; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0, taux:0, prix:0 }); }
+    return retour;
   }
 
   public getInventaire() {

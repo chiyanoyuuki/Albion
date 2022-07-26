@@ -1,11 +1,20 @@
 import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, HostListener, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { addEntity, Data, Entite, Lieu, MenuContextuel, ObjetInventaire, Position } from '../model';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output, SimpleChanges, HostBinding } from '@angular/core';
+import { addEntity, Data, Entite, Lieu, MenuContextuel, ObjetInventaire, Position, Animation, Quete, Etape } from '../model';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      state('etat0', style({ opacity: 0 })),
+      state('etat1', style({ opacity: 1 })),
+      transition('etat0 => etat1', [ animate('1s') ]),
+      transition('etat1 => etat0', [ animate('1s') ]),
+    ]),
+  ]
 })
 export class MapComponent implements OnInit {
 
@@ -18,6 +27,12 @@ export class MapComponent implements OnInit {
   public audio: HTMLAudioElement;
   public mapHeight: number;
   public image: HTMLImageElement;
+  public oiseaux: boolean;
+
+  // quete
+  public queteAccepter: string;
+  public focusQuete: Quete | undefined;
+  
   public windowWidth: number;
   public windowHeight: number;
   public cataclysme: boolean;
@@ -49,6 +64,24 @@ export class MapComponent implements OnInit {
     this.image.onload = function() {
       this.mapHeight = this.image.height;
     }*/
+    this.getAnimation();
+  }
+
+  getAnimation(){
+    let nbrRandom = Math.ceil(Math.random()*50000);
+    console.log(nbrRandom);
+    
+    this.oiseaux = false
+    setTimeout (() => {
+      this.oiseaux = true
+      setTimeout (() => {
+        this.oiseaux = false
+        this.getAnimation();
+      }, 6000);
+    }, nbrRandom);
+  }
+
+  changementDeMap(lieu: Lieu) {
     this.windowWidth = window.innerWidth;
     this.windowHeight = window.innerHeight;
   }
@@ -98,13 +131,13 @@ export class MapComponent implements OnInit {
     this.focus = undefined;
     if (this.data.admin) { console.log("MouseX : " + event.offsetX); }
     if (this.data.admin) { console.log("MouseY : " + event.offsetY); }
-    if (!this.audio) { this.musique(this.data.lieuActuel); }
+    if (!this.audio) { this.changementDeMap(this.data.lieuActuel); }
   }
 
   clickRetour() {
     this.menuContextuel = undefined;
     let lieutmp = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.parent);
-    if (lieutmp) { this.data.lieuActuel = lieutmp; this.musique(lieutmp); }
+    if (lieutmp) { this.data.lieuActuel = lieutmp; this.changementDeMap(lieutmp); }
   }
 
   changeLieu(lieu: Lieu) {
@@ -118,7 +151,7 @@ export class MapComponent implements OnInit {
         this.data.lieuActuel = tmp;
       }
     }
-    this.musique(lieu);
+    this.changementDeMap(lieu);
   }
 
   rentrerLieu(lieu: Lieu) {
@@ -129,6 +162,9 @@ export class MapComponent implements OnInit {
     }
     else {
       this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
+    }
+    if (lieu.nom == 'Panneau de Quêtes') {
+      this.data.lieuActuel = lieu;
     }
   }
 
@@ -279,5 +315,74 @@ export class MapComponent implements OnInit {
     lieu.x = lieu.x + tmp.x;
     lieu.y = lieu.y + tmp.y;
     $event.source._dragRef.reset();
+  }
+
+  getEtat(){
+    if (this.data.repos.stop) { return "etat0"; }
+    else if (this.data.repos.animation) { return "etat1"; }
+    else if (this.data.repos.lance) { return "etat0"; }
+    return "etat1";
+  }
+
+  // tableau quete
+
+  getQuetes(){
+    return this.data.quetes.filter((quete: Quete)=> quete.tableauQuetes && quete.tableauQuetes.affiche);
+  }
+
+  endDragQuete($event: CdkDragEnd, quete: Quete) {
+    let tmp = $event.source.getFreeDragPosition();
+    quete.tableauQuetes.x = quete.tableauQuetes.x + tmp.x;
+    quete.tableauQuetes.y = quete.tableauQuetes.y + tmp.y;
+    $event.source._dragRef.reset();
+  }
+  dragStart(quete: Quete){
+    let quetes = this.getQuetes();
+    let taille = quetes.length;
+    quetes.forEach((quete:Quete) => {
+      quete.tableauQuetes.zIndex = quete.tableauQuetes.zIndex - 1;
+      if (quete.tableauQuetes.zIndex < 0) {
+        quete.tableauQuetes.zIndex = 0;
+      }
+    });
+    quete.tableauQuetes.zIndex = taille;
+  }
+  voirQuete(quete: Quete){
+    this.focusQuete = quete;
+  }
+  close() {
+    this.focusQuete = undefined;
+  }
+  prendrePapier(){
+    let entitesJoueur = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.parent);
+    let emplacementVide = false;
+    let stop = true;
+    entitesJoueur.forEach((entite: Entite) => {
+      emplacementVide = entite.inventaire.length < 18;
+      if (emplacementVide) {
+        if (this.focusQuete) {
+          if (stop) {
+            entite.inventaire.push({ emplacement: "", image: "item_parchemin", nom: this.focusQuete.nom, qte: 1, taux: 0, prix: 1 });
+            this.focusQuete.tableauQuetes.affiche = false;
+            stop = false;
+          }
+        }
+      }
+    });
+    this.focusQuete = undefined;
+  }
+  accepQuete() {
+    let entitesJoueur = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.parent);
+    if (entitesJoueur.length>0) {
+      if (this.focusQuete) {
+        if (this.queteAccepter != this.focusQuete.nom) {
+          this.queteAccepter = this.focusQuete.nom;
+        } else if (this.queteAccepter == this.focusQuete.nom) {
+          this.queteAccepter = '';
+          this.focusQuete.etatQuete = 1;
+          this.focusQuete.accepte = true;
+        }
+      }
+    }
   }
 }

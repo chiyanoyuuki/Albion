@@ -8,6 +8,7 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
   templateUrl: './menu-contextuel.component.html',
   styleUrls: ['./menu-contextuel.component.scss']
 })
+
 export class MenuContextuelComponent implements OnInit {
 
   @Input() data: Data;
@@ -263,47 +264,39 @@ export class MenuContextuelComponent implements OnInit {
   }
 
   etapeSuivante() {
+    let debug = true;
+    let conditionRespectees = true;
     if (this.focusQuete) {
       let etape = this.focusQuete.etapeEnCours;
-      console.log(etape.nom);
       if (etape.objets) {
         let entitesPresentes = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.id);
-        let conditionRespectees = true;
         etape.objets.forEach((objet: ObjetInventaire) => {
           if (conditionRespectees) {
-            console.log('conditionRespectees 1');
             let nb = 0;
             entitesPresentes.forEach((entite: Entite) => {
               if (nb < objet.qte) {
-                console.log('nb < objet.qte 1');
-                console.log(objet.nom);
                 let objetDansInventaire = entite.inventaire.find((objetATrouver: ObjetInventaire) => objetATrouver.nom == objet.nom);
                 if (objetDansInventaire) {
-                  console.log('objetDansInventaire 1');
                   nb += objetDansInventaire.qte;
                 }
               }
             });
             if (nb < objet.qte) {
-              console.log('nb < objet.qte 2');
               conditionRespectees = false;
             }
           }
         });
         if (conditionRespectees) {
-          console.log('conditionRespectees 2');
           etape.objets.forEach((objet: ObjetInventaire) => {
             let nb = objet.qte;
             entitesPresentes.forEach((entite: Entite) => {
               if (nb > 0) {
                 let objetDansInventaire = entite.inventaire.find((objetATrouver: ObjetInventaire) => objetATrouver.nom == objet.nom)
                 if (objetDansInventaire) {
-                  console.log('objetDansInventaire 2');
                   if (objetDansInventaire.qte >= nb) {
                     objetDansInventaire.qte -= nb;
-                    console.log(objetDansInventaire.qte);
                     nb = 0;
-                    if (objetDansInventaire.qte = 0) {
+                    if (objetDansInventaire.qte == 0) {
                       entite.inventaire.splice(entite.inventaire.indexOf(objetDansInventaire), 1);
                     }
                   } else {
@@ -316,21 +309,60 @@ export class MenuContextuelComponent implements OnInit {
           });
         }
       }
-      let queteFocus = this.focusQuete;
-      if (queteFocus.etapes.length == queteFocus.etapeEnCours.id) {
-        this.data.quetes.splice(this.data.quetes.indexOf(queteFocus), 1);
-        this.focusQuete = undefined;
-      }
-      if (queteFocus.etapeEnCours.id < queteFocus.etapes.length) {
-        console.log('this.focusQuete.etapeEnCours.id < this.focusQuete.etapes.length');
-        let nouvelleEtape = queteFocus.etapes.find((etape: Etape) => etape.id == queteFocus.etapeEnCours.id + 1);
-        if (nouvelleEtape) {
-          console.log('nouvelleEtape');
-          queteFocus.etapeEnCours = nouvelleEtape;
+      if (conditionRespectees) {
+        let queteFocus = this.focusQuete;
+        if (queteFocus.etapes.length == queteFocus.etapeEnCours.id) {
+          let entitesJoueurPresentes = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.id);
+          let emplacementVide = false;
+          queteFocus.recompenses.forEach((objetRecompense: ObjetInventaire) => {
+            entitesJoueurPresentes.forEach((entite: Entite) => {
+              let itemDejaDansInventaire = entite.inventaire.find((objetDansInventaire: ObjetInventaire) => objetDansInventaire.nom == objetRecompense.nom);
+              if (itemDejaDansInventaire) {
+                if (debug) console.log('Objet deja dans inventaire de' + entite.nom);
+                itemDejaDansInventaire.qte += objetRecompense.qte;
+              }
+              else {
+                if (debug) console.log('Objet pas dans inventaire');
+                emplacementVide = entite.inventaire.length < 18;
+                if (emplacementVide) {
+                  if (debug) console.log('Emplacement vide trouvé chez ' + entite.nom);
+                  entite.inventaire.push({ emplacement: objetRecompense.emplacement, image: objetRecompense.image, nom: objetRecompense.nom, qte: objetRecompense.qte, taux: 0, prix: objetRecompense.prix });
+                }
+              }
+            });
+          });
+          this.data.quetes.splice(this.data.quetes.indexOf(queteFocus), 1);
           this.focusQuete = undefined;
+        }
+        if (queteFocus.etapeEnCours.id < queteFocus.etapes.length) {
+          let nouvelleEtape = queteFocus.etapes.find((etape: Etape) => etape.id == queteFocus.etapeEnCours.id + 1);
+          if (nouvelleEtape) {
+            queteFocus.etapeEnCours = nouvelleEtape;
+            this.focusQuete = undefined;
+          }
         }
       }
     }
+  }
+
+  repos(){
+    let persosTeam = this.data.entites.filter((entite: Entite) => entite.joueur);
+    persosTeam.forEach((perso: Entite) => {
+      perso.pdv = perso.pdvmax;
+      perso.mana = perso.manamax
+    });
+    this.data.repos.lance = true;
+    setTimeout (() => {
+      this.data.repos.animation = true;
+      setTimeout (() => {
+        this.data.repos.stop = true;
+        setTimeout (() => {
+          this.data.repos.stop = false;
+          this.data.repos.animation = false;
+          this.data.repos.lance = false;
+        }, 1000);
+      }, 4000);
+    }, 1000);
   }
 
   //SAUVEGARDE
