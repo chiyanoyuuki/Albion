@@ -1,4 +1,4 @@
-<div *ngIf="data.lieuActuel.nom=='Panneau de Quêtes'" class="tableau_quetes">
+<div class="tableau_quetes">
     <div *ngFor="let quete of getQuetes()" class="quete" [style.left]="quete.tableauQuetes.x + 'px'"
         [style.top]="quete.tableauQuetes.y + 'px'" [style.z-index]="quete.tableauQuetes.zIndex"
         (cdkDragStarted)="dragStart(quete)" (cdkDragEnded)="endDragQuete($event,quete)" cdkDrag>
@@ -6,5 +6,5 @@
         <img class="clou" src="./assets/images/clou_quete.png" />
         <p (click)="voirQuete(quete)" class="nom_quete bigText clickable">{{quete.nom}}</p>
     </div>
-    <app-feuille-quete [focusQuete]="focusQuete" [data]="data"></app-feuille-quete>
+    <app-feuille-quete [focusQuete]="focusQuete" [data]="data" *ngIf="focusQuete!=undefined"></app-feuille-quete>
 </div>

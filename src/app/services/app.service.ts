@@ -13,7 +13,7 @@ export class AppService {
 
   private clickMapSubject = new Subject<void>();
 
-  triggerFermetureFenetres() { console.log("Clic map"); this.clickMapSubject.next(); }
+  triggerFermetureFenetres() { this.clickMapSubject.next(); }
   listenTriggerFermetureFenetres() { return this.clickMapSubject.asObservable(); }
 
   getPersonnages() {return this.http.get(this.rootURL + '/personnages');}

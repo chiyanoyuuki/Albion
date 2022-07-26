@@ -53,8 +53,6 @@ export class StatsPersonnageComponent implements OnInit {
   }
 
   clickGain(perso: Entite, clicked: string) {
-    console.log("dede");
-    
     if (this.gain != clicked) {
       this.gain = clicked;
     } else if (this.gain == clicked) {
@@ -70,7 +68,6 @@ export class StatsPersonnageComponent implements OnInit {
       if (objetClique) {
         let parcheminDeQuete = this.data.quetes.find((quete: Quete) => quete.nom == clicked);
         if (parcheminDeQuete) {
-          console.log("dede");
           this.focusQuete = parcheminDeQuete;
         }else{
           objetClique.qte -= 1;

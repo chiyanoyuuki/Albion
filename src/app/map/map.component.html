@@ -9,7 +9,7 @@
     <!-- ========================== PERSONNAGES ========================== -->
 
     <app-entites [data]="data" class="entites" (mouseenter)="focus=true" (mouseleave)="focus=false"> </app-entites>
-    <app-panneau-quetes [data]="data" class="panneau_quetes" (mouseenter)="focus=true" (mouseleave)="focus=false">
+    <app-panneau-quetes [data]="data" class="panneau_quetes" (mouseenter)="focus=true" (mouseleave)="focus=false" *ngIf="data.lieuActuel.nom=='Panneau de Quêtes'">
     </app-panneau-quetes>
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
