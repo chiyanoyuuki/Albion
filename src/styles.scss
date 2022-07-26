@@ -128,6 +128,10 @@ p {
     border-radius: 40px;
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
 .choix {
     transition: all 0.4s;
     text-align: center;
@@ -168,6 +172,14 @@ app-menu-contextuel {
     z-index: 2;
 }
 
+app-lieux,
+app-image-shadow-perso,
+app-background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -199,7 +211,6 @@ button:hover {
     border: 1px solid black;
     z-index: 3;
     display: flex;
-    margin-left: 5px;
 }
 
 .formulaire input {

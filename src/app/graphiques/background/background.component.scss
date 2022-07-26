@@ -1,0 +1,26 @@
+.retour {
+    background-color: #50505080;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 1;
+    border: 5px ridge #505050;
+    left: 30px;
+    top: 30px;
+}
+
+.retour:hover {
+    cursor: pointer;
+    border-color: red !important;
+    background-color: #000000bb !important;
+}
+
+
+
+.eauGif {
+    top: 0px;
+    left: 0px;
+    width: -moz-available;
+    position: absolute;
+    height: -moz-available;
+}

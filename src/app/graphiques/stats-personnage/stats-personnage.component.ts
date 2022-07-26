@@ -396,7 +396,7 @@ export class StatsPersonnageComponent implements OnInit {
 
   public getContainerLeft() {
     let retour = -170;
-    let x = this.perso.xcombat;
+    let x = this.perso.x;
     if (this.data.lieuActuel.id == "map") {
       x = this.perso.x;
     }

@@ -1,21 +1,6 @@
-<div [@fadeIn]="getEtat()">
-    <img draggable="false" class="retour" [hidden]="data.lieuActuel.parent==''" src="./assets/images/retour.png"
-        (click)="clickRetour()" style="z-index:2;" />
-    <img *ngIf="data.repos.animation" draggable="false" class="eauGif" src="./assets/images/maps/repos.gif" id="map"
-        style="z-index:10;" />
-    <img *ngIf="false&&oiseaux&&data.lieuActuel.oiseaux" draggable="false" class="map haut"
-        src="./assets/images/maps/oiseaux.gif" id="map"
-        style="position:absolute;z-index:10;height:200px;top:30%;left:0;right:0;transform: translate(0,-50%);" />
-    <img class="eauGif" src="../../assets/images/maps/eau.gif" />
-    <video class="video" *ngIf="cataclysme" id="my_video_1" class="video-js vjs-default-skin" controls preload="none"
-        style="position: absolute;z-index: 10;background-color: black;width: 1902px;height: fit-content;"
-        data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-        <source src="../../assets/images/Cinématique.mp4" type='video/mp4' />
-    </video>
-    <img draggable="false" class="map" [style.width]="windowWidth-60+'px'" [style.opacity]="data.repos.animation?0:1"
-        src="./assets/images/maps/{{data.lieuActuel.image}}{{(data.lieuActuel.useNbImage?data.lieuActuel.nbImage:'')}}.png"
-        (click)="clicMap($event)" (contextmenu)="clicDroitMap($event)" id="map"
-        [style.border]="data.admin?'20px ridge #dd2020':'20px ridge #202020'" style="z-index:1;" />
+<div [@fadeIn]="getEtat()" (contextmenu)="clicDroitMap($event)" (click)="clicMap($event)">
+
+    <app-background [data]="data"></app-background>
 
     <!-- ========================== LIEUX ========================== -->
 
@@ -23,7 +8,8 @@
 
     <!-- ========================== PERSONNAGES ========================== -->
 
-    <app-entites [data]="data" [mapHeight]="mapHeight" class="entites"></app-entites>
+    <app-entites        [data]="data" class="entites">          </app-entites>
+    <app-panneau-quetes [data]="data" class="panneau_quetes">   </app-panneau-quetes>
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 
@@ -31,8 +17,4 @@
         (closeEvent)="menuContextuel=undefined" (addEntityEvent)="addEntity($event)">
     </app-menu-contextuel>
 
-
-    <!-- ========================== TABLEAU DE QUETES ========================== -->
-
-    <app-panneau-quetes [data]="data" class="panneau_quetes"></app-panneau-quetes>
 </div>
