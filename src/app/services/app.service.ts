@@ -12,9 +12,13 @@ export class AppService {
   rootURL = '/api';
 
   private clickMapSubject = new Subject<void>();
+  private closeMenuContextuelSubject = new Subject<void>();
 
-  triggerFermetureFenetres() { this.clickMapSubject.next(); }
+  triggerFermetureFenetres() { console.log("Fermeture des fenêtres");this.clickMapSubject.next(); }
   listenTriggerFermetureFenetres() { return this.clickMapSubject.asObservable(); }
+
+  closeMenuContextuel(){console.log("Fermeture du menu contextuel");this.closeMenuContextuelSubject.next();}
+  listenCloseMenuContextuel(){ return this.closeMenuContextuelSubject.asObservable(); }
 
   getPersonnages() {return this.http.get(this.rootURL + '/personnages');}
 }

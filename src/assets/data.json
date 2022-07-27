@@ -1406,40 +1406,17 @@
         }
     ],
     "lieuActuel": {
-        "id": "fjorh",
-        "nom": "Fjorh",
-        "image": "Fjorh-test",
-        "parent": "map",
-        "musique": "fjorh",
-        "x": 918,
-        "y": 377,
-        "position_start": [
-            {
-                "startX": 570,
-                "startY": 835
-            },
-            {
-                "startX": 585,
-                "startY": 835
-            },
-            {
-                "startX": 570,
-                "startY": 820
-            },
-            {
-                "startX": 570,
-                "startY": 850
-            },
-            {
-                "startX": 555,
-                "startY": 835
-            }
-        ],
-        "finx": 265,
-        "finy": 229,
-        "desac": false,
-        "oiseaux": true,
-        "scale": 0.6
+        "id": "map",
+        "nom": "map",
+        "image": "map",
+        "x": 0,
+        "y": 0,
+        "finx": 0,
+        "finy": 0,
+        "desac": true,
+        "parent": "",
+        "scale": 0.5,
+        "musique": "map"
     },
     "boutiques": [
         {

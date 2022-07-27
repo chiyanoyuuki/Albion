@@ -65,8 +65,8 @@
         <div class="persos flex">
             <div *ngFor="let entite of getEntitesPossibles()">
                 <app-icone-personnage [perso]="entite"
-                    [selected]="entitySelected!=undefined&&entitySelected.nom==entite.nom" (mouseover)="focus=entite"
-                    (mouseout)="focus=undefined" (click)="clickEntite(entite)">
+                    [selected]="entitySelected!=undefined&&entitySelected.nom==entite.nom" (mouseenter)="focus=entite"
+                    (mouseleave)="focus=undefined" (click)="clickEntite(entite)">
                 </app-icone-personnage>
                 <p class="pv">{{entite.pdv}}</p>
                 <p class="pm">{{entite.mana}}</p>
@@ -96,7 +96,7 @@
             <div class="line"></div>
 
             <div class="persos objets flex wrap">
-                <div *ngFor="let objet of getLoot()" (mouseover)="objetFocus=objet" (click)="clickLoot(objet)">
+                <div *ngFor="let objet of getLoot()" (mouseenter)="objetFocus=objet" (click)="clickLoot(objet)">
                     <div class="objet">
                         <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
                         <p>{{objet.taux}}%</p>
@@ -123,7 +123,7 @@
         </div>
         <p>{{objetFocus?objetFocus.nom:'-'}}</p>
         <div class="persos objets flex wrap">
-            <div *ngFor="let objet of getObjetsPossibles()" (mouseover)="objetFocus=objet"
+            <div *ngFor="let objet of getObjetsPossibles()" (mouseenter)="objetFocus=objet"
                 (click)="objetSelected=objet">
                 <div class="objet">
                     <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />

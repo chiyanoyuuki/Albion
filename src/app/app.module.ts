@@ -19,6 +19,9 @@ import { LieuxComponent } from './graphiques/lieux/lieux.component';
 import { FeuilleQueteComponent } from './graphiques/feuille-quete/feuille-quete.component';
 import { ImageShadowPersoComponent } from './graphiques/image-shadow-perso/image-shadow-perso.component';
 import { BackgroundComponent } from './graphiques/background/background.component';
+import { InventaireComponent } from './graphiques/inventaire/inventaire.component';
+import { BoutiqueComponent } from './graphiques/boutique/boutique.component';
+import { StuffComponent } from './graphiques/stuff/stuff.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { BackgroundComponent } from './graphiques/background/background.componen
     LieuxComponent,
     FeuilleQueteComponent,
     ImageShadowPersoComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    InventaireComponent,
+    BoutiqueComponent,
+    StuffComponent
   ],
   imports: [
     BrowserModule,

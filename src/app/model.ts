@@ -178,3 +178,10 @@ export class addEntity {
 	public entite: Entite;
 	public team: string;
 }
+
+export class Tests {
+	public finiDansInventaireAutrePerso: Entite | undefined;
+	public finiDansStuffAutrePerso: Entite | undefined;
+	public finiDansEmplacement1: boolean;
+	public finiDansEmplacement2: boolean;
+}

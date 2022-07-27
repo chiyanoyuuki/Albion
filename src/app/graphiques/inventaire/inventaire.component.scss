@@ -1,0 +1,62 @@
+.inventaire {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.containerStuff .objet {
+    position: absolute;
+}
+
+
+
+.objet {
+    width: 50px;
+    height: 50px;
+    background-image: url("../../../assets/images/vide_inventaire.png");
+    background-size: 50px;
+}
+
+.objet img {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 5px;
+    left: 5px;
+}
+
+.nomItem {
+    position: relative;
+    top: 30%;
+    width: 200px;
+    left: -75px;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.objet p {
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #40404080;
+}
+
+.qteObjet {
+    width: 20px;
+    border: 1px solid black;
+    right: -3px;
+    bottom: -3px;
+    position: absolute;
+    background-color: rgb(20, 20, 20) !important;
+    border-radius: 100%;
+    pointer-events: none;
+}
+
+.nomItem p {
+    width: fit-content;
+    z-index: 1;
+}
+
+.objet:hover {
+    cursor: pointer;
+}

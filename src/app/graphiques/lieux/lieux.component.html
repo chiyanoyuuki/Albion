@@ -6,11 +6,11 @@
     <!--(cdkDragEnded)="dragEnd($event,lieu)" 
         cdkDrag>-->
 
-    <p class="nomLieu" (mouseover)="focus=undefined">{{lieu.nom}}</p>
+    <p class="nomLieu" (mouseenter)="focus=undefined">{{lieu.nom}}</p>
 
     <div class="personnagesInside">
         <div *ngFor="let perso of getJoueursDansLieu(lieu)">
-            <app-icone-personnage [perso]="perso" (mouseover)="focus=perso" (click)="sortirPerso(lieu,perso)">
+            <app-icone-personnage [perso]="perso" (mouseenter)="focus=perso" (click)="sortirPerso(lieu,perso)">
             </app-icone-personnage>
         </div>
     </div>
@@ -24,9 +24,8 @@
             <div class="flexCenter nowrap">
                 <div>
                     <app-icone-personnage *ngFor="let perso of getEntitesPresentes(i)" [perso]="perso"
-                        (mouseover)="focus=perso" (click)="rentrerEntite(lieu,perso)"
-                        (mouseover)="persoHovered[i]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax"
-                        (mouseout)="persoHovered[i]=''"></app-icone-personnage>
+                        (mouseenter)="focus=perso;persoHovered[i]=perso.nom + ' - ' + perso.pdv + '/'+perso.pdvmax" (click)="rentrerEntite(lieu,perso)"
+                        (mouseleave)="persoHovered[i]=''"></app-icone-personnage>
                 </div>
             </div>
             <p class="nomPerso">{{persoHovered[i]}}</p>

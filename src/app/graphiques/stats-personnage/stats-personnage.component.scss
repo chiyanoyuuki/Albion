@@ -144,6 +144,8 @@
 
 //Inventaire
 
+
+
 .inventaire {
     display: flex;
     flex-flow: wrap;
@@ -153,12 +155,7 @@
     position: absolute;
 }
 
-.personnage {
-    height: 250px;
-    left: 50%;
-    transform: translate(-50%);
-    top: 5px;
-}
+
 
 .objet {
     width: 50px;
@@ -234,19 +231,6 @@
     padding: 10px;
 }
 
-.croix {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    border: 2px solid black;
-    background-color: #404040;
-    width: 25px;
-    font-size: 20px;
-    color: white;
-    text-align: center;
-    border-radius: 100%;
-}
-
 .end {
     justify-content: end;
 }
@@ -254,8 +238,8 @@
 
 /* containerVendeur */
 
-.containerVendeur{
-    background-color:rgba(0, 0, 0, 0.5);
+.containerVendeur {
+    background-color: rgba(0, 0, 0, 0.5);
     width: 900px;
     top: -250px;
     z-index: 2;
@@ -266,20 +250,24 @@
     cursor: move;
     color: white;
 }
-.navPerso{
+
+.navPerso {
     background-image: url("../../../assets/images/fond_jaune_fonce.png");
     padding: 0 0.5rem 0 0.5rem;
 }
-.navPerso .perso{
+
+.navPerso .perso {
     margin-right: 1rem;
 }
+
 .navPerso .separator {
     height: 8px;
     width: 2px;
     background-color: white;
     margin-right: 1rem;
 }
-.inventairePersoBoutique{
+
+.inventairePersoBoutique {
     width: 35%;
     flex-flow: wrap;
     padding: 0.7rem 0 0.7rem 0;
@@ -288,10 +276,12 @@
     background-image: url("../../../assets/images/fond-stats.png");
     flex-flow: column;
 }
-.inventairePersoBoutique .bigText{
+
+.inventairePersoBoutique .bigText {
     width: 40%;
 }
-.inventaireVendeurBoutique{
+
+.inventaireVendeurBoutique {
     width: 60%;
     flex-flow: wrap;
     border: 2px solid black;
@@ -302,19 +292,23 @@
     overflow-y: auto;
     background-image: url("../../../assets/images/fond-stats.png");
 }
-.objetInventaireBoutique{
+
+.objetInventaireBoutique {
     background-color: #40404050;
     padding: 0.2rem;
 }
-.imageItemBoutique{
+
+.imageItemBoutique {
     width: 40px;
     height: 40px;
 }
-.prix img{
+
+.prix img {
     width: 30px;
     height: 20px;
 }
-.achat{
+
+.achat {
     width: 25%;
     text-align: center;
 }

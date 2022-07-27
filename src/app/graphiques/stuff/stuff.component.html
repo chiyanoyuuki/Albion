@@ -1,0 +1,16 @@
+<p class="croix clickable" (click)="perso.actif=false">X</p>
+
+<img class="personnage" src="../../../assets/images/entites/{{perso.image}}.png">
+
+<div class="objet" *ngFor="let emplacement of perso.stuff" id="{{perso.nom}}{{emplacement.emplacement}}"
+    (mouseenter)="objetActifStuff = emplacement" (mouseleave)="objetActifStuff = undefined;gain = ''"
+    [style.left]="getLeft(emplacement)" [style.top]="getTop(emplacement)"
+    [style.z-index]="objetActifStuff == emplacement?9:2" (click)="clickGain(perso, emplacement.emplacement,'stuff')"
+    [style.filter]="isEmplacementFocused(emplacement)?'brightness(300%)':'brightness(100%)'">
+    <img *ngIf="emplacement.objet.image" src="./assets/images/items/{{ emplacement.objet.image }}.png" />
+    <div class="nomItem">
+        <p [hidden]="objetActifStuff != emplacement">{{gain == emplacement.emplacement && gain != '' ?
+            'Confirmer
+            enlever ?' : emplacement.objet.nom}}</p>
+    </div>
+</div>
