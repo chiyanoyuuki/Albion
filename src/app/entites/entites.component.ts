@@ -3,6 +3,7 @@ import { Component, DoCheck, HostListener, Input, OnInit } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { of } from 'rxjs';
 import { PersoService } from '../services/perso.service';
+import { AppService } from '../services/app.service';
 
 @Component({
   selector: 'app-entites',
@@ -17,9 +18,14 @@ export class EntitesComponent implements OnInit {
   public persoMenuContextuel: Entite | undefined;
   public lastPersoClicked: Entite | undefined;
   public gain: string;
+  public listenCloseMenuContextuel: any;
 
-  constructor() { }
-  ngOnInit(): void { }
+  constructor(private appService: AppService) { }
+  ngOnInit(): void {
+    this.listenCloseMenuContextuel = this.appService.listenCloseMenuContextuel().subscribe(() => {
+      this.menuContextuel = undefined;
+    })
+  }
 
   public dragEnd($event: CdkDragEnd, perso: Entite) {
     let tmp = $event.source.getFreeDragPosition();

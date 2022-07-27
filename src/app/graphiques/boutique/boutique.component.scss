@@ -1,0 +1,76 @@
+/* containerVendeur */
+
+.containerVendeur {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 900px;
+    top: -250px;
+    z-index: 2;
+    left: 100%;
+    position: absolute;
+    border: 2px ridge #202020;
+    padding: 10px;
+    cursor: move;
+    color: white;
+}
+
+.navPerso {
+    background-image: url("../../../assets/images/fond_jaune_fonce.png");
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.navPerso .perso {
+    margin-right: 1rem;
+}
+
+.navPerso .separator {
+    height: 8px;
+    width: 2px;
+    background-color: white;
+    margin-right: 1rem;
+}
+
+.inventairePersoBoutique {
+    width: 35%;
+    flex-flow: wrap;
+    padding: 0.7rem 0 0.7rem 0;
+    border: 2px solid black;
+    padding: 0.5rem;
+    background-image: url("../../../assets/images/fond-stats.png");
+    flex-flow: column;
+}
+
+.inventairePersoBoutique .bigText {
+    width: 40%;
+}
+
+.inventaireVendeurBoutique {
+    width: 60%;
+    flex-flow: wrap;
+    border: 2px solid black;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-image: url("../../../assets/images/fond-stats.png");
+}
+
+.objetInventaireBoutique {
+    background-color: #40404050;
+    padding: 0.2rem;
+}
+
+.imageItemBoutique {
+    width: 40px;
+    height: 40px;
+}
+
+.prix img {
+    width: 30px;
+    height: 20px;
+}
+
+.achat {
+    width: 25%;
+    text-align: center;
+}

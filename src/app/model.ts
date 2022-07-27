@@ -49,12 +49,18 @@ export class Entite {
 	public posLinkedY: number;
 	public posHeight: number;
 	public forceDivScale: number;
-	public levels: { niveau: number, pdvmax: number, manamax: number }[];
+	public levels: LevelStats[];
 	public boutique: string;
 	public quetes: Quete[];
 	public loot: ObjetInventaire[];
 	public peutBouger: boolean;
 	public holo: boolean;
+}
+
+export class LevelStats {
+	public niveau: number;
+	public pdvmax: number;
+	public manamax: number;
 }
 
 export class Animation{

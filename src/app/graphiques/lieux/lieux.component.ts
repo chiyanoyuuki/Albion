@@ -17,7 +17,7 @@ export class LieuxComponent implements OnInit {
   public changingTo: Lieu | undefined;
   public audio: HTMLAudioElement;
   public listenTriggerFermetureFenetres: any;
-  public boucle = [0,1,2];
+  public boucle = [0, 1, 2];
 
   constructor(private appService: AppService) { }
 
@@ -58,6 +58,7 @@ export class LieuxComponent implements OnInit {
         this.audio.loop = true;
       }
     }
+    this.appService.triggerFermetureFenetres();
   }
 
   changeLieu(lieu: Lieu) {

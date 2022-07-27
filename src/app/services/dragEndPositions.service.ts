@@ -58,6 +58,7 @@ export class DragEndPositionsService {
   }
 
   dragFromPersoInvToPersoInv(persoDebut: Entite, persoFin: Entite, item: ObjetInventaire, qte: number) {
+    if(persoDebut==persoFin){return;}
     console.log("Drag from " + persoDebut.nom + " inventaire to " + persoFin.nom + " inventaire :", item.nom, qte);
     if (item.nom == "Argent") {
       persoFin.argent += qte;
