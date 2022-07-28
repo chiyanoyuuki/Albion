@@ -206,7 +206,7 @@
             "id": "bjorncotesdefer",
             "x": 1298,
             "y": 555,
-            "lieu": "map",
+            "lieu": "armurierfjorh",
             "xcombat": 1080,
             "ycombat": 799,
             "nom": "Bjorn Côtes de Fer",
@@ -401,12 +401,14 @@
                 {
                     "image": "crochets",
                     "nom": "Crochets",
+                    "prix": 1,
                     "qte": 6,
                     "taux": 0
                 },
                 {
                     "image": "fleches",
                     "nom": "Flèches",
+                    "prix": 1,
                     "qte": 30,
                     "taux": 0
                 }
@@ -1002,6 +1004,23 @@
                     "qte": 3
                 }
             ]
+        },
+        {
+            "nom": "Goliath de Percerelle",
+            "image": "Goliath de Percerelle",
+            "lieu": "armurierfjorh",
+            "solo": true,
+            "niveau": 4,
+            "pdvmax": 55,
+            "pdv": 55,
+            "manamax": 18,
+            "mana": 18,
+            "x": 1320,
+            "y": 566,
+            "xcombat": 856,
+            "ycombat": 836,
+            "id": "goliathdepercerelle",
+            "boutique": "armurierfjorh"
         }
     ],
     "quetes": [
@@ -1230,13 +1249,15 @@
             "etapeEnCours": {
                 "id": 1,
                 "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer.",
+                "pnj": "Goliath de Percerelle"
             },
             "etapes": [
                 {
                     "id": 1,
                     "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer.",
+                    "pnj": "Goliath de Percerelle"
                 },
                 {
                     "id": 2,
@@ -1293,13 +1314,15 @@
             "etapeEnCours": {
                 "id": 1,
                 "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer.",
+                "pnj": "Goliath de Percerelle"
             },
             "etapes": [
                 {
                     "id": 1,
                     "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
+                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer.",
+                    "pnj": "Goliath de Percerelle"
                 },
                 {
                     "id": 2,
@@ -1406,17 +1429,39 @@
         }
     ],
     "lieuActuel": {
-        "id": "map",
-        "nom": "map",
-        "image": "map",
-        "x": 0,
-        "y": 0,
-        "finx": 0,
-        "finy": 0,
+        "parent": "fjorh",
+        "id": "armurierfjorh",
+        "nom": "Boutique d'armurier",
+        "musique": "boutique",
+        "image": "ShopArmor",
+        "x": 700,
+        "y": 250,
+        "position_start": [
+            {
+                "startX": 755,
+                "startY": 560
+            },
+            {
+                "startX": 855,
+                "startY": 560
+            },
+            {
+                "startX": 955,
+                "startY": 560
+            },
+            {
+                "startX": 1055,
+                "startY": 560
+            },
+            {
+                "startX": 1155,
+                "startY": 560
+            }
+        ],
+        "finx": 208,
+        "finy": 130,
         "desac": true,
-        "parent": "",
-        "scale": 0.5,
-        "musique": "map"
+        "scale": 5
     },
     "boutiques": [
         {
@@ -1468,7 +1513,7 @@
                 },
                 {
                     "nom": "Pièges élaborés",
-                    "image": "pieges",
+                    "image": "item_pieges",
                     "qte": 4,
                     "prix": 20
                 }
@@ -4335,5 +4380,6 @@
         "animation": false,
         "lance": false,
         "stop": false
-    }
+    },
+    "focusQuete": null
 }

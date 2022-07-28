@@ -20,7 +20,7 @@ export class StuffComponent implements OnInit {
   }
 
   clickGain(perso: Entite, clicked: string, type: string) {
-    this.gain = this.fonctionsService.clickGain(perso, clicked, this.gain, type);
+    this.gain = this.fonctionsService.clickGain(this.data, perso, clicked, this.gain, type, undefined);
   }
 
   getLeft(emplacement: Equipement) {

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Data, Entite, Quete } from 'src/app/model';
+import { ObjectExpression } from 'estree';
+import { Data, Entite, ObjetInventaire, Quete } from 'src/app/model';
 
 @Component({
   selector: 'app-feuille-quete',
@@ -9,7 +10,6 @@ import { Data, Entite, Quete } from 'src/app/model';
 export class FeuilleQueteComponent implements OnInit {
 
   @Input() data: Data;
-  @Input() focusQuete: Quete | undefined;
   @Input() ongletActif: string;
 
   public queteAccepter: string;
@@ -22,31 +22,31 @@ export class FeuilleQueteComponent implements OnInit {
 
   
   close() {
-    this.focusQuete = undefined;
+    this.data.focusQuete = null;
   }
   
   prendrePapier() {
     let entitesJoueur = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.parent);
     let emplacementVide = false;
     let stop = false;
-    if (this.focusQuete) {
-      if (this.papierPris != this.focusQuete.nom) {
-        this.papierPris = this.focusQuete.nom;
-      } else if (this.papierPris == this.focusQuete.nom) {
+    if (this.data.focusQuete) {
+      if (this.papierPris != this.data.focusQuete.nom) {
+        this.papierPris = this.data.focusQuete.nom;
+      } else if (this.papierPris == this.data.focusQuete.nom) {
         if (entitesJoueur.length > 0) {
           entitesJoueur.forEach((entite: Entite) => {
             emplacementVide = entite.inventaire.length < 18;
             if (emplacementVide) {
-              if (this.focusQuete) {
+              if (this.data.focusQuete) {
                 if (!stop) {
-                  entite.inventaire.push({ emplacement: "", image: "item_parchemin", nom: this.focusQuete.nom, qte: 1, taux: 0, prix: 1 });
-                  this.focusQuete.tableauQuetes.affiche = false;
+                  entite.inventaire.push({ emplacement: "", image: "item_parchemin", nom: this.data.focusQuete.nom, qte: 1, taux: 0, prix: 1 });
+                  this.data.focusQuete.tableauQuetes.affiche = false;
                   stop = true;
                 }
               }
             }
           });
-          this.focusQuete = undefined;
+          this.data.focusQuete = null;
         }
       }
     }
@@ -54,16 +54,28 @@ export class FeuilleQueteComponent implements OnInit {
   accepQuete() {
     let entitesJoueur = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.parent);
     if (entitesJoueur.length > 0) {
-      if (this.focusQuete) {
-        if (this.queteAccepter != this.focusQuete.nom) {
-          this.queteAccepter = this.focusQuete.nom;
-        } else if (this.queteAccepter == this.focusQuete.nom) {
+      if (this.data.focusQuete) {
+        if (this.queteAccepter != this.data.focusQuete.nom) {
+          this.queteAccepter = this.data.focusQuete.nom;
+        } else if (this.queteAccepter == this.data.focusQuete.nom) {
           this.queteAccepter = '';
-          this.focusQuete.etatQuete = 1;
-          this.focusQuete.accepte = true;
+          this.data.focusQuete.etatQuete = 1;
+          this.data.focusQuete.accepte = true;
         }
       }
     }
+  }
+
+  inInventaire(nomObjet: string){
+    let retour = false;
+    let joueurs = this.data.entites.filter((perso: Entite) => perso.joueur);
+    joueurs.forEach(joueur => {
+      let objet = joueur.inventaire.find((objet: ObjetInventaire) => objet.nom == nomObjet);
+      if (objet) {
+        retour = true;
+      }
+    });
+    return retour;
   }
 
 }

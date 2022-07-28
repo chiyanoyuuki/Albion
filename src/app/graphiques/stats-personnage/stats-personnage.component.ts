@@ -23,7 +23,7 @@ export class StatsPersonnageComponent implements OnInit {
   ngOnInit(): void { }
 
   clickGain(perso: Entite, clicked: string, type: string) {
-    if(perso.joueur){this.gain = this.fonctionsService.clickGain(perso, clicked, this.gain, type);}
+    if(perso.joueur){this.gain = this.fonctionsService.clickGain(this.data, perso, clicked, this.gain, type, undefined);}
   }
 
   public getEtat() {

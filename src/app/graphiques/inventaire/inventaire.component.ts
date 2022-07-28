@@ -1,6 +1,6 @@
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { Data, Entite, Equipement, ObjetInventaire, Sort, Tests } from 'src/app/model';
+import { Boutique, Data, Entite, Equipement, ObjetInventaire, Sort, Tests } from 'src/app/model';
 import { DragEndPositionsService } from 'src/app/services/dragEndPositions.service';
 import { FonctionsService } from 'src/app/services/fonctions.service';
 import { PersoService } from 'src/app/services/perso.service';
@@ -15,6 +15,7 @@ export class InventaireComponent implements OnInit {
   @Input() data: Data;
   @Input() perso: Entite;
   @Input() type: string;
+  @Input() boutique: Boutique;
 
   public gain: string;
   public objetActif: ObjetInventaire | undefined;
@@ -33,7 +34,7 @@ export class InventaireComponent implements OnInit {
   public getInventaire() {
     let retour: any = [];
     let tailleInv = 0;
-    if (this.type == "inventaire") {
+    if (this.type == "inventaire" || this.type == 'boutique') {
       if (this.perso.inventaire) {
         this.perso.inventaire.forEach((objet: ObjetInventaire) => retour.push(objet));
         tailleInv = this.perso.inventaire.length;
@@ -51,8 +52,20 @@ export class InventaireComponent implements OnInit {
     return retour;
   }
 
-  clickGain(perso: Entite, clicked: string, type: string) {
-    if (this.type == "inventaire" && this.perso.joueur) { this.gain = this.fonctionsService.clickGain(perso, clicked, this.gain, type); }
+  getNomItem(item: ObjetInventaire){
+    if (this.gain == item.nom && this.gain != '') {
+      if (this.type == "inventaire") {
+        return 'Confirmer l\'utilisation ?';
+      }
+      else if (this.type == "boutique") {
+        return 'Confirmer la vente ?';
+      }
+    }
+    return item.nom;
+  }
+
+  clickGain(perso: Entite, clicked: string) {
+    if ((this.type == "inventaire"||this.type == "boutique") && this.perso.joueur) { this.gain = this.fonctionsService.clickGain(this.data, perso, clicked, this.gain, this.type, this.boutique); }
   }
 
   public dragStart(item: ObjetInventaire) {

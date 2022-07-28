@@ -11,6 +11,7 @@ export class Data {
 	public admin: boolean;
 	public pnjs: Entite[];
 	public repos: Animation;
+	public focusQuete: Quete|null;
 }
 
 export class Entite {

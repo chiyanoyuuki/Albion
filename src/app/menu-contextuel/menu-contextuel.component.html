@@ -7,8 +7,8 @@
         <p (click)="fenetre='modifMap'" *ngIf="menu.type=='map'&&data.admin" class="choix">(A) Modifier map</p>
         <p (click)="sauvegarde()" *ngIf="menu.type=='map'" class="choix">Sauvegarder</p>
         <p (click)="repos()" *ngIf="menu.type=='map'" class="choix">Repos</p>
-        <p (click)="quete=true;" *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix">Quetes ({{nbrQuetes}})
-        </p>
+        <p (click)="fenetre='quete'" *ngIf="menu.type=='entite'&&nbrQuetes>0" class="choix">Quetes ({{nbrQuetes}})</p>
+        <p (click)="fenetre='boutique'" *ngIf="menu.type=='entite'&&perso.boutique" class="choix">Boutique</p>
         <p (click)="deletion()" *ngIf="menu.type=='entite'&&!perso.joueur" class="choix">{{delete}}</p>
         <p (click)="clickLierFamilier()" *ngIf="menu.type=='entite'&&perso.familier" class="choix">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
@@ -23,4 +23,6 @@
     <app-add-entite *ngIf="fenetre=='addEntity'" [data]="data" [menu]="menu"></app-add-entite>
     <app-add-item-loot *ngIf="fenetre=='addObjet'" [data]="data" [perso]="perso"></app-add-item-loot>
     <app-modif-map *ngIf="fenetre=='modifMap'" [data]="data"></app-modif-map>
+    <app-boutique *ngIf="fenetre=='boutique'" [data]="data" [perso]="perso"></app-boutique>
+    <app-quete *ngIf="fenetre=='quete'" [data]="data" [perso]="perso"></app-quete>
 </div>

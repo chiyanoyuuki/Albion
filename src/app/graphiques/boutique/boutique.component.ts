@@ -26,29 +26,7 @@ export class BoutiqueComponent implements OnInit {
       this.boutique = boutiqueTmp;
     }
   }
-
-  clickVendre(perso: Entite, clicked: ObjetInventaire) {
-    if (this.vente != clicked.nom) {
-      this.vente = clicked.nom;
-    } else if (this.vente == clicked.nom) {
-      if (this.vente == "") { return }
-      let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
-      if (objetClique) {
-        objetClique.qte -= 1;
-        if (objetClique.qte == 0) {
-          perso.inventaire.splice(perso.inventaire.indexOf(objetClique), 1);
-        }
-      }
-      let objetPresentBoutique = this.boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked.nom);
-      if (objetPresentBoutique) {
-        objetPresentBoutique.qte += 1;
-      } else {
-        this.boutique.objets.push({ "emplacement": clicked.emplacement, "nom": clicked.nom, "image": clicked.image, qte: 1, prix: clicked.prix * 1.5, taux: 0 });
-      }
-      perso.argent += clicked.prix;
-      this.vente = "";
-    }
-  }
+  
   clickAcheter(focusPersoBoutique: Entite, clicked: ObjetInventaire) {
     if (this.achat != clicked.nom) {
       this.achat = clicked.nom;
@@ -100,7 +78,9 @@ export class BoutiqueComponent implements OnInit {
       tailleInv = focusPersoBoutique.inventaire.length;
       console.log(tailleInv);
     }
-    for (let i = tailleInv; i < 18; i++) { retour.push({ emplacement: "", image: "", nom: "", qte: 0, taux: 0, prix: 0 }); }
+    for (let i = tailleInv; i < 18; i++) { 
+      retour.push({ emplacement: "", image: "", nom: "", qte: 0, taux: 0, prix: 0 }); 
+    }
     return retour;
   }
 

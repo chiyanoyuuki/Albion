@@ -1,4 +1,4 @@
-<div *ngIf="boutiquePerso()" class="containerVendeur" cdkDrag>
+<div class="containerVendeur" cdkDrag>
     <p class="croix clickable" (click)="close()">X</p>
     <p class="bigText">{{data.lieuActuel.nom}}</p>
     <div class="containerBoutique m-t-20">
@@ -13,26 +13,17 @@
             <div class="inventairePersoBoutique flex between column" *ngIf="focusPersoBoutique">
                 <div class="flex around align-center width-100">
                     <div>
-                        <img *ngIf="focusPersoBoutique.forme" class="icone"
+                        <img *ngIf="focusPersoBoutique.forme" class="icone-perso"
                             src="./assets/images/entites/minias/{{focusPersoBoutique.forme.image}}.png">
                     </div>
-                    <p class="bigText">{{focusPersoBoutique.nom}}</p>
+                    <p class="nom-perso">{{focusPersoBoutique.nom}}</p>
                     <div class="flex golds">
+                        <p>{{focusPersoBoutique.argent}}&nbsp;</p>
                         <img src="../../../assets/images/pieces.png" />
-                        <p>{{focusPersoBoutique.argent}}</p>
                     </div>
                 </div>
                 <div class="flex wrap">
-                    <div class="objet" id="{{objet.nom}}" *ngFor="let objet of getInventairePersoBoutique(focusPersoBoutique)"
-                        (mouseenter)="objetActifInventaire = objet" (mouseleave)="objetActifInventaire = undefined;vente = ''"
-                        (click)="clickVendre(focusPersoBoutique, objet)">
-                        <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
-                        <div class="nomItem">
-                            <p [hidden]="objetActifInventaire != objet">{{vente == objet.nom && vente != '' ? 'Confirmer
-                                vendre l\'item ?' : objet.nom}}</p>
-                        </div>
-                        <p *ngIf="objet.qte>0" class="qteObjet">{{objet.qte}}</p>
-                    </div>
+                    <app-inventaire [data]="data" [perso]="focusPersoBoutique" [type]="'boutique'" [boutique]="boutique"></app-inventaire>
                 </div>
             </div>
             <div class="inventaireVendeurBoutique flex">
