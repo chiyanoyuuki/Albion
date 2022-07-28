@@ -505,4 +505,13 @@ export class MenuContextuelComponent implements OnInit {
       }
     }
   }
+
+  // boutique
+  voirBoutique(){
+    if (this.perso.boutique == this.data.lieuActuel.id) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -6,8 +6,8 @@
         <p *ngIf="menu.type=='map'&&data.admin" class="choix" (click)="clickModifMap()">(A) Modifier map</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="repos()">Repos</p>
-        <p *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix" (click)="quete=true;">Quetes ({{nbrQuetes}})
-        </p>
+        <p *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix" (click)="quete=true;">Quetes ({{nbrQuetes}})</p>
+        <p *ngIf="menu.type=='entite'&&perso.boutique" class="choix" (click)="voirBoutique()">Boutique</p>
         <p *ngIf="menu.type=='entite'&&!perso.joueur" class="choix" (click)="deletion()">{{delete}}</p>
         <p *ngIf="menu.type=='entite'&&perso.familier" class="choix" (click)="clickLierFamilier()">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
@@ -18,6 +18,8 @@
         <p *ngIf="menu.type=='entite'&&perso.team<2" class="choix" (click)="perso.team=perso.team+1">Baisser relation
         </p>
     </div>
+
+    <app-boutique [data]="data" [perso]="perso" *ngIf="voirBoutique()"> </app-boutique>
 
     <div *ngIf="add==true">
         <p>Ajouter une entité</p>
