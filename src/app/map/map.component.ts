@@ -24,107 +24,30 @@ export class MapComponent implements OnInit {
   public mapHeight: number;
   public image: HTMLImageElement;
   public menuContextuel: MenuContextuel | undefined;
-  public noClickMap: any;
+  public disableClickMap: boolean;
 
   public windowWidth: number = 1920;
   public windowHeight: number;
   public cataclysme: boolean;
 
-  public clickEventsubscription: any;
+  public listenCloseMenuContextuel: any;
 
+
+  @HostListener('window:keyup', ['$event']) keyDownEvent(event: KeyboardEvent) { if (event.key == "F1") { this.data.admin = !this.data.admin; } }
   constructor(private appService: AppService) { }
-
-  @HostListener('window:keyup', ['$event'])
-  keyDownEvent(event: KeyboardEvent) {
-    if (event.key == "F1") { this.data.admin = !this.data.admin; }
-  }
-
-
   ngOnInit(): void {
-    /*this.image = document.getElementById("map") as HTMLImageElement;
-    this.image.onload = function() {
-      this.mapHeight = this.image.height;
-    }*/
+    this.listenCloseMenuContextuel = this.appService.listenCloseMenuContextuel().subscribe(() => {
+      this.menuContextuel = undefined;
+      this.disableClickMap = false;
+    })
   }
 
   clicMap(event: MouseEvent) {
-    if (!this.noClickMap) { this.appService.triggerFermetureFenetres(); this.menuContextuel = undefined; }
-    if (this.data.admin) { console.log("MouseX : " + event.offsetX); }
-    if (this.data.admin) { console.log("MouseY : " + event.offsetY); }
+    if (!this.disableClickMap) { this.appService.triggerFermetureFenetres(); }
   }
 
   clicDroitMap(event: MouseEvent) {
-    if (!this.noClickMap) { this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" }; }
-  }
-
-  //AUTRE=========================================================================
-
-  public dragEnd($event: CdkDragEnd, lieu: Lieu) {
-    console.log("dragEnd Map");
-    let tmp = $event.source.getFreeDragPosition();
-    if (this.data.lieuActuel.parent == '') {
-      lieu.x = lieu.x + tmp.x;
-      lieu.y = lieu.y + tmp.y;;
-    }
-    $event.source._dragRef.reset();
-  }
-
-  public addEntity(addEntite: addEntity) {
-    let test = false;
-    this.menuContextuel = undefined;
-    addEntite.entite.inventaire = [];
-    addEntite.entite.x = addEntite.menuContextuel.x;
-    addEntite.entite.y = addEntite.menuContextuel.y;
-    addEntite.entite.lieu = this.data.lieuActuel.id;
-
-    if (addEntite.team == "Ami") { addEntite.entite.team = 0; }
-    else if (addEntite.team == "Neutre") { addEntite.entite.team = 1; }
-    else { addEntite.entite.team = 2; }
-
-    if (!addEntite.entite.solo) {
-      const nomEntite = addEntite.entite.nom;
-      let nb = 1;
-      this.data.entites.forEach((entite: Entite) => {
-        if (entite.nom.startsWith(nomEntite)) { nb += 1; }
-      });
-      addEntite.entite.nom = addEntite.entite.nom + ' ' + ('0' + nb).slice(-2);
-    }
-
-    if (addEntite.entite.loot) {
-      addEntite.entite.loot.forEach((loot: ObjetInventaire) => {
-        if (test) console.log(loot.nom)
-        if (loot.nom == "Argent") {
-          let qte = Math.ceil(Math.random() * loot.qte);
-          addEntite.entite.inventaire.push({ nom: "Argent", image: "argent", qte: qte, emplacement: "", taux: 0, prix: 0 });
-        }
-        else {
-          let objet = this.data.objets.find((item: ObjetInventaire) => item.nom == loot.nom);
-          if (objet) {
-            let inventaire = addEntite.entite.inventaire;
-            if (!inventaire) { addEntite.entite.inventaire = []; inventaire = addEntite.entite.inventaire; }
-            for (let i = 0; i < loot.qte; i++) {
-              let objetPresent = inventaire.find((item: ObjetInventaire) => item.nom == loot.nom);
-              let tmp = Math.random() * 100;
-              if (test) console.log("Jet de D100", tmp);
-              if (tmp <= loot.taux) {
-                if (test) console.log(loot.nom + " ajouté !")
-                if (objetPresent) {
-                  if (test) console.log("Déjà présent");
-                  objetPresent.qte += 1;
-                }
-                else {
-                  if (test) console.log("Pas présent");
-                  inventaire.push({ emplacement: objet.emplacement, image: objet.image, nom: objet.nom, qte: 1, taux: 0, prix: objet.prix });
-                }
-              }
-            }
-          }
-        }
-      });
-    }
-
-    if (test) console.log(addEntite.entite);
-    this.data.entites.push(addEntite.entite);
+    if (!this.disableClickMap) { this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" }; }
   }
 
   getEtat() {
@@ -133,5 +56,5 @@ export class MapComponent implements OnInit {
     else if (this.data.repos.lance) { return "etat0"; }
     return "etat1";
   }
-  
+
 }

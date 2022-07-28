@@ -22,6 +22,9 @@ import { BackgroundComponent } from './graphiques/background/background.componen
 import { InventaireComponent } from './graphiques/inventaire/inventaire.component';
 import { BoutiqueComponent } from './graphiques/boutique/boutique.component';
 import { StuffComponent } from './graphiques/stuff/stuff.component';
+import { AddEntiteComponent } from './graphiques/add-entite/add-entite.component';
+import { AddItemLootComponent } from './graphiques/add-item-loot/add-item-loot.component';
+import { ModifMapComponent } from './graphiques/modif-map/modif-map.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { StuffComponent } from './graphiques/stuff/stuff.component';
     BackgroundComponent,
     InventaireComponent,
     BoutiqueComponent,
-    StuffComponent
+    StuffComponent,
+    AddEntiteComponent,
+    AddItemLootComponent,
+    ModifMapComponent
   ],
   imports: [
     BrowserModule,

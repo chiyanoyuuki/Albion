@@ -1511,11 +1511,40 @@
             "finx": 0,
             "finy": 0,
             "desac": true,
-            "parent": "",
-            "scale": 1,
+            "parent": "map",
+            "scale": 12,
             "nbImage": 0,
-            "useNbImage": true
-        },
+            "useNbImage": true,
+            "position_start": [
+              {
+                "id": 0,
+                "startX": 410,
+                "startY": 617
+              },
+              {
+                "id": 1,
+                "startX": 249,
+                "startY": 537
+              },
+              {
+                "id": 2,
+                "startX": 545,
+                "startY": 575
+              },
+              {
+                "id": 3,
+                "startX": 86,
+                "startY": 610
+              },
+              {
+                "id": 4,
+                "startX": 753,
+                "startY": 608
+              }
+            ],
+            "scaleFond": 2.5,
+            "finFond": 700
+          },
         {
             "id": "iledragon",
             "nom": "Île du dragon",

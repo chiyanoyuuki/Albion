@@ -1,0 +1,59 @@
+<div>
+    <p class="clickable"
+        (click)="choixTypeObjet=='Ajouter un objet'?choixTypeObjet='Ajouter un loot':choixTypeObjet='Ajouter un objet'">
+        {{choixTypeObjet}}</p>
+    <div class="line"></div>
+    <div class="flex levels">
+        <p *ngFor="let letter of alphabet" class="choix"
+            (click)="letterSelected==letter?letterSelected='':letterSelected=letter"
+            [style.color]="letterSelected==letter?'red':'white'">{{letter}}</p>
+    </div>
+    <div class="flex levels wrap">
+        <p class="level">Emplacement :</p>
+        <p *ngFor="let emplacement of emplacements" class="choix"
+            (click)="emplacementSelected==emplacement?emplacementSelected='':emplacementSelected=emplacement"
+            [style.color]="emplacementSelected==emplacement?'red':'white'">{{emplacement}}</p>
+    </div>
+
+    <div *ngIf="choixTypeObjet=='Ajouter un loot'">
+        <div class="line"></div>
+
+        <div class="persos objets flex wrap">
+            <div *ngFor="let objet of getLoot()" (mouseenter)="objetFocus=objet" (click)="clickLoot(objet)">
+                <div class="objet">
+                    <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
+                    <p>{{objet.taux}}%</p>
+                    <p>{{objet.qte}}</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="clickable" (click)="deleteLoot()">Supprimer</p>
+    </div>
+
+
+    <div class="line"></div>
+
+    <div class="apercu flexCenter" *ngIf="objetSelected">
+        <div class="objet">
+            <img *ngIf="objetSelected.image" src="./assets/images/items/{{ objetSelected.image }}.png" />
+        </div>
+        <p class="nomItemApercu">{{objetSelected.nom}}</p>
+        <div class="formulaire">
+            <p *ngIf="choixTypeObjet=='Ajouter un loot'">Taux : </p>
+            <input *ngIf="choixTypeObjet=='Ajouter un loot'"
+                type="text" [(ngModel)]="input2">
+            <p>Quantite : </p>
+            <input type="text" [(ngModel)]="input1">
+        </div>
+    </div>
+    <p>{{objetFocus?objetFocus.nom:'-'}}</p>
+    <div class="persos objets flex wrap">
+        <div *ngFor="let objet of getObjetsPossibles()" (mouseenter)="objetFocus=objet" (click)="objetSelected=objet">
+            <div class="objet">
+                <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
+            </div>
+        </div>
+    </div>
+    <p class="choix" *ngIf="objetSelected!=undefined" (click)="addItem()">Valider</p>
+</div>

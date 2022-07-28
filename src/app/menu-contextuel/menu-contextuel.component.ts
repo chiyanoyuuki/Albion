@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { addEntity, Data, Entite, Etape, Lieu, MenuContextuel, ObjetInventaire, Position, Quete } from '../model';
 import { of } from 'rxjs';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
+import { PersoService } from '../services/perso.service';
+import { AppService } from '../services/app.service';
 
 @Component({
   selector: 'app-menu-contextuel',
@@ -15,24 +17,15 @@ export class MenuContextuelComponent implements OnInit {
   @Input() menu: MenuContextuel;
   @Input() perso: Entite;
 
-  @Output() addEntityEvent = new EventEmitter<addEntity>();
-  @Output() closeEvent = new EventEmitter<null>();
-
-
   private setting = { element: { dynamicDownload: null as unknown as HTMLElement } }
-  public letterSelected: string = "";
-  public levelSelected: number = 0;
-  public typeSelected: string | undefined = undefined;
-  public teamSelected: string = "Ennemi";
-  public entitySelected: Entite;
+
+  public fenetre: string = "";
   public objetSelected: ObjetInventaire;
   public monsterLevelSelected: { niveau: number, pdvmax: number, manamax: number } | undefined = undefined;
   public delete: string = "Supprimer";
 
   public alphabet: string[];
-  public levels: number[];
-  public types: string[] = ["PNJS", "Monstres"];
-  public teams: string[] = ["Ami", "Neutre", "Ennemi"];
+
 
   public focus: Entite | undefined;
   public objetFocus: ObjetInventaire | undefined;
@@ -53,137 +46,14 @@ export class MenuContextuelComponent implements OnInit {
   public addObjet: boolean = false;
   public emplacements: string[] = ["Tête", "Torse", "Gants", "Jambes", "Bottes", "Arme", "Utilitaire", "Collier", "Epaulieres", "Ceinture", "Anneau"];
   public emplacementSelected: string = "";
+  public letterSelected: string = "";
 
   //Modifier Map
   public modifMap: boolean;
-  public dummy: Position = { id: -1, startX: 500, startY: 500 }
 
-  constructor() { }
+  constructor(private persoService: PersoService, private appService: AppService) { }
 
   ngOnInit(): void {
-    this.levels = Array.from({ length: 9 }, (_, i) => i + 1);
-    let alpha = Array.from(Array(26)).map((e, i) => i + 65);
-    this.alphabet = alpha.map((x) => String.fromCharCode(x));
-    this.entitySelected = this.getEntitesPossibles()[0];
-    this.entitySelected.team = 2;
-    this.objetSelected = this.getObjetsPossibles()[0];
-  }
-
-  getEntitesPossibles() {
-    let entitesPossibles: Entite[] = this.data.pnjs.filter((entitePossible: Entite) =>
-      !this.data.entites.some((entitePresente: Entite) => entitePresente.nom == entitePossible.nom && entitePresente.solo)
-    );
-
-    if (this.typeSelected == "PNJS") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.solo); }
-    else if (this.typeSelected == "Monstres") { entitesPossibles = entitesPossibles.filter((entite: Entite) => !entite.solo); }
-
-    if (this.letterSelected != "") { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.nom.startsWith(this.letterSelected)); }
-    if (this.levelSelected != 0) { entitesPossibles = entitesPossibles.filter((entite: Entite) => entite.niveau == this.levelSelected); }
-
-    entitesPossibles = entitesPossibles.sort((a: Entite, b: Entite) => {
-      return a.nom > b.nom ? 1 : -1;
-    });
-
-    return entitesPossibles;
-  }
-
-  getObjetsPossibles() {
-    let objetsPossibles: ObjetInventaire[] = this.data.objets;
-
-    if (this.letterSelected != "") { objetsPossibles = objetsPossibles.filter((objet: ObjetInventaire) => objet.nom.startsWith(this.letterSelected)); }
-    if (this.emplacementSelected != "") { objetsPossibles = objetsPossibles.filter((objet: ObjetInventaire) => objet.emplacement == this.emplacementSelected); }
-
-    objetsPossibles = objetsPossibles.sort((a: ObjetInventaire, b: ObjetInventaire) => {
-      return a.nom > b.nom ? 1 : -1;
-    });
-
-    return objetsPossibles;
-  }
-
-  clickEntite(entite: Entite) {
-    if (this.entitySelected == undefined || this.entitySelected.nom != entite.nom) {
-      let entiteTmp = Object.assign({}, entite);
-      if (entite.levels) {
-        this.monsterLevelSelected = entite.levels[0];
-      }
-      if (this.teamSelected == "Ami") { entiteTmp.team = 0; }
-      else if (this.teamSelected == "Neutre") { entiteTmp.team = 1; }
-      else { entiteTmp.team = 2; }
-      this.entitySelected = entiteTmp;
-      return;
-    }
-  }
-
-  addEntity() {
-    const addEntity: addEntity = { entite: this.entitySelected, menuContextuel: this.menu, team: this.teamSelected };
-    this.addEntityEvent.emit(addEntity);
-  }
-
-  addItem() {
-    let item = this.objetSelected;
-    this.input1 = this.input1.replace(/[^0-9]*/g, "");
-    let qte = Number(this.input1);
-    if (this.choixTypeObjet == "Ajouter un objet") {
-      let obj = { emplacement: item.emplacement, image: item.image, nom: item.nom, prix: item.prix, qte: qte, taux: item.taux };
-      let inv = this.perso.inventaire;
-      if (item.nom == "Argent") {
-        this.perso.argent += qte;
-      }
-      else if (!inv) {
-        this.perso.inventaire = [obj];
-      }
-      else {
-        let objetDejaDansInventaire = this.perso.inventaire.find((obj: ObjetInventaire) => obj.nom == item.nom);
-        if (objetDejaDansInventaire) {
-          objetDejaDansInventaire.qte += qte;
-        }
-        else if (this.perso.inventaire.length < 18) {
-          this.perso.inventaire.push(obj);
-        }
-      }
-
-    }
-    else {
-      let pnj = this.data.pnjs.find((entite: Entite) => this.perso.nom.startsWith(entite.nom));
-      if (pnj) {
-        let loot = pnj.loot;
-        this.input2 = this.input2.replace(/[^0-9]*/g, "");
-        let tx = Number(this.input2);
-        let item = { emplacement: this.objetSelected.emplacement, image: this.objetSelected.image, nom: this.objetSelected.nom, prix: this.objetSelected.prix, qte: qte, taux: tx };
-        if (!loot || (loot && loot.length == 0)) {
-          pnj.loot = [item];
-        }
-        else {
-          let objetDejaDansLoot = loot.find((obj: ObjetInventaire) => obj.nom == item.nom);
-          if (objetDejaDansLoot) {
-            objetDejaDansLoot.qte = qte;
-            objetDejaDansLoot.taux = tx;
-          }
-          else {
-            pnj.loot.push(item);
-          }
-        }
-      }
-      console.log(pnj);
-    }
-  }
-
-  clickLoot(objet: ObjetInventaire) {
-    this.objetSelected = objet;
-    this.input1 = '' + objet.taux;
-    this.input2 = '' + objet.qte
-  }
-
-  deleteLoot() {
-    let pnj = this.data.pnjs.find((entite: Entite) => this.perso.nom.startsWith(entite.nom));
-    if (pnj) {
-      if (pnj.loot) {
-        let objetDejaDansLoot = pnj.loot.find((obj: ObjetInventaire) => obj.nom == this.objetSelected.nom);
-        if (objetDejaDansLoot) {
-          pnj.loot.splice(pnj.loot.indexOf(objetDejaDansLoot), 1);
-        }
-      }
-    }
   }
 
   deletion() {
@@ -191,21 +61,7 @@ export class MenuContextuelComponent implements OnInit {
     else { this.data.entites.splice(this.data.entites.indexOf(this.perso), 1); }
   }
 
-  close() {
-    console.log("close menu contextuel");
-    this.closeEvent.emit();
-  }
-
-  clickMonsterLevel(level: { niveau: number, pdvmax: number, manamax: number }) {
-    this.monsterLevelSelected = level;
-    if (this.entitySelected) {
-      this.entitySelected.niveau = level.niveau;
-      this.entitySelected.pdvmax = level.pdvmax;
-      this.entitySelected.pdv = level.pdvmax;
-      this.entitySelected.manamax = level.manamax;
-      this.entitySelected.mana = level.manamax;
-    }
-  }
+  close() { this.appService.closeMenuContextuel(); }
 
   clickLierFamilier() {
     if (this.perso.statutFamilier == 'lie') { this.perso.statutFamilier = '' }
@@ -380,12 +236,7 @@ export class MenuContextuelComponent implements OnInit {
     return of(sauvegarde);
   }
 
-  public clickTeam(equipe: string) {
-    this.teamSelected = equipe;
-    if (equipe == "Ami") { this.entitySelected.team = 0; }
-    else if (equipe == "Neutre") { this.entitySelected.team = 1; }
-    else { this.entitySelected.team = 2; }
-  }
+
 
   private dyanmicDownloadByHtmlTag(arg: {
     fileName: string,
@@ -401,117 +252,5 @@ export class MenuContextuelComponent implements OnInit {
 
     var event = new MouseEvent("click");
     element.dispatchEvent(event);
-  }
-
-  getLoot() {
-    let loot: ObjetInventaire[] = [];
-    let pnj = this.data.pnjs.find((entite: Entite) => this.perso.nom.startsWith(entite.nom));
-    if (pnj) {
-      let lootactuel = pnj.loot;
-      if (lootactuel) {
-        lootactuel.forEach((item: ObjetInventaire) => {
-          let objet = this.data.objets.find((obj: ObjetInventaire) => obj.nom == item.nom);
-          if (objet) {
-            objet.qte = item.qte;
-            objet.taux = item.taux;
-            loot.push(objet);
-          }
-        });
-      }
-    }
-    return loot;
-  }
-
-  //Modifier Map
-
-  clickModifMap() {
-    this.modifMap = true;
-    this.input2 = '';
-    this.input3 = '';
-    if (this.data.lieuActuel.scale) { this.input1 = '' + this.data.lieuActuel.scale; }
-    if (this.data.lieuActuel.scaleFond) { this.input2 = '' + this.data.lieuActuel.scaleFond; }
-    if (this.data.lieuActuel.finFond) { this.input3 = '' + this.data.lieuActuel.finFond; }
-  }
-
-  public getTop(position: Position) {
-    let scale = 1;
-    scale = this.getScale(position);
-    return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
-  }
-
-  public getScale(position: Position) {
-    let scale = 1;
-    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
-    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(position); }
-    return scale;
-  }
-
-  public getNewScale(position: Position) {
-    let scale = this.data.lieuActuel.scale - this.data.lieuActuel.scaleFond;
-    let map = document.getElementById("map");
-    if (map) {
-      let finFond = 0;
-      let height = map.offsetHeight;
-      if (this.data.lieuActuel.finFond) {
-        finFond = this.data.lieuActuel.finFond;
-      }
-      height = height - finFond;
-      let posYPerso = position.startY + 250;
-      if (finFond != 0 && posYPerso < this.data.lieuActuel.finFond) {
-        scale = this.data.lieuActuel.scaleFond;
-      }
-      else {
-        posYPerso = posYPerso - finFond;
-        let div = height / posYPerso;
-        scale = scale / div + this.data.lieuActuel.scaleFond;
-      }
-    }
-    return scale;
-  }
-
-  public positionDragEnd($event: CdkDragEnd, position: Position) {
-    let tmp = $event.source.getFreeDragPosition();
-    position.startX = position.startX + tmp.x;
-    position.startY = position.startY + tmp.y;
-    $event.source._dragRef.reset();
-  }
-
-  modifierMap() {
-    let map = this.data.lieux.find((lieu: Lieu) => lieu.id == this.data.lieuActuel.id);
-    if (map) {
-      map.scale = Number(this.input1);
-      map.scaleFond = Number(this.input2);
-      map.finFond = Number(this.input3);
-    }
-    this.data.lieuActuel.scale = Number(this.input1);
-    this.data.lieuActuel.scaleFond = Number(this.input2);
-    this.data.lieuActuel.finFond = Number(this.input3);
-    console.log(this.data.lieuActuel);
-  }
-
-  ajouterPosition(i: number) {
-    let positions = this.data.lieuActuel.position_start;
-    if (i == 1) {
-      if (positions) {
-        this.data.lieuActuel.position_start.push({ id: positions.length, startX: 500, startY: 500 });
-      }
-      else {
-        this.data.lieuActuel.position_start = ([{ id: 0, startX: 500, startY: 500 }]);
-      }
-    }
-    else {
-      if (positions) {
-        this.data.lieuActuel.position_start.pop();
-      }
-    }
-  }
-
-  // boutique
-  voirBoutique(){
-    if (this.perso.boutique == this.data.lieuActuel.id) {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
