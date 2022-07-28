@@ -2,21 +2,22 @@
     [style.top]="(fenetre=='modifMap'?20:menu.y)+'px'" cdkDrag>
     <p class="croix clickable" (click)="close()">X</p>
     <div *ngIf="fenetre==''">
-        <p (click)="fenetre='addEntity'" class="choix" *ngIf="menu.type=='map'"> Ajouter une entité</p>
-        <p (click)="fenetre='addObjet'" class="choix" *ngIf="menu.type=='entite'&&data.admin"> (A) Ajouter un objet</p>
-        <p (click)="fenetre='modifMap'" *ngIf="menu.type=='map'&&data.admin" class="choix">(A) Modifier map</p>
-        <p (click)="sauvegarde()" *ngIf="menu.type=='map'" class="choix">Sauvegarder</p>
-        <p (click)="repos()" *ngIf="menu.type=='map'" class="choix">Repos</p>
-        <p (click)="quete=true;" *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix">Quetes ({{nbrQuetes}})
+        <p *ngIf="menu.type=='map'" (click)="fenetre='addEntity'" class="choix"> Ajouter une entité</p>
+        <p *ngIf="menu.type=='map'&&data.admin" (click)="fenetre='modifMap'" class="choix">(A) Modifier map</p>
+        <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
+        <p *ngIf="menu.type=='map'" class="choix" (click)="repos()">Repos</p>
+        <p *ngIf="menu.type=='entite'&&getQuetes().length>0" (click)="quete=true;" class="choix">Quetes ({{nbrQuetes}})
         </p>
-        <p (click)="deletion()" *ngIf="menu.type=='entite'&&!perso.joueur" class="choix">{{delete}}</p>
-        <p (click)="clickLierFamilier()" *ngIf="menu.type=='entite'&&perso.familier" class="choix">
+
+        <p *ngIf="menu.type=='entite'&&data.admin" (click)="fenetre='addObjet'" class="choix"> (A) Ajouter un objet</p>
+        <p *ngIf="menu.type=='entite'&&!perso.joueur" (click)="deletion()" class="choix">{{delete}}</p>
+        <p *ngIf="menu.type=='entite'&&perso.familier" (click)="clickLierFamilier()" class="choix">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
-        <p (click)="clickAfficherFamilier()" *ngIf="menu.type=='entite'&&perso.familier" class="choix">
+        <p *ngIf="menu.type=='entite'&&perso.familier" (click)="clickAfficherFamilier()" class="choix">
             {{(perso.statutFamilier=='affiche'?'Cacher Familier':'Afficher Familier')}}</p>
-        <p (click)="perso.team=perso.team-1" *ngIf="menu.type=='entite'&&perso.team>0" class="choix">Améliorer relation
+        <p *ngIf="menu.type=='entite'&&perso.team>0" (click)="perso.team=perso.team-1" class="choix">Améliorer relation
         </p>
-        <p (click)="perso.team=perso.team+1" *ngIf="menu.type=='entite'&&perso.team<2" class="choix">Baisser relation
+        <p *ngIf="menu.type=='entite'&&perso.team<2" (click)="perso.team=perso.team+1" class="choix">Baisser relation
         </p>
     </div>
 

@@ -12,7 +12,7 @@ export class BackgroundComponent implements OnInit {
 
   public cataclysme: boolean;
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +32,14 @@ export class BackgroundComponent implements OnInit {
       if (campdesaventuriers) {
         campdesaventuriers.parent = "map";
       }
+    }
+  }
+
+  imageLoaded() {
+    let map = document.getElementById("map");
+    if (map) {
+      let height = map.offsetHeight;
+      this.data.mapHeight = height;
     }
   }
 

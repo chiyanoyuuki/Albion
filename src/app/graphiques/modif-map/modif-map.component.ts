@@ -1,6 +1,7 @@
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { Position, Data, Lieu } from 'src/app/model';
+import { FonctionsService } from 'src/app/services/fonctions.service';
 
 @Component({
   selector: 'app-modif-map',
@@ -14,9 +15,9 @@ export class ModifMapComponent implements OnInit {
   public input2: string = "";
   public input3: string = "";
 
-  public dummy: Position = { id: -1, startX: 500, startY: 500 };
+  public dummy: Position = { id: -1, x: 500, y: 500 };
 
-  constructor() { }
+  constructor(private fonctionsService: FonctionsService) { }
   ngOnInit(): void {
     if (this.data.lieuActuel.scale) { this.input1 = '' + this.data.lieuActuel.scale; }
     if (this.data.lieuActuel.scaleFond) { this.input2 = '' + this.data.lieuActuel.scaleFond; }
@@ -25,8 +26,8 @@ export class ModifMapComponent implements OnInit {
 
   positionDragEnd($event: CdkDragEnd, position: Position) {
     let tmp = $event.source.getFreeDragPosition();
-    position.startX = position.startX + tmp.x;
-    position.startY = position.startY + tmp.y;
+    position.x = position.x + tmp.x;
+    position.y = position.y + tmp.y;
     $event.source._dragRef.reset();
   }
 
@@ -47,10 +48,10 @@ export class ModifMapComponent implements OnInit {
     let positions = this.data.lieuActuel.position_start;
     if (i == 1) {
       if (positions) {
-        this.data.lieuActuel.position_start.push({ id: positions.length, startX: 500, startY: 500 });
+        this.data.lieuActuel.position_start.push({ id: positions.length, x: 500, y: 500 });
       }
       else {
-        this.data.lieuActuel.position_start = ([{ id: 0, startX: 500, startY: 500 }]);
+        this.data.lieuActuel.position_start = ([{ id: 0, x: 500, y: 500 }]);
       }
     }
     else {
@@ -60,40 +61,7 @@ export class ModifMapComponent implements OnInit {
     }
   }
 
-  public getTop(position: Position) {
-    let scale = 1;
-    scale = this.getScale(position);
-    return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
-  }
-
-  public getScale(position: Position) {
-    let scale = 1;
-    if (this.data.lieuActuel.scale) { scale = this.data.lieuActuel.scale; }
-    if (this.data.lieuActuel.scaleFond) { scale = this.getNewScale(position); }
-    return scale;
-  }
-
-  public getNewScale(position: Position) {
-    let scale = this.data.lieuActuel.scale - this.data.lieuActuel.scaleFond;
-    let map = document.getElementById("map");
-    if (map) {
-      let finFond = 0;
-      let height = map.offsetHeight;
-      if (this.data.lieuActuel.finFond) {
-        finFond = this.data.lieuActuel.finFond;
-      }
-      height = height - finFond;
-      let posYPerso = position.startY + 250;
-      if (finFond != 0 && posYPerso < this.data.lieuActuel.finFond) {
-        scale = this.data.lieuActuel.scaleFond;
-      }
-      else {
-        posYPerso = posYPerso - finFond;
-        let div = height / posYPerso;
-        scale = scale / div + this.data.lieuActuel.scaleFond;
-      }
-    }
-    return scale;
-  }
+  public getTop(position: Position) { return this.fonctionsService.getTop(this.data, position); }
+  public getScale(position: Position) { return this.fonctionsService.getScale(this.data, position); }
 
 }

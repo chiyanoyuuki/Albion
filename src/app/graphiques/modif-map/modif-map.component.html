@@ -16,14 +16,14 @@
     <div *ngIf="input3!=''" class="line" [style.top]="input3+'px'"></div>
 
     <div [ngClass]="{'dummy':position.id==-1}" class="positionStats"
-        *ngFor="let position of data.lieuActuel.position_start" [style.top]="position.startY+'px'"
-        [style.left]="position.startX+'px'" (cdkDragEnded)="positionDragEnd($event,position)" cdkDrag>
+        *ngFor="let position of data.lieuActuel.position_start" [style.top]="position.y+'px'"
+        [style.left]="position.x+'px'" (cdkDragEnded)="positionDragEnd($event,position)" cdkDrag>
         <img class="positionPersoStats" src="../../assets/images/Spawn.png" />
         <img class="positionPerso" [style.scale]="getScale(position)" [style.top]="getTop(position)"
             src="../../assets/images/entites/Spawn.png" />
     </div>
 
-    <div class="positionStats dummy" [style.top]="dummy.startY+'px'" [style.left]="dummy.startX+'px'"
+    <div class="positionStats dummy" [style.top]="dummy.y+'px'" [style.left]="dummy.x+'px'"
         (cdkDragEnded)="positionDragEnd($event,dummy)" cdkDrag>
         <img class="positionPersoStats" src="../../assets/images/Dummy.png" />
         <img class="positionPerso" [style.scale]="getScale(dummy)" [style.top]="getTop(dummy)"

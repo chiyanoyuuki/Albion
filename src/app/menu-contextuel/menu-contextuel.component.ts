@@ -18,38 +18,12 @@ export class MenuContextuelComponent implements OnInit {
   @Input() perso: Entite;
 
   private setting = { element: { dynamicDownload: null as unknown as HTMLElement } }
-
   public fenetre: string = "";
-  public objetSelected: ObjetInventaire;
-  public monsterLevelSelected: { niveau: number, pdvmax: number, manamax: number } | undefined = undefined;
   public delete: string = "Supprimer";
-
-  public alphabet: string[];
-
-
-  public focus: Entite | undefined;
-  public objetFocus: ObjetInventaire | undefined;
-  public add: boolean = false;
-
   public quete: boolean = false;
   public nbrQuetes: number;
   public focusQuete: Quete | undefined;
   public queteAccepter: string;
-
-  //Inputs
-  public input1: string = "1";
-  public input2: string = "1";
-  public input3: string = "1";
-
-  //Admin add item / loot
-  public choixTypeObjet = "Ajouter un loot";
-  public addObjet: boolean = false;
-  public emplacements: string[] = ["Tête", "Torse", "Gants", "Jambes", "Bottes", "Arme", "Utilitaire", "Collier", "Epaulieres", "Ceinture", "Anneau"];
-  public emplacementSelected: string = "";
-  public letterSelected: string = "";
-
-  //Modifier Map
-  public modifMap: boolean;
 
   constructor(private persoService: PersoService, private appService: AppService) { }
 
@@ -74,14 +48,8 @@ export class MenuContextuelComponent implements OnInit {
   clickAfficherFamilier() {
     if (this.perso.statutFamilier == 'affiche') { this.perso.statutFamilier = '' }
     else {
-      if (this.data.lieuActuel.id == 'map') {
-        this.perso.familier.x = this.perso.x + 50;
-        this.perso.familier.y = this.perso.y;
-      }
-      else {
-        this.perso.familier.x = this.perso.x + 50;
-        this.perso.familier.y = this.perso.y;
-      }
+      this.perso.familier.x = this.perso.x + 50;
+      this.perso.familier.y = this.perso.y;
       this.perso.statutFamilier = 'affiche'
     }
     this.close();
@@ -235,8 +203,6 @@ export class MenuContextuelComponent implements OnInit {
     let sauvegarde = JSON.stringify(this.data);
     return of(sauvegarde);
   }
-
-
 
   private dyanmicDownloadByHtmlTag(arg: {
     fileName: string,

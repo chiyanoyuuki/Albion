@@ -11,6 +11,7 @@ export class Data {
 	public admin: boolean;
 	public pnjs: Entite[];
 	public repos: Animation;
+	public mapHeight: number;
 }
 
 export class Entite {
@@ -63,7 +64,7 @@ export class LevelStats {
 	public manamax: number;
 }
 
-export class Animation{
+export class Animation {
 	public animation: boolean;
 	public lance: boolean;
 	public stop: boolean;
@@ -133,8 +134,8 @@ export class Etape {
 
 export class Position {
 	public id: number;
-	public startX: number;
-	public startY: number;
+	public x: number;
+	public y: number;
 }
 
 export class Lieu {

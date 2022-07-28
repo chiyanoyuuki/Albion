@@ -113,29 +113,29 @@ export class LieuxComponent implements OnInit {
         if (!trouve) {
           let personnageSurLaPosition: Entite | undefined = undefined;
           persosACheck.forEach((persoDansLieu: Entite) => {
-            if (persoDansLieu.x == position.startX && persoDansLieu.y == position.startY) {
+            if (persoDansLieu.x == position.x && persoDansLieu.y == position.y) {
               personnageSurLaPosition = persoDansLieu;
             }
           });
           if (!personnageSurLaPosition) {
             trouve = true;
-            perso.x = position.startX;
-            perso.y = position.startY;
+            perso.x = position.x;
+            perso.y = position.y;
             if (perso.statutFamilier == "affiche") {
-              perso.familier.x = position.startX + 20;
-              perso.familier.y = position.startY;
+              perso.familier.x = position.x + 20;
+              perso.familier.y = position.y;
             }
           }
         }
       });
       if (!trouve) {
-        perso.x = lieu.position_start[0].startX;
-        perso.y = lieu.position_start[0].startY;
+        perso.x = lieu.position_start[0].x;
+        perso.y = lieu.position_start[0].y;
       }
     }
     else {
-      perso.x = 0;
-      perso.y = 0;
+      perso.x = 500;
+      perso.y = 500;
     }
   }
 
