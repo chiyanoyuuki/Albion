@@ -1,0 +1,6 @@
+<div class="flex column gap-1">
+    <div *ngFor="let quete of quetesEnCours" class="quetes">
+        <p class="clickable" (click)="data.focusQuete = quete">{{ quete.nom }}&nbsp;</p>
+        <p style="color:red">{{getSymbole(quete)}}</p>
+    </div>
+</div>

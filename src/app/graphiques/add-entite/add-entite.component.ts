@@ -90,6 +90,6 @@ export class AddEntiteComponent implements OnInit {
   addEntity() {
     const addEntity: addEntity = { entite: this.entitySelected, menuContextuel: this.menu, team: this.teamSelected };
     this.persoService.addEntity(this.data, addEntity);
-    this.appService.closeMenuContextuel();
+    this.appService.closeMenuContextuel(false);
   }
 }

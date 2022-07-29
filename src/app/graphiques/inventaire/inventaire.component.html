@@ -2,13 +2,13 @@
     <div class="objet" id="{{perso.nom}}{{item.nom}}" *ngFor="let item of getInventaire()"
         (mouseenter)="item.nom!=''?objetActif = item:null" (mouseleave)="this.objetActif = undefined;this.gain = ''"
         [style.z-index]="(data.itemDragged && data.itemDragged.item.nom == item.nom&&data.itemDragged.item.nom!='')||(objetActif&&objetActif.nom==item.nom)?9:2"
-        (click)="clickGain(perso, item.nom, 'inventaire')">
-        <img *ngIf="item.image" src="./assets/images/{{type=='inventaire'?'items':'sorts'}}/{{ item.image }}.png"
+        (click)="clickGain(perso, item.nom)">
+        <img *ngIf="item.image"
+            src="./assets/images/{{type=='inventaire'||type=='boutique'?'items':'sorts'}}/{{ item.image }}.png"
             [cdkDragDisabled]="type=='sorts'" (cdkDragEnded)="dragEnd($event)" (cdkDragStarted)="dragStart(item)"
             cdkDrag />
         <div class="nomItem">
-            <p [hidden]="objetActif != item">{{gain == item.nom && gain != '' ? 'Confirmer
-                utilisation ?' : item.nom}}</p>
+            <p [hidden]="objetActif != item">{{type=='boutique'?getPrix(item):''}}{{getNomItem(item)}}</p>
         </div>
         <p *ngIf="item.qte>0" class="qteObjet">{{item.qte}}</p>
     </div>

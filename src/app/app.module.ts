@@ -25,6 +25,7 @@ import { StuffComponent } from './graphiques/stuff/stuff.component';
 import { AddEntiteComponent } from './graphiques/add-entite/add-entite.component';
 import { AddItemLootComponent } from './graphiques/add-item-loot/add-item-loot.component';
 import { ModifMapComponent } from './graphiques/modif-map/modif-map.component';
+import { QueteComponent } from './graphiques/quete/quete.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ModifMapComponent } from './graphiques/modif-map/modif-map.component';
     StuffComponent,
     AddEntiteComponent,
     AddItemLootComponent,
-    ModifMapComponent
+    ModifMapComponent,
+    QueteComponent
   ],
   imports: [
     BrowserModule,

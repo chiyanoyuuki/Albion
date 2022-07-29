@@ -1,5 +1,4 @@
-<div *ngIf="boutiquePerso()" class="containerVendeur" cdkDrag>
-    <p class="croix clickable" (click)="close()">X</p>
+<div class="containerVendeur">
     <p class="bigText">{{data.lieuActuel.nom}}</p>
     <div class="containerBoutique m-t-20">
         <div class="navPerso flex center">
@@ -13,39 +12,37 @@
             <div class="inventairePersoBoutique flex between column" *ngIf="focusPersoBoutique">
                 <div class="flex around align-center width-100">
                     <div>
-                        <img *ngIf="focusPersoBoutique.forme" class="icone"
+                        <img *ngIf="focusPersoBoutique.forme" class="icone-perso"
                             src="./assets/images/entites/minias/{{focusPersoBoutique.forme.image}}.png">
                     </div>
-                    <p class="bigText">{{focusPersoBoutique.nom}}</p>
-                    <div class="flex golds">
-                        <img src="../../../assets/images/pieces.png" />
-                        <p>{{focusPersoBoutique.argent}}</p>
+                    <div class="golds">
+                        <p class="nom-perso">{{focusPersoBoutique.nom}}</p>
+                        <div class="flex golds">
+                            <p>{{focusPersoBoutique.argent}}&nbsp;</p>
+                            <img src="../../../assets/images/pieces.png" />
+                        </div>
                     </div>
+
                 </div>
                 <div class="flex wrap">
-                    <div class="objet" id="{{objet.nom}}" *ngFor="let objet of getInventairePersoBoutique(focusPersoBoutique)"
-                        (mouseenter)="objetActifInventaire = objet" (mouseleave)="objetActifInventaire = undefined;vente = ''"
-                        (click)="clickVendre(focusPersoBoutique, objet)">
-                        <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
-                        <div class="nomItem">
-                            <p [hidden]="objetActifInventaire != objet">{{vente == objet.nom && vente != '' ? 'Confirmer
-                                vendre l\'item ?' : objet.nom}}</p>
-                        </div>
-                        <p *ngIf="objet.qte>0" class="qteObjet">{{objet.qte}}</p>
-                    </div>
+                    <app-inventaire [data]="data" [perso]="focusPersoBoutique" [type]="'boutique'"
+                        [boutique]="boutique"></app-inventaire>
                 </div>
             </div>
             <div class="inventaireVendeurBoutique flex">
                 <div class="objetInventaireBoutique flex between align-center width-100" id="{{item.nom}}"
                     *ngFor="let item of boutique.objets" (mouseleave)="achat = ''">
-                    <img class="imageItemBoutique" *ngIf="item.image" src="./assets/images/items/{{ item.image }}.png" />
-                    <p>{{item.nom}}</p>
-                    <p>Qte: {{item.qte}}</p>
+                    <div>
+                        <img class="imageItemBoutique" *ngIf="item.image"
+                            src="./assets/images/items/{{ item.image }}.png" />
+                        <p *ngIf="item.qte>0" class="qteObjet">{{item.qte}}</p>
+                    </div>
+                    <p style="width:40%;">{{item.nom}}</p>
                     <div class="flex prix">
-                        <p>Prix: {{item.prix}}&nbsp;</p>
+                        <p>{{item.prix}}&nbsp;</p>
                         <img src="../../../assets/images/pieces.png" />
                     </div>
-                    <p class="clickable achat" (click)="clickAcheter(focusPersoBoutique, item)">{{achat == item.nom &&
+                    <p class="clickable achat" (click)="clickGain(item.nom)">{{achat == item.nom &&
                         achat != '' ? 'Confirmer
                         l\'achat ?' : 'Acheter'}}</p>
                 </div>

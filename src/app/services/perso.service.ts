@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Data } from '@angular/router';
 import { Observable, Subject, timeout } from 'rxjs';
-import { addEntity, Entite, Equipement, ObjetInventaire, Tests } from '../model';
+import { addEntity, Entite, Equipement, Lieu, ObjetInventaire, Tests } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +51,6 @@ export class PersoService {
   }
 
   addEntity(data:Data, addEntite: addEntity) {
-    let test = false;
     addEntite.entite.inventaire = [];
     addEntite.entite.x = addEntite.menuContextuel.x;
     addEntite.entite.y = addEntite.menuContextuel.y;
@@ -102,6 +101,11 @@ export class PersoService {
         }
       }
     });
+  }
+
+  joueursPresentsInLieu(data:Data) {
+    let persos = data.entites.filter((perso: Entite) => perso.joueur && perso.lieu == data.lieuActuel.id);
+    return persos;
   }
 
 }

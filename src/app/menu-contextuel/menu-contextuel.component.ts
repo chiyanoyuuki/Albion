@@ -18,16 +18,45 @@ export class MenuContextuelComponent implements OnInit {
   @Input() perso: Entite;
 
   private setting = { element: { dynamicDownload: null as unknown as HTMLElement } }
+  public x: number;
+  public y: number;
   public fenetre: string = "";
   public delete: string = "Supprimer";
   public quete: boolean = false;
   public nbrQuetes: number;
   public focusQuete: Quete | undefined;
   public queteAccepter: string;
+  public quetesEnCours: Quete[];
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
+    this.x = this.menu.x;
+    this.y = this.menu.y;
+    if (this.menu.type == "entite") {
+      this.quetesEnCours = this.data.quetes.filter((quete: Quete) =>
+        quete.etapeEnCours.pnj == this.perso.nom
+      );
+      this.nbrQuetes = this.quetesEnCours.length;
+    }
+
+  }
+
+  cdkDragEnded($event: CdkDragEnd) {
+    let tmp = $event.source.getFreeDragPosition();
+    this.x = this.x + tmp.x;
+    this.y = this.y + tmp.y;
+    $event.source._dragRef.reset();
+  }
+
+  openWindow(fenetre: string) {
+    this.fenetre = fenetre;
+    this.x = 200;
+    this.y = 200;
+    if (this.menu.type == "entite") {
+      this.x = this.x - this.perso.x;
+      this.y = this.y - this.perso.y;
+    }
   }
 
   deletion() {
@@ -35,7 +64,7 @@ export class MenuContextuelComponent implements OnInit {
     else { this.data.entites.splice(this.data.entites.indexOf(this.perso), 1); }
   }
 
-  close() { this.appService.closeMenuContextuel(); }
+  close() { this.appService.closeMenuContextuel(false); }
 
   clickLierFamilier() {
     if (this.perso.statutFamilier == 'lie') { this.perso.statutFamilier = '' }
@@ -53,119 +82,6 @@ export class MenuContextuelComponent implements OnInit {
       this.perso.statutFamilier = 'affiche'
     }
     this.close();
-  }
-
-  getQuetes() {
-    let quetesEnCours = this.data.quetes.filter((quete: Quete) =>
-      quete.etapeEnCours.pnj == this.perso.nom
-    );
-    if (quetesEnCours.length > 0) {
-      this.nbrQuetes = quetesEnCours.length;
-      return quetesEnCours;
-    } else {
-      return [];
-    }
-  }
-
-  accepQuete() {
-    if (this.focusQuete) {
-      if (this.queteAccepter != this.focusQuete.nom) {
-        this.queteAccepter = this.focusQuete.nom;
-      } else if (this.queteAccepter == this.focusQuete.nom) {
-        this.data.quetes.push(this.focusQuete);
-        this.queteAccepter = '';
-        this.focusQuete.etatQuete = 1;
-        this.focusQuete.accepte = true;
-        let queteFocus = this.focusQuete;
-        let nouvelleEtape = this.focusQuete.etapes.find((etape: Etape) => etape.id == queteFocus.etapeEnCours.id + 1);
-        if (nouvelleEtape) {
-          this.focusQuete.etapeEnCours = nouvelleEtape;
-          this.focusQuete = undefined;
-        }
-      }
-    }
-  }
-
-  etapeSuivante() {
-    let debug = true;
-    let conditionRespectees = true;
-    if (this.focusQuete) {
-      let etape = this.focusQuete.etapeEnCours;
-      if (etape.objets) {
-        let entitesPresentes = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.id);
-        etape.objets.forEach((objet: ObjetInventaire) => {
-          if (conditionRespectees) {
-            let nb = 0;
-            entitesPresentes.forEach((entite: Entite) => {
-              if (nb < objet.qte) {
-                let objetDansInventaire = entite.inventaire.find((objetATrouver: ObjetInventaire) => objetATrouver.nom == objet.nom);
-                if (objetDansInventaire) {
-                  nb += objetDansInventaire.qte;
-                }
-              }
-            });
-            if (nb < objet.qte) {
-              conditionRespectees = false;
-            }
-          }
-        });
-        if (conditionRespectees) {
-          etape.objets.forEach((objet: ObjetInventaire) => {
-            let nb = objet.qte;
-            entitesPresentes.forEach((entite: Entite) => {
-              if (nb > 0) {
-                let objetDansInventaire = entite.inventaire.find((objetATrouver: ObjetInventaire) => objetATrouver.nom == objet.nom)
-                if (objetDansInventaire) {
-                  if (objetDansInventaire.qte >= nb) {
-                    objetDansInventaire.qte -= nb;
-                    nb = 0;
-                    if (objetDansInventaire.qte == 0) {
-                      entite.inventaire.splice(entite.inventaire.indexOf(objetDansInventaire), 1);
-                    }
-                  } else {
-                    nb -= objetDansInventaire.qte;
-                    entite.inventaire.splice(entite.inventaire.indexOf(objetDansInventaire), 1);
-                  }
-                }
-              }
-            });
-          });
-        }
-      }
-      if (conditionRespectees) {
-        let queteFocus = this.focusQuete;
-        if (queteFocus.etapes.length == queteFocus.etapeEnCours.id) {
-          let entitesJoueurPresentes = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.id);
-          let emplacementVide = false;
-          queteFocus.recompenses.forEach((objetRecompense: ObjetInventaire) => {
-            entitesJoueurPresentes.forEach((entite: Entite) => {
-              let itemDejaDansInventaire = entite.inventaire.find((objetDansInventaire: ObjetInventaire) => objetDansInventaire.nom == objetRecompense.nom);
-              if (itemDejaDansInventaire) {
-                if (debug) console.log('Objet deja dans inventaire de' + entite.nom);
-                itemDejaDansInventaire.qte += objetRecompense.qte;
-              }
-              else {
-                if (debug) console.log('Objet pas dans inventaire');
-                emplacementVide = entite.inventaire.length < 18;
-                if (emplacementVide) {
-                  if (debug) console.log('Emplacement vide trouvé chez ' + entite.nom);
-                  entite.inventaire.push({ emplacement: objetRecompense.emplacement, image: objetRecompense.image, nom: objetRecompense.nom, qte: objetRecompense.qte, taux: 0, prix: objetRecompense.prix });
-                }
-              }
-            });
-          });
-          this.data.quetes.splice(this.data.quetes.indexOf(queteFocus), 1);
-          this.focusQuete = undefined;
-        }
-        if (queteFocus.etapeEnCours.id < queteFocus.etapes.length) {
-          let nouvelleEtape = queteFocus.etapes.find((etape: Etape) => etape.id == queteFocus.etapeEnCours.id + 1);
-          if (nouvelleEtape) {
-            queteFocus.etapeEnCours = nouvelleEtape;
-            this.focusQuete = undefined;
-          }
-        }
-      }
-    }
   }
 
   repos() {
@@ -187,7 +103,6 @@ export class MenuContextuelComponent implements OnInit {
       }, 4000);
     }, 1000);
   }
-
   //SAUVEGARDE
 
   public sauvegarde() {

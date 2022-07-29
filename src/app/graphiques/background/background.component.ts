@@ -9,6 +9,7 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class BackgroundComponent implements OnInit {
   @Input() data: Data;
+  @Input() disableClickMap: boolean;
 
   public cataclysme: boolean;
 
@@ -33,6 +34,10 @@ export class BackgroundComponent implements OnInit {
         campdesaventuriers.parent = "map";
       }
     }
+  }
+
+  clicMap(event: MouseEvent) {
+    if (!this.disableClickMap) { this.appService.triggerFermetureFenetres(); }
   }
 
   imageLoaded() {

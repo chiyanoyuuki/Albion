@@ -1,16 +1,14 @@
 /* containerVendeur */
 
 .containerVendeur {
-    background-color: rgba(0, 0, 0, 0.5);
     width: 900px;
-    top: -250px;
-    z-index: 2;
-    left: 100%;
-    position: absolute;
-    border: 2px ridge #202020;
     padding: 10px;
     cursor: move;
     color: white;
+}
+
+.containerVendeur .bigText {
+    text-align: center;
 }
 
 .navPerso {
@@ -39,8 +37,57 @@
     flex-flow: column;
 }
 
-.inventairePersoBoutique .bigText {
-    width: 40%;
+.icone-perso {
+    width: 80px;
+    height: 80px;
+    border: 2px ridge #202020;
+    border-radius: 100%;
+    background-color: #808080bb;
+    z-index: 2;
+}
+
+.golds {
+    padding: 5px;
+    justify-content: right;
+    background-color: #20202080;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.golds img {
+    width: 30px;
+    height: 20px;
+}
+
+.nom-perso {
+    font-size: 20px;
+}
+
+.nomItem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.qteObjet {
+    width: 20px;
+    border: 1px solid black;
+    right: -3px;
+    bottom: -3px;
+    position: absolute;
+    background-color: rgb(20, 20, 20) !important;
+    border-radius: 100%;
+    pointer-events: none;
+}
+
+.objet {
+    width: 45px;
+    height: 45px;
+}
+
+.objet img {
+    width: 100%;
 }
 
 .inventaireVendeurBoutique {
@@ -72,5 +119,21 @@
 
 .achat {
     width: 25%;
+    border: 1px solid white;
+    background-color: #30303065;
+    border-radius: 10px;
     text-align: center;
+}
+
+.qteObjet {
+    width: 20px;
+    border: 1px solid black;
+    right: -3px;
+    bottom: -3px;
+    position: absolute;
+    background-color: rgb(20, 20, 20) !important;
+    border-radius: 100%;
+    pointer-events: none;
+    text-align: center;
+    border: 1px solid white;
 }

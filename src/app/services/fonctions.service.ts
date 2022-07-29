@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Data, Entite, Equipement, ObjetInventaire, Position, Quete } from '../model';
+import { Boutique, Data, Entite, Equipement, ObjetInventaire, Position, Quete } from '../model';
 import { PersoService } from './perso.service';
 
 @Injectable({
@@ -9,7 +9,7 @@ export class FonctionsService {
 
   constructor(private persoService: PersoService) { }
 
-  clickGain(perso: Entite, clicked: string, gain: string, type: string) {
+  clickGain(data: Data, perso: Entite, clicked: string, gain: string, type: string, boutique: Boutique | undefined) {
     console.log("Click Gain :", perso.nom, clicked, gain, type);
     if (gain != clicked) { gain = clicked; }
     else if (gain == clicked) {
@@ -23,8 +23,14 @@ export class FonctionsService {
         if (statCliquee) { statCliquee.qte += 1; }
       }
       else if (type == "inventaire") {
-        let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked);
-        if (objetClique) { this.persoService.enleverXObjet(perso, objetClique.nom, 1); }
+        let quete = data.quetes.find((quete: Quete) => quete.nom == clicked);
+        if (quete) {data.focusQuete = quete;} 
+        else {
+          let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked);
+          if (objetClique) {
+            this.persoService.enleverXObjet(perso, objetClique.nom, 1);
+          }
+        }
       }
       else if (type == "stuff") {
         let emplacementStuffConcerne = perso.stuff.find((emplacement: Equipement) => emplacement.emplacement == clicked);
@@ -33,10 +39,39 @@ export class FonctionsService {
           if (ok) { emplacementStuffConcerne.objet = { "emplacement": '', "nom": '', "image": '', qte: 0, taux: 0, prix: 0 }; }
         }
       }
+      else if (type == "vente" && boutique) {
+        let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked);
+        if (objetClique) {
+          this.persoService.enleverXObjet(perso, objetClique.nom, 1);
+          let objetPresentBoutique = boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked);
+          if (objetPresentBoutique) { objetPresentBoutique.qte += 1; }
+          else {
+            boutique.objets.push({ "emplacement": objetClique.emplacement, "nom": objetClique.nom, "image": objetClique.image, qte: 1, prix: objetClique.prix * 1.5, taux: 0 });
+          }
+          perso.argent = perso.argent + this.getPrix(objetClique.prix);
+        }
+      }
+      else if (type == "achat" && boutique) {
+        if (gain == "") { return "" }
+        let objetClique = boutique.objets.find((objet: ObjetInventaire) => objet.nom == clicked);
+        if (objetClique) {
+          if (perso.argent < objetClique.prix) { return "" }
+          objetClique.qte -= 1;
+          if (objetClique.qte == 0) { boutique.objets.splice(boutique.objets.indexOf(objetClique), 1); }
+
+          let res = this.persoService.ajouterXObjet(perso, objetClique, 1);
+          if (res) { perso.argent -= objetClique.prix; }
+        }
+      }
       gain = "";
     }
 
     return gain;
+  }
+
+  public getPrix(prix: number) {
+    if (prix > 1) { prix = Math.floor(prix / 1.5); }
+    return prix;
   }
 
   public getTop(data: Data, perso: Entite | Position) {

@@ -1,15 +1,17 @@
-<div class="fenetre" [cdkDragDisabled]="fenetre=='modifMap'" [style.left]="(fenetre=='modifMap'?120:menu.x)+'px'"
-    [style.top]="(fenetre=='modifMap'?20:menu.y)+'px'" cdkDrag>
+<div class="fenetre" [cdkDragDisabled]="fenetre=='modifMap'" [style.left]="(fenetre=='modifMap'?120:x)+'px'"
+    [style.top]="(fenetre=='modifMap'?20:y)+'px'" (cdkDragEnded)="cdkDragEnded($event)" cdkDrag>
     <p class="croix clickable" (click)="close()">X</p>
     <div *ngIf="fenetre==''">
-        <p *ngIf="menu.type=='map'" (click)="fenetre='addEntity'" class="choix"> Ajouter une entité</p>
-        <p *ngIf="menu.type=='map'&&data.admin" (click)="fenetre='modifMap'" class="choix">(A) Modifier map</p>
+        <p *ngIf="menu.type=='map'" (click)="openWindow('addEntity')" class="choix"> Ajouter une entité</p>
+        <p *ngIf="menu.type=='map'&&data.admin" (click)="openWindow('modifMap')" class="choix">(A) Modifier map</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="repos()">Repos</p>
-        <p *ngIf="menu.type=='entite'&&getQuetes().length>0" (click)="quete=true;" class="choix">Quetes ({{nbrQuetes}})
-        </p>
 
-        <p *ngIf="menu.type=='entite'&&data.admin" (click)="fenetre='addObjet'" class="choix"> (A) Ajouter un objet</p>
+        <p *ngIf="menu.type=='entite'&&nbrQuetes>0" (click)="openWindow('quete')" class="choix">Quetes ({{nbrQuetes}})
+        </p>
+        <p *ngIf="menu.type=='entite'&&perso.boutique" (click)="openWindow('boutique')" class="choix">Boutique</p>
+        <p *ngIf="menu.type=='entite'&&data.admin" (click)="openWindow('addObjet')" class="choix"> (A) Ajouter un objet
+        </p>
         <p *ngIf="menu.type=='entite'&&!perso.joueur" (click)="deletion()" class="choix">{{delete}}</p>
         <p *ngIf="menu.type=='entite'&&perso.familier" (click)="clickLierFamilier()" class="choix">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
@@ -24,4 +26,6 @@
     <app-add-entite *ngIf="fenetre=='addEntity'" [data]="data" [menu]="menu"></app-add-entite>
     <app-add-item-loot *ngIf="fenetre=='addObjet'" [data]="data" [perso]="perso"></app-add-item-loot>
     <app-modif-map *ngIf="fenetre=='modifMap'" [data]="data"></app-modif-map>
+    <app-boutique *ngIf="fenetre=='boutique'" [data]="data" [perso]="perso"></app-boutique>
+    <app-quete *ngIf="fenetre=='quete'" [data]="data" [perso]="perso"></app-quete>
 </div>

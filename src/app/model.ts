@@ -12,6 +12,7 @@ export class Data {
 	public pnjs: Entite[];
 	public repos: Animation;
 	public mapHeight: number;
+	public focusQuete: Quete | null;
 }
 
 export class Entite {

@@ -43,6 +43,7 @@ export class EntitesComponent implements OnInit {
 
   clicDroit(event: MouseEvent, perso: Entite) {
     if (this.menuContextuel == undefined) {
+      this.appService.closeMenuContextuel(true);
       this.persoMenuContextuel = perso;
       this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "entite" };
     }

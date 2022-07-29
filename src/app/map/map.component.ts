@@ -32,22 +32,20 @@ export class MapComponent implements OnInit {
 
   public listenCloseMenuContextuel: any;
 
-
   @HostListener('window:keyup', ['$event']) keyDownEvent(event: KeyboardEvent) { if (event.key == "F1") { this.data.admin = !this.data.admin; } }
   constructor(private appService: AppService) { }
   ngOnInit(): void {
-    this.listenCloseMenuContextuel = this.appService.listenCloseMenuContextuel().subscribe(() => {
+    this.listenCloseMenuContextuel = this.appService.listenCloseMenuContextuel().subscribe((disableClick: boolean) => {
       this.menuContextuel = undefined;
-      this.disableClickMap = false;
+      this.disableClickMap = disableClick;
     })
-  }
-
-  clicMap(event: MouseEvent) {
-    if (!this.disableClickMap) { this.appService.triggerFermetureFenetres(); }
-  }
+  }  
 
   clicDroitMap(event: MouseEvent) {
-    if (!this.disableClickMap) { this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" }; }
+    if (!this.disableClickMap) {
+      this.appService.closeMenuContextuel(false);
+      this.menuContextuel = { x: event.offsetX, y: event.offsetY, type: "map" };
+    }
   }
 
   getEtat() {

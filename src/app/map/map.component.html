@@ -1,6 +1,7 @@
-<div [@fadeIn]="getEtat()" (contextmenu)="clicDroitMap($event)" (click)="clicMap($event)">
+<div [@fadeIn]="getEtat()" (contextmenu)="clicDroitMap($event)">
 
-    <app-background [data]="data"></app-background>
+    <app-background [data]="data" [disableClickMap]="disableClickMap">
+    </app-background>
 
     <!-- ========================== LIEUX ========================== -->
 
