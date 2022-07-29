@@ -1438,24 +1438,24 @@
         "y": 250,
         "position_start": [
             {
-                "startX": 755,
-                "startY": 560
+                "x": 755,
+                "y": 560
             },
             {
-                "startX": 855,
-                "startY": 560
+                "x": 855,
+                "y": 560
             },
             {
-                "startX": 955,
-                "startY": 560
+                "x": 955,
+                "y": 560
             },
             {
-                "startX": 1055,
-                "startY": 560
+                "x": 1055,
+                "y": 560
             },
             {
-                "startX": 1155,
-                "startY": 560
+                "x": 1155,
+                "y": 560
             }
         ],
         "finx": 208,
@@ -4061,6 +4061,8 @@
             "pdvmax": 12,
             "pdv": 12,
             "manamax": 8,
+            "forceDivScale": 2,
+            "overrideX": 15,
             "mana": 8,
             "id": "ours",
             "levels": [
@@ -4099,6 +4101,8 @@
             "niveau": 1,
             "pdvmax": 12,
             "pdv": 12,
+            "forceDivScale": 3,
+            "overrideX": -8,
             "manamax": 8,
             "mana": 8,
             "id": "serpent",

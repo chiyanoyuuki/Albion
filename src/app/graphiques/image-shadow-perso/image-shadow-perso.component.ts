@@ -17,9 +17,9 @@ export class ImageShadowPersoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public getTop(perso: Entite) { return this.fonctionsService.getTop(this.data, perso); }
-  public getLeft(perso: Entite) { return this.fonctionsService.getLeft(perso); }
-  public getScale(perso: Entite) { return this.fonctionsService.getScale(this.data, perso); }
+  public getTop(perso: Entite) { return this.fonctionsService.getTop(this.data, perso, undefined); }
+  public getLeft(perso: Entite) { return this.fonctionsService.getLeft(perso, undefined); }
+  public getScale(perso: Entite) { return this.fonctionsService.getScale(this.data, perso, undefined); }
 
   public isReverted() { return !this.perso.solo && Number(this.perso.nom.replace(/[^0-9]*/, "")) % 2 != 0; }
 }

@@ -15,6 +15,9 @@ export class ModifMapComponent implements OnInit {
   public input2: string = "";
   public input3: string = "";
 
+  public etatSpawn: string = "Afficher Spawners";
+  public etatDummy: string = "Afficher Dummy";
+
   public dummy: Position = { id: -1, x: 500, y: 500 };
 
   constructor(private fonctionsService: FonctionsService) { }
@@ -61,7 +64,7 @@ export class ModifMapComponent implements OnInit {
     }
   }
 
-  public getTop(position: Position) { return this.fonctionsService.getTop(this.data, position); }
-  public getScale(position: Position) { return this.fonctionsService.getScale(this.data, position); }
+  public getTop(position: Position) { return this.fonctionsService.getTop(this.data, undefined, position); }
+  public getScale(position: Position) { return this.fonctionsService.getScale(this.data, undefined, position); }
 
 }

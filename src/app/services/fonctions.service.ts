@@ -24,7 +24,7 @@ export class FonctionsService {
       }
       else if (type == "inventaire") {
         let quete = data.quetes.find((quete: Quete) => quete.nom == clicked);
-        if (quete) {data.focusQuete = quete;} 
+        if (quete) { data.focusQuete = quete; }
         else {
           let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked);
           if (objetClique) {
@@ -74,35 +74,37 @@ export class FonctionsService {
     return prix;
   }
 
-  public getTop(data: Data, perso: Entite | Position) {
+  public getTop(data: Data, perso: Entite | undefined, position: Position | undefined) {
     if (perso instanceof Entite && perso.overrideY) { return perso.overrideY + "%"; }
     if (perso instanceof Entite && perso.joueur && perso.forme.overrideY) { return perso.forme.overrideY + "%"; }
-    let scale = this.getScale(data, perso);
+    let scale = this.getScale(data, perso, position);
     return (scale > 1 ? scale * 20 + (scale < 0.5 ? 59 : 79) : '84') + 'px';
   }
 
-  public getLeft(perso: Entite | Position) {
-    if (perso instanceof Entite && perso.overrideX) { return perso.overrideX + '%'; }
-    if (perso instanceof Entite && perso.joueur && perso.forme.overrideX) { return perso.forme.overrideX + "%"; }
+  public getLeft(perso: Entite | undefined, position: Position | undefined) {
+    if (perso && perso.overrideX) { return perso.overrideX + '%'; }
+    if (perso && perso.joueur && perso.forme.overrideX) { return perso.forme.overrideX + "%"; }
     return '40%';
   }
 
-  public getScale(data: Data, perso: Entite | Position) {
+  public getScale(data: Data, perso: Entite | undefined, position: Position | undefined) {
     let scale = 1;
     if (data.lieuActuel.scale) { scale = data.lieuActuel.scale; }
-    if (data.lieuActuel.scaleFond) { scale = this.getNewScale(data, perso); }
-    if (perso instanceof Entite && perso.forceDivScale) { scale = scale / perso.forceDivScale; }
-    if (perso instanceof Entite && perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
+    if (perso && data.lieuActuel.scaleFond) { scale = this.getNewScale(data, perso, position); }
+    if (perso && perso.forceDivScale) { console.log("divScale"); scale = scale / perso.forceDivScale; }
+    if (perso && perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
     return scale;
   }
 
-  public getNewScale(data: Data, perso: Entite | Position) {
+  public getNewScale(data: Data, perso: Entite | undefined, position: Position | undefined) {
     let scale = data.lieuActuel.scale - data.lieuActuel.scaleFond;
     let finFond = 0;
     let height = data.mapHeight;
     if (data.lieuActuel.finFond) { finFond = data.lieuActuel.finFond; }
     height = height - finFond;
-    let posYPerso = perso.y + 150;
+    let posYPerso = 0;
+    if (perso) { posYPerso = perso.y + 150; }
+    else if (position) { posYPerso = position.y + 150; }
     if (finFond != 0 && posYPerso < finFond) { scale = data.lieuActuel.scaleFond; }
     else {
       posYPerso = posYPerso - finFond;
