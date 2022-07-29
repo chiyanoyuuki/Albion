@@ -53,8 +53,13 @@ export class PersoService {
   addEntity(data:Data, addEntite: addEntity) {
     let test = false;
     addEntite.entite.inventaire = [];
-    addEntite.entite.x = addEntite.menuContextuel.x;
-    addEntite.entite.y = addEntite.menuContextuel.y;
+    if (addEntite.menuContextuel) {
+      addEntite.entite.x = addEntite.menuContextuel.x;
+      addEntite.entite.y = addEntite.menuContextuel.y;
+    }else{
+      addEntite.entite.x = 200;
+      addEntite.entite.y = 200;
+    }
     addEntite.entite.lieu = data.lieuActuel.id;
 
     if (addEntite.team == "Ami") { addEntite.entite.team = 0; }

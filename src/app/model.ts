@@ -181,7 +181,7 @@ export class MenuContextuel {
 }
 
 export class addEntity {
-	public menuContextuel: MenuContextuel;
+	public menuContextuel: MenuContextuel|undefined;
 	public entite: Entite;
 	public team: string;
 }

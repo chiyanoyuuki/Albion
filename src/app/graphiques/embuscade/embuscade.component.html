@@ -1,0 +1,72 @@
+<div class="container_embuscades">
+    <div class="width-100">
+        <p class="bigText">Embuscades</p>
+        <div class="line"></div>
+    </div>
+    <div class="flex embuscades around">
+        <div class="flex column gap-1">
+            <p class="bigText">Types d'enemis</p>
+            <div class="line"></div>
+            <p class="clickable" 
+                *ngFor="let attaque of typeAttaques"
+                (click)="embuscade=attaque;typeSelected==attaque?typeSelected='':typeSelected=attaque"
+                [style.color]="typeSelected==attaque?'red':'orange'">
+                Attaque {{attaque}}
+            </p>
+        </div>
+        <div *ngIf="embuscade=='de monstres'" class="flex column gap-1">
+            <p class="bigText">Enemis</p>
+            <div class="line"></div>
+            <p class="clickable"
+                *ngFor="let enemi of enemisMonstres"
+                (click)="choixEnemi=enemi;enemiSelected==enemi.id?enemiSelected='':enemiSelected=enemi.id"
+                [style.color]="enemiSelected==enemi.id?'red':'orange'">
+                {{enemi.nom}}
+            </p>
+        </div>
+        <div *ngIf="embuscade=='de bandits'" class="flex column gap-1">
+            <p class="bigText">Enemis</p>
+            <div class="line"></div>
+            <p class="clickable"
+                *ngFor="let enemi of enemisBandits"
+                (click)="choixEnemi=enemi;enemiSelected==enemi.id?enemiSelected='':enemiSelected=enemi.id"
+                [style.color]="enemiSelected==enemi.id?'red':'orange'">
+                {{enemi.nom}}
+            </p>
+        </div>
+        <div *ngIf="embuscade=='d\'animaux'" class="flex column gap-1">
+            <p class="bigText">Enemis</p>
+            <div class="line"></div>
+            <p class="clickable"
+                *ngFor="let enemi of enemisAnimaux"
+                (click)="choixEnemi=enemi;enemiSelected==enemi.id?enemiSelected='':enemiSelected=enemi.id"
+                [style.color]="enemiSelected==enemi.id?'red':'orange'">
+                {{enemi.nom}}
+            </p>
+        </div>
+        <div class="flex column gap-1">
+            <p class="bigText">Liste d'enemis</p>
+            <div class="line"></div>
+            <div class="flex column gap-1">
+                <div class="flex gap-1"
+                    *ngFor="let entite of liste, let x = index">
+                    <p>{{entite.nom}}</p>
+                    <p class="clickable"
+                        *ngFor="let niveau of entite.levels"
+                        (click)="setLvl(entite,niveau)"
+                        [style.color]="niveau.niveau==liste[x].niveau?'red':'orange'">
+                        {{niveau.niveau}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div>
+        <p class="bigText clickable" (click)="ajoutList()">Ajouter à la liste</p>
+    </div>
+    <div class="line" *ngIf="liste.length>0"></div>
+    <div *ngIf="liste.length>0">
+        <p class="bigText clickable" (click)="addEntity()">Démarrer l'embuscade</p>
+    </div>
+</div>

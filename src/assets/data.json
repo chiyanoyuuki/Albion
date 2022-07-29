@@ -2969,6 +2969,7 @@
             "nom": "Assassin",
             "image": "assassins",
             "solo": false,
+            "type": "bandit",
             "niveau": 1,
             "pdvmax": 10,
             "pdv": 10,
@@ -2996,6 +2997,51 @@
                     "niveau": 4,
                     "pdvmax": 24,
                     "manamax": 12
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 28,
+                    "manamax": 16
+                }
+            ]
+        },
+        {
+            "nom": "Bandit",
+            "image": "bandit",
+            "solo": false,
+            "type": "bandit",
+            "niveau": 1,
+            "pdvmax": 10,
+            "pdv": 10,
+            "manamax": 6,
+            "mana": 6,
+            "id": "bandit",
+            "actif": false,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 10,
+                    "manamax": 6
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 16,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 20,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 24,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 28,
+                    "manamax": 16
                 }
             ]
         },
@@ -3468,6 +3514,7 @@
             "nom": "Voleur",
             "image": "Voleur",
             "solo": false,
+            "type": "bandit",
             "niveau": 1,
             "pdvmax": 8,
             "pdv": 8,
@@ -3494,6 +3541,11 @@
                     "niveau": 4,
                     "pdvmax": 18,
                     "manamax": 26
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 22,
+                    "manamax": 30
                 }
             ]
         },
@@ -3582,6 +3634,7 @@
             "nom": "Araignée Géante",
             "image": "araignee",
             "solo": false,
+            "type": "monstre",
             "niveau": 1,
             "pdvmax": 20,
             "pdv": 20,
@@ -3621,20 +3674,43 @@
         {
             "nom": "Araignée Matriarche",
             "image": "araigneeboss",
-            "solo": true,
-            "niveau": 7,
-            "pdvmax": 64,
-            "pdv": 64,
-            "manamax": 26,
-            "mana": 26,
+            "solo": false,
             "id": "araigneeboss",
-            "type": "boss",
-            "overrideX": 25
+            "type": "monstre",
+            "overrideX": 25,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 20,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 34,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 40,
+                    "manamax": 18
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 50,
+                    "manamax": 20
+                }
+            ]
         },
         {
             "nom": "Rat Géant",
             "image": "Rat Geant",
             "solo": false,
+            "type": "monstre",
             "id": "rat_geant",
             "niveau": 1,
             "pdvmax": 20,
@@ -3673,40 +3749,90 @@
         {
             "nom": "Rat Patriarche",
             "image": "ratboss",
-            "solo": true,
-            "niveau": 7,
-            "pdvmax": 64,
-            "pdv": 64,
-            "manamax": 26,
-            "mana": 26,
+            "solo": false,
+            "type": "monstre",
             "id": "ratboss",
-            "type": "boss",
-            "overrideX": 32
+            "overrideX": 32,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 20,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 34,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 40,
+                    "manamax": 18
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 50,
+                    "manamax": 20
+                }
+            ]
         },
         {
             "nom": "Troll Adulte",
             "image": "Troll",
             "solo": true,
+            "type": "monstre",
             "niveau": 8,
             "pdvmax": 164,
             "pdv": 164,
             "manamax": 48,
             "mana": 48,
             "id": "troll",
-            "type": "megaboss",
             "overrideX": 35
         },
         {
             "nom": "Jeune Troll",
             "image": "petittroll",
             "solo": false,
+            "type": "monstre",
             "niveau": 4,
             "pdvmax": 40,
             "pdv": 40,
             "manamax": 12,
             "mana": 12,
             "id": "jeunetroll",
-            "overrideX": 35
+            "overrideX": 35,
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 20,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 34,
+                    "manamax": 16
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 40,
+                    "manamax": 18
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 50,
+                    "manamax": 20
+                }
+            ]
         },
         {
             "nom": "Victor Selvus",
@@ -3893,6 +4019,7 @@
             "nom": "Loup Sauvage",
             "image": "loupsauvage",
             "solo": false,
+            "type": "animaux",
             "niveau": 1,
             "pdvmax": 12,
             "pdv": 12,
@@ -3928,9 +4055,88 @@
             ]
         },
         {
+            "nom": "Ours Sauvage",
+            "image": "ourssauvage",
+            "solo": false,
+            "type": "animaux",
+            "niveau": 1,
+            "pdvmax": 12,
+            "pdv": 12,
+            "manamax": 8,
+            "mana": 8,
+            "id": "ours",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 12,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 18,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 24,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 36,
+                    "manamax": 16
+                }
+            ]
+        },
+        {
+            "nom": "Serpent Géant",
+            "image": "serpent",
+            "solo": false,
+            "type": "animaux",
+            "niveau": 1,
+            "pdvmax": 12,
+            "pdv": 12,
+            "manamax": 8,
+            "mana": 8,
+            "id": "serpent",
+            "levels": [
+                {
+                    "niveau": 1,
+                    "pdvmax": 12,
+                    "manamax": 8
+                },
+                {
+                    "niveau": 2,
+                    "pdvmax": 18,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 3,
+                    "pdvmax": 24,
+                    "manamax": 10
+                },
+                {
+                    "niveau": 4,
+                    "pdvmax": 28,
+                    "manamax": 12
+                },
+                {
+                    "niveau": 5,
+                    "pdvmax": 36,
+                    "manamax": 16
+                }
+            ]
+        },
+        {
             "nom": "Sanglier Sauvage",
             "image": "sanglier",
             "solo": false,
+            "type": "animaux",
             "niveau": 1,
             "pdvmax": 16,
             "pdv": 16,
