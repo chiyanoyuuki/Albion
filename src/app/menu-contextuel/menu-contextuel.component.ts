@@ -25,7 +25,7 @@ export class MenuContextuelComponent implements OnInit {
   public focusQuete: Quete | undefined;
   public queteAccepter: string;
 
-  constructor(private persoService: PersoService, private appService: AppService) { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
   }

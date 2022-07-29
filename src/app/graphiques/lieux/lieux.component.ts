@@ -76,15 +76,16 @@ export class LieuxComponent implements OnInit {
 
   rentrerLieu(lieu: Lieu) {
     let nb = this.getPersosSurMapActuelle().length;
-    if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
+    
+    if (lieu.nom == 'Panneau de Quêtes') {
+      this.data.lieuActuel = lieu;
+    }
+    else if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
       this.changeLieu(lieu);
     }
     else {
       this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
       console.log(this.changingTo && this.changingTo == lieu && (lieu.canEnter == undefined || lieu.canEnter));
-    }
-    if (lieu.nom == 'Panneau de Quêtes') {
-      this.data.lieuActuel = lieu;
     }
   }
 
