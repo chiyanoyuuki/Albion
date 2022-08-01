@@ -206,7 +206,7 @@
             "id": "bjorncotesdefer",
             "x": 1298,
             "y": 555,
-            "lieu": "armurierfjorh",
+            "lieu": "foretestfjorh",
             "xcombat": 1080,
             "ycombat": 799,
             "nom": "Bjorn Côtes de Fer",
@@ -420,7 +420,7 @@
             "y": 566,
             "xcombat": 856,
             "joueur": true,
-            "lieu": "map",
+            "lieu": "foretestfjorh",
             "ycombat": 836,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
@@ -1429,39 +1429,16 @@
         }
     ],
     "lieuActuel": {
-        "parent": "fjorh",
-        "id": "armurierfjorh",
-        "nom": "Boutique d'armurier",
-        "musique": "boutique",
-        "image": "ShopArmor",
-        "x": 700,
-        "y": 250,
-        "position_start": [
-            {
-                "x": 755,
-                "y": 560
-            },
-            {
-                "x": 855,
-                "y": 560
-            },
-            {
-                "x": 955,
-                "y": 560
-            },
-            {
-                "x": 1055,
-                "y": 560
-            },
-            {
-                "x": 1155,
-                "y": 560
-            }
-        ],
-        "finx": 208,
-        "finy": 130,
-        "desac": true,
-        "scale": 5
+        "id": "foretestfjorh",
+        "nom": "Foret à l'Est de Fjorh",
+        "image": "Foret",
+        "x": 1348,
+        "y": 526,
+        "finx": 250,
+        "parent": "map",
+        "finy": 120,
+        "desac": false,
+        "scale": 0.7
     },
     "boutiques": [
         {
@@ -2967,7 +2944,7 @@
             "nom": "Assassin",
             "image": "assassins",
             "solo": false,
-            "type": "bandit",
+            "type": "bandits",
             "niveau": 1,
             "pdvmax": 10,
             "pdv": 10,
@@ -3007,7 +2984,7 @@
             "nom": "Bandit",
             "image": "bandit",
             "solo": false,
-            "type": "bandit",
+            "type": "bandits",
             "niveau": 1,
             "pdvmax": 10,
             "pdv": 10,
@@ -3512,7 +3489,7 @@
             "nom": "Voleur",
             "image": "Voleur",
             "solo": false,
-            "type": "bandit",
+            "type": "bandits",
             "niveau": 1,
             "pdvmax": 8,
             "pdv": 8,
@@ -3632,7 +3609,7 @@
             "nom": "Araignée Géante",
             "image": "araignee",
             "solo": false,
-            "type": "monstre",
+            "type": "monstres",
             "niveau": 1,
             "pdvmax": 20,
             "pdv": 20,
@@ -3673,8 +3650,9 @@
             "nom": "Araignée Matriarche",
             "image": "araigneeboss",
             "solo": false,
+            "niveau": 1,
             "id": "araigneeboss",
-            "type": "monstre",
+            "type": "monstres",
             "overrideX": 25,
             "levels": [
                 {
@@ -3708,7 +3686,7 @@
             "nom": "Rat Géant",
             "image": "Rat Geant",
             "solo": false,
-            "type": "monstre",
+            "type": "monstres",
             "id": "rat_geant",
             "niveau": 1,
             "pdvmax": 20,
@@ -3748,7 +3726,8 @@
             "nom": "Rat Patriarche",
             "image": "ratboss",
             "solo": false,
-            "type": "monstre",
+            "niveau": 1,
+            "type": "monstres",
             "id": "ratboss",
             "overrideX": 32,
             "levels": [
@@ -3783,7 +3762,7 @@
             "nom": "Troll Adulte",
             "image": "Troll",
             "solo": true,
-            "type": "monstre",
+            "type": "monstres",
             "niveau": 8,
             "pdvmax": 164,
             "pdv": 164,
@@ -3796,8 +3775,8 @@
             "nom": "Jeune Troll",
             "image": "petittroll",
             "solo": false,
-            "type": "monstre",
-            "niveau": 4,
+            "type": "monstres",
+            "niveau": 1,
             "pdvmax": 40,
             "pdv": 40,
             "manamax": 12,
