@@ -8,10 +8,11 @@
     data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
     <source src="../../assets/images/Cinématique.mp4" type='video/mp4' />
 </video>
-<div *ngIf="data.focusQuete" class="fond-gris" (click)="data.focusQuete=null"></div>
+<div *ngIf="data.focusQuete" class="fond-gris" (click)="data.focusQuete=undefined"></div>
+<app-suivi-quetes [data]="data"></app-suivi-quetes>
 <app-feuille-quete [data]="data" *ngIf="data.focusQuete" style="z-index:6;">
 </app-feuille-quete>
-<img draggable="false" class="map" [style.width]="'1860px'" [style.opacity]="data.repos.animation?0:1" (click)="clicMap($event)"
-    (load)="imageLoaded()"
+<img draggable="false" class="map" [style.width]="'1860px'" [style.opacity]="data.repos.animation?0:1"
+    (click)="clicMap($event)" (load)="imageLoaded()"
     src="./assets/images/maps/{{data.lieuActuel.image}}{{(data.lieuActuel.useNbImage?data.lieuActuel.nbImage:'')}}.png"
     id="map" [style.border]="data.admin?'20px ridge #dd2020':'20px ridge #202020'" style="z-index:1;" />

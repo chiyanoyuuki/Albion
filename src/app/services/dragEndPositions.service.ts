@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Data } from '@angular/router';
 import { Entite, Equipement, ObjetInventaire, Tests } from '../model';
 import { PersoService } from './perso.service';
 
@@ -38,7 +39,7 @@ export class DragEndPositionsService {
     return finiDansZone;
   }
 
-  dragFromPersoInvToPersoStuff(persoDebut: Entite, persoFin: Entite, emplacementFocused: string, tests: Tests, item: ObjetInventaire) {
+  dragFromPersoInvToPersoStuff(data: Data, persoDebut: Entite, persoFin: Entite, emplacementFocused: string, tests: Tests, item: ObjetInventaire) {
     if (item.nom == "Argent") { return; }
     console.log("Drag from " + persoDebut.nom + " inventaire to " + persoFin.nom + " stuff :", emplacementFocused, item.nom);
     let emplacementVide = persoFin.inventaire.length < 18;
@@ -52,21 +53,16 @@ export class DragEndPositionsService {
       if (emplacementStuffConcerne) {
         emplacementStuffConcerne.objet = { emplacement: item.emplacement, image: item.image, nom: item.nom, qte: 1, taux: 0, prix: item.prix };
         this.persoService.enleverXObjet(persoDebut, item.nom, 1);
-        if (ancienItemEmplacement.objet.nom != "") { this.persoService.ajouterXObjet(persoFin, ancienItemEmplacement.objet, 1); }
+        if (ancienItemEmplacement.objet.nom != "") { this.persoService.ajouterXObjet(data, persoFin, ancienItemEmplacement.objet, 1); }
       }
     }
   }
 
-  dragFromPersoInvToPersoInv(persoDebut: Entite, persoFin: Entite, item: ObjetInventaire, qte: number) {
-    if(persoDebut==persoFin){return;}
+  dragFromPersoInvToPersoInv(data: Data, persoDebut: Entite, persoFin: Entite, item: ObjetInventaire, qte: number) {
+    if (persoDebut == persoFin) { return; }
     console.log("Drag from " + persoDebut.nom + " inventaire to " + persoFin.nom + " inventaire :", item.nom, qte);
-    if (item.nom == "Argent") {
-      persoFin.argent += qte;
-      this.persoService.enleverXObjet(persoDebut, item.nom, qte);
-    }
-    else {
-      let ok = this.persoService.ajouterXObjet(persoFin, item, qte);
+      let ok = this.persoService.ajouterXObjet(data, persoFin, item, qte);
       if (ok) { this.persoService.enleverXObjet(persoDebut, item.nom, qte); }
-    }
+    
   }
 }

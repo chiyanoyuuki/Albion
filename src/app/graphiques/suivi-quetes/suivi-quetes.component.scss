@@ -1,0 +1,25 @@
+.container {
+    height: 800px;
+    background-color: #202020dd;
+    border: 3px ridge #202020;
+    padding: 15px;
+    width: 300px;
+    overflow-y: auto;
+}
+
+.container p {
+    color: white;
+}
+
+.nom {
+    text-decoration: underline;
+}
+
+.etape {
+    font-style: italic;
+}
+
+.nom,
+.etape {
+    text-align: center;
+}

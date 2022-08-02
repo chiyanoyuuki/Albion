@@ -420,7 +420,7 @@
             "y": 566,
             "xcombat": 856,
             "joueur": true,
-            "lieu": "map",
+            "lieu": "fjorh",
             "ycombat": 836,
             "nom": "Gandalf le Roux",
             "histoire": "Craint dans des terres encore inconnues des plus vieilles cartes de ce monde, Gandalf le Roux est un mercrenaire fier, aux methodes douteuses mais aux résultats rigoureux. Bien qu'il n'ait aucune facilité à sympathiser ou même à cototer le moindre individu, sa réputation lui a permis d'établir une certaines renommée qui lui tiens à coeur. Né d'un père vagabond et d'une mère ivrogne, et enfant unique, Gandalf a toujours du compter sur la force de ses poings fermes pour se faire respecter. Aujourd'hui, il a été engagé par le roi pour une mission discrète de la plus haute importance. Ramener un etrange caillou à sa majesté sans poser trop de questions. Bien qu'il ne soit pas très sociable, Gandalf est rusé, et a vite compris qu'un mercenaire malin et potentiellement infidèle rapporterait plus qu'un bon toutou",
@@ -793,7 +793,7 @@
             "x": 1371,
             "joueur": true,
             "y": 535,
-            "lieu": "map",
+            "lieu": "fjorh",
             "xcombat": 691,
             "ycombat": 603,
             "nom": "Sienna Hurlevent",
@@ -1015,12 +1015,260 @@
             "pdv": 55,
             "manamax": 18,
             "mana": 18,
-            "x": 1320,
-            "y": 566,
+            "x": 304,
+            "y": 181,
             "xcombat": 856,
             "ycombat": 836,
             "id": "goliathdepercerelle",
             "boutique": "armurierfjorh"
+        },
+        {
+            "nom": "Akshan Lee",
+            "image": "Akshan Lee",
+            "solo": true,
+            "niveau": 8,
+            "pdvmax": 122,
+            "pdv": 122,
+            "manamax": 48,
+            "mana": 48,
+            "id": "akshanlee",
+            "type": "boss",
+            "desc": "",
+            "xcombat": 801,
+            "ycombat": 509,
+            "lieu": "map",
+            "team": 2,
+            "actif": false,
+            "x": 791,
+            "y": 605,
+            "loot": [
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 80,
+                    "taux": 1
+                },
+                {
+                    "emplacement": "Torse",
+                    "image": "armure_doree",
+                    "nom": "Armure dorée",
+                    "prix": 120,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Bottes",
+                    "image": "bottes_dorees",
+                    "nom": "Bottes dorées",
+                    "prix": 60,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Tête",
+                    "image": "casque_tissu",
+                    "nom": "Casque en tissu",
+                    "prix": 30,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "image": "ceinture_cuir",
+                    "nom": "Ceinture de cuir",
+                    "prix": 30,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "image": "epaulieres_dorees",
+                    "nom": "Epaulières dorées",
+                    "prix": 90,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Gants",
+                    "image": "gants_dores",
+                    "nom": "Gants dorés",
+                    "prix": 50,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Jambes",
+                    "image": "jambieres_dorees",
+                    "nom": "Jambières dorées",
+                    "prix": 110,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "image": "ingredient",
+                    "nom": "Matériaux",
+                    "prix": 7,
+                    "qte": 4,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "image": "objets_de_jet",
+                    "nom": "Objets de jet",
+                    "prix": 9,
+                    "qte": 8,
+                    "taux": 80
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "prix": 8,
+                    "qte": 3,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "sabre",
+                    "nom": "Sabre",
+                    "prix": 70,
+                    "qte": 2,
+                    "taux": 80
+                }
+            ],
+            "inventaire": [
+                {
+                    "nom": "Argent",
+                    "image": "argent",
+                    "qte": 53,
+                    "emplacement": "",
+                    "taux": 0,
+                    "prix": 0
+                },
+                {
+                    "emplacement": "Torse",
+                    "image": "armure_doree",
+                    "nom": "Armure dorée",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 120
+                },
+                {
+                    "emplacement": "Bottes",
+                    "image": "bottes_dorees",
+                    "nom": "Bottes dorées",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 60
+                },
+                {
+                    "emplacement": "Tête",
+                    "image": "casque_tissu",
+                    "nom": "Casque en tissu",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 30
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "image": "ceinture_cuir",
+                    "nom": "Ceinture de cuir",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 30
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "image": "epaulieres_dorees",
+                    "nom": "Epaulières dorées",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 90
+                },
+                {
+                    "emplacement": "Gants",
+                    "image": "gants_dores",
+                    "nom": "Gants dorés",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 50
+                },
+                {
+                    "emplacement": "Jambes",
+                    "image": "jambieres_dorees",
+                    "nom": "Jambières dorées",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 110
+                },
+                {
+                    "image": "ingredient",
+                    "nom": "Matériaux",
+                    "qte": 3,
+                    "taux": 0,
+                    "prix": 7
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "image": "objets_de_jet",
+                    "nom": "Objets de jet",
+                    "qte": 6,
+                    "taux": 0,
+                    "prix": 9
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "qte": 3,
+                    "taux": 0,
+                    "prix": 8
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "sabre",
+                    "nom": "Sabre",
+                    "qte": 2,
+                    "taux": 0,
+                    "prix": 70
+                }
+            ]
+        },
+        {
+            "nom": "Albus Demitrescu",
+            "image": "Albus Demitrescu",
+            "solo": true,
+            "niveau": 8,
+            "pdvmax": 34,
+            "pdv": 34,
+            "manamax": 162,
+            "mana": 162,
+            "id": "albusdemitrescu",
+            "type": "boss",
+            "desc": "Très grand magicien",
+            "team": 2,
+            "inventaire": [],
+            "x": 736,
+            "y": 510,
+            "lieu": "map"
+        },
+        {
+            "nom": "Angus Alfronde",
+            "image": "Angus Alfronde",
+            "solo": true,
+            "niveau": 7,
+            "pdvmax": 55,
+            "pdv": 55,
+            "manamax": 26,
+            "mana": 26,
+            "id": "angusalfronde",
+            "desc": "Un des bras droits des assassins",
+            "team": 2,
+            "xcombat": 1169,
+            "ycombat": 556,
+            "lieu": "map",
+            "actif": false,
+            "inventaire": [],
+            "x": 635,
+            "y": 609
         }
     ],
     "quetes": [
@@ -1191,7 +1439,6 @@
             }
         },
         {
-            "accepte": true,
             "nom": "Le gardien des secrets",
             "type": "secondaire",
             "etatQuete": 1,
@@ -1216,7 +1463,6 @@
             }
         },
         {
-            "accepte": true,
             "nom": "Un historien dans le besoin",
             "type": "secondaire",
             "etatQuete": 0,
@@ -1241,227 +1487,70 @@
             }
         },
         {
-            "accepte": false,
-            "nom": "test",
+            "nom": "Quête test de Charles",
             "type": "secondaire",
-            "etape": 1,
-            "etatQuete": 0,
-            "etapeEnCours": {
-                "id": 1,
-                "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer.",
-                "pnj": "Goliath de Percerelle"
-            },
+            "donneur": "Akshan Lee",
+            "image": "fond_quete1",
+            "description": "Qui d'Albus ou Angus à volé l'armure de Akshan ?",
             "etapes": [
                 {
                     "id": 1,
-                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer.",
-                    "pnj": "Goliath de Percerelle"
+                    "nom": "Disctuer avec Albus et Angus",
+                    "description": "Presque les mêmes noms omg",
+                    "pnjsAVoir": [
+                        {
+                            "nom": "Albus Demitrescu",
+                            "recompenses": [
+                                {
+                                    "nom": "Armure dorée",
+                                    "qte": 1
+                                }
+                            ],
+                            "dialogue": "Et oui c'est moi, tiens bg"
+                        },
+                        {
+                            "nom": "Angus Alfronde",
+                            "dialogue": "Et non c'est pas moi qui ai l'armure bitch"
+                        }
+                    ]
                 },
                 {
                     "id": 2,
-                    "nom": "Enfin réunis",
-                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
+                    "nom": "Rendre l'armure à Akshan",
+                    "description": "Bah c'est déjà fini",
+                    "pnjsAVoir": [
+                        {
+                            "nom": "Akshan Lee",
+                            "objetsAAvoir":[
+                                {
+                                    "nom":"Armure dorée",
+                                    "qte":1
+                                }
+                            ],
+                            "recompenses": [
+                                {
+                                    "nom": "Argent",
+                                    "qte": 1000
+                                }
+                            ]
+                        }
+                    ]
                 }
-            ],
-            "tableauQuetes": {
-                "x": 100,
-                "y": 100,
-                "affiche": true,
-                "image": "fond_quete1"
-            },
-            "recompenses": [
-                {
-                    "emplacement": "Arme",
-                    "nom": "Dague en Acier",
-                    "qte": 1,
-                    "image": "dague_en_acier"
-                },
-                {
-                    "emplacement": "Arme",
-                    "nom": "Dague de magicien",
-                    "qte": 2,
-                    "image": "dague_magicien"
-                },
-                {
-                    "emplacement": "Utilitaire",
-                    "nom": "Flèches de métal",
-                    "qte": 20,
-                    "image": "fleches_de_metal"
-                },
-                {
-                    "emplacement": "Jambes",
-                    "nom": "Pantalon de prison",
-                    "qte": 1,
-                    "image": "pantalon_prison"
-                },
-                {
-                    "emplacement": "Torse",
-                    "nom": "Tunique de prison",
-                    "qte": 1,
-                    "image": "tunique_prison"
-                }
-            ],
-            "paiement": 20
-        },
-        {
-            "accepte": false,
-            "nom": "Un historien dans le besoin de dede",
-            "type": "secondaire",
-            "etatQuete": 0,
-            "etape": 1,
-            "etapeEnCours": {
-                "id": 1,
-                "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer.",
-                "pnj": "Goliath de Percerelle"
-            },
-            "etapes": [
-                {
-                    "id": 1,
-                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer.",
-                    "pnj": "Goliath de Percerelle"
-                },
-                {
-                    "id": 2,
-                    "nom": "Enfin réunis",
-                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
-                }
-            ],
-            "tableauQuetes": {
-                "x": 200,
-                "y": 100,
-                "affiche": true,
-                "image": "fond_quete2"
-            }
-        },
-        {
-            "accepte": false,
-            "nom": "Un historien dans le besoin de dede",
-            "type": "secondaire",
-            "etatQuete": 0,
-            "etape": 1,
-            "etapeEnCours": {
-                "id": 1,
-                "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
-            },
-            "etapes": [
-                {
-                    "id": 1,
-                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
-                },
-                {
-                    "id": 2,
-                    "nom": "Enfin réunis",
-                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
-                }
-            ],
-            "tableauQuetes": {
-                "x": 200,
-                "y": 100,
-                "affiche": true,
-                "image": "fond_quete3"
-            }
-        },
-        {
-            "accepte": false,
-            "nom": "Un historien dans le besoin de dede",
-            "type": "secondaire",
-            "etatQuete": 0,
-            "etape": 1,
-            "etapeEnCours": {
-                "id": 1,
-                "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
-            },
-            "etapes": [
-                {
-                    "id": 1,
-                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
-                },
-                {
-                    "id": 2,
-                    "nom": "Enfin réunis",
-                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
-                }
-            ],
-            "tableauQuetes": {
-                "x": 200,
-                "y": 100,
-                "affiche": true,
-                "image": "fond_quete4"
-            }
-        },
-        {
-            "accepte": false,
-            "nom": "Un historien dans le besoin de dede",
-            "type": "secondaire",
-            "etatQuete": 0,
-            "etape": 1,
-            "etapeEnCours": {
-                "id": 1,
-                "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
-            },
-            "etapes": [
-                {
-                    "id": 1,
-                    "nom": "Trouver ou dessiner une carte de l'île du dragon",
-                    "description": "A ghrain, vous avez rencontré un homme qui aimerait cartographier l'île du dragon mais a trop peur de s'y aventurer."
-                },
-                {
-                    "id": 2,
-                    "nom": "Enfin réunis",
-                    "description": "Vous avez sauvé Sonia de sa situation critique. Tout est paisible autour d'elle depuis"
-                }
-            ],
-            "tableauQuetes": {
-                "x": 200,
-                "y": 100,
-                "affiche": true,
-                "image": "fond_quete5"
-            }
+            ]
         }
     ],
     "lieuActuel": {
-        "parent": "fjorh",
-        "id": "armurierfjorh",
-        "nom": "Boutique d'armurier",
-        "musique": "boutique",
-        "image": "ShopArmor",
-        "x": 700,
-        "y": 250,
-        "position_start": [
-            {
-                "x": 755,
-                "y": 560
-            },
-            {
-                "x": 855,
-                "y": 560
-            },
-            {
-                "x": 955,
-                "y": 560
-            },
-            {
-                "x": 1055,
-                "y": 560
-            },
-            {
-                "x": 1155,
-                "y": 560
-            }
-        ],
-        "finx": 208,
-        "finy": 130,
+        "id": "map",
+        "nom": "map",
+        "image": "map",
+        "x": 0,
+        "y": 0,
+        "finx": 0,
+        "finy": 0,
         "desac": true,
-        "scale": 5
+        "parent": "",
+        "scale": 0.5,
+        "musique": "map"
     },
     "boutiques": [
         {
@@ -3067,7 +3156,11 @@
             "id": "albusdemitrescu",
             "type": "boss",
             "desc": "Très grand magicien",
-            "team": 2
+            "team": 2,
+            "inventaire": [],
+            "x": 736,
+            "y": 510,
+            "lieu": "map"
         },
         {
             "nom": "Ergon Proller",
@@ -3609,11 +3702,14 @@
             "mana": 26,
             "id": "angusalfronde",
             "desc": "Un des bras droits des assassins",
-            "team": 1,
+            "team": 2,
             "xcombat": 1169,
             "ycombat": 556,
-            "lieu": "labyrinthesouterrainfjorh",
-            "actif": false
+            "lieu": "map",
+            "actif": false,
+            "inventaire": [],
+            "x": 635,
+            "y": 609
         },
         {
             "nom": "Legolas Malhombre",
@@ -3913,11 +4009,11 @@
             "desc": "",
             "xcombat": 801,
             "ycombat": 509,
-            "lieu": "boutiquearlequin",
+            "lieu": "map",
             "team": 2,
             "actif": false,
-            "x": 342,
-            "y": 538,
+            "x": 791,
+            "y": 605,
             "loot": [
                 {
                     "image": "argent",
@@ -4010,6 +4106,102 @@
                     "prix": 70,
                     "qte": 2,
                     "taux": 80
+                }
+            ],
+            "inventaire": [
+                {
+                    "nom": "Argent",
+                    "image": "argent",
+                    "qte": 53,
+                    "emplacement": "",
+                    "taux": 0,
+                    "prix": 0
+                },
+                {
+                    "emplacement": "Torse",
+                    "image": "armure_doree",
+                    "nom": "Armure dorée",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 120
+                },
+                {
+                    "emplacement": "Bottes",
+                    "image": "bottes_dorees",
+                    "nom": "Bottes dorées",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 60
+                },
+                {
+                    "emplacement": "Tête",
+                    "image": "casque_tissu",
+                    "nom": "Casque en tissu",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 30
+                },
+                {
+                    "emplacement": "Ceinture",
+                    "image": "ceinture_cuir",
+                    "nom": "Ceinture de cuir",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 30
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "image": "epaulieres_dorees",
+                    "nom": "Epaulières dorées",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 90
+                },
+                {
+                    "emplacement": "Gants",
+                    "image": "gants_dores",
+                    "nom": "Gants dorés",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 50
+                },
+                {
+                    "emplacement": "Jambes",
+                    "image": "jambieres_dorees",
+                    "nom": "Jambières dorées",
+                    "qte": 1,
+                    "taux": 0,
+                    "prix": 110
+                },
+                {
+                    "image": "ingredient",
+                    "nom": "Matériaux",
+                    "qte": 3,
+                    "taux": 0,
+                    "prix": 7
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "image": "objets_de_jet",
+                    "nom": "Objets de jet",
+                    "qte": 6,
+                    "taux": 0,
+                    "prix": 9
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "qte": 3,
+                    "taux": 0,
+                    "prix": 8
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "sabre",
+                    "nom": "Sabre",
+                    "qte": 2,
+                    "taux": 0,
+                    "prix": 70
                 }
             ]
         },
@@ -4589,6 +4781,5 @@
         "lance": false,
         "stop": false
     },
-    "mapHeight": 0,
-    "focusQuete": null
+    "mapHeight": 1435
 }

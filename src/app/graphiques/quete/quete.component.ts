@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Quete, Data, Entite, Etape, ObjetInventaire } from 'src/app/model';
+import { Quete, Data, Entite, Etape, ObjetInventaire, pnjQuete } from 'src/app/model';
 
 @Component({
   selector: 'app-quete',
@@ -10,20 +10,16 @@ export class QueteComponent implements OnInit {
 
   @Input() data: Data;
   @Input() perso: Entite;
+  @Input() quetes: Quete[];
 
   public queteAccepter: string;
-  public quetesEnCours: Quete[];
   constructor() { }
 
-  ngOnInit(): void {
-    this.quetesEnCours = this.data.quetes.filter((quete: Quete) =>
-      quete.etapeEnCours.pnj == this.perso.nom
-    );
-  }
-  getSymbole(quete: Quete){
+  ngOnInit(): void { }
+  getSymbole(quete: Quete) {
     if (quete.etatQuete > 0) {
       return '?';
-    }else{
+    } else {
       return '!';
     }
   }
@@ -31,31 +27,34 @@ export class QueteComponent implements OnInit {
 
   accepQuete() {
     if (this.data.focusQuete) {
-      if (this.queteAccepter != this.data.focusQuete.nom) {
-        this.queteAccepter = this.data.focusQuete.nom;
-      } else if (this.queteAccepter == this.data.focusQuete.nom) {
-        this.data.quetes.push(this.data.focusQuete);
+      if (this.queteAccepter != this.data.focusQuete.quete.nom) {
+        this.queteAccepter = this.data.focusQuete.quete.nom;
+      } else if (this.queteAccepter == this.data.focusQuete.quete.nom) {
+        this.data.quetes.push(this.data.focusQuete.quete);
         this.queteAccepter = '';
-        this.data.focusQuete.etatQuete = 1;
-        this.data.focusQuete.accepte = true;
+        this.data.focusQuete.quete.etatQuete = 1;
         let queteFocus = this.data.focusQuete;
-        let nouvelleEtape = this.data.focusQuete.etapes.find((etape: Etape) => etape.id == queteFocus.etapeEnCours.id + 1);
+        let nouvelleEtape = this.data.focusQuete.quete.etapes.find((etape: Etape) => etape.id == queteFocus.quete.etapeEnCours.id + 1);
         if (nouvelleEtape) {
-          this.data.focusQuete.etapeEnCours = nouvelleEtape;
-          this.data.focusQuete = null;
+          this.data.focusQuete.quete.etapeEnCours = nouvelleEtape;
+          this.data.focusQuete = undefined;
         }
       }
     }
+  }
+
+  setQuete(quete: Quete) {
+    this.data.focusQuete = { quete: quete, pnj: this.perso }
   }
 
   etapeSuivante() {
     let debug = true;
     let conditionRespectees = true;
     if (this.data.focusQuete) {
-      let etape = this.data.focusQuete.etapeEnCours;
-      if (etape.objets) {
+      let etape = this.data.focusQuete.quete.etapeEnCours;
+      if (etape.objetsAAvoir) {
         let entitesPresentes = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.id);
-        etape.objets.forEach((objet: ObjetInventaire) => {
+        etape.objetsAAvoir.forEach((objet: ObjetInventaire) => {
           if (conditionRespectees) {
             let nb = 0;
             entitesPresentes.forEach((entite: Entite) => {
@@ -72,7 +71,7 @@ export class QueteComponent implements OnInit {
           }
         });
         if (conditionRespectees) {
-          etape.objets.forEach((objet: ObjetInventaire) => {
+          etape.objetsAAvoir.forEach((objet: ObjetInventaire) => {
             let nb = objet.qte;
             entitesPresentes.forEach((entite: Entite) => {
               if (nb > 0) {
@@ -96,10 +95,10 @@ export class QueteComponent implements OnInit {
       }
       if (conditionRespectees) {
         let queteFocus = this.data.focusQuete;
-        if (queteFocus.etapes.length == queteFocus.etapeEnCours.id) {
+        if (queteFocus.quete.etapes.length == queteFocus.quete.etapeEnCours.id) {
           let entitesJoueurPresentes = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.id);
           let emplacementVide = false;
-          queteFocus.recompenses.forEach((objetRecompense: ObjetInventaire) => {
+          /* queteFocus.recompenses.forEach((objetRecompense: ObjetInventaire) => {
             entitesJoueurPresentes.forEach((entite: Entite) => {
               let itemDejaDansInventaire = entite.inventaire.find((objetDansInventaire: ObjetInventaire) => objetDansInventaire.nom == objetRecompense.nom);
               if (itemDejaDansInventaire) {
@@ -115,15 +114,15 @@ export class QueteComponent implements OnInit {
                 }
               }
             });
-          });
-          this.data.quetes.splice(this.data.quetes.indexOf(queteFocus), 1);
-          this.data.focusQuete = null;
+          }); */
+          this.data.quetes.splice(this.data.quetes.indexOf(queteFocus.quete), 1);
+          this.data.focusQuete = undefined;
         }
-        if (queteFocus.etapeEnCours.id < queteFocus.etapes.length) {
-          let nouvelleEtape = queteFocus.etapes.find((etape: Etape) => etape.id == queteFocus.etapeEnCours.id + 1);
+        if (queteFocus.quete.etapeEnCours.id < queteFocus.quete.etapes.length) {
+          let nouvelleEtape = queteFocus.quete.etapes.find((etape: Etape) => etape.id == queteFocus.quete.etapeEnCours.id + 1);
           if (nouvelleEtape) {
-            queteFocus.etapeEnCours = nouvelleEtape;
-            this.data.focusQuete = null;
+            queteFocus.quete.etapeEnCours = nouvelleEtape;
+            this.data.focusQuete = undefined;
           }
         }
       }

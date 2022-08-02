@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { addEntity, Data, Entite, Etape, Lieu, MenuContextuel, ObjetInventaire, Position, Quete } from '../model';
+import { addEntity, Data, Entite, Etape, Lieu, MenuContextuel, ObjetInventaire, pnjQuete, Position, Quete } from '../model';
 import { of } from 'rxjs';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { PersoService } from '../services/perso.service';
@@ -26,20 +26,26 @@ export class MenuContextuelComponent implements OnInit {
   public nbrQuetes: number;
   public focusQuete: Quete | undefined;
   public queteAccepter: string;
-  public quetesEnCours: Quete[];
+  public quetes: Quete[];
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
     this.x = this.menu.x;
     this.y = this.menu.y;
-    if (this.menu.type == "entite") {
-      this.quetesEnCours = this.data.quetes.filter((quete: Quete) =>
-        quete.etapeEnCours.pnj == this.perso.nom
-      );
-      this.nbrQuetes = this.quetesEnCours.length;
-    }
+  }
 
+  peutDonnerQuetes() {
+    let persosSurMap = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.id).length;
+    this.quetes = this.data.quetes.filter((quete: Quete) =>
+      persosSurMap > 0 &&
+      (quete.donneur == this.perso.nom ||
+        (quete.etapeEnCours
+          && quete.etapeEnCours.pnjsAVoir
+          && quete.etapeEnCours.pnjsAVoir.find((pnjQuete: pnjQuete) => pnjQuete.nom == this.perso.nom && !pnjQuete.vu)))
+    );
+    this.nbrQuetes = this.quetes.length;
+    return this.nbrQuetes > 0;
   }
 
   cdkDragEnded($event: CdkDragEnd) {

@@ -12,7 +12,12 @@ export class Data {
 	public pnjs: Entite[];
 	public repos: Animation;
 	public mapHeight: number;
-	public focusQuete: Quete | null;
+	public focusQuete: focusQuete | undefined;
+}
+
+export class focusQuete {
+	public quete: Quete;
+	public pnj: Entite | undefined;
 }
 
 export class Entite {
@@ -104,17 +109,18 @@ export class ObjetInventaire {
 }
 
 export class Quete {
-	public proprietaire: string;
+	public donneur: string;
+	public description: string;
 	public nom: string;
 	public type: string;
 	public etatQuete: number;
 	public etapeEnCours: Etape;
 	public etapes: Etape[];
-	public recompenses: ObjetInventaire[];
 	public paiement: number;
 	public perso: string;
 	public tableauQuetes: TableauQuetes;
-	public accepte: boolean;
+	public image: string;
+	public accomplie: boolean;
 }
 
 export class TableauQuetes {
@@ -129,8 +135,23 @@ export class Etape {
 	public id: number;
 	public nom: string;
 	public description: string;
-	public pnj: string;
-	public objets: ObjetInventaire[];
+	public pnjsAVoir: pnjQuete[];
+	public objetsAAvoir: ObjetInventaire[];
+	public monstres: monstreQuete[];
+	public recompenses: ObjetInventaire[];
+}
+
+export class pnjQuete {
+	public nom: string;
+	public vu: boolean;
+	public recompenses: ObjetInventaire[];
+	public objetsAAvoir: ObjetInventaire[];
+	public dialogue: string;
+}
+
+export class monstreQuete {
+	public nom: string;
+	public qte: number;
 }
 
 export class Position {
@@ -182,7 +203,7 @@ export class MenuContextuel {
 }
 
 export class addEntity {
-	public menuContextuel: MenuContextuel|undefined;
+	public menuContextuel: MenuContextuel | undefined;
 	public entite: Entite;
 	public team: string;
 }

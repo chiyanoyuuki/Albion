@@ -8,7 +8,7 @@
         <p *ngIf="menu.type=='map'" class="choix" (click)="repos()">Repos</p>
         <p *ngIf="menu.type=='map'" (click)="openWindow('embuscade')" class="choix" >Embuscade</p>
 
-        <p *ngIf="menu.type=='entite'&&nbrQuetes>0" (click)="openWindow('quete')" class="choix">Quetes ({{nbrQuetes}})
+        <p *ngIf="menu.type=='entite'&&peutDonnerQuetes()" (click)="openWindow('quete')" class="choix">Quetes ({{nbrQuetes}})
         </p>
         <p *ngIf="menu.type=='entite'&&perso.boutique" (click)="openWindow('boutique')" class="choix">Boutique</p>
         <p *ngIf="menu.type=='entite'&&data.admin" (click)="openWindow('addObjet')" class="choix"> (A) Ajouter un objet
@@ -28,6 +28,6 @@
     <app-add-item-loot *ngIf="fenetre=='addObjet'" [data]="data" [perso]="perso"></app-add-item-loot>
     <app-modif-map *ngIf="fenetre=='modifMap'" [data]="data"></app-modif-map>
     <app-boutique *ngIf="fenetre=='boutique'" [data]="data" [perso]="perso"></app-boutique>
-    <app-quete *ngIf="fenetre=='quete'" [data]="data" [perso]="perso"></app-quete>
+    <app-quete *ngIf="fenetre=='quete'" [data]="data" [perso]="perso" [quetes]="quetes"></app-quete>
     <app-embuscade *ngIf="fenetre=='embuscade'" [data]="data"></app-embuscade>
 </div>

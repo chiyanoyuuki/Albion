@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="quetes" *ngFor="let quete of getQuetes('secondaire');let i=index">
+        <div class="line" *ngIf="i>0"></div>
+        <div class="quete">
+            <p class="nom">{{quete.nom}}</p>
+            <p class="etape">{{quete.etapeEnCours.id}} - {{quete.etapeEnCours.nom}}</p>
+            <p class="description">{{quete.etapeEnCours.description}}</p>
+            <p *ngFor="let objectif of getObjectifs(quete)">{{objectif}}</p>
+        </div>
+    </div>
+</div>

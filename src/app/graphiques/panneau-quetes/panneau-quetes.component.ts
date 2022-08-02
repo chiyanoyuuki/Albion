@@ -40,6 +40,6 @@ export class PanneauQuetesComponent implements OnInit {
     quete.tableauQuetes.zIndex = taille;
   }
   voirQuete(quete: Quete) {
-    this.data.focusQuete = quete;
+    this.data.focusQuete = {quete:quete,pnj:undefined};
   }
 }

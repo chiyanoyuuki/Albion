@@ -25,17 +25,21 @@ export class PersoService {
     return false;
   }
 
-  ajouterXObjet(perso: Entite, item: ObjetInventaire, x: number) {
-    console.log("Ajouter objet", perso.nom, item.nom, x);
-    let emplacementVide = perso.inventaire.length < 18;
-    let itemDansInventaire = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
-    if (itemDansInventaire) {
-      itemDansInventaire.qte = itemDansInventaire.qte + x;
-      return true;
-    }
-    else if (emplacementVide) {
-      perso.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: x, taux: 0, prix: item.prix });
-      return true;
+  ajouterXObjet(data: Data, perso: Entite, itemToAdd: ObjetInventaire, x: number) {
+    console.log("Ajouter objet", perso.nom, itemToAdd.nom, x);
+    if (itemToAdd.nom == "Argent") { perso.argent += x; return true; }
+    let item = data.objets.find((objet: ObjetInventaire) => itemToAdd.nom == objet.nom);
+    if (item) {
+      let emplacementVide = perso.inventaire.length < 18;
+      let itemDansInventaire = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+      if (itemDansInventaire) {
+        itemDansInventaire.qte = itemDansInventaire.qte + x;
+        return true;
+      }
+      else if (emplacementVide) {
+        perso.inventaire.push({ emplacement: item.emplacement, image: item.image, nom: item.nom, qte: x, taux: 0, prix: item.prix });
+        return true;
+      }
     }
     return false;
   }
@@ -50,12 +54,12 @@ export class PersoService {
     return false;
   }
 
-  addEntity(data:Data, addEntite: addEntity) {
+  addEntity(data: Data, addEntite: addEntity) {
     addEntite.entite.inventaire = [];
     if (addEntite.menuContextuel) {
       addEntite.entite.x = addEntite.menuContextuel.x;
       addEntite.entite.y = addEntite.menuContextuel.y;
-    }else{
+    } else {
       addEntite.entite.x = 200;
       addEntite.entite.y = 200;
     }
@@ -65,31 +69,27 @@ export class PersoService {
     else if (addEntite.team == "Neutre") { addEntite.entite.team = 1; }
     else { addEntite.entite.team = 2; }
 
-    if (!addEntite.entite.solo) {addEntite.entite.nom = this.getNomMonstre(data,addEntite.entite.nom);}
-    if (addEntite.entite.loot)  {this.addLoot(data, addEntite.entite);}
+    if (!addEntite.entite.solo) { addEntite.entite.nom = this.getNomMonstre(data, addEntite.entite.nom); }
+    if (addEntite.entite.loot) { this.addLoot(data, addEntite.entite); }
 
     data.entites.push(addEntite.entite);
   }
 
-  getNomMonstre(data:Data, nom:string)
-  {
-      let nb = 1;
-      data.entites.forEach((entite: Entite) => {
-        if (entite.nom.startsWith(nom)) { nb += 1; }
-      });
-      return nom + ' ' + ('0' + nb).slice(-2);
+  getNomMonstre(data: Data, nom: string) {
+    let nb = 1;
+    data.entites.forEach((entite: Entite) => {
+      if (entite.nom.startsWith(nom)) { nb += 1; }
+    });
+    return nom + ' ' + ('0' + nb).slice(-2);
   }
 
-  addLoot(data:Data, entite:Entite)
-  {
-    entite.loot.forEach((loot: ObjetInventaire) => 
-    {
+  addLoot(data: Data, entite: Entite) {
+    entite.loot.forEach((loot: ObjetInventaire) => {
       if (loot.nom == "Argent") {
         let qte = Math.ceil(Math.random() * loot.qte);
         entite.inventaire.push({ nom: "Argent", image: "argent", qte: qte, emplacement: "", taux: 0, prix: 0 });
       }
-      else 
-      {
+      else {
         let objet = data.objets.find((item: ObjetInventaire) => item.nom == loot.nom);
         if (objet) {
           let inventaire = entite.inventaire;
@@ -97,10 +97,9 @@ export class PersoService {
           for (let i = 0; i < loot.qte; i++) {
             let objetPresent = inventaire.find((item: ObjetInventaire) => item.nom == loot.nom);
             let tmp = Math.random() * 100;
-            if (tmp <= loot.taux) 
-            {
-              if (objetPresent) {objetPresent.qte += 1;}
-              else {inventaire.push({ emplacement: objet.emplacement, image: objet.image, nom: objet.nom, qte: 1, taux: 0, prix: objet.prix });}
+            if (tmp <= loot.taux) {
+              if (objetPresent) { objetPresent.qte += 1; }
+              else { inventaire.push({ emplacement: objet.emplacement, image: objet.image, nom: objet.nom, qte: 1, taux: 0, prix: objet.prix }); }
             }
           }
         }
@@ -108,7 +107,7 @@ export class PersoService {
     });
   }
 
-  joueursPresentsInLieu(data:Data) {
+  joueursPresentsInLieu(data: Data) {
     let persos = data.entites.filter((perso: Entite) => perso.joueur && perso.lieu == data.lieuActuel.id);
     return persos;
   }
