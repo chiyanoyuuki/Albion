@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Data } from '@angular/router';
 import { Observable, Subject, timeout } from 'rxjs';
-import { addEntity, Entite, Equipement, Lieu, ObjetInventaire, Tests } from '../model';
+import { addEntity, Data, Entite, Equipement, Lieu, ObjetInventaire, pnjQuete, Quete, Tests } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +13,12 @@ export class PersoService {
   clickInfosPersos() { this.clickInfosPersosSubject.next(); }
   listenClickInfosPersos() { return this.clickInfosPersosSubject.asObservable(); }
 
+  getItemInventoryByName(perso: Entite, nomItem: string) { return perso.inventaire.find((objet: ObjetInventaire) => objet.nom == nomItem); }
+  getItemByName(data: Data, nomItem: string) { return data.objets.find((objet: ObjetInventaire) => nomItem == objet.nom); }
+
   enleverXObjet(perso: Entite, nomItem: string, x: number) {
     console.log("Enlever objet", perso.nom, nomItem, x);
-    let itemDansInventaire = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == nomItem);
+    let itemDansInventaire = this.getItemInventoryByName(perso, nomItem);
     if (itemDansInventaire) {
       itemDansInventaire.qte = itemDansInventaire.qte - x;
       if (itemDansInventaire.qte == 0) { this.supprimerObjet(perso, itemDansInventaire.nom); }
@@ -28,10 +30,10 @@ export class PersoService {
   ajouterXObjet(data: Data, perso: Entite, itemToAdd: ObjetInventaire, x: number) {
     console.log("Ajouter objet", perso.nom, itemToAdd.nom, x);
     if (itemToAdd.nom == "Argent") { perso.argent += x; return true; }
-    let item = data.objets.find((objet: ObjetInventaire) => itemToAdd.nom == objet.nom);
+    let item = this.getItemByName(data, itemToAdd.nom);
     if (item) {
       let emplacementVide = perso.inventaire.length < 18;
-      let itemDansInventaire = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == item.nom);
+      let itemDansInventaire = this.getItemInventoryByName(perso, itemToAdd.nom);
       if (itemDansInventaire) {
         itemDansInventaire.qte = itemDansInventaire.qte + x;
         return true;
@@ -46,7 +48,7 @@ export class PersoService {
 
   supprimerObjet(perso: Entite, nomItem: string) {
     console.log("Supprimer objet", perso.nom, nomItem);
-    let itemDansInventaire = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == nomItem);
+    let itemDansInventaire = this.getItemInventoryByName(perso, nomItem);
     if (itemDansInventaire) {
       perso.inventaire.splice(perso.inventaire.indexOf(itemDansInventaire), 1);
       return true;
@@ -90,7 +92,7 @@ export class PersoService {
         entite.inventaire.push({ nom: "Argent", image: "argent", qte: qte, emplacement: "", taux: 0, prix: 0 });
       }
       else {
-        let objet = data.objets.find((item: ObjetInventaire) => item.nom == loot.nom);
+        let objet = this.getItemByName(data, loot.nom);
         if (objet) {
           let inventaire = entite.inventaire;
           if (!inventaire) { entite.inventaire = []; inventaire = entite.inventaire; }
@@ -110,6 +112,18 @@ export class PersoService {
   joueursPresentsInLieu(data: Data) {
     let persos = data.entites.filter((perso: Entite) => perso.joueur && perso.lieu == data.lieuActuel.id);
     return persos;
+  }
+
+  peutDonnerQuetes(data: Data, perso: Entite) {
+    let persosSurMap = data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == data.lieuActuel.id).length;
+    let quetes = data.quetes.filter((quete: Quete) =>
+      persosSurMap > 0 &&
+      ((quete.donneur == perso.nom && !quete.accomplie && !quete.etapeEnCours) ||
+        (quete.etapeEnCours
+          && quete.etapeEnCours.pnjsAVoir
+          && quete.etapeEnCours.pnjsAVoir.find((pnjQuete: pnjQuete) => pnjQuete.nom == perso.nom && !pnjQuete.vu)))
+    );
+    return quetes;
   }
 
 }

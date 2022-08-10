@@ -7,19 +7,53 @@
     overflow-y: auto;
 }
 
-.container p {
+p {
     color: white;
 }
 
 .nom {
     text-decoration: underline;
+    font-weight: bold;
+    margin: 5px;
+    color: #cccc99;
+    text-shadow: 2px 2px #000;
 }
 
-.etape {
-    font-style: italic;
+.nom:hover {
+    cursor: pointer;
+    color: #aaaa80;
 }
 
-.nom,
-.etape {
+.description {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #202020dd;
+    margin-bottom: 5px;
+}
+
+.retract {
+    position: absolute;
+    left: -15px;
+}
+
+.retract p {
+    color: white;
+    border: 3px solid black;
+    width: 31px;
+    background-color: #202020dd;
+    left: -19px;
     text-align: center;
+    font-size: 25px;
+}
+
+.etape {
+    text-decoration: underline;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.objectifs {
+    margin-left: 10px;
+    top: -8px;
 }

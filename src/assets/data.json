@@ -1497,6 +1497,7 @@
                     "id": 1,
                     "nom": "Disctuer avec Albus et Angus",
                     "description": "Presque les mêmes noms omg",
+                    "objectif": "Trouver qui détient l'armure dorée",
                     "pnjsAVoir": [
                         {
                             "nom": "Albus Demitrescu",
@@ -1504,9 +1505,14 @@
                                 {
                                     "nom": "Armure dorée",
                                     "qte": 1
+                                },
+                                {
+                                    "nom": "Argent",
+                                    "qte": 100
                                 }
                             ],
-                            "dialogue": "Et oui c'est moi, tiens bg"
+                            "dialogue": "Et oui c'est moi, tiens bg",
+                            "skipToNextStep": true
                         },
                         {
                             "nom": "Angus Alfronde",
@@ -1521,10 +1527,10 @@
                     "pnjsAVoir": [
                         {
                             "nom": "Akshan Lee",
-                            "objetsAAvoir":[
+                            "objetsAAvoir": [
                                 {
-                                    "nom":"Armure dorée",
-                                    "qte":1
+                                    "nom": "Armure dorée",
+                                    "qte": 1
                                 }
                             ],
                             "recompenses": [

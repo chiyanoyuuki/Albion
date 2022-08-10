@@ -8,7 +8,7 @@
     data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
     <source src="../../assets/images/Cinématique.mp4" type='video/mp4' />
 </video>
-<div *ngIf="data.focusQuete" class="fond-gris" (click)="data.focusQuete=undefined"></div>
+<div *ngIf="data.focusQuete" class="fond-gris"></div>
 <app-suivi-quetes [data]="data"></app-suivi-quetes>
 <app-feuille-quete [data]="data" *ngIf="data.focusQuete" style="z-index:6;">
 </app-feuille-quete>

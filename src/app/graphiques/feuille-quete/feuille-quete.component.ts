@@ -20,6 +20,8 @@ export class FeuilleQueteComponent implements OnInit {
   public papierPris: string;
   public recompenses: ObjetInventaire[];
 
+  public focusQuete: boolean = true;
+
   constructor(private appService: AppService, private persosService: PersoService) { }
 
   ngOnInit(): void {
@@ -31,17 +33,6 @@ export class FeuilleQueteComponent implements OnInit {
       let pnjconcerne = this.quete.etapeEnCours.pnjsAVoir.find((pnjQuete: pnjQuete) => pnjQuete.nom == pnj.nom);
       if (pnjconcerne) {
         pnjconcerne.vu = true;
-        if (pnjconcerne.recompenses) {
-          let peuxRecupererObjets: boolean = this.peuxRecupererObjets(pnjconcerne.recompenses);
-          if (peuxRecupererObjets) {
-            this.donnerObjets(pnjconcerne.recompenses);
-          }
-        }
-        let objectifsAccomplis = true;
-        this.quete.etapeEnCours.pnjsAVoir.forEach((pnjQuete: pnjQuete) => {
-          if (!pnjQuete.vu) objectifsAccomplis = false;
-        })
-        if (objectifsAccomplis) { this.etapeSuivante(); }
       }
     }
   }
@@ -52,10 +43,7 @@ export class FeuilleQueteComponent implements OnInit {
       persosSurMap.forEach((perso: Entite) => {
         if (objetsRecompense) {
           objetsRecompense.forEach((objet: ObjetInventaire) => {
-            let resultat = this.persosService.ajouterXObjet(this.data, perso, objet, objet.qte);
-            if (resultat) {
-              objetsRecompense.splice(objetsRecompense.indexOf(objet), 1);
-            }
+            this.persosService.ajouterXObjet(this.data, perso, objet, objet.qte);
           })
 
         }
@@ -118,8 +106,23 @@ export class FeuilleQueteComponent implements OnInit {
     this.quete.accomplie = true;
   }
 
+  verifObjectifs() {
+    let goToNextStep = false;
+    if (this.quete.etapeEnCours) {
+      let objectifsAccomplis = true;
+      this.quete.etapeEnCours.pnjsAVoir.forEach((pnjQuete: pnjQuete) => {
+        if (!pnjQuete.vu) objectifsAccomplis = false;
+        else if (pnjQuete.skipToNextStep) { goToNextStep = true; }
+      })
+      this.quete.etapeEnCours.objetsAAvoir
+      if (objectifsAccomplis || goToNextStep) { this.etapeSuivante(); }
+    }
+
+  }
+
 
   close() {
+    this.verifObjectifs();
     this.data.focusQuete = undefined;
   }
 
@@ -175,7 +178,6 @@ export class FeuilleQueteComponent implements OnInit {
           if (pnjactuel) {
             let pnjQuete = etape.pnjsAVoir.find((pnj: pnjQuete) => pnj.nom == pnjactuel.nom);
             if (pnjQuete && pnjQuete.recompenses) {
-              console.log(pnjQuete.recompenses);
               retour = pnjQuete.recompenses;
             }
           }

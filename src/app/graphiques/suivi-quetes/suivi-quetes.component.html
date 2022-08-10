@@ -1,11 +1,19 @@
-<div class="container">
+<div class="retract">
+    <p class="clickable" (click)="isOpen=!isOpen">{{isOpen?'➡':'⬅'}}</p>
+</div>
+<div class="container" [@openClose]="isOpen?'opened':'closed'">
     <div class="quetes" *ngFor="let quete of getQuetes('secondaire');let i=index">
-        <div class="line" *ngIf="i>0"></div>
-        <div class="quete">
-            <p class="nom">{{quete.nom}}</p>
-            <p class="etape">{{quete.etapeEnCours.id}} - {{quete.etapeEnCours.nom}}</p>
-            <p class="description">{{quete.etapeEnCours.description}}</p>
-            <p *ngFor="let objectif of getObjectifs(quete)">{{objectif}}</p>
+        <div class="quete" *ngIf="isOpen">
+            <p class="nom" (click)="quete.showDesc = !quete.showDesc">{{quete.nom}}</p>
+            <div class="objectifs">
+                <p *ngFor="let objectif of getObjectifs(quete)">- {{objectif}}</p>
+            </div>
+            <div class="description" *ngIf="quete.showDesc">
+                <p class="etape">{{quete.etapeEnCours.id}} - {{quete.etapeEnCours.nom}}</p>
+                <p>{{quete.etapeEnCours.description}}</p>
+            </div>
+           
+
         </div>
     </div>
 </div>

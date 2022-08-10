@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Data } from '@angular/router';
-import { Entite, Equipement, ObjetInventaire, Tests } from '../model';
+import { Data, Entite, Equipement, ObjetInventaire, Tests } from '../model';
 import { PersoService } from './perso.service';
 
 @Injectable({
@@ -61,8 +60,8 @@ export class DragEndPositionsService {
   dragFromPersoInvToPersoInv(data: Data, persoDebut: Entite, persoFin: Entite, item: ObjetInventaire, qte: number) {
     if (persoDebut == persoFin) { return; }
     console.log("Drag from " + persoDebut.nom + " inventaire to " + persoFin.nom + " inventaire :", item.nom, qte);
-      let ok = this.persoService.ajouterXObjet(data, persoFin, item, qte);
-      if (ok) { this.persoService.enleverXObjet(persoDebut, item.nom, qte); }
-    
+    let ok = this.persoService.ajouterXObjet(data, persoFin, item, qte);
+    if (ok) { this.persoService.enleverXObjet(persoDebut, item.nom, qte); }
+
   }
 }

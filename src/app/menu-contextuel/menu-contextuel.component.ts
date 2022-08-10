@@ -28,7 +28,7 @@ export class MenuContextuelComponent implements OnInit {
   public queteAccepter: string;
   public quetes: Quete[];
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private persoService: PersoService) { }
 
   ngOnInit(): void {
     this.x = this.menu.x;
@@ -36,14 +36,8 @@ export class MenuContextuelComponent implements OnInit {
   }
 
   peutDonnerQuetes() {
-    let persosSurMap = this.data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == this.data.lieuActuel.id).length;
-    this.quetes = this.data.quetes.filter((quete: Quete) =>
-      persosSurMap > 0 &&
-      (quete.donneur == this.perso.nom ||
-        (quete.etapeEnCours
-          && quete.etapeEnCours.pnjsAVoir
-          && quete.etapeEnCours.pnjsAVoir.find((pnjQuete: pnjQuete) => pnjQuete.nom == this.perso.nom && !pnjQuete.vu)))
-    );
+    let resultat = this.persoService.peutDonnerQuetes(this.data, this.perso);
+    this.quetes = resultat;
     this.nbrQuetes = this.quetes.length;
     return this.nbrQuetes > 0;
   }
@@ -62,6 +56,9 @@ export class MenuContextuelComponent implements OnInit {
     if (this.menu.type == "entite") {
       this.x = this.x - this.perso.x;
       this.y = this.y - this.perso.y;
+    }
+    if (fenetre == "quete" && this.nbrQuetes == 1) {
+      this.data.focusQuete = { quete: this.quetes[0], pnj: this.perso }
     }
   }
 

@@ -23,6 +23,7 @@
         <p *ngIf="!queteEnCours" (click)="accepQuete()" class="bigText clickable">
             Accepter la quête !
         </p>
+        <p *ngIf="queteEnCours" (click)="close()" class="bigText clickable">Continuer</p>
         <p *ngIf="data.focusQuete&&data.focusQuete.quete.etatQuete == 1" class="bigText">La quête a été acceptée</p>
     </div>
 </div>

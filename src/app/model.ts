@@ -120,6 +120,7 @@ export class Quete {
 	public perso: string;
 	public tableauQuetes: TableauQuetes;
 	public image: string;
+	public showDesc: boolean;
 	public accomplie: boolean;
 }
 
@@ -139,6 +140,7 @@ export class Etape {
 	public objetsAAvoir: ObjetInventaire[];
 	public monstres: monstreQuete[];
 	public recompenses: ObjetInventaire[];
+	public objectif: string;
 }
 
 export class pnjQuete {
@@ -147,6 +149,7 @@ export class pnjQuete {
 	public recompenses: ObjetInventaire[];
 	public objetsAAvoir: ObjetInventaire[];
 	public dialogue: string;
+	public skipToNextStep: boolean;
 }
 
 export class monstreQuete {
