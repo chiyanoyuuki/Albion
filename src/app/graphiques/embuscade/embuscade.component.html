@@ -4,7 +4,7 @@
     </div>
     <div class="width-100 flex column">
         <div>
-            <p class="bigText">Types d'enemis</p>
+            <p class="bigText">Types d'ennemis</p>
         </div>
         <div class="typeEnemi flex around gap-1">
             <p class="clickable bigText" 
@@ -18,7 +18,7 @@
     <div class="flex embuscades around">
         <div class="flex wrap container_enemi">
             <div class="width-100 m-b-20">
-                <p class="bigText m-b-10">Enemis</p>
+                <p class="bigText m-b-10">Ennemis</p>
                 <div class="line"></div>
             </div>
             <div class="blockEnemi flex wrap around">
@@ -33,7 +33,7 @@
         </div>
         <div class="flex column gap-1 container_liste">
             <div class="width-100 m-b-20">
-                <p class="bigText">Liste d'enemis</p>
+                <p class="bigText">Liste d'ennemis</p>
                 <div class="line"></div>
             </div>
             <div class="flex column gap-1 liste">
@@ -52,7 +52,7 @@
         </div>
     </div>
     <div class="line"></div>
-    <div>
+    <div *ngIf="choixEnemi">
         <p class="bigText clickable" (click)="ajoutList()">Ajouter à la liste</p>
     </div>
     <div *ngIf="liste.length>0" class="valider">
