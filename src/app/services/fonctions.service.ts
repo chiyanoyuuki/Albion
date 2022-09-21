@@ -24,7 +24,7 @@ export class FonctionsService {
       }
       else if (type == "inventaire") {
         let quete = data.quetes.find((quete: Quete) => quete.nom == clicked);
-        if (quete) { data.focusQuete = quete; }
+        if (quete) { data.focusQuete = { quete: quete, pnj: undefined }; }
         else {
           let objetClique = perso.inventaire.find((objet: ObjetInventaire) => objet.nom == clicked);
           if (objetClique) {
@@ -35,7 +35,7 @@ export class FonctionsService {
       else if (type == "stuff") {
         let emplacementStuffConcerne = perso.stuff.find((emplacement: Equipement) => emplacement.emplacement == clicked);
         if (emplacementStuffConcerne) {
-          let ok = this.persoService.ajouterXObjet(perso, emplacementStuffConcerne.objet, 1);
+          let ok = this.persoService.ajouterXObjet(data, perso, emplacementStuffConcerne.objet, 1);
           if (ok) { emplacementStuffConcerne.objet = { "emplacement": '', "nom": '', "image": '', qte: 0, taux: 0, prix: 0 }; }
         }
       }
@@ -59,7 +59,7 @@ export class FonctionsService {
           objetClique.qte -= 1;
           if (objetClique.qte == 0) { boutique.objets.splice(boutique.objets.indexOf(objetClique), 1); }
 
-          let res = this.persoService.ajouterXObjet(perso, objetClique, 1);
+          let res = this.persoService.ajouterXObjet(data, perso, objetClique, 1);
           if (res) { perso.argent -= objetClique.prix; }
         }
       }

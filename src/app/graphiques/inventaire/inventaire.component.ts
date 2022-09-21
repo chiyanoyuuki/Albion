@@ -106,10 +106,10 @@ export class InventaireComponent implements OnInit {
         });
 
         if (tests.finiDansStuffAutrePerso) {
-          this.dragEndPositionsServices.dragFromPersoInvToPersoStuff(itemDragged.perso, tests.finiDansStuffAutrePerso, emplacementFocused, tests, item);
+          this.dragEndPositionsServices.dragFromPersoInvToPersoStuff(this.data,itemDragged.perso, tests.finiDansStuffAutrePerso, emplacementFocused, tests, item);
         }
         else if (tests.finiDansInventaireAutrePerso) {
-          this.dragEndPositionsServices.dragFromPersoInvToPersoInv(itemDragged.perso, tests.finiDansInventaireAutrePerso, item, qte);
+          this.dragEndPositionsServices.dragFromPersoInvToPersoInv(this.data,itemDragged.perso, tests.finiDansInventaireAutrePerso, item, qte);
         }
       }
       $event.source._dragRef.reset();

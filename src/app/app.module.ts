@@ -27,6 +27,7 @@ import { AddItemLootComponent } from './graphiques/add-item-loot/add-item-loot.c
 import { ModifMapComponent } from './graphiques/modif-map/modif-map.component';
 import { QueteComponent } from './graphiques/quete/quete.component';
 import { EmbuscadeComponent } from './graphiques/embuscade/embuscade.component';
+import { SuiviQuetesComponent } from './graphiques/suivi-quetes/suivi-quetes.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { EmbuscadeComponent } from './graphiques/embuscade/embuscade.component';
     AddItemLootComponent,
     ModifMapComponent,
     QueteComponent,
-    EmbuscadeComponent
+    EmbuscadeComponent,
+    SuiviQuetesComponent
   ],
   imports: [
     BrowserModule,

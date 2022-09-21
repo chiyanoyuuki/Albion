@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { addEntity, Data, Entite, Etape, Lieu, MenuContextuel, ObjetInventaire, Position, Quete } from '../model';
+import { addEntity, Data, Entite, Etape, Lieu, MenuContextuel, ObjetInventaire, pnjQuete, Position, Quete } from '../model';
 import { of } from 'rxjs';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { PersoService } from '../services/perso.service';
@@ -26,20 +26,20 @@ export class MenuContextuelComponent implements OnInit {
   public nbrQuetes: number;
   public focusQuete: Quete | undefined;
   public queteAccepter: string;
-  public quetesEnCours: Quete[];
+  public quetes: Quete[];
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private persoService: PersoService) { }
 
   ngOnInit(): void {
     this.x = this.menu.x;
     this.y = this.menu.y;
-    if (this.menu.type == "entite") {
-      this.quetesEnCours = this.data.quetes.filter((quete: Quete) =>
-        quete.etapeEnCours.pnj == this.perso.nom
-      );
-      this.nbrQuetes = this.quetesEnCours.length;
-    }
+  }
 
+  peutDonnerQuetes() {
+    let resultat = this.persoService.peutDonnerQuetes(this.data, this.perso);
+    this.quetes = resultat;
+    this.nbrQuetes = this.quetes.length;
+    return this.nbrQuetes > 0;
   }
 
   cdkDragEnded($event: CdkDragEnd) {
@@ -56,6 +56,9 @@ export class MenuContextuelComponent implements OnInit {
     if (this.menu.type == "entite") {
       this.x = this.x - this.perso.x;
       this.y = this.y - this.perso.y;
+    }
+    if (fenetre == "quete" && this.nbrQuetes == 1) {
+      this.data.focusQuete = { quete: this.quetes[0], pnj: this.perso }
     }
   }
 

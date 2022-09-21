@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Entite, Data } from 'src/app/model';
+import { Entite, Data, Quete } from 'src/app/model';
+import { PersoService } from 'src/app/services/perso.service';
 
 @Component({
   selector: 'app-infos-entite',
@@ -14,8 +15,11 @@ export class InfosEntiteComponent implements OnInit {
   public formulaire: string;
   public quantite: string;
 
-  constructor() {}
-  ngOnInit(): void {}
+  public atLeastOneQuestStarted: boolean;
+  public nbrQuetes: number;
+
+  constructor(private persoService: PersoService) { }
+  ngOnInit(): void { }
 
 
   getNom() {
@@ -34,6 +38,16 @@ export class InfosEntiteComponent implements OnInit {
     if (this.perso.pdv == 0 && this.perso.id != "coffre") { return 'Mort'; }
     if (this.perso.etat) { return this.perso.etat; }
     return 'Bonne santé';
+  }
+
+  peutDonnerQuetes() {
+    let resultat = this.persoService.peutDonnerQuetes(this.data, this.perso);
+    this.nbrQuetes = resultat.length;
+    this.atLeastOneQuestStarted = false;
+    resultat.forEach((quete: Quete) => {
+      if (quete.etapeEnCours) { this.atLeastOneQuestStarted = true; }
+    })
+    return this.nbrQuetes > 0;
   }
 
 }
