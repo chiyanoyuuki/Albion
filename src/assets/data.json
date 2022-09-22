@@ -2529,7 +2529,68 @@
             "manamax": 18,
             "mana": 18,
             "id": "gontrand",
-            "desc": "Mercenaire originaire de Ghrain"
+            "desc": "Mercenaire originaire de Ghrain",
+            "loot": [
+                {
+                    "emplacement": "Torse",
+                    "image": "armure_chevalier",
+                    "nom": "Armure de Chevalier",
+                    "prix": 90,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "image": "bandages",
+                    "nom": "Bandages",
+                    "prix": 10,
+                    "qte": 2,
+                    "taux": 80
+                },
+                {
+                    "emplacement": "Jambes",
+                    "image": "jambieres_chevalier",
+                    "nom": "Jambières de Chevalier",
+                    "prix": 70,
+                    "qte": 1,
+                    "taux": 60
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "epee_argent",
+                    "nom": "Epée d'argent",
+                    "prix": 70,
+                    "qte": 1,
+                    "taux": 40
+                },
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 80,
+                    "taux": 1
+                },
+                {
+                    "image": "antidote",
+                    "nom": "Antidote",
+                    "prix": 10,
+                    "qte": 2,
+                    "taux": 30
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "image": "objets_de_jet",
+                    "nom": "Objets de jet",
+                    "prix": 9,
+                    "qte": 2,
+                    "taux": 30
+                },
+                {
+                    "image": "contrat",
+                    "nom": "Contrat traque assassins",
+                    "prix": 1,
+                    "qte": 1,
+                    "taux": 100
+                }
+            ]
         },
         {
             "nom": "Soldat",
@@ -2753,7 +2814,36 @@
             "manamax": 20,
             "mana": 20,
             "id": "donalbert",
-            "desc": "Barman de la ville de Fjorh, chaleureux."
+            "desc": "Barman de la ville de Fjorh, chaleureux.",
+            "loot": [
+                {
+                    "image": "tablier_de_tavernier",
+                    "nom": "Tablier de tavernier",
+                    "prix": 1,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "image": "chope",
+                    "nom": "Chope",
+                    "prix": 3,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "image": "cle",
+                    "nom": "Clef de la taverne",
+                    "prix": 1,
+                    "qte": 1,
+                    "taux": 80
+                },
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 30,
+                    "taux": 1
+                }
+            ]
         },
         {
             "nom": "Stigius",
@@ -2765,7 +2855,43 @@
             "manamax": 8,
             "mana": 8,
             "id": "stigius",
-            "desc": "Apprenti prêtre de Fjorh, maître soigneur de Sienna"
+            "desc": "Apprenti prêtre de Fjorh, maître soigneur de Sienna",
+            "loot": [
+                {
+                    "image": "antidote",
+                    "nom": "Antidote",
+                    "prix": 10,
+                    "qte": 3,
+                    "taux": 70
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "prix": 8,
+                    "qte": 3,
+                    "taux": 70
+                },
+                {
+                    "image": "bandages",
+                    "nom": "Bandages",
+                    "prix": 10,
+                    "qte": 2,
+                    "taux": 50
+                },
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 15,
+                    "taux": 1
+                },
+                {
+                    "image": "ingredient",
+                    "nom": "Matériaux",
+                    "prix": 7,
+                    "qte": 2,
+                    "taux": 30
+                }
+            ]
         },
         {
             "nom": "Kayn Proks",
@@ -2779,7 +2905,107 @@
             "id": "kaynproks",
             "type": "boss",
             "desc": "Un des 4 bras droits armés du roi de Fjorh",
-            "overrideX": 27
+            "overrideX": 27,
+            "loot": [
+                {
+                    "emplacement": "Bottes",
+                    "image": "bottes_ebonite",
+                    "nom": "Bottes d'Ebonite",
+                    "prix": 80,
+                    "qte": 1,
+                    "taux": 50
+                },
+                {
+                    "emplacement": "Torse",
+                    "image": "armure_ebonite",
+                    "nom": "Armure d'Ebonite",
+                    "prix": 250,
+                    "qte": 1,
+                    "taux": 50
+                },
+                {
+                    "emplacement": "Gants",
+                    "image": "gants_ebonite",
+                    "nom": "Gants d'Ebonite",
+                    "prix": 70,
+                    "qte": 1,
+                    "taux": 50
+                },
+                {
+                    "emplacement": "Epaulieres",
+                    "image": "epaulieres_ebonite",
+                    "nom": "Epaulières d'Ebonite",
+                    "prix": 130,
+                    "qte": 1,
+                    "taux": 50
+                },
+                {
+                    "emplacement": "Jambes",
+                    "image": "jambieres_ebonite",
+                    "nom": "Jambières en Ebonite",
+                    "prix": 170,
+                    "qte": 1,
+                    "taux": 50
+                },
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 100,
+                    "taux": 1
+                },
+                {
+                    "emplacement": "Tête",
+                    "image": "casque_ebonite",
+                    "nom": "Casque en Ebonite",
+                    "prix": 90,
+                    "qte": 1,
+                    "taux": 50
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "lance_ebonite",
+                    "nom": "Lance en Ebonite",
+                    "prix": 250,
+                    "qte": 1,
+                    "taux": 50
+                },
+                {
+                    "image": "antidote",
+                    "nom": "Antidote",
+                    "prix": 10,
+                    "qte": 1,
+                    "taux": 50
+                },
+                {
+                    "image": "cristal",
+                    "nom": "Cristal de forge",
+                    "prix": 50,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "gros_cristaux",
+                    "nom": "Gros Cristaux",
+                    "prix": 15,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "emplacement": "Utilitaire",
+                    "image": "objets_de_jet",
+                    "nom": "Objets de jet",
+                    "prix": 9,
+                    "qte": 3,
+                    "taux": 30
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "prix": 8,
+                    "qte": 1,
+                    "taux": 30
+                }
+            ]
         },
         {
             "nom": "Sam Bells",
@@ -2830,6 +3056,44 @@
                     "niveau": 5,
                     "pdvmax": 28,
                     "manamax": 16
+                }
+            ],
+            "loot": [
+                {
+                    "emplacement": "Arme",
+                    "image": "dague_en_acier",
+                    "nom": "Dague en Acier",
+                    "prix": 40,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 20,
+                    "taux": 1
+                },
+                {
+                    "image": "bandages",
+                    "nom": "Bandages",
+                    "prix": 10,
+                    "qte": 2,
+                    "taux": 30
+                },
+                {
+                    "emplacement": "Torse",
+                    "image": "armure_renforcee_en_cuir",
+                    "nom": "Armure renforcée en cuir (Usée)",
+                    "prix": 45,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "prix": 8,
+                    "qte": 1,
+                    "taux": 30
                 }
             ]
         },
@@ -3379,6 +3643,43 @@
                     "pdvmax": 22,
                     "manamax": 30
                 }
+            ],
+            "loot": [
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "prix": 8,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "crochets",
+                    "nom": "Crochets",
+                    "prix": 5,
+                    "qte": 5,
+                    "taux": 30
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "dague_usee",
+                    "nom": "Dague Usée",
+                    "prix": 10,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "bandages",
+                    "nom": "Bandages",
+                    "prix": 10,
+                    "qte": 2,
+                    "taux": 30
+                },
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 15,
+                    "taux": 1
+                }
             ]
         },
         {
@@ -3504,13 +3805,26 @@
                     "manamax": 20
                 }
             ],
-            "team": 1
+            "team": 1,
+            "loot": [
+                {
+                    "image": "patte_araignee",
+                    "nom": "Patte d'araignée géante",
+                    "prix": 7,
+                    "qte": 2,
+                    "taux": 30
+                }
+            ]
         },
         {
             "nom": "Araignée Matriarche",
             "image": "araigneeboss",
             "solo": false,
             "niveau": 1,
+            "pdv": 20,
+            "mana": 8,
+            "pdvmax": 20,
+            "manamax": 8,
             "id": "araigneeboss",
             "type": "monstres",
             "overrideX": 25,
@@ -3539,6 +3853,15 @@
                     "niveau": 5,
                     "pdvmax": 50,
                     "manamax": 20
+                }
+            ],
+            "loot": [
+                {
+                    "image": "patte_araignee_matriarche",
+                    "nom": "Patte d'araignée matriarche",
+                    "prix": 10,
+                    "qte": 2,
+                    "taux": 30
                 }
             ]
         },
@@ -3580,6 +3903,22 @@
                     "pdvmax": 50,
                     "manamax": 20
                 }
+            ],
+            "loot": [
+                {
+                    "image": "patte_rat_geant",
+                    "nom": "Patte de Rat Géant",
+                    "prix": 6,
+                    "qte": 2,
+                    "taux": 30
+                },
+                {
+                    "image": "queue_rat_geant",
+                    "nom": "Queue de Rat Géant",
+                    "prix": 9,
+                    "qte": 1,
+                    "taux": 30
+                }
             ]
         },
         {
@@ -3587,6 +3926,10 @@
             "image": "ratboss",
             "solo": false,
             "niveau": 1,
+            "pdv": 20,
+            "mana": 8,
+            "pdvmax": 20,
+            "manamax": 8,
             "type": "monstres",
             "id": "ratboss",
             "overrideX": 32,
@@ -3616,6 +3959,22 @@
                     "pdvmax": 50,
                     "manamax": 20
                 }
+            ],
+            "loot": [
+                {
+                    "image": "patte_rat_patriarche",
+                    "nom": "Patte de Rat Patriarche",
+                    "prix": 18,
+                    "qte": 2,
+                    "taux": 30
+                },
+                {
+                    "image": "queue_rat_patriarche",
+                    "nom": "Queue de Rat Patriarche",
+                    "prix": 18,
+                    "qte": 1,
+                    "taux": 30
+                }
             ]
         },
         {
@@ -3629,7 +3988,73 @@
             "manamax": 48,
             "mana": 48,
             "id": "troll",
-            "overrideX": 35
+            "overrideX": 35,
+            "loot": [
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 70,
+                    "taux": 1
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "epee_argent",
+                    "nom": "Epée d'argent",
+                    "prix": 70,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "emplacement": "Tête",
+                    "image": "casque_ebonite",
+                    "nom": "Casque en Ebonite",
+                    "prix": 90,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "antidote",
+                    "nom": "Antidote",
+                    "prix": 10,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "potion",
+                    "nom": "Potions",
+                    "prix": 8,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "saphir",
+                    "nom": "Saphir étrange",
+                    "prix": 150,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "petit_cristaux",
+                    "nom": "Petits Cristaux",
+                    "prix": 8,
+                    "qte": 2,
+                    "taux": 30
+                },
+                {
+                    "image": "gros_cristaux",
+                    "nom": "Gros Cristaux",
+                    "prix": 15,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "tete_troll",
+                    "nom": "Tête de troll",
+                    "prix": 50,
+                    "qte": 1,
+                    "taux": 30
+                }
+            ]
         },
         {
             "nom": "Jeune Troll",
@@ -3668,6 +4093,44 @@
                     "niveau": 5,
                     "pdvmax": 50,
                     "manamax": 20
+                }
+            ],
+            "loot": [
+                {
+                    "image": "tete_troll",
+                    "nom": "Tête de troll",
+                    "prix": 50,
+                    "qte": 1,
+                    "taux": 20
+                },
+                {
+                    "image": "argent",
+                    "nom": "Argent",
+                    "qte": 20,
+                    "taux": 1
+                },
+                {
+                    "emplacement": "Arme",
+                    "image": "epee_rouillee",
+                    "nom": "Epée Rouillée",
+                    "prix": 25,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "emplacement": "Torse",
+                    "image": "armure_renforcee_en_cuir",
+                    "nom": "Armure renforcée en cuir (Usée)",
+                    "prix": 45,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "fleches",
+                    "nom": "Flèches",
+                    "prix": 2,
+                    "qte": 15,
+                    "taux": 30
                 }
             ]
         },
@@ -3985,6 +4448,29 @@
                     "pdvmax": 36,
                     "manamax": 16
                 }
+            ],
+            "loot": [
+                {
+                    "image": "peau_loup",
+                    "nom": "Peaux de loup",
+                    "prix": 7,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "viande_loup",
+                    "nom": "Viande de loup",
+                    "prix": 4,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "croc_loup",
+                    "nom": "Croc de loup",
+                    "prix": 8,
+                    "qte": 1,
+                    "taux": 30
+                }
             ]
         },
         {
@@ -4025,6 +4511,29 @@
                     "niveau": 5,
                     "pdvmax": 36,
                     "manamax": 16
+                }
+            ],
+            "loot": [
+                {
+                    "image": "peau_ours",
+                    "nom": "Peau d'ours",
+                    "prix": 15,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "griffe_ours",
+                    "nom": "Griffe d'ours",
+                    "prix": 8,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "bile_ours",
+                    "nom": "Bile d'ours",
+                    "prix": 8,
+                    "qte": 1,
+                    "taux": 30
                 }
             ]
         },
@@ -4067,6 +4576,22 @@
                     "pdvmax": 36,
                     "manamax": 16
                 }
+            ],
+            "loot": [
+                {
+                    "image": "tete_serpent",
+                    "nom": "Tête de serpent",
+                    "prix": 7,
+                    "qte": 1,
+                    "taux": 30
+                },
+                {
+                    "image": "venin_serpent",
+                    "nom": "Venin de serpent",
+                    "prix": 7,
+                    "qte": 1,
+                    "taux": 30
+                }
             ]
         },
         {
@@ -4078,7 +4603,7 @@
             "pdvmax": 16,
             "pdv": 16,
             "manamax": 8,
-            "mana": 10,
+            "mana": 8,
             "id": "sanglier",
             "levels": [
                 {
@@ -4157,10 +4682,36 @@
             "prix": 10
         },
         {
+            "nom": "Chope",
+            "image": "chope",
+            "prix": 3
+        },
+        {
+            "nom": "Tablier de tavernier",
+            "image": "tablier_de_tavernier",
+            "prix": 1
+        },
+        {
+            "nom": "Clef de la taverne",
+            "image": "cle",
+            "prix": 1
+        },
+        {
+            "nom": "Tête de troll",
+            "image": "tete_troll",
+            "prix": 50
+        },
+        {
             "emplacement": "Arme",
             "nom": "Arc",
             "image": "arc",
             "prix": 25
+        },
+        {
+            "emplacement": "Arme",
+            "nom": "Lance en Ebonite",
+            "image": "lance_ebonite",
+            "prix": 250
         },
         {
             "emplacement": "Arme",
@@ -4177,6 +4728,12 @@
             "nom": "Armure de Chevalier",
             "image": "armure_chevalier",
             "prix": 90
+        },
+        {
+            "emplacement": "Torse",
+            "nom": "Armure d'Ebonite",
+            "image": "armure_ebonite",
+            "prix": 250
         },
         {
             "emplacement": "Torse",
@@ -4298,9 +4855,25 @@
             "prix": 70
         },
         {
+            "emplacement": "Jambes",
+            "nom": "Jambières en Ebonite",
+            "image": "jambieres_ebonite",
+            "prix": 170
+        },
+        {
             "nom": "Manuel de Survie",
             "image": "livre",
             "prix": 5
+        },
+        {
+            "nom": "Tête de serpent",
+            "image": "tete_serpent",
+            "prix": 7
+        },
+        {
+            "nom": "Venin de serpent",
+            "image": "venin_serpent",
+            "prix": 7
         },
         {
             "nom": "Matériaux",
@@ -4365,6 +4938,21 @@
             "prix": 9
         },
         {
+            "nom": "Peau d'ours",
+            "image": "peau_ours",
+            "prix": 15
+        },
+        {
+            "nom": "Griffe d'ours",
+            "image": "griffe_ours",
+            "prix": 8
+        },
+        {
+            "nom": "Bile d'ours",
+            "image": "bile_ours",
+            "prix": 8
+        },
+        {
             "nom": "Queue de Rat Patriarche",
             "image": "queue_rat_patriarche",
             "prix": 18
@@ -4403,6 +4991,12 @@
             "prix": 30
         },
         {
+            "emplacement": "Tête",
+            "nom": "Casque en Ebonite",
+            "image": "casque_ebonite",
+            "prix": 90
+        },
+        {
             "emplacement": "Torse",
             "nom": "Armure dorée",
             "image": "armure_doree",
@@ -4421,6 +5015,12 @@
             "prix": 50
         },
         {
+            "emplacement": "Gants",
+            "nom": "Gants d'Ebonite",
+            "image": "gants_ebonite",
+            "prix": 70
+        },
+        {
             "emplacement": "Ceinture",
             "nom": "Ceinture de cuir",
             "image": "ceinture_cuir",
@@ -4431,6 +5031,12 @@
             "nom": "Bottes dorées",
             "image": "bottes_dorees",
             "prix": 60
+        },
+        {
+            "emplacement": "Bottes",
+            "nom": "Bottes d'Ebonite",
+            "image": "bottes_ebonite",
+            "prix": 80
         },
         {
             "emplacement": "Jambes",
@@ -4445,6 +5051,12 @@
             "prix": 90
         },
         {
+            "emplacement": "Epaulieres",
+            "nom": "Epaulières d'Ebonite",
+            "image": "epaulieres_ebonite",
+            "prix": 130
+        },
+        {
             "emplacement": "Torse",
             "nom": "Tunique de cuir renforcée",
             "image": "tunique_cuir_renforcee",
@@ -4454,6 +5066,11 @@
             "nom": "Patte d'araignée géante",
             "image": "patte_araignee",
             "prix": 7
+        },
+        {
+            "nom": "Patte d'araignée matriarche",
+            "image": "patte_araignee_matriarche",
+            "prix": 10
         }
     ],
     "positionsStuff": [
