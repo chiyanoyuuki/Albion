@@ -1,22 +1,24 @@
-<div [@fadeIn]="getEtat()" (contextmenu)="clicDroitMap($event)" (click)="clicMap($event)">
+<div [@fadeIn]="getEtat()" (contextmenu)="clicDroitMap($event)">
 
-    <app-background [data]="data"></app-background>
+    <app-background [data]="data" [disableClickMap]="disableClickMap">
+    </app-background>
 
     <!-- ========================== LIEUX ========================== -->
 
-    <app-lieux [data]="data" (mouseenter)="noClickMap=true" (mouseleave)="noClickMap=false"></app-lieux>
+    <app-lieux [data]="data" (mouseenter)="disableClickMap=true" (mouseleave)="disableClickMap=false"></app-lieux>
 
     <!-- ========================== PERSONNAGES ========================== -->
 
-    <app-entites        [data]="data" class="entites"           (mouseenter)="noClickMap=true" (mouseleave)="noClickMap=false"> </app-entites>
-    <app-panneau-quetes [data]="data" class="panneau_quetes"    (mouseenter)="noClickMap=true" (mouseleave)="noClickMap=false" *ngIf="data.lieuActuel.nom=='Panneau de Quêtes'">
+    <app-entites [data]="data" class="entites" (mouseenter)="disableClickMap=true" (mouseleave)="disableClickMap=false">
+    </app-entites>
+    <app-panneau-quetes [data]="data" class="panneau_quetes" (mouseenter)="disableClickMap=true"
+        (mouseleave)="disableClickMap=false" *ngIf="data.lieuActuel.nom=='Panneau de Quêtes'">
     </app-panneau-quetes>
 
     <!-- ========================== MENU CONTEXTUEL ========================== -->
 
     <app-menu-contextuel class="menuContextuel" *ngIf="menuContextuel!=undefined" [menu]="menuContextuel" [data]="data"
-        (closeEvent)="menuContextuel=undefined" (addEntityEvent)="addEntity($event)" (mouseenter)="noClickMap=true"
-        (mouseleave)="noClickMap=false">
+        (mouseenter)="disableClickMap=true" (mouseleave)="disableClickMap=false">
     </app-menu-contextuel>
 
 </div>

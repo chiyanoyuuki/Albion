@@ -9,10 +9,11 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class BackgroundComponent implements OnInit {
   @Input() data: Data;
+  @Input() disableClickMap: boolean;
 
   public cataclysme: boolean;
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +33,18 @@ export class BackgroundComponent implements OnInit {
       if (campdesaventuriers) {
         campdesaventuriers.parent = "map";
       }
+    }
+  }
+
+  clicMap(event: MouseEvent) {
+    if (!this.disableClickMap) { this.appService.triggerFermetureFenetres(); }
+  }
+
+  imageLoaded() {
+    let map = document.getElementById("map");
+    if (map) {
+      let height = map.offsetHeight;
+      this.data.mapHeight = height;
     }
   }
 

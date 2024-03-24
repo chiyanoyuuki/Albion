@@ -1,29 +1,13 @@
-<div *ngIf="perso.joueur" class="flex">
+<div class="flex">
 
-    <div class="containerStuff" [style.z-index]="(fenetreFocused=='stuff'&&!data.itemDragged)?8:2"
-        (mouseover)="fenetreFocused='stuff'" cdkDrag>
-        <p class="croix clickable" (click)="close()">X</p>
+    <app-stuff *ngIf="perso.joueur" class="containerStuff"
+        [style.z-index]="(fenetreFocused=='stuff'&&!data.itemDragged)?8:2" (mouseenter)="fenetreFocused='stuff'"
+        [data]="data" [perso]="perso" cdkDrag></app-stuff>
 
-        <img class="personnage" src="../../../assets/images/entites/{{perso.image}}.png">
-
-        <div class="objet" *ngFor="let emplacement of perso.stuff" id="{{perso.nom}}{{emplacement.emplacement}}"
-            (mouseover)="objetActifStuff = emplacement" (mouseleave)="objetActifStuff = undefined;gain = ''"
-            [style.left]="getLeft(emplacement)" [style.top]="getTop(emplacement)"
-            [style.z-index]="objetActifStuff == emplacement?9:2" (click)="clickGainStuff(perso, emplacement)"
-            [style.filter]="isEmplacementFocused(emplacement)?'brightness(300%)':'brightness(100%)'">
-            <img *ngIf="emplacement.objet.image" src="./assets/images/items/{{ emplacement.objet.image }}.png" />
-            <div class="nomItem">
-                <p [hidden]="objetActifStuff != emplacement">{{gain == emplacement.objet.nom && gain != '' ? 'Confirmer
-                    enlever ?' : emplacement.objet.nom}}</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="containerStats"
+    <div class="containerStats" [style.height]="!perso.joueur?'275px':'300px'"
         [style.z-index]="(fenetreFocused=='stats'&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?8:2"
-        [cdkDragDisabled]="objetActifInventaire!=undefined" (mouseover)="fenetreFocused='stats'" cdkDrag>
-        <p class="croix clickable" (click)="close()">X</p>
+        [cdkDragDisabled]="objetActifInventaire!=undefined" (mouseenter)="fenetreFocused='stats'" cdkDrag>
+        <p class="croix clickable" (click)="perso.actif=false">X</p>
         <!-- PARTIE HAUTE -->
         <div class="flex">
             <div class="groupeHautGauche">
@@ -31,24 +15,22 @@
                     <div class="hautGauche">
                         <div class="flex">
                             <div class="iconeEtGolds">
-                                <img *ngIf="perso.forme" class="icone" (click)="changeForme()"
+                                <img *ngIf="perso.joueur" class="icone" (click)="changeForme()"
                                     src="./assets/images/entites/minias/{{perso.forme.image}}.png">
+                                <img *ngIf="!perso.joueur" class="icone" (click)="changeForme()"
+                                    src="./assets/images/entites/minias/{{perso.image}}.png">
                             </div>
 
                             <div class="data">
                                 <p class="nom bigText">{{perso.nom}}</p>
                                 <div class="etat flex">
-                                    <p class="clickable" (click)="formulaire='etat'">
-                                        {{perso.etat}}</p>
+                                    <p class="clickable" (click)="formulaire='etat'">{{getEtat()}}</p>
                                     <app-formulaire *ngIf="formulaire=='etat'" [perso]="perso" [formulaire]="formulaire"
                                         (closeForm)="formulaire=''"></app-formulaire>
                                 </div>
-                                <p class="niveau clickable bigText" (click)="clickGain(perso, 'Niveau')">{{gain ==
-                                    'Niveau'
-                                    ?
-                                    'Confirmer
-                                    gain ?' : 'Niveau'}}
-                                    {{ gain != "Niveau" ? perso.niveau : "" }}</p>
+                                <p class="niveau clickable bigText" (click)="clickGain(perso, 'Niveau','niveau')">
+                                    {{gain=='Niveau'?'Confirmer gain ?' : 'Niveau'}}{{ gain != "Niveau" ? perso.niveau :
+                                    "" }}</p>
                             </div>
                         </div>
 
@@ -79,18 +61,18 @@
                         </div>
                     </div>
 
-                    <div class="groupeHautDroite">
+                    <div class="groupeHautDroite" *ngIf="perso.joueur">
 
                         <p class="bigText">Statistiques</p>
-                        <p class="clickable" *ngFor="let stat of perso.stats" (click)="clickGain(perso, stat.nom)">
-                            {{gain ==
-                            stat.nom ? 'Confirmer gain ?' : stat.nom}} {{
-                            gain != stat.nom ? stat.qte : "" }}</p>
+                        <p class="clickable" *ngFor="let stat of perso.stats"
+                            (click)="clickGain(perso, stat.nom,'stat')">
+                            {{gain ==stat.nom ? 'Confirmer gain ?' : stat.nom}} {{gain != stat.nom ? stat.qte : "" }}
+                        </p>
                     </div>
 
                 </div>
 
-                <div class="flex end">
+                <div class="flex end" *ngIf="perso.joueur">
 
                     <div class="containerGolds flex">
                         <div class="flex golds clickable" (click)="formulaire='gold'">
@@ -115,187 +97,12 @@
                     (click)="ongletActif = 'inventaire'">Inventaire</p>
                 <p class="choix" [style.color]="ongletActif=='sorts'?'white':'black'" (click)="ongletActif = 'sorts'">
                     Sorts</p>
-                <p class="choix" [style.color]="ongletActif=='quetesPrincipales'?'white':'black'"
-                    (click)="ongletActif = 'quetesPrincipales'">Quêtes principales</p>
-                <p class="choix" [style.color]="ongletActif=='quetesSecondaires'?'white':'black'"
-                    (click)="ongletActif = 'quetesSecondaires'">Quêtes secondaires</p>
             </div>
 
-            <div class="inventaire" *ngIf="ongletActif == 'inventaire'" id="inventaire{{perso.nom}}">
-                <div class="objet" id="{{perso.nom}}{{item.nom}}" *ngFor="let item of getInventaire()"
-                    (mouseover)="item.nom!=''?objetActifInventaire = item:null"
-                    (mouseout)="objetActifInventaire = undefined;gain = ''"
-                    [style.z-index]="(itemDragged == item.nom&&itemDragged!='')||(objetActifInventaire&&objetActifInventaire.nom==item.nom)?9:2"
-                    (click)="clickGain(perso, item.nom)">
-                    <img *ngIf="item.image" src="./assets/images/items/{{ item.image }}.png"
-                        (cdkDragEnded)="dragEnd($event,item)" (cdkDragStarted)="dragStart(item)" cdkDrag />
-                    <div class="nomItem">
-                        <p [hidden]="objetActifInventaire != item">{{gain == item.nom && gain != '' ? 'Confirmer
-                            utilisation ?' : item.nom}}</p>
-                    </div>
-                    <p *ngIf="item.qte>0" class="qteObjet">{{item.qte}}</p>
-                </div>
-            </div>
-            <app-feuille-quete [focusQuete]="focusQuete" [ongletActif]="ongletActif" [data]="data" *ngIf="focusQuete!=undefined"></app-feuille-quete>
-
-            <div class="inventaire" *ngIf="ongletActif == 'sorts'">
-                <div class="objet" *ngFor="let sort of getSorts()" (mouseover)="sortActif = sort"
-                    (mouseleave)="sortActif = undefined">
-                    <img *ngIf="sort.image" src="./assets/images/sorts/{{ sort.image }}.png" />
-                    <div class="nomItem">
-                        <p [hidden]="sortActif != sort">{{sort.nom}}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quetes" *ngIf="ongletActif == 'quetesPrincipales'">
-                <div *ngFor="let quete of getQuetesPrincipales();let i=index">
-                    <div class="line" *ngIf="i!=0"></div>
-                    <p class="bigText">{{quete.nom}}</p>
-                    <p>{{quete.etapeEnCours.description}}</p>
-                    <p class="bold">Etape {{quete.etapeEnCours.id}} : {{quete.etapeEnCours.nom}}</p>
-                </div>
-            </div>
-
-            <div class="quetes" *ngIf="ongletActif == 'quetesSecondaires'">
-                <div *ngFor="let quete of getQuetesSecondaires();let i=index">
-                    <div class="line" *ngIf="i!=0"></div>
-                    <p class="bigText">{{quete.nom}}</p>
-                    <p>{{quete.etapeEnCours.description}}</p>
-                    <p class="bold">Etape {{quete.etapeEnCours.id}} : {{quete.etapeEnCours.nom}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- BOUTIQUE -->
-
-<div *ngIf="boutiquePerso()" class="containerVendeur" cdkDrag>
-    <p class="croix clickable" (click)="close()">X</p>
-    <p class="bigText">{{data.lieuActuel.nom}}</p>
-    <div class="containerBoutique m-t-20">
-        <div class="navPerso flex center">
-            <div *ngFor="let perso of persoPresentInLieu();let i=index" class="clickable flex align-center perso"
-                (click)="focusPersoBoutique = perso">
-                <div class="separator" *ngIf="i!=0"></div>
-                <p>{{perso.nom}}</p>
-            </div>
-        </div>
-        <div class="flex between m-t-20">
-            <div class="inventairePersoBoutique flex between column" *ngIf="focusPersoBoutique">
-                <div class="flex around align-center width-100">
-                    <div>
-                        <img *ngIf="focusPersoBoutique.forme" class="icone"
-                            src="./assets/images/entites/minias/{{focusPersoBoutique.forme.image}}.png">
-                    </div>
-                    <p class="bigText">{{focusPersoBoutique.nom}}</p>
-                    <div class="flex golds">
-                        <img src="../../../assets/images/pieces.png" />
-                        <p>{{focusPersoBoutique.argent}}</p>
-                    </div>
-                </div>
-                <div class="flex wrap">
-                    <div class="objet" id="{{objet.nom}}" *ngFor="let objet of getInventairePersoBoutique(focusPersoBoutique)"
-                        (mouseover)="objetActifInventaire = objet" (mouseleave)="objetActifInventaire = undefined;vente = ''"
-                        (click)="clickVendre(focusPersoBoutique, objet)">
-                        <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png"
-                            (cdkDragEnded)="dragEnd($event,objet)" (cdkDragStarted)="dragStart(objet)" cdkDrag />
-                        <div class="nomItem">
-                            <p [hidden]="objetActifInventaire != objet">{{vente == objet.nom && vente != '' ? 'Confirmer
-                                vendre l\'item ?' : objet.nom}}</p>
-                        </div>
-                        <p *ngIf="objet.qte>0" class="qteObjet">{{objet.qte}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="inventaireVendeurBoutique flex">
-                <div class="objetInventaireBoutique flex between align-center width-100" id="{{item.nom}}"
-                    *ngFor="let item of boutique.objets" (mouseleave)="achat = ''">
-                    <img class="imageItemBoutique" *ngIf="item.image" src="./assets/images/items/{{ item.image }}.png"
-                        (cdkDragEnded)="dragEnd($event,item)" (cdkDragStarted)="dragStart(item)" cdkDrag />
-                    <p>{{item.nom}}</p>
-                    <p>Qte: {{item.qte}}</p>
-                    <div class="flex prix">
-                        <p>Prix: {{item.prix}}&nbsp;</p>
-                        <img src="../../../assets/images/pieces.png" />
-                    </div>
-                    <p class="clickable achat" (click)="clickAcheter(focusPersoBoutique, item)">{{achat == item.nom &&
-                        achat != '' ? 'Confirmer
-                        l\'achat ?' : 'Acheter'}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="containerLoot" *ngIf="perso.team>0 && perso.pdv==0 || (this.perso.team>0&&this.data.admin)"
-    [style.left]="getContainerLeft()"
-    [style.z-index]="(fenetreFocused=='stats'&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?8:2"
-    [cdkDragDisabled]="objetActifInventaire!=undefined" (mouseover)="fenetreFocused='stats'" cdkDrag>
-    <p class="croix clickable" (click)="close()">X</p>
-
-    <div class="groupeHautGauche">
-        <div class="flex">
-            <div class="hautGauche">
-                <div class="flex">
-                    <div class="iconeEtGolds">
-                        <img class="icone" src="./assets/images/entites/minias/{{perso.image}}.png">
-                    </div>
-
-                    <div class="data">
-                        <p class="nom bigText">{{perso.nom}}</p>
-                        <div class="etat flex">
-                            <p>Mort</p>
-                        </div>
-                        <p class="niveau bigText">
-                            'Niveau' : {{perso.niveau}}</p>
-                    </div>
-                </div>
-
-                <div class="pdvmana">
-                    <div class="flex pdvmanadiv">
-                        <p class="pdvtext clickable" (click)="formulaire='pv'">{{perso.pdv}}/{{perso.pdvmax}}
-                        </p>
-                        <div class="grouppdvmana">
-                            <img class="fill" draggable="false" src="./assets/images/pdvfill2.PNG"
-                                [style.width]="(perso.pdv/perso.pdvmax)*100+'%'" />
-                            <img draggable="false" src="./assets/images/pdvmanabar.png" />
-                        </div>
-                        <app-formulaire *ngIf="formulaire=='pv'" [perso]="perso" [formulaire]="formulaire"
-                            (closeForm)="formulaire=''"></app-formulaire>
-                    </div>
-                    <div class="flex pdvmanadiv">
-                        <p class="manatext clickable" (click)="formulaire='mana'">
-                            {{perso.mana}}/{{perso.manamax}}
-                        </p>
-                        <div class="grouppdvmana">
-                            <img class="fill" draggable="false" src="./assets/images/manafill.PNG"
-                                [style.width]="(perso.mana/perso.manamax)*100+'%'" />
-                            <img draggable="false" src="./assets/images/pdvmanabar.png" />
-                        </div>
-                        <app-formulaire *ngIf="formulaire=='mana'" [perso]="perso" [formulaire]="formulaire"
-                            (closeForm)="formulaire=''"></app-formulaire>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="inventaire">
-        <div class="objet" id="{{perso.nom}}{{item.nom}}" *ngFor="let item of getInventaire()"
-            (mouseover)="item.nom!=''?objetActifInventaire = item:null"
-            (mouseout)="objetActifInventaire = undefined;gain = ''"
-            [style.z-index]="(itemDragged == item.nom&&itemDragged!='')||(objetActifInventaire&&objetActifInventaire.nom==item.nom)?9:2">
-            <img *ngIf="item.image" src="./assets/images/items/{{ item.image }}.png"
-                (cdkDragEnded)="dragEnd($event,item)" (cdkDragStarted)="dragStart(item)" cdkDrag />
-            <div class="nomItem">
-                <p [hidden]="objetActifInventaire != item">{{gain == item.nom && gain != '' ? 'Confirmer
-                    utilisation ?' : item.nom}}</p>
-            </div>
-            <p *ngIf="item.qte>0" class="qteObjet">{{item.qte}}</p>
+            <app-inventaire *ngIf="ongletActif=='inventaire'" [data]="data" [perso]="perso" [type]="'inventaire'">
+            </app-inventaire>
+            <app-inventaire *ngIf="ongletActif=='sorts'" [data]="data" [perso]="perso" [type]="'sorts'">
+            </app-inventaire>
         </div>
     </div>
 </div>

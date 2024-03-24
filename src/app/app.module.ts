@@ -19,6 +19,15 @@ import { LieuxComponent } from './graphiques/lieux/lieux.component';
 import { FeuilleQueteComponent } from './graphiques/feuille-quete/feuille-quete.component';
 import { ImageShadowPersoComponent } from './graphiques/image-shadow-perso/image-shadow-perso.component';
 import { BackgroundComponent } from './graphiques/background/background.component';
+import { InventaireComponent } from './graphiques/inventaire/inventaire.component';
+import { BoutiqueComponent } from './graphiques/boutique/boutique.component';
+import { StuffComponent } from './graphiques/stuff/stuff.component';
+import { AddEntiteComponent } from './graphiques/add-entite/add-entite.component';
+import { AddItemLootComponent } from './graphiques/add-item-loot/add-item-loot.component';
+import { ModifMapComponent } from './graphiques/modif-map/modif-map.component';
+import { QueteComponent } from './graphiques/quete/quete.component';
+import { EmbuscadeComponent } from './graphiques/embuscade/embuscade.component';
+import { SuiviQuetesComponent } from './graphiques/suivi-quetes/suivi-quetes.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +44,16 @@ import { BackgroundComponent } from './graphiques/background/background.componen
     LieuxComponent,
     FeuilleQueteComponent,
     ImageShadowPersoComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    InventaireComponent,
+    BoutiqueComponent,
+    StuffComponent,
+    AddEntiteComponent,
+    AddItemLootComponent,
+    ModifMapComponent,
+    QueteComponent,
+    EmbuscadeComponent,
+    SuiviQuetesComponent
   ],
   imports: [
     BrowserModule,

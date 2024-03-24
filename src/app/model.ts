@@ -11,6 +11,13 @@ export class Data {
 	public admin: boolean;
 	public pnjs: Entite[];
 	public repos: Animation;
+	public mapHeight: number;
+	public focusQuete: focusQuete | undefined;
+}
+
+export class focusQuete {
+	public quete: Quete;
+	public pnj: Entite | undefined;
 }
 
 export class Entite {
@@ -49,7 +56,7 @@ export class Entite {
 	public posLinkedY: number;
 	public posHeight: number;
 	public forceDivScale: number;
-	public levels: { niveau: number, pdvmax: number, manamax: number }[];
+	public levels: LevelStats[];
 	public boutique: string;
 	public quetes: Quete[];
 	public loot: ObjetInventaire[];
@@ -57,7 +64,13 @@ export class Entite {
 	public holo: boolean;
 }
 
-export class Animation{
+export class LevelStats {
+	public niveau: number;
+	public pdvmax: number;
+	public manamax: number;
+}
+
+export class Animation {
 	public animation: boolean;
 	public lance: boolean;
 	public stop: boolean;
@@ -96,17 +109,21 @@ export class ObjetInventaire {
 }
 
 export class Quete {
-	public proprietaire: string;
+	public id: string;
+	public donneur: string;
+	public description: string;
 	public nom: string;
 	public type: string;
 	public etatQuete: number;
 	public etapeEnCours: Etape;
 	public etapes: Etape[];
-	public recompenses: ObjetInventaire[];
 	public paiement: number;
 	public perso: string;
 	public tableauQuetes: TableauQuetes;
-	public accepte: boolean;
+	public image: string;
+	public showDesc: boolean;
+	public accomplie: boolean;
+	public conditionQuete:string; 
 }
 
 export class TableauQuetes {
@@ -121,14 +138,33 @@ export class Etape {
 	public id: number;
 	public nom: string;
 	public description: string;
-	public pnj: string;
-	public objets: ObjetInventaire[];
+	public pnjsAVoir: pnjQuete[];
+	public objetsAAvoir: ObjetInventaire[];
+	public monstres: monstreQuete[];
+	public recompenses: ObjetInventaire[];
+	public objectif: string;
+	public objectifActuel: number;
+	public nbObjectif: number;
+}
+
+export class pnjQuete {
+	public nom: string;
+	public vu: boolean;
+	public recompenses: ObjetInventaire[];
+	public objetsAAvoir: ObjetInventaire[];
+	public dialogue: string;
+	public skipToNextStep: boolean;
+}
+
+export class monstreQuete {
+	public nom: string;
+	public qte: number;
 }
 
 export class Position {
 	public id: number;
-	public startX: number;
-	public startY: number;
+	public x: number;
+	public y: number;
 }
 
 export class Lieu {
@@ -174,7 +210,14 @@ export class MenuContextuel {
 }
 
 export class addEntity {
-	public menuContextuel: MenuContextuel;
+	public menuContextuel: MenuContextuel | undefined;
 	public entite: Entite;
 	public team: string;
+}
+
+export class Tests {
+	public finiDansInventaireAutrePerso: Entite | undefined;
+	public finiDansStuffAutrePerso: Entite | undefined;
+	public finiDansEmplacement1: boolean;
+	public finiDansEmplacement2: boolean;
 }

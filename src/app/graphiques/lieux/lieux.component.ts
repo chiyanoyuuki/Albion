@@ -17,7 +17,7 @@ export class LieuxComponent implements OnInit {
   public changingTo: Lieu | undefined;
   public audio: HTMLAudioElement;
   public listenTriggerFermetureFenetres: any;
-  public boucle = [0,1,2];
+  public boucle = [0, 1, 2];
 
   constructor(private appService: AppService) { }
 
@@ -58,6 +58,7 @@ export class LieuxComponent implements OnInit {
         this.audio.loop = true;
       }
     }
+    this.appService.triggerFermetureFenetres();
   }
 
   changeLieu(lieu: Lieu) {
@@ -75,15 +76,16 @@ export class LieuxComponent implements OnInit {
 
   rentrerLieu(lieu: Lieu) {
     let nb = this.getPersosSurMapActuelle().length;
-    if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
+    
+    if (lieu.nom == 'Panneau de Quêtes') {
+      this.data.lieuActuel = lieu;
+    }
+    else if (nb == 0 && (lieu.canEnter == undefined || lieu.canEnter)) {
       this.changeLieu(lieu);
     }
     else {
       this.focus == undefined ? this.changingTo = lieu : this.focus = undefined;
       console.log(this.changingTo && this.changingTo == lieu && (lieu.canEnter == undefined || lieu.canEnter));
-    }
-    if (lieu.nom == 'Panneau de Quêtes') {
-      this.data.lieuActuel = lieu;
     }
   }
 
@@ -112,29 +114,29 @@ export class LieuxComponent implements OnInit {
         if (!trouve) {
           let personnageSurLaPosition: Entite | undefined = undefined;
           persosACheck.forEach((persoDansLieu: Entite) => {
-            if (persoDansLieu.x == position.startX && persoDansLieu.y == position.startY) {
+            if (persoDansLieu.x == position.x && persoDansLieu.y == position.y) {
               personnageSurLaPosition = persoDansLieu;
             }
           });
           if (!personnageSurLaPosition) {
             trouve = true;
-            perso.x = position.startX;
-            perso.y = position.startY;
+            perso.x = position.x;
+            perso.y = position.y;
             if (perso.statutFamilier == "affiche") {
-              perso.familier.x = position.startX + 20;
-              perso.familier.y = position.startY;
+              perso.familier.x = position.x + 20;
+              perso.familier.y = position.y;
             }
           }
         }
       });
       if (!trouve) {
-        perso.x = lieu.position_start[0].startX;
-        perso.y = lieu.position_start[0].startY;
+        perso.x = lieu.position_start[0].x;
+        perso.y = lieu.position_start[0].y;
       }
     }
     else {
-      perso.x = 0;
-      perso.y = 0;
+      perso.x = 500;
+      perso.y = 500;
     }
   }
 

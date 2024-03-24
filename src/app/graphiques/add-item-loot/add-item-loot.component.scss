@@ -1,0 +1,97 @@
+p {
+    color: white;
+    text-align: center;
+}
+
+.fenetre:hover {
+    cursor: move;
+}
+
+.choix {
+    color: white;
+    white-space: nowrap;
+}
+
+.objets {
+    max-height: 110px;
+    overflow-y: scroll;
+}
+
+.objet img {
+    width: 36px;
+    height: 36px;
+}
+
+.objet:hover {
+    filter: brightness(50%);
+    cursor: pointer;
+}
+
+.persos {
+    max-width: 775px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.objets {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.pv {
+    color: green;
+}
+
+.pm {
+    color: #5050cc;
+}
+
+.rulesContainer * {
+    width: 100%;
+}
+
+.level {
+    top: 8px;
+}
+
+.persos p {
+    font-size: 18px;
+}
+
+.apercu {
+    width: 30%;
+    margin: auto;
+}
+
+.apercu app-level {
+    top: 0px;
+}
+
+.golds img {
+    width: 30px;
+    height: 20px;
+}
+
+.bigText {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.formulaire {
+    position: relative;
+}
+
+.formulaire p {
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.nomItemApercu {
+    white-space: nowrap;
+    padding: 10px;
+}

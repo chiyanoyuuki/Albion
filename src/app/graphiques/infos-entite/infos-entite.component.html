@@ -1,3 +1,8 @@
+<img *ngIf="peutDonnerQuetes() && atLeastOneQuestStarted && !creation" class="questBack"
+    src="../../../assets/images/back_quest.png" />
+<img *ngIf="peutDonnerQuetes() && !atLeastOneQuestStarted && !creation" class="questStart"
+    src="../../../assets/images/start_quest.png" />
+
 <div [ngClass]="{'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}">
     <div (click)="ouvrirInventairePerso()" class="text-etat">
         <p class="text nom">{{getNom()}}</p>

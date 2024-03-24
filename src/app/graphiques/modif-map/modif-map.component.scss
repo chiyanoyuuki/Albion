@@ -1,0 +1,69 @@
+.formulaire {
+    position: relative;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    border: 2px solid red;
+}
+
+.formulaire p {
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.nomItemApercu {
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.positionDepart {
+    position: absolute;
+    top: -28px;
+    left: -142px;
+    width: 1900px;
+}
+
+.positionStats {
+    height: 78px;
+    position: absolute;
+    width: 138px;
+}
+
+.positionPersoStats {
+    position: absolute;
+    top: 0px;
+    left: -11px;
+}
+
+.positionStats {
+    cursor: move;
+}
+
+.positionPerso {
+    height: 65px;
+    left: 40%;
+}
+
+.dummy .positionPerso {
+    border: unset;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
+.bigText {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.containerPositions {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

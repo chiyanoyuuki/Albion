@@ -1,0 +1,44 @@
+<div>
+    <div class="flex space-around">
+        <p class="choix"
+            (click)="etatSpawn=='Cacher Spawners'?etatSpawn='Afficher Spawners':etatSpawn='Cacher Spawners'">
+            {{etatSpawn}}</p>
+        <p class="choix" (click)="etatDummy=='Cacher Dummy'?etatDummy='Afficher Dummy':etatDummy='Cacher Dummy'">
+            {{etatDummy}}</p>
+    </div>
+
+    <div class="formulaire">
+        <p>Scale</p><input type="text" [(ngModel)]="input1">
+        <p>ScaleFond</p><input type="text" [(ngModel)]="input2">
+        <p>FinFond</p><input type="text" [(ngModel)]="input3">
+    </div>
+
+    <div class="flex space-around">
+        <p class="choix" (click)="ajouterPosition(1)">Ajouter Position</p>
+        <p class="choix" (click)="ajouterPosition(-1)">Supprimer Position</p>
+    </div>
+    <p class="choix" (click)="modifierMap()">Valider</p>
+</div>
+
+<div class="positionDepart">
+    <div *ngIf="input3!=''" class="line" [style.top]="input3+'px'"></div>
+
+    <div class="containerPositions" *ngIf="etatSpawn=='Cacher Spawners'">
+        <div class="positionStats"
+            *ngFor="let position of data.lieuActuel.position_start" [style.top]="position.y+'px'"
+            [style.left]="position.x+'px'" (cdkDragEnded)="positionDragEnd($event,position)" cdkDrag>
+            <img class="positionPersoStats" src="../../assets/images/Spawn.png" />
+            <img class="positionPerso" [style.scale]="getScale(position)" [style.top]="getTop(position)"
+                src="../../assets/images/entites/Spawn.png" />
+        </div>
+    </div>
+
+    <div class="containerPositions"  *ngIf="etatDummy=='Cacher Dummy'">
+        <div class="positionStats dummy" [style.top]="dummy.y+'px'" [style.left]="dummy.x+'px'"
+            (cdkDragEnded)="positionDragEnd($event,dummy)" cdkDrag>
+            <img class="positionPersoStats" src="../../assets/images/Dummy.png" />
+            <img class="positionPerso" [style.scale]="getScale(dummy)" [style.top]="getTop(dummy)"
+                src="../../assets/images/entites/Dummy.png" />
+        </div>
+    </div>
+</div>

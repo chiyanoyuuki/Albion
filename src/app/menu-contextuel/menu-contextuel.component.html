@@ -1,216 +1,33 @@
-<div class="fenetre" [style.left]="menu.x+'px'" [style.top]="menu.y+'px'" cdkDrag>
+<div class="fenetre" [cdkDragDisabled]="fenetre=='modifMap'" [style.left]="(fenetre=='modifMap'?120:x)+'px'"
+    [style.top]="(fenetre=='modifMap'?20:y)+'px'" (cdkDragEnded)="cdkDragEnded($event)" cdkDrag>
     <p class="croix clickable" (click)="close()">X</p>
-    <div *ngIf="!add&&!addObjet&&!modifMap">
-        <p *ngIf="menu.type=='entite'&&data.admin" class="choix" (click)="addObjet=true;">(A) Ajouter un objet</p>
-        <p *ngIf="menu.type=='map'" class="choix" (click)="add=true">Ajouter une entité</p>
-        <p *ngIf="menu.type=='map'&&data.admin" class="choix" (click)="clickModifMap()">(A) Modifier map</p>
+    <div *ngIf="fenetre==''">
+        <p *ngIf="menu.type=='map'" (click)="openWindow('addEntity')" class="choix"> Ajouter une entité</p>
+        <p *ngIf="menu.type=='map'&&data.admin" (click)="openWindow('modifMap')" class="choix">(A) Modifier map</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="sauvegarde()">Sauvegarder</p>
         <p *ngIf="menu.type=='map'" class="choix" (click)="repos()">Repos</p>
-        <p *ngIf="menu.type=='entite'&&getQuetes().length>0" class="choix" (click)="quete=true;">Quetes ({{nbrQuetes}})
+        <p *ngIf="menu.type=='map'" (click)="openWindow('embuscade')" class="choix" >Embuscade</p>
+
+        <p *ngIf="menu.type=='entite'&&peutDonnerQuetes()" (click)="openWindow('quete')" class="choix">Quetes ({{nbrQuetes}})
         </p>
-        <p *ngIf="menu.type=='entite'&&!perso.joueur" class="choix" (click)="deletion()">{{delete}}</p>
-        <p *ngIf="menu.type=='entite'&&perso.familier" class="choix" (click)="clickLierFamilier()">
+        <p *ngIf="menu.type=='entite'&&perso.boutique" (click)="openWindow('boutique')" class="choix">Boutique</p>
+        <p *ngIf="menu.type=='entite'&&data.admin" (click)="openWindow('addObjet')" class="choix"> (A) Ajouter un objet
+        </p>
+        <p *ngIf="menu.type=='entite'&&!perso.joueur" (click)="deletion()" class="choix">{{delete}}</p>
+        <p *ngIf="menu.type=='entite'&&perso.familier" (click)="clickLierFamilier()" class="choix">
             {{(perso.statutFamilier=='lie'?'Délier Familier':'Lier Familier')}}</p>
-        <p *ngIf="menu.type=='entite'&&perso.familier" class="choix" (click)="clickAfficherFamilier()">
+        <p *ngIf="menu.type=='entite'&&perso.familier" (click)="clickAfficherFamilier()" class="choix">
             {{(perso.statutFamilier=='affiche'?'Cacher Familier':'Afficher Familier')}}</p>
-        <p *ngIf="menu.type=='entite'&&perso.team>0" class="choix" (click)="perso.team=perso.team-1">Améliorer relation
+        <p *ngIf="menu.type=='entite'&&perso.team>0" (click)="perso.team=perso.team-1" class="choix">Améliorer relation
         </p>
-        <p *ngIf="menu.type=='entite'&&perso.team<2" class="choix" (click)="perso.team=perso.team+1">Baisser relation
+        <p *ngIf="menu.type=='entite'&&perso.team<2" (click)="perso.team=perso.team+1" class="choix">Baisser relation
         </p>
     </div>
 
-    <div *ngIf="add==true">
-        <p>Ajouter une entité</p>
-        <div class="line"></div>
-        <div class="flex levels">
-            <p *ngFor="let letter of alphabet" class="choix"
-                (click)="letterSelected==letter?letterSelected='':letterSelected=letter"
-                [style.color]="letterSelected==letter?'red':'white'">{{letter}}</p>
-        </div>
-        <div class="flex levels">
-            <p class="level">Level :</p>
-            <p *ngFor="let level of levels" class="choix"
-                (click)="levelSelected==level?levelSelected=0:levelSelected=level"
-                [style.color]="levelSelected==level?'red':'white'">{{level}}</p>
-        </div>
-        <div class="flex levels">
-            <p class="level">Type :</p>
-            <p *ngFor="let type of types" class="choix"
-                (click)="typeSelected==type?typeSelected=undefined:typeSelected=type"
-                [style.color]="typeSelected==type?'red':'white'">{{type}}</p>
-        </div>
-        <div class="line"></div>
-        <div class="flex levels">
-            <p class="level">Team :</p>
-            <p *ngFor="let equipe of teams" class="choix" (click)="clickTeam(equipe)"
-                [style.color]="teamSelected==equipe?'red':'white'">{{equipe}}</p>
-        </div>
-        <div class="flex levels">
-            <p class="level">Level :</p>
-            <div *ngIf="entitySelected!=undefined" class="flex">
-                <p class="choixSansTransi" *ngIf="!entitySelected.levels">Un seul niveau disponible</p>
-                <p *ngFor="let level of entitySelected.levels" class="choix" (click)="clickMonsterLevel(level)"
-                    [style.color]="monsterLevelSelected==level?'red':'white'">{{level.niveau}}</p>
-            </div>
-
-        </div>
-        <div class="apercu" *ngIf="entitySelected">
-            <app-infos-entite [perso]="entitySelected" [data]="data"></app-infos-entite>
-            <!-- LEVEL =================================================== -->
-
-            <app-level [niveau]="entitySelected.niveau"></app-level>
-
-        </div>
-        <p>{{focus?focus.niveau + ' - ' + focus.nom:'&nbsp;'}}</p>
-        <div class="persos flex">
-            <div *ngFor="let entite of getEntitesPossibles()">
-                <app-icone-personnage [perso]="entite"
-                    [selected]="entitySelected!=undefined&&entitySelected.nom==entite.nom" (mouseover)="focus=entite"
-                    (mouseout)="focus=undefined" (click)="clickEntite(entite)">
-                </app-icone-personnage>
-                <p class="pv">{{entite.pdv}}</p>
-                <p class="pm">{{entite.mana}}</p>
-            </div>
-        </div>
-        <p class="choix" *ngIf="entitySelected!=undefined" (click)="addEntity()">Valider</p>
-    </div>
-
-    <div *ngIf="addObjet==true">
-        <p class="clickable"
-            (click)="choixTypeObjet=='Ajouter un objet'?choixTypeObjet='Ajouter un loot':choixTypeObjet='Ajouter un objet'">
-            {{choixTypeObjet}}</p>
-        <div class="line"></div>
-        <div class="flex levels">
-            <p *ngFor="let letter of alphabet" class="choix"
-                (click)="letterSelected==letter?letterSelected='':letterSelected=letter"
-                [style.color]="letterSelected==letter?'red':'white'">{{letter}}</p>
-        </div>
-        <div class="flex levels wrap">
-            <p class="level">Emplacement :</p>
-            <p *ngFor="let emplacement of emplacements" class="choix"
-                (click)="emplacementSelected==emplacement?emplacementSelected='':emplacementSelected=emplacement"
-                [style.color]="emplacementSelected==emplacement?'red':'white'">{{emplacement}}</p>
-        </div>
-
-        <div *ngIf="choixTypeObjet=='Ajouter un loot'">
-            <div class="line"></div>
-
-            <div class="persos objets flex wrap">
-                <div *ngFor="let objet of getLoot()" (mouseover)="objetFocus=objet" (click)="clickLoot(objet)">
-                    <div class="objet">
-                        <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
-                        <p>{{objet.taux}}%</p>
-                        <p>{{objet.qte}}</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="clickable" (click)="deleteLoot()">Supprimer</p>
-        </div>
-
-
-        <div class="line"></div>
-
-        <div class="apercu flexCenter" *ngIf="objetSelected">
-            <div class="objet">
-                <img *ngIf="objetSelected.image" src="./assets/images/items/{{ objetSelected.image }}.png" />
-            </div>
-            <p class="nomItemApercu">{{objetSelected.nom}}</p>
-            <div class="formulaire">
-                <p>Taux : </p><input type="text" [(ngModel)]="input2">
-                <p>Quantite : </p><input type="text" [(ngModel)]="input1">
-            </div>
-        </div>
-        <p>{{objetFocus?objetFocus.nom:'-'}}</p>
-        <div class="persos objets flex wrap">
-            <div *ngFor="let objet of getObjetsPossibles()" (mouseover)="objetFocus=objet"
-                (click)="objetSelected=objet">
-                <div class="objet">
-                    <img *ngIf="objet.image" src="./assets/images/items/{{ objet.image }}.png" />
-                </div>
-            </div>
-        </div>
-        <p class="choix" *ngIf="objetSelected!=undefined" (click)="addItem()">Valider</p>
-    </div>
-
-
-    <div *ngIf="quete==true&&getQuetes()" class="containerQuete" cdkDrag>
-        <p class="croix clickable" (click)="close()">X</p>
-        <div class="quetes">
-            <div class="flex column gap-1" *ngIf="focusQuete">
-                <div *ngFor="let quete of getQuetes()" class="nomQuetes">
-                    <p class="clickable bigText" (click)="focusQuete = quete">{{ quete.etapeEnCours.nom }} <span
-                            style="color:red;">{{quete.etatQuete > 0 && quete.etapeEnCours.pnj == perso.nom ? '?' :
-                            '!'}}</span></p>
-                </div>
-                <div class="descriptionQuetes flex column" *ngIf="focusQuete">
-                    <p *ngIf="focusQuete.etatQuete == 0" (click)="accepQuete()" class="bigText clickable"
-                        (mouseleave)="queteAccepter = ''">
-                        {{queteAccepter == focusQuete.nom && queteAccepter != '' ? 'Confirmer vouloir accepter la quête
-                        ?' :
-                        'Accepter la quête !'}}
-                    </p>
-                    <p *ngIf="focusQuete.etatQuete == 1" class="bigText">{{focusQuete.etapeEnCours.nom}}</p>
-                    <p>{{focusQuete.etapeEnCours.description}}</p>
-                    <div class="flex wrap gap-1 recompensePaiement">
-                        <div class="recompense flex align-center" *ngFor="let recompense of focusQuete.recompenses">
-                            <img *ngIf="recompense.image" src="./assets/images/items/{{ recompense.image }}.png" />
-                            <div class="flex column">
-                                <p>{{recompense.nom}}</p>
-                                <p>Qte: {{recompense.qte}}</p>
-                            </div>
-                        </div>
-                        <div class="flex recompense golds align-center">
-                            <p>{{focusQuete.paiement}}</p>
-                            <img src="../../assets/images/pieces.png" />
-                        </div>
-                    </div>
-                    <p *ngIf="focusQuete.etatQuete == 1" class="bigText clickable" (click)="etapeSuivante()">Etape
-                        suivante
-                    </p>
-                </div>
-                <p *ngIf="focusQuete.etapeEnCours.id < focusQuete.etapes.length&&focusQuete.etatQuete==1"
-                    class="bigText clickable" (click)="etapeSuivante()">Etape suivante</p>
-                <p *ngIf="focusQuete.etapeEnCours.id == focusQuete.etapes.length" class="bigText clickable"
-                    (click)="etapeSuivante()">Terminer la quête</p>
-            </div>
-            <p *ngIf="focusQuete&&focusQuete.etapeEnCours.id < focusQuete.etapes.length&&focusQuete.etatQuete==1"
-                class="bigText clickable" (click)="etapeSuivante()">Etape suivante</p>
-            <p *ngIf="focusQuete&&focusQuete.etapeEnCours.id == focusQuete.etapes.length" class="bigText clickable"
-                (click)="etapeSuivante()">Terminer la quête</p>
-        </div>
-    </div>
-
-    <div *ngIf="modifMap">
-        <div class="formulaire">
-            <p>Scale</p><input type="text" [(ngModel)]="input1">
-            <p>ScaleFond</p><input type="text" [(ngModel)]="input2">
-            <p>FinFond</p><input type="text" [(ngModel)]="input3">
-        </div>
-
-        <div class="flex space-around">
-            <p class="choix" (click)="ajouterPosition(1)">Ajouter Position</p>
-            <p class="choix" (click)="ajouterPosition(-1)">Supprimer Position</p>
-        </div>
-        <p class="choix" (click)="modifierMap()">Valider</p>
-    </div>
-</div>
-
-<div *ngIf="modifMap" class="positionDepart">
-    <div class="positionStats" *ngFor="let position of data.lieuActuel.position_start"
-        [style.top]="position.startY+'px'" [style.left]="position.startX+'px'"
-        (cdkDragEnded)="positionDragEnd($event,position)" cdkDrag>
-        <img class="positionPersoStats" src="../../assets/images/Spawn.png" />
-        <img class="positionPerso" [style.scale]="getScale(position)" [style.top]="getTop(position)"
-            src="../../assets/images/entites/Spawn.png" />
-    </div>
-</div>
-
-<div *ngIf="modifMap" class="positionDepart">
-    <div class="positionStats dummy" [style.top]="dummy.startY+'px'" [style.left]="dummy.startX+'px'"
-        (cdkDragEnded)="positionDragEnd($event,dummy)" cdkDrag>
-        <img class="positionPersoStats" src="../../assets/images/Dummy.png" />
-        <img class="positionPerso" [style.scale]="getScale(dummy)" [style.top]="getTop(dummy)"
-            src="../../assets/images/entites/Dummy.png" />
-    </div>
+    <app-add-entite *ngIf="fenetre=='addEntity'" [data]="data" [menu]="menu"></app-add-entite>
+    <app-add-item-loot *ngIf="fenetre=='addObjet'" [data]="data" [perso]="perso"></app-add-item-loot>
+    <app-modif-map *ngIf="fenetre=='modifMap'" [data]="data"></app-modif-map>
+    <app-boutique *ngIf="fenetre=='boutique'" [data]="data" [perso]="perso"></app-boutique>
+    <app-quete *ngIf="fenetre=='quete'" [data]="data" [perso]="perso" [quetes]="quetes"></app-quete>
+    <app-embuscade *ngIf="fenetre=='embuscade'" [data]="data" [menu]="menu"></app-embuscade>
 </div>

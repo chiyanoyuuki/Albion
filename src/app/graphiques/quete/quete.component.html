@@ -1,0 +1,5 @@
+<div class="flex column gap-1">
+    <div *ngFor="let quete of quetes" class="quetes">
+        <p class="clickable" (click)="setQuete(quete)">{{ quete.nom }}&nbsp;</p>
+    </div>
+</div>

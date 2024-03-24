@@ -1,0 +1,139 @@
+/* containerVendeur */
+
+.containerVendeur {
+    width: 900px;
+    padding: 10px;
+    cursor: move;
+    color: white;
+}
+
+.containerVendeur .bigText {
+    text-align: center;
+}
+
+.navPerso {
+    background-image: url("../../../assets/images/fond_jaune_fonce.png");
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.navPerso .perso {
+    margin-right: 1rem;
+}
+
+.navPerso .separator {
+    height: 8px;
+    width: 2px;
+    background-color: white;
+    margin-right: 1rem;
+}
+
+.inventairePersoBoutique {
+    width: 35%;
+    flex-flow: wrap;
+    padding: 0.7rem 0 0.7rem 0;
+    border: 2px solid black;
+    padding: 0.5rem;
+    background-image: url("../../../assets/images/fond-stats.png");
+    flex-flow: column;
+}
+
+.icone-perso {
+    width: 80px;
+    height: 80px;
+    border: 2px ridge #202020;
+    border-radius: 100%;
+    background-color: #808080bb;
+    z-index: 2;
+}
+
+.golds {
+    padding: 5px;
+    justify-content: right;
+    background-color: #20202080;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.golds img {
+    width: 30px;
+    height: 20px;
+}
+
+.nom-perso {
+    font-size: 20px;
+}
+
+.nomItem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.qteObjet {
+    width: 20px;
+    border: 1px solid black;
+    right: -3px;
+    bottom: -3px;
+    position: absolute;
+    background-color: rgb(20, 20, 20) !important;
+    border-radius: 100%;
+    pointer-events: none;
+}
+
+.objet {
+    width: 45px;
+    height: 45px;
+}
+
+.objet img {
+    width: 100%;
+}
+
+.inventaireVendeurBoutique {
+    width: 60%;
+    flex-flow: wrap;
+    border: 2px solid black;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-image: url("../../../assets/images/fond-stats.png");
+}
+
+.objetInventaireBoutique {
+    background-color: #40404050;
+    padding: 0.2rem;
+}
+
+.imageItemBoutique {
+    width: 40px;
+    height: 40px;
+}
+
+.prix img {
+    width: 30px;
+    height: 20px;
+}
+
+.achat {
+    width: 25%;
+    border: 1px solid white;
+    background-color: #30303065;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.qteObjet {
+    width: 20px;
+    border: 1px solid black;
+    right: -3px;
+    bottom: -3px;
+    position: absolute;
+    background-color: rgb(20, 20, 20) !important;
+    border-radius: 100%;
+    pointer-events: none;
+    text-align: center;
+    border: 1px solid white;
+}
