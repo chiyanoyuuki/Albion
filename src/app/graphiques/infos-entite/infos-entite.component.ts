@@ -10,6 +10,7 @@ import { PersoService } from 'src/app/services/perso.service';
 export class InfosEntiteComponent implements OnInit {
   @Input() perso: Entite;
   @Input() data: Data;
+  @Input() creation: boolean;
   @Output() persoActuel = new EventEmitter<Entite>();
 
   public formulaire: string;

@@ -1,4 +1,4 @@
-<div *ngIf="data.focusQuete!=undefined" class="voir_quete">
+<div *ngIf="false&&data.focusQuete!=undefined&&data.focusQuete.pnj==undefined" class="voir_quete">
     <p class="croix clickable" (click)="close()">X</p>
     <img class="image_fond" src="./assets/images/{{data.focusQuete.quete.image}}.png" />
     <p class="titre_quete bigbigText">{{data.focusQuete.quete.nom}}</p>
@@ -26,4 +26,8 @@
         <p *ngIf="queteEnCours" (click)="close()" class="bigText clickable">Continuer</p>
         <p *ngIf="data.focusQuete&&data.focusQuete.quete.etatQuete == 1" class="bigText">La quête a été acceptée</p>
     </div>
+</div>
+
+<div *ngIf="data.focusQuete">
+    <p class="titre_quete bigbigText">{{data.focusQuete.quete.nom}}</p>
 </div>

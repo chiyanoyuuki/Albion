@@ -1,5 +1,6 @@
-<div class="containerPerso" id="containerPerso{{perso.nom}}" [style.top]="getTop(perso)" [style.scale]="getScale(perso)"
-     [style.left]="getLeft(perso)">
+<div class="containerPerso" [ngClass]="{'ennemis':perso.team==2,'pnjsNeutres':perso.team==1}"
+    id="containerPerso{{perso.nom}}" [style.top]="getTop(perso)" [style.scale]="getScale(perso)"
+    [style.left]="getLeft(perso)">
     <div class="perso" [ngClass]="{'revert':isReverted()}">
         <img *ngIf="perso.statutFamilier=='lie'" class="imagefamilier" draggable="false"
             [style.left]="perso.familier.posLinkedX+'px'" [style.top]="perso.familier.posLinkedY+'px'"

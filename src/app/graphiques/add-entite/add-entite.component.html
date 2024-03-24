@@ -34,7 +34,7 @@
 
     </div>
     <div class="apercu" *ngIf="entitySelected">
-        <app-infos-entite [perso]="entitySelected" [data]="data"></app-infos-entite>
+        <app-infos-entite [perso]="entitySelected" [data]="data"  [creation]="true"></app-infos-entite>
         <!-- LEVEL =================================================== -->
 
         <app-level [niveau]="entitySelected.niveau"></app-level>

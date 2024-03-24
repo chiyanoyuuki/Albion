@@ -109,6 +109,7 @@ export class ObjetInventaire {
 }
 
 export class Quete {
+	public id: string;
 	public donneur: string;
 	public description: string;
 	public nom: string;
@@ -122,6 +123,7 @@ export class Quete {
 	public image: string;
 	public showDesc: boolean;
 	public accomplie: boolean;
+	public conditionQuete:string; 
 }
 
 export class TableauQuetes {
@@ -141,6 +143,8 @@ export class Etape {
 	public monstres: monstreQuete[];
 	public recompenses: ObjetInventaire[];
 	public objectif: string;
+	public objectifActuel: number;
+	public nbObjectif: number;
 }
 
 export class pnjQuete {

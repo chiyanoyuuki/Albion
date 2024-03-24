@@ -32,7 +32,7 @@ export class SuiviQuetesComponent implements OnInit {
     let objectifs: string[] = [];
     let etape = quete.etapeEnCours;
     if (etape) {
-      if (etape.objectif) { return [etape.objectif]; }
+      if (etape.objectif) { return [etape.objectif + " " + (etape.nbObjectif ? etape.objectifActuel + "/" + etape.nbObjectif : "")]; }
       if (etape.pnjsAVoir) { etape.pnjsAVoir.forEach((pnj: pnjQuete) => objectifs.push("Parler à " + pnj.nom + " " + (pnj.vu ? "1" : "0") + "/1")); }
     }
     return objectifs;

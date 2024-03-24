@@ -118,12 +118,32 @@ export class PersoService {
     let persosSurMap = data.entites.filter((entite: Entite) => entite.joueur && entite.lieu == data.lieuActuel.id).length;
     let quetes = data.quetes.filter((quete: Quete) =>
       persosSurMap > 0 &&
+      this.conditionsValidees(data, quete) &&
       ((quete.donneur == perso.nom && !quete.accomplie && !quete.etapeEnCours) ||
         (quete.etapeEnCours
           && quete.etapeEnCours.pnjsAVoir
           && quete.etapeEnCours.pnjsAVoir.find((pnjQuete: pnjQuete) => pnjQuete.nom == perso.nom && !pnjQuete.vu)))
     );
     return quetes;
+  }
+
+  conditionsValidees(data: Data, quete: Quete) {
+    let retour = true;
+    if (quete.conditionQuete) {
+      retour = false;
+      let condition = quete.conditionQuete;
+      let idquete = condition.substring(0, condition.lastIndexOf("_"));
+      let etapequete = (Number)(condition.substring(condition.lastIndexOf("_") + 1));
+
+      let conditionquete = data.quetes.find((q: Quete) => q.id == idquete);
+      if (conditionquete) {
+        let etape = conditionquete.etapeEnCours;
+        if (etape) {
+          if (etape.id >= etapequete || conditionquete.accomplie) { retour = true; }
+        }
+      }
+    }
+    return retour;
   }
 
 }

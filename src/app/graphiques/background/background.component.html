@@ -2,17 +2,16 @@
     (click)="clickRetour()" style="z-index:2;" />
 <img *ngIf="data.repos.animation" draggable="false" class="eauGif" src="./assets/images/maps/repos.gif" id="map"
     style="z-index:10;" />
-<img class="eauGif" src="../../assets/images/maps/eau.gif" [style.height]="data.mapHeight+'px'" />
 <video class="video" *ngIf="cataclysme" id="my_video_1" class="video-js vjs-default-skin" controls preload="none"
     style="position: absolute;z-index: 10;background-color: black;width: 1902px;height: fit-content;"
     data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
     <source src="../../assets/images/Cinématique.mp4" type='video/mp4' />
 </video>
-<div *ngIf="data.focusQuete" class="fond-gris"></div>
-<app-suivi-quetes [data]="data"></app-suivi-quetes>
+<div *ngIf="false&&data.focusQuete" class="fond-gris"></div>
+<!--<app-suivi-quetes [data]="data"></app-suivi-quetes>-->
 <app-feuille-quete [data]="data" *ngIf="data.focusQuete" style="z-index:6;">
 </app-feuille-quete>
-<img draggable="false" class="map" [style.width]="'1860px'" [style.opacity]="data.repos.animation?0:1"
-    (click)="clicMap($event)" (load)="imageLoaded()"
+<img draggable="false" *ngIf="!cataclysme" class="map" [style.width]="'1860px'"
+    [style.opacity]="data.repos.animation?0:1" (click)="clicMap($event)" (load)="imageLoaded()"
     src="./assets/images/maps/{{data.lieuActuel.image}}{{(data.lieuActuel.useNbImage?data.lieuActuel.nbImage:'')}}.png"
     id="map" [style.border]="data.admin?'20px ridge #dd2020':'20px ridge #202020'" style="z-index:1;" />

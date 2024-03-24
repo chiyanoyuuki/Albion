@@ -57,9 +57,6 @@ export class MenuContextuelComponent implements OnInit {
       this.x = this.x - this.perso.x;
       this.y = this.y - this.perso.y;
     }
-    if (fenetre == "quete" && this.nbrQuetes == 1) {
-      this.data.focusQuete = { quete: this.quetes[0], pnj: this.perso }
-    }
   }
 
   deletion() {

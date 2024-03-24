@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Quete, Data, Entite, Etape, ObjetInventaire, pnjQuete } from 'src/app/model';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-quete',
@@ -13,7 +14,7 @@ export class QueteComponent implements OnInit {
   @Input() quetes: Quete[];
 
   public queteAccepter: string;
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void { }
   getSymbole(quete: Quete) {
@@ -25,26 +26,20 @@ export class QueteComponent implements OnInit {
   }
 
 
-  accepQuete() {
-    if (this.data.focusQuete) {
-      if (this.queteAccepter != this.data.focusQuete.quete.nom) {
-        this.queteAccepter = this.data.focusQuete.quete.nom;
-      } else if (this.queteAccepter == this.data.focusQuete.quete.nom) {
-        this.data.quetes.push(this.data.focusQuete.quete);
-        this.queteAccepter = '';
-        this.data.focusQuete.quete.etatQuete = 1;
-        let queteFocus = this.data.focusQuete;
-        let nouvelleEtape = this.data.focusQuete.quete.etapes.find((etape: Etape) => etape.id == queteFocus.quete.etapeEnCours.id + 1);
-        if (nouvelleEtape) {
-          this.data.focusQuete.quete.etapeEnCours = nouvelleEtape;
-          this.data.focusQuete = undefined;
-        }
-      }
+  acceptQuete() {
+    if(this.data.focusQuete)
+    {
+      let quete = this.data.focusQuete.quete;
+      quete.etapeEnCours = quete.etapes[0];
+      this.data.focusQuete = undefined;
+      this.appService.closeMenuContextuel(false);
     }
+    
   }
 
   setQuete(quete: Quete) {
     this.data.focusQuete = { quete: quete, pnj: this.perso }
+    this.acceptQuete();
   }
 
   etapeSuivante() {

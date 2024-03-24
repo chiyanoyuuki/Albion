@@ -1,5 +1,6 @@
 <div>
-    <div [ngClass]="{'container':true,'dead':(perso.pdv<=0&&perso.id!='coffre'),'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}"
+    <div [cdkDragDisabled]="perso.peutBouger==false"
+        [ngClass]="{'container':true,'dead':(perso.pdv<=0&&perso.id!='coffre'),'pnjsNeutres':perso.team==1,'ennemis':perso.team==2}"
         *ngFor="let perso of getEntitesPresentes()" [style.left]="perso.x+'px'" [style.top]="perso.y+'px'"
         [style.z-index]="(perso==lastPersoClicked&&!data.itemDragged)||(data.itemDragged&&data.itemDragged.perso==perso)?9:1"
         (cdkDragEnded)="dragEnd($event,perso)" (contextmenu)="clicDroit($event, perso)" cdkDrag>
@@ -9,7 +10,7 @@
         <div class="entite" (mouseleave)="this.lastPersoClicked=undefined;"
             [style.opacity]="lastPersoClicked==perso?'1':'0'"
             [style.pointer-events]="lastPersoClicked==perso?'unset':'none'">
-            <app-infos-entite [perso]="perso" [data]="data"></app-infos-entite>
+            <app-infos-entite [perso]="perso" [data]="data" [creation]="false"></app-infos-entite>
         </div>
 
         <!-- IMAGE + SHADOW =================================================== -->

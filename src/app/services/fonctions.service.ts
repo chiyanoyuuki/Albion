@@ -90,26 +90,27 @@ export class FonctionsService {
   public getScale(data: Data, perso: Entite | undefined, position: Position | undefined) {
     let scale = 1;
     if (data.lieuActuel.scale) { scale = data.lieuActuel.scale; }
-    if (perso && data.lieuActuel.scaleFond) { scale = this.getNewScale(data, perso, position); }
-    if (perso && perso.forceDivScale) { console.log("divScale"); scale = scale / perso.forceDivScale; }
+    if ((perso || position) && data.lieuActuel.scaleFond) { scale = this.getNewScale(data, perso, position); }
+    if (perso && perso.forceDivScale) { scale = scale / perso.forceDivScale; }
     if (perso && perso.joueur && perso.forme.forceDivScale) { scale = scale / perso.forme.forceDivScale; }
     return scale;
   }
 
   public getNewScale(data: Data, perso: Entite | undefined, position: Position | undefined) {
-    let scale = data.lieuActuel.scale - data.lieuActuel.scaleFond;
-    let finFond = 0;
+    let scale;
     let height = data.mapHeight;
+    let finFond = 0;
+    let pieds = 0;
+
     if (data.lieuActuel.finFond) { finFond = data.lieuActuel.finFond; }
-    height = height - finFond;
-    let posYPerso = 0;
-    if (perso) { posYPerso = perso.y + 150; }
-    else if (position) { posYPerso = position.y + 150; }
-    if (finFond != 0 && posYPerso < finFond) { scale = data.lieuActuel.scaleFond; }
+    if (perso) { pieds = perso.y + 150; }
+    else if (position) { pieds = position.y + 150; }
+
+    if (pieds <= finFond) { scale = data.lieuActuel.scaleFond; }
+    else if (pieds >= height - 150) { scale = data.lieuActuel.scale; }
     else {
-      posYPerso = posYPerso - finFond;
-      let div = height / posYPerso;
-      scale = scale / div + data.lieuActuel.scaleFond;
+      let marge = (height - 150) - finFond;
+      scale = ((pieds - finFond) / marge) * (data.lieuActuel.scale - data.lieuActuel.scaleFond) + data.lieuActuel.scaleFond;
     }
     return scale;
   }
